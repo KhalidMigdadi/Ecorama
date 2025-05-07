@@ -1,0 +1,145 @@
+
+
+@* ﻿@model List<SliderItem> *@
+
+
+@{
+	ViewData["Title"] = "Home";
+	Layout = "~/Views/Shared/_Layout.cshtml"; // أو أي Layout عام بتستخدمه
+}
+
+
+@section Style {
+	<style>
+
+
+		.carousel-item {
+			height: 90vh; /* تقليل الارتفاع إلى 60% من الشاشة */
+			min-height: 400px;
+			position: relative;
+		}
+
+		.carousel-item img {
+			object-fit: cover;
+			height: 100%;
+			width: 100%;
+			filter: brightness(60%); /* تعتيم الصورة لإبراز النص */
+		}
+
+		.carousel-caption-custom {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			color: #fff;
+			z-index: 10;
+		}
+
+			.carousel-caption-custom h2 {
+				font-size: 2.5rem;
+				font-weight: bold;
+			}
+
+			.carousel-caption-custom p {
+				font-size: 1.2rem;
+			}
+	</style>
+}
+
+<!-- Slider -->
+@* 
+<div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+	<div class="carousel-inner">
+		@for (int i = 0; i < Model.Count; i++)
+		{
+			var slide = Model[i];
+			<div class="carousel-item @(i == 0 ? "active" : "")">
+				<img src="@slide.ImageUrl" class="d-block w-100" alt="Slide @i">
+				<div class="carousel-caption-custom">
+					<h2>@slide.Title</h2>
+					<p>@slide.Description</p>
+				</div>
+			</div>
+		}
+	</div>
+	<button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+		<span class="carousel-control-prev-icon"></span>
+	</button>
+	<button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+		<span class="carousel-control-next-icon"></span>
+	</button>
+</div> *@
+
+
+
+<div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<img src="~/images/pexels-bertellifotografia-2608517.jpg" class="d-block w-100" alt="Slide 1">
+			<div class="carousel-caption-custom">
+				<h2>مرحبًا بك في Ecorama Workshops</h2>
+				<p>تعلم، تطور، وشارك في ورشاتنا الملهمة!</p>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<img src="~/images/pexels-fauxels-3183197.jpg" class="d-block w-100" alt="Slide 2">
+			<div class="carousel-caption-custom">
+				<h2>ابدأ رحلتك التعليمية معنا</h2>
+				<p>ورش عمل احترافية في مختلف المجالات</p>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<img src="~/images/pexels-shkrabaanthony-4348401.jpg" class="d-block w-100" alt="Slide 3">
+			<div class="carousel-caption-custom">
+				<h2>تعلم من الخبراء</h2>
+				<p>نقدم محتوى تدريبي عالي الجودة في بيئة تفاعلية</p>
+			</div>
+		</div>
+	</div>
+	<button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+		<span class="carousel-control-prev-icon"></span>
+	</button>
+	<button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+		<span class="carousel-control-next-icon"></span>
+	</button>
+</div>
+
+
+
+
+
+<!-- Sections with Cards -->
+@for (int i = 1; i <= 5; i++)
+{
+	<section class="py-5 bg-light">
+		<div class="container">
+			<h2 class="text-center text-primary mb-4">القسم @i</h2>
+			<div class="row g-4">
+				@for (int j = 1; j <= 3; j++)
+				{
+					<div class="col-md-4">
+						<div class="card h-100 shadow-sm border-0">
+							<img src="/images/card.jpg" class="card-img-top" alt="Card Image">
+							<div class="card-body">
+								<h5 class="card-title">عنوان الكارد @j</h5>
+								<p class="card-text">هذا وصف مختصر للكارد ضمن القسم @i. معلومات جذابة وواضحة.</p>
+								<a href="#" class="btn btn-primary">اقرأ المزيد</a>
+							</div>
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+	</section>
+}
+=======
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+>>>>>>> 1b2d092db902c397be2b22db974cb7f297bd31b2
