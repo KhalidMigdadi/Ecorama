@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VUWyJezFaHE=",
+  "dgSpecHash": "SYDTDhjCd7w=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Orange\\Desktop\\Ecorama - Copy\\Ecorama\\Ecorama\\Ecorama.csproj",
+  "projectFilePath": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Ecorama.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Orange\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Orange\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

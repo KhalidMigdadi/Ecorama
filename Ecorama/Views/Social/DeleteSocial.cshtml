@@ -1,0 +1,56 @@
+﻿@model Ecorama.Models.SocialMediaLink
+
+@{
+    ViewData["Title"] = "حذف رابط شبكة اجتماعية";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+
+}
+
+<div class="container-fluid">
+    <h2>حذف رابط شبكة اجتماعية</h2>
+    <hr />
+
+    <div class="alert alert-danger">
+        <h3>هل أنت متأكد من رغبتك في حذف هذا الرابط؟</h3>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>معلومات الرابط</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">اسم الشبكة الاجتماعية</dt>
+                <dd class="col-sm-9">
+                    @Model.Name
+                </dd>
+
+                <dt class="col-sm-3">فئة الأيقونة</dt>
+                <dd class="col-sm-9">
+                    @Model.IconClass
+                </dd>
+
+                <dt class="col-sm-3">الرابط</dt>
+                <dd class="col-sm-9">
+                    <a href="@Model.Url" target="_blank">@Model.Url</a>
+                </dd>
+
+                <dt class="col-sm-3">الحالة</dt>
+                <dd class="col-sm-9">
+                    @(Model.IsActive ? "نشط" : "غير نشط")
+                </dd>
+
+                <dt class="col-sm-3">تاريخ الإنشاء</dt>
+                <dd class="col-sm-9">
+                    @(Model.CreatedAt?.ToString("yyyy-MM-dd") ?? "غير معروف")
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <form asp-action="DeleteSocial">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">تأكيد الحذف</button>
+        <a asp-action="Index" class="btn btn-secondary">إلغاء</a>
+    </form>
+</div>

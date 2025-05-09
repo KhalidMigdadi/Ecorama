@@ -63,8 +63,7 @@
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">Custom Components:</h6>
 						<a class="collapse-item" href="@Url.Action("ViewAllUsers", "Admin")">عرض جميع المستخدمين</a>
-						<a class="collapse-item" href="cards.html">تفعيل / تعطيل حسابات</a>
-						<a class="collapse-item" href="cards.html">حذف مستخدم</a>
+					
 
 
 					</div>
@@ -84,10 +83,6 @@
 						<h6 class="collapse-header">Custom Utilities:</h6>
 						<a class="collapse-item" href="@Url.Action("seeAllWorkShop","Admin")">عرض كل الورشات</a>
 						<a class="collapse-item" href="@Url.Action("addNewWorkShop","Admin")">إضافة ورشة جديدة</a>
-
-						<a class="collapse-item" href="utilities-color.html">إضافة ورشة جديدة</a>
-						<a class="collapse-item" href="utilities-border.html">رفع محتوى الورشة</a>
-						<a class="collapse-item" href="utilities-animation.html">تعديل / حذف ورشة</a>
 						<a class="collapse-item" href="utilities-other.html">عرض قائمة المشاركين في كل ورشة</a>
 					</div>
 				</div>
@@ -111,7 +106,6 @@
 					</div>
 				</div>
 			</li>
-
 			<!-- Nav Item - إدارة الشركاء -->
 			<li class="nav-item">
 				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePartners"
@@ -129,23 +123,23 @@
 				</div>
 			</li>
 
-
+			<!-- Nav Item - الصفحة الرئيسية -->
 			<li class="nav-item">
-				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePartners"
-				   aria-expanded="true" aria-controls="collapsePartners">
-					<i class="fas fa-fw fa-wrench"></i>
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHome"
+				   aria-expanded="true" aria-controls="collapseHome">
+					<i class="fas fa-fw fa-home"></i>
 					<span>الصفحه الرئيسيه</span>
 				</a>
-				<div id="collapsePartners" class="collapse" aria-labelledby="headingPartners"
+				<div id="collapseHome" class="collapse" aria-labelledby="headingHome"
 					 data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">Custom Utilities:</h6>
-						<a class="collapse-item" href="@Url.Action("AddSlider", "Home")">إضافة سلايدر</a>
-						<a class="collapse-item" href="@Url.Action("AddSlider", "Home")">إضافة من نحن</a>
-						<a class="collapse-item" href="@Url.Action("AddSlider", "Home")">إضافة مواقع التواصل الاجتماعي</a>
+						<a class="collapse-item" href="@Url.Action("Index", "Slider")">سلايدر</a>
+						<a class="collapse-item" href="@Url.Action("AddAboutUs", "Home")">إضافة من نحن</a>
+						<a class="collapse-item" href="@Url.Action("Index", "Social")">إضافة مواقع التواصل الاجتماعي</a>
 					</div>
-				</div>
-			</li>
+					</div>
+
 
 
 			<!-- Divider -->

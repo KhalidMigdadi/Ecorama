@@ -17,51 +17,35 @@ namespace Ecorama.Controllers
 
         public IActionResult Index()
         {
-            var sliders = _context.SliderItems.Where(s=> s.IsActive).OrderBy(s=>s.Order).ToList();
-            return View(sliders);
+            var sliders = _context.SliderItems.Where(s => s.IsActive).OrderBy(s => s.Order).ToList();
+            var socialLinks = _context.SocialMediaLinks.Where(s => s.IsActive).ToList();
+
+            var viewModel = new HomeViewModel
+            {
+                Sliders = sliders,
+                SocialLinks = socialLinks
+            };
+
+            return View(viewModel);
         }
 
 
-        // for slider 
-        public IActionResult AddSlider()
+
+
+
+
+
+
+        //  AboutUs
+
+
+
+
+        public async Task<IActionResult> AboutUs()
         {
+            //var aboutUsList = await _context.AboutUs.ToListAsync();
             return View();
         }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddSlider(SliderItem sliderItem, IFormFile ImageFile)
-        {
-            if (ModelState.IsValid)
-            {
-                // ??? ??????
-                if (ImageFile != null && ImageFile.Length > 0)
-                {
-                    var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
-                    if (!Directory.Exists(uploads)) Directory.CreateDirectory(uploads);
-
-                    var fileName = Guid.NewGuid().ToString() + Path.GetExtension(ImageFile.FileName);
-                    var filePath = Path.Combine(uploads, fileName);
-
-                    using (var stream = new FileStream(filePath, FileMode.Create))
-                    {
-                        await ImageFile.CopyToAsync(stream);
-                    }
-
-                    sliderItem.ImageUrl = "/uploads/" + fileName;
-                }
-
-                _context.Add(sliderItem);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(sliderItem);
-        }
-        
-
-
-
-
 
 
 

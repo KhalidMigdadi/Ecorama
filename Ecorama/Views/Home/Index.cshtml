@@ -1,6 +1,4 @@
-
-
-@* ﻿@model List<SliderItem> *@
+@model Ecorama.Models.HomeViewModel
 
 
 @{
@@ -48,32 +46,10 @@
 }
 
 <!-- Slider -->
-@* 
-<div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
-	<div class="carousel-inner">
-		@for (int i = 0; i < Model.Count; i++)
-		{
-			var slide = Model[i];
-			<div class="carousel-item @(i == 0 ? "active" : "")">
-				<img src="@slide.ImageUrl" class="d-block w-100" alt="Slide @i">
-				<div class="carousel-caption-custom">
-					<h2>@slide.Title</h2>
-					<p>@slide.Description</p>
-				</div>
-			</div>
-		}
-	</div>
-	<button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
-		<span class="carousel-control-prev-icon"></span>
-	</button>
-	<button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
-		<span class="carousel-control-next-icon"></span>
-	</button>
-</div> *@
 
 
 
-<div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+@* <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
 	<div class="carousel-inner">
 		<div class="carousel-item active">
 			<img src="~/images/pexels-bertellifotografia-2608517.jpg" class="d-block w-100" alt="Slide 1">
@@ -105,7 +81,33 @@
 	</button>
 </div>
 
+ *@
 
+
+<div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+	<div class="carousel-inner">
+		@{
+			bool isFirst = true;
+			foreach (var item in Model.Sliders)
+			{
+				<div class="carousel-item @(isFirst ? "active" : "")">
+					<img src="@Url.Content(item.ImageUrl)" class="d-block w-100" alt="@item.Title">
+					<div class="carousel-caption-custom">
+						<h2>@item.Title</h2>
+						<p>@item.Description</p>
+					</div>
+				</div>
+				isFirst = false;
+			}
+		}
+	</div>
+	<button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+		<span class="carousel-control-prev-icon"></span>
+	</button>
+	<button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+		<span class="carousel-control-next-icon"></span>
+	</button>
+</div>
 
 
 
@@ -133,13 +135,6 @@
 		</div>
 	</section>
 }
-=======
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
->>>>>>> 1b2d092db902c397be2b22db974cb7f297bd31b2
+				ViewBag.SocialLinks = socialLinks;
+

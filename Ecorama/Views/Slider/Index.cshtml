@@ -1,0 +1,126 @@
+﻿@model IEnumerable<Ecorama.Models.SliderItem>
+
+@{
+    ViewData["Title"] = "إدارة عناصر السلايدر";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h1>إدارة عناصر السلايدر</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">إضافة عنصر جديد</a>
+</p>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover" id="sliderItemsTable">
+        <thead>
+            <tr>
+                <th>الترتيب</th>
+                <th>الصورة</th>
+                <th>العنوان</th>
+                <th>الوصف</th>
+                <th>الحالة</th>
+                <th>الإجراءات</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr data-id="@item.Id">
+                    <td>
+                        <input type="number" class="form-control order-input" value="@item.Order" min="1" style="width: 80px;" />
+                    </td>
+                    <td>
+                        <img src="@Url.Content(item.ImageUrl)" alt="@item.Title" style="max-width: 100px; max-height: 60px;" />
+                    </td>
+                    <td>@item.Title</td>
+                    <td>
+                        @if (item.Description.Length > 50)
+                        {
+                            @(item.Description.Substring(0, 50) + "...")
+                        }
+                        else
+                        {
+                            @item.Description
+                        }
+                    </td>
+                    <td>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input active-toggle" type="checkbox" @(item.IsActive ? "checked" : "") data-id="@item.Id">
+                        </div>
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-info">تعديل</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">تفاصيل</a>
+                        <a href="javascript:void(0);" class="btn btn-sm btn-danger delete-btn" data-id="@item.Id">حذف</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script>
+                $('.delete-btn').click(function () {
+            var id = $(this).data('id');
+            if (confirm("هل أنت متأكد أنك تريد حذف هذا العنصر؟")) {
+                $.ajax({
+                    url: '/Admin/SliderItems/Delete/' + id,
+                    type: 'POST',
+                    success: function () {
+                        $('tr[data-id="' + id + '"]').remove(); // حذف السطر من الجدول
+                        toastr.success("تم حذف العنصر بنجاح");
+                    },
+                    error: function () {
+                        toastr.error("حدث خطأ أثناء حذف العنصر");
+                    }
+                });
+            }
+        });
+
+
+
+        $(document).ready(function () {
+            // تحديث الترتيب عند تغيير القيمة
+            $('.order-input').change(function () {
+                const id = $(this).closest('tr').data('id');
+                const newOrder = $(this).val();
+
+                $.ajax({
+                    url: '@Url.Action("UpdateOrder")',
+                    type: 'POST',
+                    data: { id: id, newOrder: newOrder },
+                    success: function () {
+                        // يمكن إضافة رسالة نجاح هنا
+                        toastr.success('تم تحديث الترتيب بنجاح');
+                    },
+                    error: function () {
+                        toastr.error('حدث خطأ أثناء تحديث الترتيب');
+                    }
+                });
+            });
+
+            // تغيير حالة التنشيط
+            $('.active-toggle').change(function () {
+                const id = $(this).data('id');
+                const isChecked = $(this).prop('checked');
+
+                $.ajax({
+                    url: '@Url.Action("ToggleActive")',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function (response) {
+                        // يمكن إضافة رسالة نجاح هنا
+                        toastr.success('تم تحديث الحالة بنجاح');
+                    },
+                    error: function () {
+                        // إرجاع الحالة السابقة في حالة الخطأ
+                        $(this).prop('checked', !isChecked);
+                        toastr.error('حدث خطأ أثناء تحديث الحالة');
+                    }
+                });
+            });
+        });
+    </script>
+}

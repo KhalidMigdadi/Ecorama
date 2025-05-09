@@ -1,0 +1,99 @@
+﻿@model Ecorama.Models.SliderItem
+
+@{
+    ViewData["Title"] = "تعديل عنصر السلايدر";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h1>تعديل عنصر السلايدر</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ImageUrl" />
+            <input type="hidden" asp-for="ImageFilePath" />
+
+            <div class="form-group mb-3">
+                <label asp-for="Title" class="control-label">العنوان</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Description" class="control-label">الوصف</label>
+                <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label class="control-label">الصورة الحالية</label>
+                <div>
+                    <img src="@Url.Content(Model.ImageUrl)" style="max-width: 300px; max-height: 150px;" alt="@Model.Title" />
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label class="control-label">تغيير الصورة (اختياري)</label>
+                <input type="file" name="imageFile" class="form-control" accept="image/*" />
+                <small class="form-text text-muted">اترك هذا الحقل فارغًا إذا كنت لا ترغب بتغيير الصورة</small>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Order" class="control-label">الترتيب</label>
+                <input asp-for="Order" class="form-control" type="number" min="1" />
+                <span asp-validation-for="Order" class="text-danger"></span>
+            </div>
+
+            <div class="form-group form-check mb-3">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsActive" /> نشط
+                </label>
+            </div>
+
+            <div class="form-group mb-3">
+                <input type="submit" value="حفظ التغييرات" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">العودة للقائمة</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header bg-info text-white">معاينة</div>
+            <div class="card-body text-center">
+                <img id="imagePreview" src="@Url.Content(Model.ImageUrl)" class="img-fluid" alt="معاينة الصورة" />
+                <h4 id="titlePreview" class="mt-3">@Model.Title</h4>
+                <p id="descriptionPreview">@Model.Description</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        // معاينة الصورة المحددة
+        $('input[name="imageFile"]').change(function() {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#imagePreview').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+
+        // تحديث معاينة العنوان والوصف
+        $('#Title').on('input', function() {
+            $('#titlePreview').text($(this).val() || 'عنوان العنصر');
+        });
+
+        $('#Description').on('input', function() {
+            $('#descriptionPreview').text($(this).val() || 'وصف العنصر');
+        });
+    </script>
+}

@@ -1,0 +1,42 @@
+﻿@model Ecorama.Models.SliderItem
+
+@{
+    ViewData["Title"] = "تفاصيل عنصر السلايدر";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h1>تفاصيل عنصر السلايدر</h1>
+
+<div>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <dl class="row">
+                <dt class="col-sm-3">العنوان</dt>
+                <dd class="col-sm-9">@Model.Title</dd>
+
+                <dt class="col-sm-3">الوصف</dt>
+                <dd class="col-sm-9">@Model.Description</dd>
+
+                <dt class="col-sm-3">الترتيب</dt>
+                <dd class="col-sm-9">@Model.Order</dd>
+
+                <dt class="col-sm-3">الحالة</dt>
+                <dd class="col-sm-9">@(Model.IsActive ? "نشط" : "غير نشط")</dd>
+            </dl>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">الصورة</div>
+                <div class="card-body text-center">
+                    <img src="@Url.Content(Model.ImageUrl)" class="img-fluid" alt="@Model.Title" style="max-height: 300px;" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">تعديل</a>
+    <a asp-action="Index" class="btn btn-secondary">العودة للقائمة</a>
+</div>

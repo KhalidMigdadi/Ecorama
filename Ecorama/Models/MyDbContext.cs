@@ -15,6 +15,11 @@ public partial class MyDbContext : DbContext
     {
     }
 
+
+
+
+    public DbSet<SocialMediaLink> SocialMediaLinks { get; set; }
+
     public virtual DbSet<Announcement> Announcements { get; set; }
 
     public virtual DbSet<Course> Courses { get; set; }
@@ -22,6 +27,8 @@ public partial class MyDbContext : DbContext
     public virtual DbSet<CourseLesson> CourseLessons { get; set; }
 
     public virtual DbSet<CourseRegistration> CourseRegistrations { get; set; }
+
+    public virtual DbSet<News> News { get; set; }
 
     public virtual DbSet<Partner> Partners { get; set; }
 
@@ -100,6 +107,18 @@ public partial class MyDbContext : DbContext
                 .HasConstraintName("FK__CourseReg__UserI__6383C8BA");
         });
 
+        modelBuilder.Entity<News>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__News__3214EC07529309DE");
+
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.ImageUrl).HasMaxLength(255);
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
+            entity.Property(e => e.Title).HasMaxLength(200);
+        });
+
         modelBuilder.Entity<Partner>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Partners__3214EC0751938E35");
@@ -112,7 +131,7 @@ public partial class MyDbContext : DbContext
             entity.HasKey(e => e.Id).HasName("PK__SliderIt__3214EC07EE374607");
 
             entity.Property(e => e.Description).HasMaxLength(500);
-            entity.Property(e => e.ImageUrl).HasMaxLength(255);
+            entity.Property(e => e.ImageFilePath).HasMaxLength(500);
             entity.Property(e => e.IsActive).HasDefaultValue(true);
             entity.Property(e => e.Title).HasMaxLength(100);
         });

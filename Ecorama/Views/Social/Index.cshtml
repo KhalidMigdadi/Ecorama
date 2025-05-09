@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Ecorama.Models.SocialMediaLink>
+
+@{
+    ViewData["Title"] = "روابط الشبكات الاجتماعية";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>إدارة روابط الشبكات الاجتماعية</h2>
+        <a asp-action="CreateSocial" class="btn btn-primary">
+            <i class="fas fa-plus"></i> إضافة رابط جديد
+        </a>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>الشبكة الاجتماعية</th>
+                            <th>الأيقونة</th>
+                            <th>الرابط</th>
+                            <th>الحالة</th>
+                            <th>تاريخ الإنشاء</th>
+                            <th>الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Name</td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(item.IconClass))
+                                    {
+                                        <i class="@item.IconClass" style="color: @item.IconColor"></i>
+                                    }
+                                    else
+                                    {
+                                        <span>-</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a href="@item.Url" target="_blank" title="@item.Url">
+                                        @(item.Url.Length > 30 ? item.Url.Substring(0, 30) + "..." : item.Url)
+                                    </a>
+                                </td>
+                                <td>
+                                    <form asp-action="ToggleActive" method="post" style="display: inline;">
+                                        <input type="hidden" name="id" value="@item.Id" />
+                                        <button type="submit" class="btn btn-sm @(item.IsActive ? "btn-success" : "btn-secondary")">
+                                            @(item.IsActive ? "نشط" : "غير نشط")
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>@(item.CreatedAt?.ToString("yyyy-MM-dd") ?? "-")</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a asp-action="EditSocial" asp-route-id="@item.Id" class="btn btn-sm btn-info">
+                                            <i class="fas fa-edit"></i> تعديل
+                                        </a>
+                                        <a asp-action="DeleteSocial" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                                            <i class="fas fa-trash"></i> حذف
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            @if (!Model.Any())
+            {
+                <div class="alert alert-info text-center">
+                    لا توجد روابط للشبكات الاجتماعية حتى الآن.
+                </div>
+            }
+        </div>
+    </div>
+</div>
