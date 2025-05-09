@@ -17,12 +17,12 @@
 			position: relative;
 		}
 
-		.carousel-item img {
-			object-fit: cover;
-			height: 100%;
-			width: 100%;
-			filter: brightness(60%); /* تعتيم الصورة لإبراز النص */
-		}
+			.carousel-item img {
+				object-fit: cover;
+				height: 100%;
+				width: 100%;
+				filter: brightness(60%); /* تعتيم الصورة لإبراز النص */
+			}
 
 		.carousel-caption-custom {
 			position: absolute;
@@ -42,46 +42,787 @@
 			.carousel-caption-custom p {
 				font-size: 1.2rem;
 			}
+
+
+		h2 {
+			text-align: center;
+		}
+
+
+		.btnWorkShop {
+			padding: 10px 20px;
+			font-size: 14px;
+			background: #ff6b3d
+		}
+
+
+
+		/* About Section */
+		.about {
+			padding: 80px 0;
+			background-color: white;
+		}
+
+		.section-title {
+			text-align: center;
+			margin-bottom: 60px;
+			position: relative;
+		}
+
+			.section-title h2 {
+				font-size: 32px;
+				color: #063b5c; /* primary-color */
+				position: relative;
+				display: inline-block;
+				padding-bottom: 15px;
+			}
+
+				.section-title h2::before {
+					content: '';
+					position: absolute;
+					width: 50%;
+					height: 3px;
+					background-color: #15a1cf; /* secondary-color */
+					bottom: 0;
+					right: 25%;
+				}
+
+		.about-content {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 40px;
+		}
+
+		.about-text {
+			flex: 1;
+			min-width: 300px;
+		}
+
+			.about-text h3 {
+				font-size: 28px;
+				margin-bottom: 20px;
+				color: #063b5c; /* primary-color */
+			}
+
+			.about-text p {
+				margin-bottom: 20px;
+				line-height: 1.8;
+				font-size: 16px;
+			}
+
+		.about-image {
+			flex: 1;
+			min-width: 300px;
+			position: relative;
+			border-radius: 10px;
+			overflow: hidden;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* shadow */
+		}
+
+			.about-image img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 1s ease;
+			}
+
+			.about-image:hover img {
+				transform: scale(1.05);
+			}
+
+
+
+
+
+		/* Services Section */
+		.services {
+			padding: 80px 0;
+			background-color: #f9f9f9;
+		}
+
+		.services-container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 30px;
+		}
+
+		.service-card {
+			background-color: white;
+			border-radius: 10px;
+			overflow: hidden;
+			width: 300px;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+			transition: all 0.3s ease;
+			position: relative;
+			top: 0;
+			opacity: 1; /* أو ببساطة إزالة السطر */
+			transform: translateY(10px);
+		}
+
+
+			.service-card:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+			}
+
+		.service-image {
+			height: 180px;
+			overflow: hidden;
+		}
+
+			.service-image img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.5s ease;
+			}
+
+		.service-card:hover .service-image img {
+			transform: scale(1.1);
+		}
+
+		.service-content {
+			padding: 20px;
+		}
+
+			.service-content h3 {
+				font-size: 20px;
+				margin-bottom: 10px;
+				color: #063b5c;
+			}
+
+			.service-content p {
+				line-height: 1.6;
+				margin-bottom: 15px;
+				font-size: 14px;
+			}
+
+		.service-link {
+			display: inline-block;
+			color: #15a1cf;
+			font-weight: 600;
+			text-decoration: none;
+			transition: all 0.3s ease;
+		}
+
+			.service-link:hover {
+				color: #ff6b3d;
+			}
+
+			.service-link i {
+				margin-right: 5px;
+				transition: all 0.3s ease;
+			}
+
+			.service-link:hover i {
+				transform: translateX(-5px);
+			}
+
+		/* End Services Section */
+
+
+		/* Latest Workshops */
+		.latest-workshops {
+			padding: 80px 0;
+			background-color: #f9f9f9; /* خلفية بيضاء فاتحة */
+		}
+
+		.workshops-container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 30px;
+		}
+
+		.workshop-card {
+			background-color: white;
+			border-radius: 10px;
+			overflow: hidden;
+			width: 350px;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* الظل */
+			transition: all 0.3s ease; /* الانتقال */
+			opacity: 1;
+			transform: translateY(10px);
+		}
+
+			.workshop-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+			}
+
+		.workshop-image {
+			height: 200px;
+			position: relative;
+			overflow: hidden;
+		}
+
+			.workshop-image img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.5s ease;
+			}
+
+		.workshop-card:hover .workshop-image img {
+			transform: scale(1.1);
+		}
+
+		.workshop-date {
+			position: absolute;
+			top: 15px;
+			right: 15px;
+			background-color: #ff6b3d; /* اللون المميز */
+			color: white;
+			padding: 5px 10px;
+			border-radius: 5px;
+			font-weight: 500;
+			font-size: 14px;
+		}
+
+		.workshop-content {
+			padding: 20px;
+		}
+
+			.workshop-content h3 {
+				font-size: 20px;
+				margin-bottom: 10px;
+				color: #063b5c; /* اللون الأساسي */
+			}
+
+		.workshop-details {
+			display: flex;
+			margin-bottom: 15px;
+			font-size: 14px;
+			color: #666;
+		}
+
+		.workshop-detail {
+			display: flex;
+			align-items: center;
+			margin-left: 15px;
+		}
+
+			.workshop-detail i {
+				margin-left: 5px;
+				color: #15a1cf; /* اللون الثانوي */
+			}
+
+		.workshop-content p {
+			line-height: 1.6;
+			margin-bottom: 15px;
+			font-size: 14px;
+		}
+
+		/* End Latest Workshops */
+
+
+
+
+
+		/* Partners */
+		.partners {
+			padding: 60px 0;
+			background-color: white;
+		}
+
+		.partners-container {
+			position: relative;
+			overflow: hidden;
+		}
+
+		.partners-slider {
+			display: flex;
+			animation: partnerSlide 20s linear infinite;
+		}
+
+		.partner-item {
+			min-width: 200px;
+			height: 100px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 0 20px;
+			filter: grayscale(100%);
+			transition: all 0.3s ease; /* تم استبدال var(--transition) */
+		}
+
+			.partner-item:hover {
+				filter: grayscale(0);
+				transform: scale(1.05);
+			}
+
+			.partner-item img {
+				max-width: 100%;
+				max-height: 80px;
+			}
+
+
+		/* End Partners */
+
+
+
+		/* CTA Section */
+		.cta {
+			padding: 80px 0;
+			background-color: #063b5c; /* بدل var(--primary-color) */
+			color: white;
+			text-align: center;
+		}
+
+		.cta-content {
+			max-width: 700px;
+			margin: 0 auto;
+		}
+
+			.cta-content h2 {
+				font-size: 32px;
+				margin-bottom: 20px;
+			}
+
+			.cta-content p {
+				margin-bottom: 30px;
+				line-height: 1.7;
+			}
+
+		.cta-buttons {
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+		}
+
+		.cta-btn {
+			padding: 12px 30px;
+			border-radius: 5px;
+			text-decoration: none;
+			font-weight: 600;
+			transition: all 0.3s ease; /* بدل var(--transition) */
+		}
+
+		.primary-btn {
+			background-color: #ff6b3d; /* بدل var(--accent-color) */
+			color: white;
+		}
+
+			.primary-btn:hover {
+				background-color: #e55a2e;
+				transform: translateY(-3px);
+				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+			}
+
+		.secondary-btn {
+			background-color: transparent;
+			color: white;
+			border: 2px solid white;
+		}
+
+			.secondary-btn:hover {
+				background-color: white;
+				color: #063b5c; /* بدل var(--primary-color) */
+				transform: translateY(-3px);
+				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+			}
+
+
+		/* ENd CTA Section */
+
+
+
+
+		/* Animation Keyframes */
+		@@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(20px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@@keyframes ticker {
+			0% {
+				transform: translateX(100%);
+			}
+
+			100% {
+				transform: translateX(-100%);
+			}
+		}
+
+		@@keyframes partnerSlide {
+			0% {
+				transform: translateX(0);
+			}
+
+			100% {
+				transform: translateX(-100%);
+			}
+		}
+
+		/* Media Queries */
+		@@media screen and (max-width: 992px) {
+			.nav-links {
+				position: fixed;
+				top: 80px;
+				right: -100%;
+				width: 100%;
+				height: calc(100vh - 80px);
+				background-color: white;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				transition: all 0.3s ease; /* استبدال var(--transition) */
+				z-index: 999;
+			}
+
+				.nav-links.active {
+					right: 0;
+				}
+
+				.nav-links li {
+					margin: 15px 0;
+				}
+
+			.hamburger {
+				display: flex;
+			}
+
+			.navbar.active .hamburger span:nth-child(1) {
+				transform: translateY(9px) rotate(45deg);
+			}
+
+			.navbar.active .hamburger span:nth-child(2) {
+				opacity: 0;
+			}
+
+			.navbar.active .hamburger span:nth-child(3) {
+				transform: translateY(-9px) rotate(-45deg);
+			}
+
+			.about-content {
+				flex-direction: column;
+			}
+
+			.about-text,
+			.about-image {
+				width: 100%;
+			}
+
+			.slide-content h1 {
+				font-size: 32px;
+			}
+
+			.slide-content p {
+				font-size: 16px;
+			}
+		}
+
+		@@media screen and (max-width: 768px) {
+			.hero {
+				height: 60vh;
+			}
+
+			.slide-content h1 {
+				font-size: 28px;
+			}
+
+			.about-text h3 {
+				font-size: 24px;
+			}
+
+			.section-title h2 {
+				font-size: 28px;
+			}
+
+			.cta-content h2 {
+				font-size: 28px;
+			}
+
+			.cta-buttons {
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.cta-btn {
+				width: 100%;
+				margin-bottom: 10px;
+			}
+		}
+
+		@@media screen and (max-width: 576px) {
+			.hero {
+				height: 50vh;
+				margin-top: 70px;
+			}
+
+			.slide-content h1 {
+				font-size: 24px;
+				margin-bottom: 15px;
+			}
+
+			.slide-content p {
+				font-size: 14px;
+				margin-bottom: 20px;
+			}
+
+			.btn {
+				padding: 10px 20px;
+				font-size: 14px;
+			}
+
+			.stat-number {
+				font-size: 30px;
+			}
+
+			.testimonial-quote {
+				font-size: 16px;
+				padding: 0 15px;
+			}
+
+			.footer-content {
+				flex-direction: column;
+			}
+
+			.navbar {
+				padding: 10px 0;
+			}
+
+			.ticker-title {
+				position: relative;
+				padding: 5px 10px;
+				margin-bottom: 10px;
+				text-align: center;
+				display: block;
+				width: fit-content;
+			}
+
+			.ticker-wrapper {
+				margin-right: 0;
+			}
+
+			.news-ticker {
+				padding: 10px 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+
+		/* News Ticker */
+		.news-ticker {
+			padding: 15px 0;
+			background-color: #15a1cf; /* secondary-color */
+			color: white;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.ticker-title {
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 100%;
+			background-color: #ff6b3d; /* accent-color */
+			color: white;
+			padding: 15px 20px;
+			font-weight: 700;
+			display: flex;
+			align-items: center;
+			z-index: 2;
+		}
+
+		.ticker-wrapper {
+			margin-right: 150px;
+			overflow: hidden;
+			height: 30px;
+		}
+
+		.ticker-news {
+			display: flex;
+			animation: ticker 30s linear infinite;
+			white-space: nowrap;
+		}
+
+		.ticker-item {
+			padding: 0 30px;
+			display: flex;
+			align-items: center;
+		}
+
+			.ticker-item i {
+				margin-left: 8px;
+			}
+
+
+
+
+		/* قسم الأخبار */
+		.news-section {
+			padding: 60px 0;
+			background-color: #f5f5f5; /* var(--light-bg) */
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;
+		}
+
+		.section-title {
+			text-align: center;
+			margin-bottom: 40px;
+			position: relative;
+		}
+
+			.section-title h2 {
+				font-size: 32px;
+				margin: 0;
+				padding-bottom: 10px;
+				display: inline-block;
+			}
+
+				.section-title h2:after {
+					content: '';
+					display: block;
+					width: 60px;
+					height: 3px;
+					background-color: transparent; /* var(--accent-color) */
+					margin: 10px auto 0;
+				}
+
+		.news-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 30px;
+		}
+
+		.news-card {
+			background-color: #fff;
+			border-radius: 8px;
+			overflow: hidden;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* var(--card-shadow) */
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+			.news-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+			}
+
+		.news-image {
+			height: 200px;
+			overflow: hidden;
+			position: relative;
+		}
+
+			.news-image img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.5s ease;
+			}
+
+		.news-card:hover .news-image img {
+			transform: scale(1.05);
+		}
+
+		.news-category {
+			position: absolute;
+			top: 15px;
+			right: 15px;
+			background-color: #ff6b3d; /* var(--primary-color) */
+			color: white;
+			padding: 5px 10px;
+			border-radius: 4px;
+			font-size: 12px;
+			font-weight: bold;
+		}
+
+		.news-content {
+			padding: 20px;
+		}
+
+		.news-date {
+			font-size: 14px;
+			color: #777;
+			margin-bottom: 10px;
+			display: flex;
+			align-items: center;
+		}
+
+			.news-date i {
+				margin-left: 5px;
+				color: #e55a2e; /* var(--secondary-color) */
+			}
+
+		.news-title {
+			font-size: 18px;
+			font-weight: bold;
+			margin-bottom: 10px;
+			line-height: 1.4;
+		}
+
+		.news-excerpt {
+			font-size: 14px;
+			line-height: 1.6;
+			color: #555;
+			margin-bottom: 15px;
+		}
+
+		.read-more {
+			display: inline-block;
+			color: #ff6b3d; /* var(--primary-color) */
+			font-weight: bold;
+			text-decoration: none;
+			font-size: 14px;
+			transition: color 0.3s ease;
+		}
+
+			.read-more:hover {
+				color: #e55a2e; /* var(--secondary-color) */
+			}
+
+		.view-all-btn {
+			text-align: center;
+			margin-top: 40px;
+		}
+
+			.view-all-btn a {
+				display: inline-block;
+				background-color: #ff6b3d; /* var(--primary-color) */
+				color: white;
+				padding: 10px 25px;
+				border-radius: 4px;
+				text-decoration: none;
+				font-weight: bold;
+				transition: background-color 0.3s ease;
+			}
+
+				.view-all-btn a:hover {
+					background-color: #e55a2e; /* var(--secondary-color) */
+				}
+
+		/* التصميم المتجاوب */
+		@@media (max-width: 992px) {
+			.news-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		@@media (max-width: 768px) {
+			.news-grid {
+				grid-template-columns: 1fr;
+			}
+		}
 	</style>
 }
 
 <!-- Slider -->
 
-
-
-@* <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
-	<div class="carousel-inner">
-		<div class="carousel-item active">
-			<img src="~/images/pexels-bertellifotografia-2608517.jpg" class="d-block w-100" alt="Slide 1">
-			<div class="carousel-caption-custom">
-				<h2>مرحبًا بك في Ecorama Workshops</h2>
-				<p>تعلم، تطور، وشارك في ورشاتنا الملهمة!</p>
-			</div>
-		</div>
-		<div class="carousel-item">
-			<img src="~/images/pexels-fauxels-3183197.jpg" class="d-block w-100" alt="Slide 2">
-			<div class="carousel-caption-custom">
-				<h2>ابدأ رحلتك التعليمية معنا</h2>
-				<p>ورش عمل احترافية في مختلف المجالات</p>
-			</div>
-		</div>
-		<div class="carousel-item">
-			<img src="~/images/pexels-shkrabaanthony-4348401.jpg" class="d-block w-100" alt="Slide 3">
-			<div class="carousel-caption-custom">
-				<h2>تعلم من الخبراء</h2>
-				<p>نقدم محتوى تدريبي عالي الجودة في بيئة تفاعلية</p>
-			</div>
-		</div>
-	</div>
-	<button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
-		<span class="carousel-control-prev-icon"></span>
-	</button>
-	<button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
-		<span class="carousel-control-next-icon"></span>
-	</button>
-</div>
-
- *@
 
 
 <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -111,30 +852,311 @@
 
 
 
-<!-- Sections with Cards -->
-@for (int i = 1; i <= 5; i++)
-{
-	<section class="py-5 bg-light">
-		<div class="container">
-			<h2 class="text-center text-primary mb-4">القسم @i</h2>
-			<div class="row g-4">
-				@for (int j = 1; j <= 3; j++)
-				{
-					<div class="col-md-4">
-						<div class="card h-100 shadow-sm border-0">
-							<img src="/images/card.jpg" class="card-img-top" alt="Card Image">
-							<div class="card-body">
-								<h5 class="card-title">عنوان الكارد @j</h5>
-								<p class="card-text">هذا وصف مختصر للكارد ضمن القسم @i. معلومات جذابة وواضحة.</p>
-								<a href="#" class="btn btn-primary">اقرأ المزيد</a>
-							</div>
-						</div>
-					</div>
-				}
+<!-- About Section -->
+<section class="about">
+	<div class="container">
+		<div class="section-title">
+			<h2>من نحن</h2>
+		</div>
+		<div class="about-content">
+			<div class="about-text">
+				<h3>منصة إيكوراما التعليمية</h3>
+				<p>إيكوراما هي منصة تعليمية شاملة تهدف إلى تقديم محتوى تعليمي متميز وورش عمل تفاعلية لتطوير المهارات وتنمية القدرات في مختلف المجالات.</p>
+				<p>نسعى في إيكوراما إلى تقديم تجربة تعليمية فريدة من خلال توفير مجموعة متنوعة من الكورسات والورشات التي تلبي احتياجات مختلف الفئات والمستويات.</p>
+				<a href="#" class="btn btnWorkShop">اقرأ المزيد</a>
+			</div>
+			<div class="about-image">
+				<img src="~/images/pexels-zhuhehuai-716281.jpg" alt="منصة إيكوراما">
 			</div>
 		</div>
-	</section>
+	</div>
+</section>
+
+
+
+
+<!-- Services Section -->
+<section class="services">
+	<div class="container">
+		<div class="section-title">
+			<h2 style="text-align: center">خدماتنا</h2>
+		</div>
+		<div class="services-container">
+			<div class="service-card">
+				<div class="service-image">
+					<img src="~/images/pexels-bertellifotografia-2608517.jpg" alt="ورشات عمل">
+				</div>
+				<div class="service-content">
+					<h3>ورشات عمل</h3>
+					<p>ورشات عمل تفاعلية في مختلف المجالات بإشراف مدربين متخصصين لتطوير مهاراتك العملية.</p>
+					<a href="#" class="service-link">تصفح الورشات <i class="fas fa-arrow-left"></i></a>
+				</div>
+			</div>
+			<div class="service-card">
+				<div class="service-image">
+					<img src="~/images/pexels-fauxels-3183197.jpg" alt="كورسات تعليمية">
+				</div>
+				<div class="service-content">
+					<h3>كورسات تعليمية</h3>
+					<p>كورسات إلكترونية متنوعة في مختلف التخصصات تتيح لك التعلم في أي وقت ومن أي مكان.</p>
+					<a href="#" class="service-link">تصفح الكورسات <i class="fas fa-arrow-left"></i></a>
+				</div>
+			</div>
+			<div class="service-card">
+				<div class="service-image">
+					<img src="~/images//pexels-shkrabaanthony-4348401.jpg" alt="شهادات معتمدة">
+				</div>
+				<div class="service-content">
+					<h3>شهادات معتمدة</h3>
+					<p>احصل على شهادات معتمدة بعد إكمال الكورسات واجتياز الاختبارات بنجاح.</p>
+					<a href="#" class="service-link">اعرف المزيد <i class="fas fa-arrow-left"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+<!-- Latest Workshops -->
+<section class="latest-workshops">
+	<div class="container">
+		<div class="section-title">
+			<h2>أحدث الورشات</h2>
+		</div>
+		<div class="workshops-container">
+			<div class="workshop-card">
+				<div class="workshop-image">
+					<img src="~/images/pexels-zhuhehuai-716276.jpg" alt="ورشة عمل">
+					<div class="workshop-date">25 مايو 2025</div>
+				</div>
+				<div class="workshop-content">
+					<h3>ورشة تصميم واجهات المستخدم</h3>
+					<div class="workshop-details">
+						<div class="workshop-detail">
+							<i class="fas fa-clock"></i>
+							<span>5 ساعات</span>
+						</div>
+						<div class="workshop-detail">
+							<i class="fas fa-map-marker-alt"></i>
+							<span>أونلاين</span>
+						</div>
+					</div>
+					<p>تعلم أساسيات تصميم واجهات المستخدم وأحدث التقنيات المستخدمة في هذا المجال.</p>
+					<a href="#" class="btn btnWorkShop">سجل الآن</a>
+				</div>
+			</div>
+			<div class="workshop-card">
+				<div class="workshop-image">
+					<img src="~/images/pexels-zhuhehuai-716276.jpg" alt="ورشة عمل">
+					<div class="workshop-date">2 يونيو 2025</div>
+				</div>
+				<div class="workshop-content">
+					<h3>ورشة التسويق الرقمي</h3>
+					<div class="workshop-details">
+						<div class="workshop-detail">
+							<i class="fas fa-clock"></i>
+							<span>8 ساعات</span>
+						</div>
+						<div class="workshop-detail">
+							<i class="fas fa-map-marker-alt"></i>
+							<span>أونلاين</span>
+						</div>
+					</div>
+					<p>تعلم استراتيجيات التسويق الرقمي الفعالة وكيفية تطبيقها لتنمية مشروعك.</p>
+					<a href="#" class="btn btnWorkShop">سجل الآن</a>
+				</div>
+			</div>
+			<div class="workshop-card">
+				<div class="workshop-image">
+					<img src="~/images/pexels-zhuhehuai-716281.jpg" alt="ورشة عمل">
+					<div class="workshop-date">10 يونيو 2025</div>
+				</div>
+				<div class="workshop-content">
+					<h3>ورشة تطوير تطبيقات الويب</h3>
+					<div class="workshop-details">
+						<div class="workshop-detail">
+							<i class="fas fa-clock"></i>
+							<span>10 ساعات</span>
+						</div>
+						<div class="workshop-detail">
+							<i class="fas fa-map-marker-alt"></i>
+							<span>أونلاين</span>
+						</div>
+					</div>
+					<p>تعلم أساسيات تطوير تطبيقات الويب باستخدام أحدث التقنيات والأدوات.</p>
+					<a href="#" class="btn btnWorkShop">سجل الآن</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<!-- News Ticker -->
+<section class="news-ticker">
+	<div class="ticker-title">آخر الأخبار</div>
+	<div class="ticker-wrapper">
+		<div class="ticker-news">
+			<div class="ticker-item">
+				<i class="fas fa-bullhorn"></i>
+				<span>إطلاق دورة جديدة في تعلم الذكاء الاصطناعي ابتداءً من 15 يونيو 2025</span>
+			</div>
+			<div class="ticker-item">
+				<i class="fas fa-bullhorn"></i>
+				<span>خصم 30% على جميع الكورسات بمناسبة اليوم العالمي للتعليم</span>
+			</div>
+			<div class="ticker-item">
+				<i class="fas fa-bullhorn"></i>
+				<span>انضمام مدربين جدد إلى فريق إيكوراما من مختلف التخصصات</span>
+			</div>
+			<div class="ticker-item">
+				<i class="fas fa-bullhorn"></i>
+				<span>عقد شراكة جديدة مع جامعة عالمية لاعتماد شهادات منصة إيكوراما</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+<section class="news-section">
+	<div class="container">
+		<div class="section-title">
+			<h2>آخر الأخبار والمقالات</h2>
+		</div>
+
+		<div class="news-grid">
+			<!-- خبر 1 -->
+			<div class="news-card">
+				<div class="news-image">
+					<img src="~/images/pexels-shkrabaanthony-4348401.jpg" alt="زراعة الأشجار في المناطق الحضرية">
+					<div class="news-category">مبادرات خضراء</div>
+				</div>
+				<div class="news-content">
+					<div class="news-date">
+						<i>&#128197;</i>
+						<span>10 مايو 2025</span>
+					</div>
+					<h3 class="news-title">انطلاق حملة "أكسجين المدينة" لزراعة 5000 شجرة في العاصمة</h3>
+					<p class="news-excerpt">تنطلق اليوم حملة وطنية طموحة تهدف إلى زيادة المساحات الخضراء في المناطق الحضرية وتحسين جودة الهواء لسكان المدينة...</p>
+					<a href="#" class="read-more">اقرأ المزيد &larr;</a>
+				</div>
+			</div>
+
+			<!-- خبر 2 -->
+			<div class="news-card">
+				<div class="news-image">
+					<img src="/api/placeholder/600/400" alt="الطاقة المتجددة">
+					<div class="news-category">الطاقة المتجددة</div>
+				</div>
+				<div class="news-content">
+					<div class="news-date">
+						<i>&#128197;</i>
+						<span>8 مايو 2025</span>
+					</div>
+					<h3 class="news-title">افتتاح أكبر محطة للطاقة الشمسية في المنطقة بسعة 500 ميجاواط</h3>
+					<p class="news-excerpt">تم افتتاح المحطة الجديدة للطاقة الشمسية والتي ستوفر الكهرباء لأكثر من 150,000 منزل وتقلل من انبعاثات الكربون بنسبة 30%...</p>
+					<a href="#" class="read-more">اقرأ المزيد &larr;</a>
+				</div>
+			</div>
+
+			<!-- خبر 3 -->
+			<div class="news-card">
+				<div class="news-image">
+					<img src="/api/placeholder/600/400" alt="ورشة عمل إعادة التدوير">
+					<div class="news-category">فعاليات</div>
+				</div>
+				<div class="news-content">
+					<div class="news-date">
+						<i>&#128197;</i>
+						<span>5 مايو 2025</span>
+					</div>
+					<h3 class="news-title">ورشة عمل مجانية حول إعادة التدوير المنزلي وتقليل النفايات</h3>
+					<p class="news-excerpt">ينظم إيكوراما ورشة عمل مجانية للمهتمين بتطوير مهاراتهم في إعادة التدوير المنزلي وتعلم طرق مبتكرة لتقليل النفايات اليومية...</p>
+					<a href="#" class="read-more">اقرأ المزيد &larr;</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="view-all-btn">
+			<a href="#">عرض جميع الأخبار</a>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+<!-- Partners -->
+<section class="partners">
+	<div class="container">
+		<div class="section-title">
+			<h2>شركاؤنا</h2>
+		</div>
+		<div class="partners-container">
+			<div class="partners-slider">
+				<div class="partner-item">
+					<img src="~/images/pexels-zhuhehuai-716281.jpg" alt="شريك">
+				</div>
+				<div class="partner-item">
+					<img src="/api/placeholder/200/100" alt="شريك">
+				</div>
+				<div class="partner-item">
+					<img src="/api/placeholder/200/100" alt="شريك">
+				</div>
+				<div class="partner-item">
+					<img src="/api/placeholder/200/100" alt="شريك">
+				</div>
+				<div class="partner-item">
+					<img src="/api/placeholder/200/100" alt="شريك">
+				</div>
+				<div class="partner-item">
+					<img src="/api/placeholder/200/100" alt="شريك">
+				</div>
+				<div class="partner-item">
+					<img src="/api/placeholder/200/100" alt="شريك">
+				</div>
+				<div class="partner-item">
+					<img src="/api/placeholder/200/100" alt="شريك">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<!-- CTA Section -->
+<section class="cta">
+	<div class="container">
+		<div class="cta-content">
+			<h2>ابدأ رحلتك التعليمية الآن</h2>
+			<p>انضم إلى مجتمع إيكوراما التعليمي واستفد من مجموعة واسعة من الكورسات والورشات التي ستساعدك على تطوير مهاراتك وتحقيق أهدافك.</p>
+			<div class="cta-buttons">
+				<a href="#" class="cta-btn primary-btn">سجل الآن</a>
+				<a href="#" class="cta-btn secondary-btn">تواصل معنا</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+
+
+@section Scripts {
+	<script src="~/js/site.js"></script>
+
 }
-
-				ViewBag.SocialLinks = socialLinks;
-

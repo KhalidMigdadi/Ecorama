@@ -1830,6 +1830,7 @@ wwwroot\Admin\js\demo\chart-pie-demo.js
 wwwroot\Admin\js\demo\datatables-demo.js
 wwwroot\Admin\js\demo\sb-admin-2.min.js
 wwwroot\Admin\js\sb-admin-2.js
+wwwroot\css\Home.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\pexels-bertellifotografia-2608517.jpg
