@@ -11,6 +11,7 @@
 		  rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Custom styles for this template-->
 	<link href="~/Admin/css/css/sb-admin-2.min.css" rel="stylesheet">
@@ -18,201 +19,105 @@
 	@await RenderSectionAsync("Style", required: false)
 
 
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+
+		#wrapper {
+			display: flex;
+			min-height: 100vh;
+		}
+
+		.sidebar {
+			width: 250px;
+			background-color: #343a40;
+			color: white;
+			padding: 20px 0;
+			flex-shrink: 0;
+		}
+
+			.sidebar a {
+				color: white;
+				text-decoration: none;
+				padding: 10px 20px;
+				display: block;
+			}
+
+				.sidebar a:hover {
+					background-color: #495057;
+				}
+
+		.main-content {
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+		}
+
+		main {
+			flex-grow: 1;
+			padding: 20px;
+		}
+
+		footer {
+			background-color: #f8f9fa;
+			padding: 10px 0;
+		}
+
+	</style>
+
+
 </head>
 <body>
+
 
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-		<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-			<!-- Sidebar - Brand -->
+		<div class="sidebar">
 			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index","Admin")">
-				
+
 				<div class="sidebar-brand-text mx-3">Ecorama</div>
-			</a>
-
-			<!-- Divider -->
-			<hr class="sidebar-divider my-0">
-
-			<!-- Nav Item - Dashboard -->
-			<li class="nav-item active">
-				<a class="nav-link" href="@Url.Action("Index","Admin")">
-				<a class="nav-link" href="index.html">
-					<i class="fas fa-fw fa-tachometer-alt"></i>
-					<span>Dashboard</span>
+			</a>			
+			<a href="@Url.Action("Index","Admin")">Dashboard</a>
+			<a href="@Url.Action("ViewAllUsers", "Admin")">Users</a>
+			<a href="@Url.Action("seeAllWorkShop","Admin")">WorkShops</a>
+			<a href="#">Courses</a>
+			<a href="#">Reports</a>
+			<div class="dropdown">
+				<a class="dropdown-toggle d-block px-3 py-2 text-white" href="#" data-bs-toggle="collapse" data-bs-target="#workshopsMenu" aria-expanded="false">
+					Manage Home Page
 				</a>
-			</li>
-
-			<!-- Divider -->
-			<hr class="sidebar-divider">
-
-			<!-- Heading -->
-			<div class="sidebar-heading">
-				Interface
+				<div class="collapse" id="workshopsMenu">
+					<a href="@Url.Action("Index", "Slider")" class="d-block px-4 py-1 text-white">Sider</a>
+					<a href="@Url.Action("AddAboutUs", "Home")" class="d-block px-4 py-1 text-white">AboutUs</a>
+					<a href="@Url.Action("Index", "Social")" class="d-block px-4 py-1 text-white">SocialMedia</a>
+				</div>
 			</div>
-
-			<!-- Nav Item - Pages Collapse Menu -->
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-				   aria-expanded="true" aria-controls="collapseTwo">
-					<i class="fas fa-fw fa-cog"></i>
-					<span>إدارة المستخدمين</span>
-				</a>
-				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">Custom Components:</h6>
-						<a class="collapse-item" href="@Url.Action("ViewAllUsers", "Admin")">عرض جميع المستخدمين</a>
-					
-
-
-					</div>
-				</div>
-			</li>
-
-			<!-- Nav Item - إدارة الورشات -->
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseWorkshops"
-				   aria-expanded="true" aria-controls="collapseWorkshops">
-					<i class="fas fa-fw fa-wrench"></i>
-					<span>إدارة الورشات</span>
-				</a>
-				<div id="collapseWorkshops" class="collapse" aria-labelledby="headingWorkshops"
-					 data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">Custom Utilities:</h6>
-						<a class="collapse-item" href="@Url.Action("seeAllWorkShop","Admin")">عرض كل الورشات</a>
-						<a class="collapse-item" href="@Url.Action("addNewWorkShop","Admin")">إضافة ورشة جديدة</a>
-						<a class="collapse-item" href="utilities-other.html">عرض قائمة المشاركين في كل ورشة</a>
-					</div>
-				</div>
-			</li>
-
-			<!-- Nav Item - إدارة الكورسات -->
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCourses"
-				   aria-expanded="true" aria-controls="collapseCourses">
-					<i class="fas fa-fw fa-wrench"></i>
-					<span>إدارة الكورسات</span>
-				</a>
-				<div id="collapseCourses" class="collapse" aria-labelledby="headingCourses"
-					 data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">Custom Utilities:</h6>
-						<a class="collapse-item" href="utilities-color.html">إنشاء كورس جديد</a>
-						<a class="collapse-item" href="utilities-border.html">إضافة دروس للكورس</a>
-						<a class="collapse-item" href="utilities-animation.html">رفع ملف PDF للدورة</a>
-						<a class="collapse-item" href="utilities-other.html">حذف / تعديل الدروس أو الكورس</a>
-					</div>
-				</div>
-			</li>
-			<!-- Nav Item - إدارة الشركاء -->
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePartners"
-				   aria-expanded="true" aria-controls="collapsePartners">
-					<i class="fas fa-fw fa-wrench"></i>
-					<span>إدارة الشركاء</span>
-				</a>
-				<div id="collapsePartners" class="collapse" aria-labelledby="headingPartners"
-					 data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">Custom Utilities:</h6>
-						<a class="collapse-item" href="utilities-color.html">إضافة شريك</a>
-						<a class="collapse-item" href="utilities-border.html">تعديل / حذف شريك</a>
-					</div>
-				</div>
-			</li>
-
-			<!-- Nav Item - الصفحة الرئيسية -->
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHome"
-				   aria-expanded="true" aria-controls="collapseHome">
-					<i class="fas fa-fw fa-home"></i>
-					<span>الصفحه الرئيسيه</span>
-				</a>
-				<div id="collapseHome" class="collapse" aria-labelledby="headingHome"
-					 data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">Custom Utilities:</h6>
-						<a class="collapse-item" href="@Url.Action("Index", "Slider")">سلايدر</a>
-						<a class="collapse-item" href="@Url.Action("AddAboutUs", "Home")">إضافة من نحن</a>
-						<a class="collapse-item" href="@Url.Action("Index", "Social")">إضافة مواقع التواصل الاجتماعي</a>
-					</div>
-					</div>
-
-
-
-			<!-- Divider -->
-			<hr class="sidebar-divider">
-
-			<!-- Heading -->
-			<div class="sidebar-heading">
-				Addons
-			</div>
-
-			<!-- Nav Item - Pages Collapse Menu -->
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-				   aria-expanded="true" aria-controls="collapsePages">
-					<i class="fas fa-fw fa-folder"></i>
-					<span>Pages</span>
-				</a>
-				<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">Login Screens:</h6>
-						<a class="collapse-item" href="login.html">Login</a>
-						<a class="collapse-item" href="register.html">Register</a>
-						<a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-						<div class="collapse-divider"></div>
-						<h6 class="collapse-header">Other Pages:</h6>
-						<a class="collapse-item" href="404.html">404 Page</a>
-						<a class="collapse-item" href="blank.html">Blank Page</a>
-					</div>
-				</div>
-			</li>
-
-			<!-- Nav Item - Charts -->
-			<li class="nav-item">
-				<a class="nav-link" href="charts.html">
-					<i class="fas fa-fw fa-chart-area"></i>
-					<span>Charts</span>
-				</a>
-			</li>
-
-			<!-- Nav Item - Tables -->
-			<li class="nav-item">
-				<a class="nav-link" href="tables.html">
-					<i class="fas fa-fw fa-table"></i>
-					<span>Tables</span>
-				</a>
-			</li>
-
-			<!-- Divider -->
-			<hr class="sidebar-divider d-none d-md-block">
-
-	
-
-		
-
-		</ul>
+			<a href="#">Logout</a>
+		</div>
 		<!-- End of Sidebar -->
+		<!-- Main Content -->
+		<div class="main-content">
+			<main role="main" class="pb-3">
+				@RenderBody()
+			</main>
 
-
-		<main style="width: 90%;" role="main" class="pb-3">
-			@RenderBody()
-		</main>
-
+			<!-- Footer -->
+			<footer class="bg-white text-center">
+				<div class="container my-auto">
+					<div class="copyright my-auto">
+						<span>&copy; Orange Coding Academy 2025</span>
+					</div>
+				</div>
+			</footer>
+		</div>
 
 	</div>
-	<!-- Footer -->
-	<footer class="sticky-footer bg-white">
-		<div class="container my-auto">
-			<div class="copyright text-center my-auto">
-				<span>Copyright &copy; Orange Coding Acadyme 2025</span>
-			</div>
-		</div>
-	</footer>
 	<!-- End of Footer -->
+
 	<!-- Bootstrap core JavaScript-->
 
 	<script src="~/Admin/css/vendor/jquery/jquery.min.js"></script>
