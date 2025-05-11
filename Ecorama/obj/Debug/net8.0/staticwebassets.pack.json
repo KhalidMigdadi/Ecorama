@@ -7377,6 +7377,18 @@
       "PackagePath": "staticwebassets\\images\\pexels-zhuhehuai-716281.jpg"
     },
     {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider1.jpg",
+      "PackagePath": "staticwebassets\\images\\slider1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider2.webp",
+      "PackagePath": "staticwebassets\\images\\slider2.webp"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider3.jpg",
+      "PackagePath": "staticwebassets\\images\\slider3.jpg"
+    },
+    {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\1d363f54-6f1c-4279-b4ca-abfa431b0ec9_eaa2310b-bf4a-45cb-8b58-cf458c9c38b6_pexels-fauxels-3183197.jpg",
       "PackagePath": "staticwebassets\\images\\slider\\1d363f54-6f1c-4279-b4ca-abfa431b0ec9_eaa2310b-bf4a-45cb-8b58-cf458c9c38b6_pexels-fauxels-3183197.jpg"
     },
@@ -7413,6 +7425,10 @@
       "PackagePath": "staticwebassets\\images\\slider\\8a22d083-ca98-4f92-92e8-aa323021358d_pexels-bertellifotografia-2608517.jpg"
     },
     {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\962953fe-cd64-4283-8c67-8c62bc80a73b_slider2.webp",
+      "PackagePath": "staticwebassets\\images\\slider\\962953fe-cd64-4283-8c67-8c62bc80a73b_slider2.webp"
+    },
+    {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\9c54f3e6-eecd-4a34-966b-a6871b8ddef0_pexels-bertellifotografia-2608517.jpg",
       "PackagePath": "staticwebassets\\images\\slider\\9c54f3e6-eecd-4a34-966b-a6871b8ddef0_pexels-bertellifotografia-2608517.jpg"
     },
@@ -7421,8 +7437,16 @@
       "PackagePath": "staticwebassets\\images\\slider\\a639dbc4-28ee-42e6-84ca-a787e3224002_8a22d083-ca98-4f92-92e8-aa323021358d_pexels-bertellifotografia-2608517.jpg"
     },
     {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\aa1c5cfc-20e3-46b3-a40a-41f99f3ccc34_slider1.jpg",
+      "PackagePath": "staticwebassets\\images\\slider\\aa1c5cfc-20e3-46b3-a40a-41f99f3ccc34_slider1.jpg"
+    },
+    {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\d5850762-cfef-467b-af56-e361c995bb7b_pexels-bertellifotografia-2608517.jpg",
       "PackagePath": "staticwebassets\\images\\slider\\d5850762-cfef-467b-af56-e361c995bb7b_pexels-bertellifotografia-2608517.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\d7b9df57-1ed5-422b-9e12-43d217bdb6f1_slider3.jpg",
+      "PackagePath": "staticwebassets\\images\\slider\\d7b9df57-1ed5-422b-9e12-43d217bdb6f1_slider3.jpg"
     },
     {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\eaa2310b-bf4a-45cb-8b58-cf458c9c38b6_pexels-fauxels-3183197.jpg",

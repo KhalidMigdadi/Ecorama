@@ -33354,6 +33354,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider\8a22d083-ca98-4f92-92e8-aa323021358d_pexels-bertellifotografia-2608517.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider\962953fe-cd64-4283-8c67-8c62bc80a73b_slider2.webp'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Ecorama</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Ecorama</BasePath>
+      <RelativePath>images/slider/962953fe-cd64-4283-8c67-8c62bc80a73b_slider2.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>h9q6axmtg4</Fingerprint>
+      <Integrity>iycTII9vErvKppkwDauU33nPgs35D0ST4HDRIoCPGcE=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider\962953fe-cd64-4283-8c67-8c62bc80a73b_slider2.webp'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider\9c54f3e6-eecd-4a34-966b-a6871b8ddef0_pexels-bertellifotografia-2608517.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>Ecorama</SourceId>
@@ -33390,6 +33408,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider\a639dbc4-28ee-42e6-84ca-a787e3224002_8a22d083-ca98-4f92-92e8-aa323021358d_pexels-bertellifotografia-2608517.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider\aa1c5cfc-20e3-46b3-a40a-41f99f3ccc34_slider1.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Ecorama</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Ecorama</BasePath>
+      <RelativePath>images/slider/aa1c5cfc-20e3-46b3-a40a-41f99f3ccc34_slider1.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>ex0adg04bo</Fingerprint>
+      <Integrity>MpAyICmTRtQk/ShaEUMhk2EJrnpn9iu2Orqa39aFd+I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider\aa1c5cfc-20e3-46b3-a40a-41f99f3ccc34_slider1.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider\d5850762-cfef-467b-af56-e361c995bb7b_pexels-bertellifotografia-2608517.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>Ecorama</SourceId>
@@ -33407,6 +33443,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider\d5850762-cfef-467b-af56-e361c995bb7b_pexels-bertellifotografia-2608517.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider\d7b9df57-1ed5-422b-9e12-43d217bdb6f1_slider3.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Ecorama</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Ecorama</BasePath>
+      <RelativePath>images/slider/d7b9df57-1ed5-422b-9e12-43d217bdb6f1_slider3.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>ws31wvt92b</Fingerprint>
+      <Integrity>gNUBALCNH440A5pHimNurCnKsFH8kRWkUkpZlxSb5FI=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider\d7b9df57-1ed5-422b-9e12-43d217bdb6f1_slider3.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider\eaa2310b-bf4a-45cb-8b58-cf458c9c38b6_pexels-fauxels-3183197.jpg'))">
       <SourceType>Package</SourceType>
@@ -33443,6 +33497,60 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider\f2e7f907-095b-47a9-a4c6-f7ed8e7231b4_pexels-zhuhehuai-716276.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider1.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Ecorama</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Ecorama</BasePath>
+      <RelativePath>images/slider1.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>ex0adg04bo</Fingerprint>
+      <Integrity>MpAyICmTRtQk/ShaEUMhk2EJrnpn9iu2Orqa39aFd+I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider1.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider2.webp'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Ecorama</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Ecorama</BasePath>
+      <RelativePath>images/slider2.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>h9q6axmtg4</Fingerprint>
+      <Integrity>iycTII9vErvKppkwDauU33nPgs35D0ST4HDRIoCPGcE=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider2.webp'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider3.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Ecorama</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Ecorama</BasePath>
+      <RelativePath>images/slider3.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>ws31wvt92b</Fingerprint>
+      <Integrity>gNUBALCNH440A5pHimNurCnKsFH8kRWkUkpZlxSb5FI=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slider3.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\course.js'))">
       <SourceType>Package</SourceType>

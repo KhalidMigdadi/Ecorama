@@ -1850,11 +1850,17 @@ wwwroot\images\slider\4532bf1e-8b7b-4043-91fe-aa331f5097b9_pexels-bertellifotogr
 wwwroot\images\slider\64140d84-7743-4e9b-ac05-7ee7c76606c9_pexels-bertellifotografia-2608517.jpg
 wwwroot\images\slider\6f1a8c97-c7f7-4a51-ada5-4524e77ed883_f2e7f907-095b-47a9-a4c6-f7ed8e7231b4_pexels-zhuhehuai-716276.jpg
 wwwroot\images\slider\8a22d083-ca98-4f92-92e8-aa323021358d_pexels-bertellifotografia-2608517.jpg
+wwwroot\images\slider\962953fe-cd64-4283-8c67-8c62bc80a73b_slider2.webp
 wwwroot\images\slider\9c54f3e6-eecd-4a34-966b-a6871b8ddef0_pexels-bertellifotografia-2608517.jpg
 wwwroot\images\slider\a639dbc4-28ee-42e6-84ca-a787e3224002_8a22d083-ca98-4f92-92e8-aa323021358d_pexels-bertellifotografia-2608517.jpg
+wwwroot\images\slider\aa1c5cfc-20e3-46b3-a40a-41f99f3ccc34_slider1.jpg
 wwwroot\images\slider\d5850762-cfef-467b-af56-e361c995bb7b_pexels-bertellifotografia-2608517.jpg
+wwwroot\images\slider\d7b9df57-1ed5-422b-9e12-43d217bdb6f1_slider3.jpg
 wwwroot\images\slider\eaa2310b-bf4a-45cb-8b58-cf458c9c38b6_pexels-fauxels-3183197.jpg
 wwwroot\images\slider\f2e7f907-095b-47a9-a4c6-f7ed8e7231b4_pexels-zhuhehuai-716276.jpg
+wwwroot\images\slider1.jpg
+wwwroot\images\slider2.webp
+wwwroot\images\slider3.jpg
 wwwroot\js\course.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css

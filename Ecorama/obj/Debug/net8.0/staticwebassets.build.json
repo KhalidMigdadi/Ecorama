@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dUf4jXXyETROkZ1UK87cdtRYFiSKsHCIl/fBbYBpoGE=",
+  "Hash": "+5qayvrT4lqsxyx7uvH/vPYzFKiPb7dpltj2qAzQ8+g=",
   "Source": "Ecorama",
   "BasePath": "_content/Ecorama",
   "Mode": "Default",
@@ -38951,6 +38951,27 @@
       "OriginalItemSpec": "wwwroot\\images\\slider\\8a22d083-ca98-4f92-92e8-aa323021358d_pexels-bertellifotografia-2608517.jpg"
     },
     {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\962953fe-cd64-4283-8c67-8c62bc80a73b_slider2.webp",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/slider/962953fe-cd64-4283-8c67-8c62bc80a73b_slider2#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "h9q6axmtg4",
+      "Integrity": "iycTII9vErvKppkwDauU33nPgs35D0ST4HDRIoCPGcE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\slider\\962953fe-cd64-4283-8c67-8c62bc80a73b_slider2.webp"
+    },
+    {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\9c54f3e6-eecd-4a34-966b-a6871b8ddef0_pexels-bertellifotografia-2608517.jpg",
       "SourceId": "Ecorama",
       "SourceType": "Discovered",
@@ -38993,6 +39014,27 @@
       "OriginalItemSpec": "wwwroot\\images\\slider\\a639dbc4-28ee-42e6-84ca-a787e3224002_8a22d083-ca98-4f92-92e8-aa323021358d_pexels-bertellifotografia-2608517.jpg"
     },
     {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\aa1c5cfc-20e3-46b3-a40a-41f99f3ccc34_slider1.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/slider/aa1c5cfc-20e3-46b3-a40a-41f99f3ccc34_slider1#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ex0adg04bo",
+      "Integrity": "MpAyICmTRtQk/ShaEUMhk2EJrnpn9iu2Orqa39aFd+I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\slider\\aa1c5cfc-20e3-46b3-a40a-41f99f3ccc34_slider1.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\d5850762-cfef-467b-af56-e361c995bb7b_pexels-bertellifotografia-2608517.jpg",
       "SourceId": "Ecorama",
       "SourceType": "Discovered",
@@ -39012,6 +39054,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\slider\\d5850762-cfef-467b-af56-e361c995bb7b_pexels-bertellifotografia-2608517.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\d7b9df57-1ed5-422b-9e12-43d217bdb6f1_slider3.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/slider/d7b9df57-1ed5-422b-9e12-43d217bdb6f1_slider3#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ws31wvt92b",
+      "Integrity": "gNUBALCNH440A5pHimNurCnKsFH8kRWkUkpZlxSb5FI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\slider\\d7b9df57-1ed5-422b-9e12-43d217bdb6f1_slider3.jpg"
     },
     {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\eaa2310b-bf4a-45cb-8b58-cf458c9c38b6_pexels-fauxels-3183197.jpg",
@@ -39054,6 +39117,69 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\slider\\f2e7f907-095b-47a9-a4c6-f7ed8e7231b4_pexels-zhuhehuai-716276.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider1.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/slider1#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ex0adg04bo",
+      "Integrity": "MpAyICmTRtQk/ShaEUMhk2EJrnpn9iu2Orqa39aFd+I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\slider1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider2.webp",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/slider2#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "h9q6axmtg4",
+      "Integrity": "iycTII9vErvKppkwDauU33nPgs35D0ST4HDRIoCPGcE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\slider2.webp"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider3.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/slider3#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ws31wvt92b",
+      "Integrity": "gNUBALCNH440A5pHimNurCnKsFH8kRWkUkpZlxSb5FI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\slider3.jpg"
     },
     {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\js\\course.js",
@@ -190707,7 +190833,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 12:04:51 GMT"
+          "Value": "Sun, 11 May 2025 17:04:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -190744,7 +190870,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 12:04:51 GMT"
+          "Value": "Sun, 11 May 2025 17:04:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -192325,6 +192451,88 @@
       ]
     },
     {
+      "Route": "images/slider/962953fe-cd64-4283-8c67-8c62bc80a73b_slider2.h9q6axmtg4.webp",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\962953fe-cd64-4283-8c67-8c62bc80a73b_slider2.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "66112"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iycTII9vErvKppkwDauU33nPgs35D0ST4HDRIoCPGcE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 17:51:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "h9q6axmtg4"
+        },
+        {
+          "Name": "label",
+          "Value": "images/slider/962953fe-cd64-4283-8c67-8c62bc80a73b_slider2.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-iycTII9vErvKppkwDauU33nPgs35D0ST4HDRIoCPGcE="
+        }
+      ]
+    },
+    {
+      "Route": "images/slider/962953fe-cd64-4283-8c67-8c62bc80a73b_slider2.webp",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\962953fe-cd64-4283-8c67-8c62bc80a73b_slider2.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "66112"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iycTII9vErvKppkwDauU33nPgs35D0ST4HDRIoCPGcE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 17:51:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-iycTII9vErvKppkwDauU33nPgs35D0ST4HDRIoCPGcE="
+        }
+      ]
+    },
+    {
       "Route": "images/slider/9c54f3e6-eecd-4a34-966b-a6871b8ddef0_pexels-bertellifotografia-2608517.ebeyy4xqe6.jpg",
       "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\9c54f3e6-eecd-4a34-966b-a6871b8ddef0_pexels-bertellifotografia-2608517.jpg",
       "Selectors": [],
@@ -192489,6 +192697,88 @@
       ]
     },
     {
+      "Route": "images/slider/aa1c5cfc-20e3-46b3-a40a-41f99f3ccc34_slider1.ex0adg04bo.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\aa1c5cfc-20e3-46b3-a40a-41f99f3ccc34_slider1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "98942"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MpAyICmTRtQk/ShaEUMhk2EJrnpn9iu2Orqa39aFd+I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 17:51:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ex0adg04bo"
+        },
+        {
+          "Name": "label",
+          "Value": "images/slider/aa1c5cfc-20e3-46b3-a40a-41f99f3ccc34_slider1.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MpAyICmTRtQk/ShaEUMhk2EJrnpn9iu2Orqa39aFd+I="
+        }
+      ]
+    },
+    {
+      "Route": "images/slider/aa1c5cfc-20e3-46b3-a40a-41f99f3ccc34_slider1.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\aa1c5cfc-20e3-46b3-a40a-41f99f3ccc34_slider1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "98942"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MpAyICmTRtQk/ShaEUMhk2EJrnpn9iu2Orqa39aFd+I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 17:51:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MpAyICmTRtQk/ShaEUMhk2EJrnpn9iu2Orqa39aFd+I="
+        }
+      ]
+    },
+    {
       "Route": "images/slider/d5850762-cfef-467b-af56-e361c995bb7b_pexels-bertellifotografia-2608517.ebeyy4xqe6.jpg",
       "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\d5850762-cfef-467b-af56-e361c995bb7b_pexels-bertellifotografia-2608517.jpg",
       "Selectors": [],
@@ -192567,6 +192857,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-BgEcTjRVRSPRZEVrsZ24gq3puSa0iQtpagq98WRTOqQ="
+        }
+      ]
+    },
+    {
+      "Route": "images/slider/d7b9df57-1ed5-422b-9e12-43d217bdb6f1_slider3.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\d7b9df57-1ed5-422b-9e12-43d217bdb6f1_slider3.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "38149"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gNUBALCNH440A5pHimNurCnKsFH8kRWkUkpZlxSb5FI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 17:52:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gNUBALCNH440A5pHimNurCnKsFH8kRWkUkpZlxSb5FI="
+        }
+      ]
+    },
+    {
+      "Route": "images/slider/d7b9df57-1ed5-422b-9e12-43d217bdb6f1_slider3.ws31wvt92b.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\d7b9df57-1ed5-422b-9e12-43d217bdb6f1_slider3.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "38149"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gNUBALCNH440A5pHimNurCnKsFH8kRWkUkpZlxSb5FI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 17:52:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ws31wvt92b"
+        },
+        {
+          "Name": "label",
+          "Value": "images/slider/d7b9df57-1ed5-422b-9e12-43d217bdb6f1_slider3.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gNUBALCNH440A5pHimNurCnKsFH8kRWkUkpZlxSb5FI="
         }
       ]
     },
@@ -192731,6 +193103,252 @@
         {
           "Name": "integrity",
           "Value": "sha256-dDm5gIFeLXuzqswUAPXix/GNERLF24trh/bdEruXf24="
+        }
+      ]
+    },
+    {
+      "Route": "images/slider1.ex0adg04bo.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "98942"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MpAyICmTRtQk/ShaEUMhk2EJrnpn9iu2Orqa39aFd+I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 17:46:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ex0adg04bo"
+        },
+        {
+          "Name": "label",
+          "Value": "images/slider1.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MpAyICmTRtQk/ShaEUMhk2EJrnpn9iu2Orqa39aFd+I="
+        }
+      ]
+    },
+    {
+      "Route": "images/slider1.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "98942"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MpAyICmTRtQk/ShaEUMhk2EJrnpn9iu2Orqa39aFd+I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 17:46:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MpAyICmTRtQk/ShaEUMhk2EJrnpn9iu2Orqa39aFd+I="
+        }
+      ]
+    },
+    {
+      "Route": "images/slider2.h9q6axmtg4.webp",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider2.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "66112"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iycTII9vErvKppkwDauU33nPgs35D0ST4HDRIoCPGcE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 17:47:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "h9q6axmtg4"
+        },
+        {
+          "Name": "label",
+          "Value": "images/slider2.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-iycTII9vErvKppkwDauU33nPgs35D0ST4HDRIoCPGcE="
+        }
+      ]
+    },
+    {
+      "Route": "images/slider2.webp",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider2.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "66112"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iycTII9vErvKppkwDauU33nPgs35D0ST4HDRIoCPGcE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 17:47:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-iycTII9vErvKppkwDauU33nPgs35D0ST4HDRIoCPGcE="
+        }
+      ]
+    },
+    {
+      "Route": "images/slider3.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider3.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "38149"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gNUBALCNH440A5pHimNurCnKsFH8kRWkUkpZlxSb5FI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 17:47:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gNUBALCNH440A5pHimNurCnKsFH8kRWkUkpZlxSb5FI="
+        }
+      ]
+    },
+    {
+      "Route": "images/slider3.ws31wvt92b.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider3.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "38149"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gNUBALCNH440A5pHimNurCnKsFH8kRWkUkpZlxSb5FI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 11 May 2025 17:47:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ws31wvt92b"
+        },
+        {
+          "Name": "label",
+          "Value": "images/slider3.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gNUBALCNH440A5pHimNurCnKsFH8kRWkUkpZlxSb5FI="
         }
       ]
     },
