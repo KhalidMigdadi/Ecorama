@@ -1,0 +1,298 @@
+﻿
+@{
+    ViewData["Title"] = "Workshops";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@section Style {
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link href="~/css/workshop.css" rel="stylesheet" />
+
+}
+
+
+
+<section class="headWorkshop">
+    <h1 class="fade-in">الورشات التدريبية</h1>
+    <p class="fade-in">استكشف مجموعتنا الواسعة من الورشات التدريبية المصممة لتعزيز مهاراتك ومعرفتك في مختلف المجالات</p>
+</section>
+
+
+
+<div class="container">
+          <!-- Search Bar Component -->
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="ابحث عن ورشة تدريبية..." id="searchWorkshops">
+            <button class="search-button">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+    </div>
+
+
+
+
+    <div class="workshops-grid">
+        <!-- الورشة الأولى -->
+        <div class="workshop-card">
+            <div class="card-image">
+                <img src="/api/placeholder/600/400" alt="ورشة تصميم المواقع الإلكترونية">
+                <div class="card-tag">التصميم</div>
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">ورشة تصميم المواقع الإلكترونية</h3>
+                <div class="card-meta">
+                    <span><i class="fas fa-calendar-alt"></i> 5 أيام</span>
+                    <span><i class="fas fa-users"></i> 20 مشارك</span>
+                </div>
+                <p class="card-desc">تعلم أساسيات وأحدث تقنيات تصميم المواقع الإلكترونية بطريقة عملية وتفاعلية.</p>
+                <div class="card-footer">
+                    <div class="card-price">299 ريال</div>
+                    <button class="card-action">سجل الآن</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- الورشة الثانية -->
+        <div class="workshop-card">
+            <div class="card-image">
+                <img src="/api/placeholder/600/400" alt="ورشة البرمجة بلغة JavaScript">
+                <div class="card-tag">البرمجة</div>
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">ورشة البرمجة بلغة JavaScript</h3>
+                <div class="card-meta">
+                    <span><i class="fas fa-calendar-alt"></i> 7 أيام</span>
+                    <span><i class="fas fa-users"></i> 15 مشارك</span>
+                </div>
+                <p class="card-desc">ورشة عمل مكثفة لتعلم لغة JavaScript وتطبيقاتها في تطوير الويب.</p>
+                <div class="card-footer">
+                    <div class="card-price">349 ريال</div>
+                    <button class="card-action">سجل الآن</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- الورشة الثالثة -->
+        <div class="workshop-card">
+            <div class="card-image">
+                <img src="/api/placeholder/600/400" alt="ورشة إدارة المشاريع">
+                <div class="card-tag">الأعمال</div>
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">ورشة إدارة المشاريع الاحترافية</h3>
+                <div class="card-meta">
+                    <span><i class="fas fa-calendar-alt"></i> 3 أيام</span>
+                    <span><i class="fas fa-users"></i> 25 مشارك</span>
+                </div>
+                <p class="card-desc">تعلم أساسيات إدارة المشاريع باستخدام منهجيات حديثة واكتسب شهادة معتمدة.</p>
+                <div class="card-footer">
+                    <div class="card-price">399 ريال</div>
+                    <button class="card-action">سجل الآن</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- الورشة الرابعة -->
+        <div class="workshop-card">
+            <div class="card-image">
+                <img src="/api/placeholder/600/400" alt="ورشة التسويق الرقمي">
+                <div class="card-tag">التسويق</div>
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">ورشة التسويق الرقمي الشامل</h3>
+                <div class="card-meta">
+                    <span><i class="fas fa-calendar-alt"></i> 4 أيام</span>
+                    <span><i class="fas fa-users"></i> 30 مشارك</span>
+                </div>
+                <p class="card-desc">ادخل عالم التسويق الرقمي واكتشف أحدث الاستراتيجيات لزيادة مبيعاتك وانتشارك.</p>
+                <div class="card-footer">
+                    <div class="card-price">299 ريال</div>
+                    <button class="card-action">سجل الآن</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- الورشة الخامسة -->
+        <div class="workshop-card">
+            <div class="card-image">
+                <img src="/api/placeholder/600/400" alt="ورشة تصميم الجرافيك">
+                <div class="card-tag">التصميم</div>
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">ورشة تصميم الجرافيك الإبداعي</h3>
+                <div class="card-meta">
+                    <span><i class="fas fa-calendar-alt"></i> 6 أيام</span>
+                    <span><i class="fas fa-users"></i> 18 مشارك</span>
+                </div>
+                <p class="card-desc">ورشة متكاملة في التصميم الجرافيكي تغطي Photoshop و Illustrator وأدوات التصميم الحديثة.</p>
+                <div class="card-footer">
+                    <div class="card-price">449 ريال</div>
+                    <button class="card-action">سجل الآن</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- الورشة السادسة -->
+        <div class="workshop-card">
+            <div class="card-image">
+                <img src="/api/placeholder/600/400" alt="ورشة مهارات التواصل">
+                <div class="card-tag">المهارات الشخصية</div>
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">ورشة مهارات التواصل وفن الإلقاء</h3>
+                <div class="card-meta">
+                    <span><i class="fas fa-calendar-alt"></i> 2 أيام</span>
+                    <span><i class="fas fa-users"></i> 15 مشارك</span>
+                </div>
+                <p class="card-desc">تعلم أساسيات التواصل الفعال وفن الإلقاء وتغلب على الخوف من التحدث أمام الجمهور.</p>
+                <div class="card-footer">
+                    <div class="card-price">199 ريال</div>
+                    <button class="card-action">سجل الآن</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading-spinner"></div>
+</div>
+
+
+@section Scripts {
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    // تفعيل ظهور العناصر عند التحميل
+    const fadeElements = document.querySelectorAll('.fade-in');
+    setTimeout(() => {
+        fadeElements.forEach(element => {
+            element.classList.add('visible');
+        });
+    }, 300);
+
+    // تفعيل التحميل الكسول (Lazy Loading) للبطاقات
+    const workshopCards = document.querySelectorAll('.workshop-card');
+    const loadingSpinner = document.querySelector('.loading-spinner');
+    const workshopsGrid = document.querySelector('.workshops-grid');
+
+    // تبسيط طريقة ظهور البطاقات لتكون أكثر سلاسة
+    workshopCards.forEach((card, index) => {
+        // إضافة تأخير تصاعدي لكل بطاقة
+        card.style.transitionDelay = `${index * 0.05}s`;
+    });
+
+    // تحسين ظهور البطاقات بطريقة سلسة
+    function checkVisibility() {
+        workshopCards.forEach((card, index) => {
+            const cardTop = card.getBoundingClientRect().top;
+            const cardBottom = card.getBoundingClientRect().bottom;
+            const isVisible = cardTop < window.innerHeight - 150 && cardBottom >= 0;
+
+            if (isVisible && !card.classList.contains('visible')) {
+                // إضافة تأخير تدريجي بين البطاقات
+                setTimeout(() => {
+                    card.classList.add('visible');
+                }, index * 100); // تأخير 100 مللي ثانية لكل بطاقة بالترتيب
+            }
+        });
+    }
+
+    // التحقق من الظهور عند التمرير
+    window.addEventListener('scroll', checkVisibility);
+
+    // التحقق من الظهور عند التحميل
+    setTimeout(checkVisibility, 500);
+
+    // ==== وظائف البحث المحسنة ====
+    const searchInput = document.getElementById('searchWorkshops');
+    const searchResults = document.getElementById('searchResults');
+
+    if (searchInput) {
+        // إضافة معالج حدث input للبحث المباشر
+        searchInput.addEventListener('input', performSearch);
+        
+        // معالجة البحث عند النقر على الزر
+        const searchButton = document.querySelector('.search-button');
+        if (searchButton) {
+            searchButton.addEventListener('click', function() {
+                performSearch();
+            });
+        }
+
+        // منع إرسال النموذج عند الضغط على Enter
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                performSearch();
+            }
+        });
+    }
+
+    // وظيفة البحث الرئيسية
+    function performSearch() {
+        const query = searchInput.value.trim().toLowerCase();
+        let matchCount = 0;
+        
+        // إظهار مؤشر التحميل فقط للبحث غير الفارغ
+        if (query.length > 0) {
+            loadingSpinner.style.display = 'block';
+            
+            // محاكاة الحمل الشبكي مع تأخير صغير
+            setTimeout(() => {
+                // الحصول على جميع بطاقات ورش العمل الحالية
+                const currentWorkshopCards = document.querySelectorAll('.workshop-card');
+                
+                currentWorkshopCards.forEach(card => {
+                    // استخراج البيانات من البطاقة
+                    const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
+                    const category = card.querySelector('.card-tag')?.textContent.toLowerCase() || '';
+                    const description = card.querySelector('.card-desc')?.textContent.toLowerCase() || '';
+                    
+                    // التحقق من تطابق البحث
+                    if (title.includes(query) || category.includes(query) || description.includes(query)) {
+                        card.style.display = 'block'; // إظهار البطاقة المطابقة
+                        matchCount++;
+                    } else {
+                        card.style.display = 'none'; // إخفاء البطاقة غير المطابقة
+                    }
+                });
+                
+                // تحديث مؤشر نتائج البحث
+                if (searchResults) {
+                    if (matchCount > 0) {
+                        searchResults.textContent = `تم العثور على ${matchCount} نتيجة`;
+                        searchResults.style.display = 'block';
+                    } else {
+                        searchResults.textContent = 'لا توجد نتائج مطابقة للبحث';
+                        searchResults.style.display = 'block';
+                    }
+                }
+                
+                // إخفاء مؤشر التحميل بعد اكتمال البحث
+                loadingSpinner.style.display = 'none';
+            }, 300);
+        } else {
+            // إذا كان البحث فارغًا، أظهر جميع البطاقات
+            const currentWorkshopCards = document.querySelectorAll('.workshop-card');
+            currentWorkshopCards.forEach(card => {
+                card.style.display = 'block';
+            });
+            
+            // إخفاء نتائج البحث
+            if (searchResults) {
+                searchResults.textContent = '';
+                searchResults.style.display = 'none';
+            }
+            
+            // إخفاء مؤشر التحميل
+            loadingSpinner.style.display = 'none';
+        }
+    }
+});
+  </script>
+}

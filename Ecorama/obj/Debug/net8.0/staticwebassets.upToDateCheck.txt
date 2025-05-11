@@ -1830,8 +1830,11 @@ wwwroot\Admin\js\demo\chart-pie-demo.js
 wwwroot\Admin\js\demo\datatables-demo.js
 wwwroot\Admin\js\demo\sb-admin-2.min.js
 wwwroot\Admin\js\sb-admin-2.js
+wwwroot\css\course.css
 wwwroot\css\Home.css
+wwwroot\css\lesson.css
 wwwroot\css\site.css
+wwwroot\css\workshop.css
 wwwroot\favicon.ico
 wwwroot\images\pexels-bertellifotografia-2608517.jpg
 wwwroot\images\pexels-fauxels-3183197.jpg
@@ -1849,8 +1852,10 @@ wwwroot\images\slider\6f1a8c97-c7f7-4a51-ada5-4524e77ed883_f2e7f907-095b-47a9-a4
 wwwroot\images\slider\8a22d083-ca98-4f92-92e8-aa323021358d_pexels-bertellifotografia-2608517.jpg
 wwwroot\images\slider\9c54f3e6-eecd-4a34-966b-a6871b8ddef0_pexels-bertellifotografia-2608517.jpg
 wwwroot\images\slider\a639dbc4-28ee-42e6-84ca-a787e3224002_8a22d083-ca98-4f92-92e8-aa323021358d_pexels-bertellifotografia-2608517.jpg
+wwwroot\images\slider\d5850762-cfef-467b-af56-e361c995bb7b_pexels-bertellifotografia-2608517.jpg
 wwwroot\images\slider\eaa2310b-bf4a-45cb-8b58-cf458c9c38b6_pexels-fauxels-3183197.jpg
 wwwroot\images\slider\f2e7f907-095b-47a9-a4c6-f7ed8e7231b4_pexels-zhuhehuai-716276.jpg
+wwwroot\js\course.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

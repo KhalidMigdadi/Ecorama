@@ -20,6 +20,9 @@
 
 
 
+
+
+
 </head>
 @await RenderSectionAsync("Style", required: false)
 <style>
@@ -37,7 +40,6 @@
 			transform: scale(1.05);
 		}
 
-	<style >
 	* {
 		margin: 0;
 		padding: 0;
@@ -53,11 +55,20 @@
 		overflow-x: hidden;
 	}
 
-	.container {
+	.containerHeader {
 		width: 100%;
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 0 20px;
+	}
+
+	.containerFooter {
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+
+
 	}
 
 	/* Header styles */
@@ -70,6 +81,9 @@
 		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 		transition: all 0.3s ease;
 	}
+
+
+
 
 		header.scrolled {
 			background-color: rgba(255, 255, 255, 0.95);
@@ -336,20 +350,20 @@
 <body>
 	<!-- Navbar -->
 	<header>
-		<div class="container">
+		<div class="containerHeader">
 			<nav class="navbar">
 				<a href="#" class="logo"><i class="fas fa-graduation-cap"></i>إيكوراما</a>
 				<ul class="nav-links">
-					<li><a href="#">الرئيسية</a></li>
-					<li><a href="#">الورشات</a></li>
-					<li><a href="#">الكورسات</a></li>
-					<li><a href="#">الشركاء</a></li>
+					<li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
+					<li><a href="@Url.Action("Courses","Course")">الكورسات</a></li>
+					<li><a href="@Url.Action("Workshops","WorkShops")">الورشات</a></li>
+					@* <li><a href="#">الشركاء</a></li> *@
 					<li><a href="#">من نحن</a></li>
 					<li><a href="#">تواصل معنا</a></li>
 				</ul>
 				<div class="auth-buttons">
-					<a href="#" class="login-btn">تسجيل دخول</a>
-					<a href="#" class="signup-btn">إنشاء حساب</a>
+					@* <a  class="login-btn">تسجيل دخول</a> *@
+					<a href="@Url.Action("Register", "Login")" class="signup-btn">تسجيل دخول</a>
 				</div>
 				<div class="hamburger">
 					<span></span>
@@ -359,6 +373,7 @@
 			</nav>
 		</div>
 	</header>
+
 	<main role="main" class="pb-3">
 			@RenderBody()
 	</main>
@@ -366,7 +381,7 @@
 
 	<!-- Footer -->
 	<footer>
-		<div class="container">
+		<div class="containerFooter">
 			<div class="footer-content">
 				<div class="footer-column footer-about">
 					<a href="#" class="footer-logo"><i class="fas fa-graduation-cap"></i>إيكوراما</a>

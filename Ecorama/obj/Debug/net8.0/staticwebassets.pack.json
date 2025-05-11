@@ -7337,8 +7337,20 @@
       "PackagePath": "staticwebassets\\css\\Home.css"
     },
     {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\course.css",
+      "PackagePath": "staticwebassets\\css\\course.css"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\lesson.css",
+      "PackagePath": "staticwebassets\\css\\lesson.css"
+    },
+    {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\workshop.css",
+      "PackagePath": "staticwebassets\\css\\workshop.css"
     },
     {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\favicon.ico",
@@ -7409,12 +7421,20 @@
       "PackagePath": "staticwebassets\\images\\slider\\a639dbc4-28ee-42e6-84ca-a787e3224002_8a22d083-ca98-4f92-92e8-aa323021358d_pexels-bertellifotografia-2608517.jpg"
     },
     {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\d5850762-cfef-467b-af56-e361c995bb7b_pexels-bertellifotografia-2608517.jpg",
+      "PackagePath": "staticwebassets\\images\\slider\\d5850762-cfef-467b-af56-e361c995bb7b_pexels-bertellifotografia-2608517.jpg"
+    },
+    {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\eaa2310b-bf4a-45cb-8b58-cf458c9c38b6_pexels-fauxels-3183197.jpg",
       "PackagePath": "staticwebassets\\images\\slider\\eaa2310b-bf4a-45cb-8b58-cf458c9c38b6_pexels-fauxels-3183197.jpg"
     },
     {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\slider\\f2e7f907-095b-47a9-a4c6-f7ed8e7231b4_pexels-zhuhehuai-716276.jpg",
       "PackagePath": "staticwebassets\\images\\slider\\f2e7f907-095b-47a9-a4c6-f7ed8e7231b4_pexels-zhuhehuai-716276.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\js\\course.js",
+      "PackagePath": "staticwebassets\\js\\course.js"
     },
     {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\js\\site.js",

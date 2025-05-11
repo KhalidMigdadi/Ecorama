@@ -1,0 +1,324 @@
+﻿@{
+	ViewData["Title"] = "courses";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Style {
+	<link href="~/css/course.css" rel="stylesheet" />
+}
+
+
+<section class="headCourses">
+	<div class="header-content">
+		<h1 class="header-title">منصة الكورسات الإبداعية</h1>
+		<p class="header-subtitle">تعلم مهارات جديدة واستكشف عالم المعرفة مع أفضل المدرسين</p>
+		<div class="search-bar">
+			<input type="text" placeholder="ابحث عن كورس أو مهارة...">
+			<button>ابحث</button>
+		</div>
+	</div>
+	<svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+		<path fill="#f5f7fa" fill-opacity="1" d="M0,32L48,48C96,64,192,96,288,96C384,96,480,64,576,48C672,32,768,32,864,48C960,64,1056,96,1152,96C1248,96,1344,64,1392,48L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+	</svg>
+</section>
+
+<!-- Main Content -->
+<main class="container">
+	<h2 class="section-title">استكشف الكورسات</h2>
+
+	<!-- Categories -->
+    <div style="display: none;" class="categories">
+		<div class="category active">الكل</div>
+		<div class="category">تكنولوجيا</div>
+		<div class="category">تصميم</div>
+		<div class="category">لغات</div>
+		<div class="category">أعمال</div>
+		<div class="category">تطوير الذات</div>
+		<div class="category">التسويق</div>
+		<div class="category">الصحة</div>
+	</div>
+
+	<!-- Courses Grid -->
+	<div class="courses-grid">
+		<!-- Course Card 1 -->
+		<div class="course-card">
+			<img src="" alt="تصميم المواقع" class="course-image">
+			<div class="course-content">
+				<span class="course-tag">تكنولوجيا</span>
+				<h3 class="course-title">تطوير المواقع بتقنية HTML & CSS</h3>
+				<div class="course-info">
+					<span>١٨ ساعة</span>
+					<div class="rating">★★★★★ <span>4.9</span></div>
+				</div>
+				<div class="course-footer">
+					<span class="course-price">$٩٩</span>
+                    <a href="@Url.Action("Lessons","Course")" class="enroll-btn">سجل الآن</a>
+                </div>
+			</div>
+		</div>
+
+		<!-- Course Card 2 -->
+		<div class="course-card">
+			<img src="/online-education-website-template/img/courses-2.jpg" alt="تصميم الجرافيك" class="course-image">
+			<div class="course-content">
+				<span class="course-tag">تصميم</span>
+				<h3 class="course-title">أساسيات التصميم الجرافيكي للمبتدئين</h3>
+				<div class="course-info">
+					<span>١٥ ساعة</span>
+					<div class="rating">★★★★☆ <span>4.7</span></div>
+				</div>
+				<div class="course-footer">
+					<span class="course-price">$٨٩</span>
+                    <a href="@Url.Action("Lessons","Course")" class="enroll-btn">سجل الآن</a>
+                </div>
+			</div>
+		</div>
+
+		<!-- Course Card 3 -->
+		<div class="course-card">
+			<img src="/api/placeholder/400/320" alt="تعلم اللغة الإنجليزية" class="course-image">
+			<div class="course-content">
+				<span class="course-tag">لغات</span>
+				<h3 class="course-title">اللغة الإنجليزية للمحادثة اليومية</h3>
+				<div class="course-info">
+					<span>٢٢ ساعة</span>
+					<div class="rating">★★★★★ <span>5.0</span></div>
+				</div>
+				<div class="course-footer">
+					<span class="course-price">$١١٩</span>
+                    <a href="@Url.Action("Lessons","Course")" class="enroll-btn">سجل الآن</a>
+                </div>
+			</div>
+		</div>
+
+		<!-- Course Card 4 -->
+		<div class="course-card">
+			<img src="/api/placeholder/400/320" alt="إدارة المشاريع" class="course-image">
+			<div class="course-content">
+				<span class="course-tag">أعمال</span>
+				<h3 class="course-title">إدارة المشاريع الاحترافية</h3>
+				<div class="course-info">
+					<span>٢٤ ساعة</span>
+					<div class="rating">★★★★☆ <span>4.8</span></div>
+				</div>
+				<div class="course-footer">
+					<span class="course-price">$١٤٩</span>
+					<a href="@Url.Action("Lessons","Course")" class="enroll-btn">سجل الآن</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Course Card 5 -->
+		<div class="course-card">
+			<img src="/api/placeholder/400/320" alt="تسويق إلكتروني" class="course-image">
+			<div class="course-content">
+				<span class="course-tag">التسويق</span>
+				<h3 class="course-title">أساسيات التسويق الرقمي</h3>
+				<div class="course-info">
+					<span>١٦ ساعة</span>
+					<div class="rating">★★★★☆ <span>4.6</span></div>
+				</div>
+				<div class="course-footer">
+					<span class="course-price">$٧٩</span>
+                    <a href="@Url.Action("Lessons","Course")" class="enroll-btn">سجل الآن</a>
+                </div>
+			</div>
+		</div>
+
+		<!-- Course Card 6 -->
+		<div class="course-card">
+			<img src="/api/placeholder/400/320" alt="برمجة بايثون" class="course-image">
+			<div class="course-content">
+				<span class="course-tag">تكنولوجيا</span>
+				<h3 class="course-title">لغة البرمجة بايثون للمبتدئين</h3>
+				<div class="course-info">
+					<span>٢٠ ساعة</span>
+					<div class="rating">★★★★★ <span>4.9</span></div>
+				</div>
+				<div class="course-footer">
+					<span class="course-price">$١٠٩</span>
+                    <a href="@Url.Action("Lessons","Course")" class="enroll-btn">سجل الآن</a>
+                </div>
+			</div>
+		</div>
+	</div>
+</main>
+
+@section Scripts {
+	<script>
+                document.addEventListener('DOMContentLoaded', function() {
+            // Category selection
+            const categories = document.querySelectorAll('.category');
+            const courseCards = document.querySelectorAll('.course-card');
+            const allCourseData = [];
+
+            // تخزين بيانات الكورسات الأصلية للبحث
+            courseCards.forEach(card => {
+                allCourseData.push({
+                    element: card,
+                    title: card.querySelector('.course-title').textContent.toLowerCase(),
+                    category: card.querySelector('.course-tag').textContent.toLowerCase(),
+                    visible: true
+                });
+            });
+
+            // إضافة تفاعلات الفئات
+            categories.forEach(category => {
+                category.addEventListener('click', function() {
+                    // إزالة الفئة النشطة من جميع الفئات
+                    categories.forEach(cat => cat.classList.remove('active'));
+
+                    // إضافة الفئة النشطة للفئة المنقورة
+                    this.classList.add('active');
+
+                    const selectedCategory = this.textContent.trim();
+
+                    // تصفية الكورسات حسب الفئة
+                    filterCourses(selectedCategory);
+                });
+            });
+
+            // دالة تصفية الكورسات حسب الفئة
+            function filterCourses(category) {
+                courseCards.forEach((card, index) => {
+                    const cardCategory = card.querySelector('.course-tag').textContent;
+
+                    // تطبيق تأثير الرسوم المتحركة
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(30px)';
+
+                    setTimeout(() => {
+                        // إظهار جميع الكورسات أو تصفية حسب الفئة
+                        if (category === 'الكل' || cardCategory === category) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }, 100);
+                });
+            }
+
+            // تحسين تفاعلات شريط البحث
+            const searchInput = document.querySelector('.search-bar input');
+            const searchButton = document.querySelector('.search-bar button');
+
+            // تفاعلات واجهة المستخدم للبحث
+            searchInput.addEventListener('focus', function() {
+                this.parentElement.style.boxShadow = '0 4px 20px rgba(67, 97, 238, 0.3)';
+            });
+
+            searchInput.addEventListener('blur', function() {
+                this.parentElement.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
+            });
+
+            searchButton.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+
+            searchButton.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+
+            // إضافة وظيفة البحث
+            // إضافة معالج نقر لزر البحث
+            searchButton.addEventListener('click', function() {
+                performSearch();
+            });
+
+            // إضافة معالج للضغط على مفتاح الإدخال
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    performSearch();
+                }
+            });
+
+            // إضافة معالج للبحث المباشر أثناء الكتابة (اختياري)
+            searchInput.addEventListener('input', function() {
+                // للبحث المباشر، نعلق على سلسلة البحث الطويلة للتحسين
+                clearTimeout(searchInput.searchTimeout);
+                searchInput.searchTimeout = setTimeout(() => {
+                    performSearch();
+                }, 300);
+            });
+
+            // دالة تنفيذ البحث
+            function performSearch() {
+                const query = searchInput.value.trim().toLowerCase();
+
+                // إعادة تعيين الفئة النشطة إلى 'الكل' أثناء البحث
+                if (query) {
+                    categories.forEach(cat => cat.classList.remove('active'));
+                    categories[0].classList.add('active'); // 'الكل' هي الفئة الأولى
+                }
+
+                // تصفية الكورسات حسب الاستعلام
+                let hasResults = false;
+
+                courseCards.forEach((card, index) => {
+                    const cardTitle = card.querySelector('.course-title').textContent.toLowerCase();
+                    const cardCategory = card.querySelector('.course-tag').textContent.toLowerCase();
+
+                    // تطبيق تأثير الرسوم المتحركة
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(30px)';
+
+                    setTimeout(() => {
+                        // التحقق إذا كان النص موجود في العنوان أو الفئة
+                        if (!query || cardTitle.includes(query) || cardCategory.includes(query)) {
+                            card.style.display = 'block';
+                            hasResults = true;
+
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }, index * 50);
+                });
+
+                // عرض رسالة إذا لم تكن هناك نتائج (يمكن إضافة عنصر في HTML للرسالة)
+                const noResultsMessage = document.querySelector('.no-results-message') || createNoResultsMessage();
+
+                setTimeout(() => {
+                    let visibleCount = 0;
+                    courseCards.forEach(card => {
+                        if (card.style.display !== 'none') {
+                            visibleCount++;
+                        }
+                    });
+
+                    if (query && visibleCount === 0) {
+                        noResultsMessage.style.display = 'block';
+                        noResultsMessage.textContent = `لا توجد نتائج مطابقة لـ "${query}"`;
+                    } else {
+                        noResultsMessage.style.display = 'none';
+                    }
+                }, courseCards.length * 50 + 100);
+            }
+
+            // إنشاء عنصر لعرض رسالة عدم وجود نتائج
+            function createNoResultsMessage() {
+                const message = document.createElement('div');
+                message.className = 'no-results-message';
+                message.style.textAlign = 'center';
+                message.style.padding = '2rem';
+                message.style.color = '#666';
+                message.style.fontWeight = 'bold';
+                message.style.display = 'none';
+
+                const coursesGrid = document.querySelector('.courses-grid');
+                coursesGrid.parentNode.insertBefore(message, coursesGrid.nextSibling);
+
+                return message;
+            }
+        });
+	</script>
+}

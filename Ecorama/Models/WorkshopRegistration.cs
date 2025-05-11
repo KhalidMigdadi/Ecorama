@@ -23,8 +23,6 @@ public partial class WorkshopRegistration
 
     public DateTime? RegisteredAt { get; set; }
 
-    public DateTime RegistrationDate { get; set; }
-
     public virtual User? User { get; set; }
 
     public virtual Workshop? Workshop { get; set; }

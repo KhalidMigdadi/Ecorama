@@ -8,5 +8,19 @@ namespace Ecorama.Controllers
         {
             return View();
         }
+
+
+
+
+
+
+
+        public IActionResult Lessons()
+        {
+            return View();
+        }
+
+
+
     }
 }

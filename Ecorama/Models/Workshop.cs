@@ -20,4 +20,6 @@ public partial class Workshop
     public bool IsActive { get; set; }
 
     public virtual ICollection<UserCourseSubscription> UserCourseSubscriptions { get; set; } = new List<UserCourseSubscription>();
+
+    public virtual ICollection<WorkshopRegistration> WorkshopRegistrations { get; set; } = new List<WorkshopRegistration>();
 }

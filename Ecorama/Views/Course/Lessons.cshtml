@@ -1,0 +1,141 @@
+﻿
+@{
+    ViewData["Title"] = "Lessons";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@section Style {
+    <link href="~/css/lesson.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+}
+
+
+
+<section class="course-header">
+    <h1>أساسيات البرمجة للمبتدئين</h1>
+    <p>هذا الكورس سيأخذك من الصفر إلى الاحتراف في عالم البرمجة مع مشاريع عملية وتطبيقات حقيقية</p>
+    <div class="progress-container">
+        <div class="progress-bar" style="width: 30%;"></div>
+    </div>
+</section>
+
+<div class="container">
+    <a href="courses.html" class="back-to-courses">
+        <i class="fas fa-arrow-right"></i> العودة إلى الكورسات
+    </a>
+
+    <div class="lessons-container">
+        <!-- درس 1 -->
+        <div class="lesson-card" style="animation-delay: 0.1s;">
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank" class="youtube-link">
+                <div class="youtube-thumbnail">
+                    <img src="https://img.youtube.com/vi/VIDEO_ID_1/maxresdefault.jpg" alt="الدرس الأول">
+                    <div class="youtube-play-btn">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <span class="lesson-duration">15:30</span>
+                </div>
+            </a>
+            <div class="lesson-content">
+                <h3>المقدمة وأساسيات البرمجة</h3>
+                <p>في هذا الدرس سنتعرف على مفاهيم البرمجة الأساسية وأهم المصطلحات التي تحتاج لمعرفتها.</p>
+                <div class="lesson-meta">
+                    <span><i class="far fa-play-circle"></i> 1/24</span>
+                    <span class="lesson-completed"><i class="fas fa-check-circle"></i> مكتمل</span>
+                </div>
+                <a href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank" class="btn" style="width: 100%; text-align: center; margin-top: 10px;">
+                    شاهد على يوتيوب
+                </a>
+            </div>
+        </div>
+
+        <!-- درس 2 -->
+        <div class="lesson-card" style="animation-delay: 0.2s;">
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank" class="youtube-link">
+                <div class="youtube-thumbnail">
+                    <img src="https://img.youtube.com/vi/VIDEO_ID_2/maxresdefault.jpg" alt="الدرس الثاني">
+                    <div class="youtube-play-btn">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <span class="lesson-duration">22:45</span>
+                </div>
+            </a>
+            <div class="lesson-content">
+                <h3>أنواع البيانات والمتغيرات</h3>
+                <p>تعلم كيفية تخزين البيانات في البرامج واستخدام المتغيرات بكفاءة.</p>
+                <div class="lesson-meta">
+                    <span><i class="far fa-play-circle"></i> 2/24</span>
+                    <span><i class="far fa-clock"></i> غير مكتمل</span>
+                </div>
+                <a href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank" class="btn" style="width: 100%; text-align: center; margin-top: 10px;">
+                    شاهد على يوتيوب
+                </a>
+            </div>
+        </div>
+
+        <!-- درس 3 -->
+        <div class="lesson-card" style="animation-delay: 0.3s;">
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID_3" target="_blank" class="youtube-link">
+                <div class="youtube-thumbnail">
+                    <img src="https://img.youtube.com/vi/VIDEO_ID_3/maxresdefault.jpg" alt="الدرس الثالث">
+                    <div class="youtube-play-btn">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <span class="lesson-duration">18:20</span>
+                </div>
+            </a>
+            <div class="lesson-content">
+                <h3>الجمل الشرطية والتفرع</h3>
+                <p>كيفية جعل البرنامج يتخذ قرارات بناء على شروط معينة.</p>
+                <div class="lesson-meta">
+                    <span><i class="far fa-play-circle"></i> 3/24</span>
+                    <span><i class="far fa-clock"></i> غير مكتمل</span>
+                </div>
+                <a href="https://www.youtube.com/watch?v=VIDEO_ID_3" target="_blank" class="btn" style="width: 100%; text-align: center; margin-top: 10px;">
+                    شاهد على يوتيوب
+                </a>
+            </div>
+        </div>
+
+        <!-- يمكنك إضافة المزيد من الدروس هنا -->
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        // جعل الكروت تظهر واحدة تلو الأخرى
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.lesson-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+
+            // إضافة تأثير عند التمرير
+            window.addEventListener('scroll', function() {
+                cards.forEach(card => {
+                    const cardPosition = card.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+
+                    if (cardPosition < screenPosition) {
+                        card.style.animation = 'fadeInUp 0.5s ease forwards';
+                    }
+                });
+            });
+
+            // تحديث شريط التقدم عند مشاهدة الدروس
+            function updateProgress() {
+                const completedLessons = document.querySelectorAll('.lesson-completed').length;
+                const totalLessons = document.querySelectorAll('.lesson-card').length;
+                const progressPercentage = (completedLessons / totalLessons) * 100;
+
+                document.querySelector('.progress-bar').style.width = `${progressPercentage}%`;
+            }
+
+            // يمكنك استدعاء updateProgress() عند اكتمال مشاهدة درس
+        });
+    </script>
+}

@@ -1,0 +1,874 @@
+﻿@model Ecorama.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Style {
+    <style>
+        /* تعديل إعدادات الصفحة الرئيسية */
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* منع التمرير العام */
+            background-color: #f5f5f5;
+        }
+
+
+        /* إخفاء الهيدر والفوتر للصفحة الكاملة */
+        header {
+            display: none;
+        }
+
+        footer {
+            display: none;
+        }
+
+        /* تعديل الحاوية الرئيسية لتأخذ عرض الشاشة كاملاً */
+        .main-wrapper {
+            width: 100vw; /* بدل 100% لو كان في مشاكل */
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+
+        .container {
+            display: flex;
+            flex-direction: row-reverse; /* للتخطيط من اليمين إلى اليسار */
+            width: 100%;
+            height: 100%;
+            max-height: 100vh;
+            background-color: #fff;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin: 0;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        .image-side {
+            width: 40%;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 100%;
+            background: url('/images/pexels-bertellifotografia-2608517.jpg') no-repeat center;
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .form-side {
+            width: 60%;
+            height: 100%;
+            padding: 2rem 4rem;
+            overflow-y: auto;
+            background-color: #fff;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-top: 1rem;
+        }
+
+            .logo h1 {
+                color: #04b6a4;
+                font-size: 2.5rem;
+                font-weight: 700;
+            }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #444;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background-color: #f9f9f9;
+        }
+
+            input:focus, select:focus {
+                border-color: #04b6a4;
+                outline: none;
+                background-color: #fff;
+                box-shadow: 0 0 0 4px rgba(4, 182, 164, 0.1);
+            }
+
+        .row {
+            display: flex;
+            gap: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .col {
+            flex: 1;
+        }
+
+        .language-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+            .language-item select {
+                flex: 1;
+            }
+
+        .add-language {
+            background-color: transparent;
+            color: #04b6a4;
+            border: 1px solid #04b6a4;
+            padding: 0.7rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+        }
+
+            .add-language:hover {
+                background-color: rgba(4, 182, 164, 0.1);
+                transform: translateY(-2px);
+            }
+
+            .add-language::before {
+                content: "+";
+                margin-left: 0.5rem;
+                font-size: 1.3rem;
+                font-weight: bold;
+            }
+
+        .remove-language {
+            background-color: transparent;
+            color: #ff4d4f;
+            border: none;
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+            .remove-language:hover {
+                background-color: rgba(255, 77, 79, 0.1);
+                transform: scale(1.1);
+            }
+
+        .submit-btn {
+            background-color: #04b6a4;
+            color: white;
+            border: none;
+            padding: 1.2rem;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(4, 182, 164, 0.2);
+        }
+
+            .submit-btn:hover {
+                background-color: #039d8d;
+                transform: translateY(-3px);
+                box-shadow: 0 6px 12px rgba(4, 182, 164, 0.3);
+            }
+
+        .form-divider {
+            margin: 2rem 0;
+            border-top: 1px solid #eee;
+        }
+
+        .section-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+            padding-right: 1rem;
+        }
+
+            .section-title::before {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 4px;
+                height: 20px;
+                background-color: #04b6a4;
+                border-radius: 2px;
+            }
+
+        /* تعديلات للشاشات المتوسطة */
+        @@media (max-width: 992px) {
+            .form-side {
+                padding: 2rem;
+            }
+        }
+
+        /* تعديلات للشاشات الصغيرة */
+        @@media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .image-side {
+                width: 100%;
+                height: 200px;
+            }
+
+            .form-side {
+                width: 100%;
+                padding: 1.5rem;
+            }
+
+            .row {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logo h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        .pb-3 {
+            padding: 0px !important;
+            margin: 0px !important;
+        }
+
+        .validation-summary-errors {
+            color: #dc3545;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+            .validation-summary-errors ul {
+                margin: 0;
+                padding-right: 20px;
+            }
+
+        .field-validation-error {
+            color: #dc3545;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .input-validation-error {
+            border-color: #dc3545;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+            .login-link a {
+                color: #04b6a4;
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+                .login-link a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+}
+
+<div class="main-wrapper">
+    <div class="container">
+        <div class="image-side">
+            <div class="image-container"></div>
+        </div>
+        <div class="form-side">
+            <div class="logo">
+                <h1>إيكوراما</h1>
+            </div>
+            <h2>إنشاء حساب جديد</h2>
+
+            <div asp-validation-summary="All" class="validation-summary-errors"></div>
+
+            <form asp-action="Register" asp-controller="Login" method="post">
+                <div class="section-title">المعلومات الشخصية</div>
+
+                <!-- الاسم الأول والوسط والأخير -->
+                <div class="row">
+                    <div class="col form-group">
+                        <label asp-for="FirstName">الاسم الأول</label>
+                        <input asp-for="FirstName" placeholder="أدخل الاسم الأول" required>
+                        <span asp-validation-for="FirstName" class="field-validation-error"></span>
+                    </div>
+                    <div class="col form-group">
+                        <label asp-for="MiddleName">الاسم الأوسط</label>
+                        <input asp-for="MiddleName" placeholder="أدخل الاسم الأوسط">
+                        <span asp-validation-for="MiddleName" class="field-validation-error"></span>
+                    </div>
+                    <div class="col form-group">
+                        <label asp-for="LastName">الاسم الأخير</label>
+                        <input asp-for="LastName" placeholder="أدخل الاسم الأخير" required>
+                        <span asp-validation-for="LastName" class="field-validation-error"></span>
+                    </div>
+                </div>
+
+                <!-- البريد الإلكتروني -->
+                <div class="form-group">
+                    <label asp-for="Email">البريد الإلكتروني</label>
+                    <input asp-for="Email" placeholder="أدخل البريد الإلكتروني" required>
+                    <span asp-validation-for="Email" class="field-validation-error"></span>
+                </div>
+
+                <!-- كلمة المرور -->
+                <div class="form-group">
+                    <label asp-for="Password">كلمة المرور</label>
+                    <input asp-for="Password" type="password" placeholder="أدخل كلمة المرور" required>
+                    <span asp-validation-for="Password" class="field-validation-error"></span>
+                </div>
+
+                <!-- تأكيد كلمة المرور -->
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword">تأكيد كلمة المرور</label>
+                    <input asp-for="ConfirmPassword" type="password" placeholder="أعد إدخال كلمة المرور" required>
+                    <span asp-validation-for="ConfirmPassword" class="field-validation-error"></span>
+                </div>
+
+                <!-- رقم الهاتف -->
+                <div class="form-group">
+                    <label asp-for="PhoneNumber">رقم الهاتف</label>
+                    <input asp-for="PhoneNumber" placeholder="أدخل رقم الهاتف" required>
+                    <span asp-validation-for="PhoneNumber" class="field-validation-error"></span>
+                </div>
+
+                <div class="row">
+                    <!-- الجنس -->
+                    <div class="col form-group">
+                        <label asp-for="Gender">الجنس</label>
+                        <select asp-for="Gender" required>
+                            <option value="" disabled selected>اختر الجنس</option>
+                            <option value="ذكر">ذكر</option>
+                            <option value="أنثى">أنثى</option>
+                        </select>
+                        <span asp-validation-for="Gender" class="field-validation-error"></span>
+                    </div>
+
+                    <!-- تاريخ الولادة -->
+                    <div class="col form-group">
+                        <label asp-for="Birthdate">تاريخ الولادة</label>
+                        <input asp-for="Birthdate" type="date" required>
+                        <span asp-validation-for="Birthdate" class="field-validation-error"></span>
+                    </div>
+                </div>
+
+                <!-- الرقم الوطني -->
+                <div class="form-group">
+                    <label asp-for="NationalId">الرقم الوطني</label>
+                    <input asp-for="NationalId" placeholder="أدخل الرقم الوطني" required>
+                    <span asp-validation-for="NationalId" class="field-validation-error"></span>
+                </div>
+
+                <!-- مكان السكن -->
+                <div class="form-group">
+                    <label asp-for="Governorate">المحافظة</label>
+                    <select asp-for="Governorate" asp-items="ViewBag.Governorates" class="form-control" required>
+                        <option value="">اختر المحافظة</option>
+                    </select>
+                    <span asp-validation-for="Governorate" class="field-validation-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="District">اللواء</label>
+                    <select asp-for="District" class="form-control" required>
+                        <option value="">اختر اللواء</option>
+                    </select>
+                    <span asp-validation-for="District" class="field-validation-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Village">البلدة / القرية</label>
+                    <input asp-for="Village" class="form-control" placeholder="أدخل اسم البلدة / القرية" required>
+                    <span asp-validation-for="Village" class="field-validation-error"></span>
+                </div>
+
+                @* <div class="form-group" id="customVillageGroup" style="display: none;">
+                    <label asp-for="CustomVillage">اسم البلدة</label>
+                    <input asp-for="CustomVillage" class="form-control" placeholder="أدخل اسم البلدة">
+                    <span asp-validation-for="CustomVillage" class="field-validation-error"></span>
+                </div> *@
+
+                <div class="form-divider"></div>
+                <div class="section-title">المعلومات التعليمية والمهارات</div>
+
+                <!-- مستوى التعليم -->
+                <div class="form-group">
+                    <label asp-for="EducationLevel">مستوى التعليم</label>
+                    <select asp-for="EducationLevel" asp-items="ViewBag.EducationLevels" required>
+                        <option value="" disabled selected>اختر مستوى التعليم</option>
+                    </select>
+                    <span asp-validation-for="EducationLevel" class="field-validation-error"></span>
+                </div>
+
+                <!-- نوع البرنامج -->
+                <div class="form-group">
+                    <label asp-for="ProgramType">نوع البرنامج</label>
+                    <select asp-for="ProgramType" asp-items="ViewBag.ProgramTypes" required>
+                        <option value="" disabled selected>اختر نوع البرنامج</option>
+                    </select>
+                    <span asp-validation-for="ProgramType" class="field-validation-error"></span>
+                </div>
+
+                <!-- اللغات -->
+                <div class="form-group">
+                    <label>اللغات التي تتحدثها</label>
+                    <div id="languages-container">
+                        <div class="language-item">
+                            <select name="Languages[0].LanguageName" class="language-select" required onchange="languageChange(this)">
+                                <option value="" disabled selected>اختر اللغة</option>
+                                @foreach (var language in ViewBag.Languages)
+                                {
+                                    <option value="@language.Text">@language.Text</option>
+                                }
+                                <option value="أخرى">أخرى</option>
+                            </select>
+                            <select name="Languages[0].ProficiencyLevel" class="proficiency-select" required>
+                                <option value="" disabled selected>مستوى الإتقان</option>
+                                @foreach (var level in ViewBag.ProficiencyLevels)
+                                {
+                                    <option value="@level.Text">@level.Text</option>
+                                }
+                            </select>
+                            <input type="text" name="Languages[0].CustomLanguageName" class="other-language-input" placeholder="أدخل اسم اللغة" style="display: none; width: 30%;" />
+                            <button type="button" class="remove-language" onclick="removeLanguage(this)">×</button>
+                        </div>
+                    </div>
+                    <button type="button" class="add-language" onclick="addLanguage()" disabled>إضافة لغة أخرى</button>
+                </div>
+
+                <button type="submit" class="submit-btn">إنشاء الحساب</button>
+
+                <div class="login-link">
+                    هل لديك حساب بالفعل؟ <a asp-action="Login" asp-controller="Login">تسجيل الدخول</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        let languageCounter = 1;
+
+        function addLanguage() {
+            const container = document.getElementById('languages-container');
+            const newItem = document.createElement('div');
+            newItem.className = 'language-item';
+
+            const languageOptions = [];
+        @foreach (var language in ViewBag.Languages)
+        {
+            @:languageOptions.push('<option value="@language.Text">@language.Text</option>');
+        }
+
+            const proficiencyOptions = [];
+        @foreach (var level in ViewBag.ProficiencyLevels)
+        {
+            @:proficiencyOptions.push('<option value="@level.Text">@level.Text</option>');
+        }
+
+            newItem.innerHTML = `
+                <select name="Languages[${languageCounter}].LanguageName" class="language-select" required onchange="languageChange(this)">
+                    <option value="" disabled selected>اختر اللغة</option>
+                    ${languageOptions.join('')}
+                    <option value="أخرى">أخرى</option>
+                </select>
+                <select name="Languages[${languageCounter}].ProficiencyLevel" class="proficiency-select" required>
+                    <option value="" disabled selected>مستوى الإتقان</option>
+                    ${proficiencyOptions.join('')}
+                </select>
+                <input type="text" name="Languages[${languageCounter}].CustomLanguageName" class="other-language-input" placeholder="أدخل اسم اللغة" style="display: none;" />
+                <button type="button" class="remove-language" onclick="removeLanguage(this)">×</button>
+            `;
+            container.appendChild(newItem);
+            languageCounter++;
+            checkLanguages();
+        }
+
+        function removeLanguage(button) {
+            const container = document.getElementById('languages-container');
+            if (container.children.length > 1) {
+                button.parentElement.remove();
+                reindexLanguages();
+            }
+            checkLanguages();
+        }
+
+        function reindexLanguages() {
+            const container = document.getElementById('languages-container');
+            const items = container.querySelectorAll('.language-item');
+
+            items.forEach((item, index) => {
+                const languageSelect = item.querySelector('.language-select');
+                const proficiencySelect = item.querySelector('.proficiency-select');
+                const customInput = item.querySelector('.other-language-input');
+
+                languageSelect.name = `Languages[${index}].LanguageName`;
+                proficiencySelect.name = `Languages[${index}].ProficiencyLevel`;
+                customInput.name = `Languages[${index}].CustomLanguageName`;
+            });
+
+            languageCounter = items.length;
+        }
+
+        function languageChange(selectElement) {
+            const otherInput = selectElement.parentElement.querySelector('.other-language-input');
+
+            if (selectElement.value === 'أخرى') {
+                otherInput.style.display = 'block';
+                otherInput.setAttribute('required', 'required');
+            } else {
+                otherInput.style.display = 'none';
+                otherInput.removeAttribute('required');
+            }
+
+            checkLanguages();
+        }
+
+        function checkLanguages() {
+            const languageSelects = document.querySelectorAll('.language-select');
+            const proficiencySelects = document.querySelectorAll('.proficiency-select');
+            const addButton = document.querySelector('.add-language');
+
+            let canAddLanguage = true;
+
+            for (let i = 0; i < languageSelects.length; i++) {
+                const languageSelected = languageSelects[i].value;
+                const proficiencySelected = proficiencySelects[i].value;
+
+                if (!languageSelected || !proficiencySelected) {
+                    canAddLanguage = false;
+                    break;
+                }
+            }
+
+            addButton.disabled = !canAddLanguage;
+        }
+
+        // تحميل البيانات من الخادم حسب الاختيارات
+        document.addEventListener('DOMContentLoaded', function() {
+         const governorateSelect = document.getElementById('Governorate');
+         const districtSelect = document.getElementById('District');
+
+         // عند تغيير المحافظة، تحميل الألوية المناسبة
+         governorateSelect.addEventListener('change', function() {
+             const governorate = this.value;
+             districtSelect.innerHTML = '<option value="">اختر اللواء</option>';
+
+             if (governorate) {
+                 fetch(`/api/Login/GetDistricts?governorate=${encodeURIComponent(governorate)}`)
+                     .then(response => response.json())
+                     .then(data => {
+                         data.forEach(district => {
+                             const option = document.createElement('option');
+                             option.value = district.name;
+                             option.textContent = district.name;
+                             districtSelect.appendChild(option);
+                         });
+                         districtSelect.disabled = false;
+                     })
+                     .catch(error => console.error('Error loading districts:', error));
+             } else {
+                 districtSelect.disabled = true;
+             }
+         });
+
+        //         document.addEventListener('DOMContentLoaded', function() {
+        //     let languageCounter = 1;
+
+        //     // Define the available data
+        //     const districtsByGovernorate = {
+        //         'إربد': [
+        //             { name: "قصبة إربد", villages: ["مدينة إربد", "بيت راس", "النعيمة", "حواره", "ايدون", "زبدة الوسطية", "كفر جايز", "مرو", "بشرى", "النعيمة", "سال", "كفر يوبا", "منطقة البترا", "بليلا", "زبدا", "حي النزهة", "حي الهاشمي", "حي الروضة", "منطقة البارحة"] },
+        //             { name: "الكورة", villages: ["دير أبي سعيد", "جديتا", "كفر الماء", "كفر راكب", "جفين", "كفر عوان", "عين جنا", "الأشرفية", "جحفية", "بيت إيدس", "كفر كيفيا", "كفر أبيل", "جفنا", "مندح", "مرحبا"] },
+        //             { name: "بني كنانة", villages: ["سما الروسان", "حرثا", "خرجا", "ملكا", "سموع", "عقربا", "حبقا", "حاتم", "أم قيس", "يبلا", "زوبيا", "سحم", "الصريح", "الرفيد", "كفر سوم"] },
+        //             { name: "الرمثا", villages: ["الرمثا", "الشجرة", "الطره", "البويضة", "ذنيبة"] },
+        //             { name: "الطيبة", villages: ["الطيبة", "صما", "زحر", "دير السعنة", "جحفية", "جرم", "ملكا", "كفر أسد"] },
+        //             { name: "الوسطية", villages: ["كفر أسد", "حوفا الوسطية", "دير يوسف", "كفرعان", "زمال", "كفر رحتا", "كفر أبيل"] },
+        //             { name: "بني عبيد", villages: ["الحصن", "إيدون", "صيدور", "حوارة", "زحر", "دوقرة", "صما", "بيت يافا", "حوفا"] },
+        //             { name: "المزار الشمالي", villages: ["المزار الشمالي", "جديتا", "دير السعنة", "سمر", "أم الجدايل", "حور", "المغير", "سموع", "جمحا", "فوعرا", "عنبة"] },
+        //             { name: "الأغوار الشمالية", villages: ["الشونة الشمالية", "وقاص", "سليخات", "العدسية", "كريمة", "أبو سيدو", "الباقورة", "المشارع", "وادي العرب", "الشيخ حسين", "الزمالية", "المنشية"] }
+        //         ]
+        //         // يمكن إضافة المزيد من المحافظات هنا
+        //     };
+
+        //     const governorateSelect = document.getElementById('Governorate');
+        //     const districtSelect = document.getElementById('District');
+        //     const villageSelect = document.getElementById('Village');
+        //     const customVillageGroup = document.getElementById('customVillageGroup');
+        //     const customVillageInput = document.getElementById('CustomVillage');
+
+        //     // تحميل الألوية عند تغيير المحافظة
+        //     governorateSelect.addEventListener('change', function() {
+        //         const governorate = this.value;
+        //         districtSelect.innerHTML = '<option value="">اختر اللواء</option>';
+        //         villageSelect.innerHTML = '<option value="">اختر البلدة</option>';
+
+        //         villageSelect.disabled = true;
+        //         customVillageGroup.style.display = 'none';
+        //         customVillageInput.value = '';
+        //         customVillageInput.removeAttribute('required');
+
+        //         if (governorate && districtsByGovernorate[governorate]) {
+        //             districtsByGovernorate[governorate].forEach(district => {
+        //                 const option = document.createElement('option');
+        //                 option.value = district.name;
+        //                 option.textContent = district.name;
+        //                 districtSelect.appendChild(option);
+        //             });
+        //             districtSelect.disabled = false;
+        //         } else {
+        //             districtSelect.disabled = true;
+        //         }
+        //     });
+
+        //     // تحميل القرى عند تغيير اللواء
+        //     districtSelect.addEventListener('change', function() {
+        //         const governorate = governorateSelect.value;
+        //         const selectedDistrict = this.value;
+        //         villageSelect.innerHTML = '<option value="">اختر البلدة</option>';
+
+        //         customVillageGroup.style.display = 'none';
+        //         customVillageInput.value = '';
+        //         customVillageInput.removeAttribute('required');
+
+        //         if (selectedDistrict && governorate && districtsByGovernorate[governorate]) {
+        //             const districtData = districtsByGovernorate[governorate].find(d => d.name === selectedDistrict);
+        //             if (districtData) {
+        //                 districtData.villages.forEach(village => {
+        //                     const option = document.createElement('option');
+        //                     option.value = village;
+        //                     option.textContent = village;
+        //                     villageSelect.appendChild(option);
+        //                 });
+
+        //                 // إضافة خيار "أخرى"
+        //                 const otherOption = document.createElement('option');
+        //                 otherOption.value = 'أخرى';
+        //                 otherOption.textContent = 'أخرى';
+        //                 villageSelect.appendChild(otherOption);
+
+        //                 villageSelect.disabled = false;
+        //             }
+        //         }
+        //     });
+
+        //     // عند اختيار "أخرى" في البلدة
+        //     villageSelect.addEventListener('change', function() {
+        //         if (this.value === 'أخرى') {
+        //             customVillageGroup.style.display = 'block';
+        //             customVillageInput.setAttribute('required', 'required');
+        //         } else {
+        //             customVillageGroup.style.display = 'none';
+        //             customVillageInput.removeAttribute('required');
+        //             customVillageInput.value = '';
+        //         }
+        //     });
+
+        //     // --- Functions for language selection ---
+
+        //     // إضافة لغة جديدة
+        //     window.addLanguage = function() {
+        //         const container = document.getElementById('languages-container');
+        //         const newItem = document.createElement('div');
+        //         newItem.className = 'language-item';
+
+        //         const languageOptions = [];
+        //         // Generate language options from the ViewBag.Languages
+        //         const languages = document.querySelector('.language-select').getElementsByTagName('option');
+        //         for (let i = 0; i < languages.length; i++) {
+        //             if (languages[i].value !== '') {
+        //                 languageOptions.push(`<option value="${languages[i].value}">${languages[i].textContent}</option>`);
+        //             }
+        //         }
+
+        //         const proficiencyLevels = [];
+        //         // Generate proficiency levels from the ViewBag.ProficiencyLevels
+        //         const levels = document.querySelector('.proficiency-select').getElementsByTagName('option');
+        //         for (let i = 0; i < levels.length; i++) {
+        //             if (levels[i].value !== '') {
+        //                 proficiencyLevels.push(`<option value="${levels[i].value}">${levels[i].textContent}</option>`);
+        //             }
+        //         }
+
+        //         newItem.innerHTML = `
+        //             <select name="Languages[${languageCounter}].LanguageName" class="language-select" required onchange="languageChange(this)">
+        //                 <option value="" disabled selected>اختر اللغة</option>
+        //                 ${languageOptions.join('')}
+        //             </select>
+        //             <select name="Languages[${languageCounter}].ProficiencyLevel" class="proficiency-select" required>
+        //                 <option value="" disabled selected>مستوى الإتقان</option>
+        //                 ${proficiencyLevels.join('')}
+        //             </select>
+        //             <input type="text" name="Languages[${languageCounter}].CustomLanguageName" class="other-language-input" placeholder="أدخل اسم اللغة" style="display: none;" />
+        //             <button type="button" class="remove-language" onclick="removeLanguage(this)">×</button>
+        //         `;
+        //         container.appendChild(newItem);
+        //         languageCounter++;
+        //         checkLanguages();
+        //     };
+
+        //     // حذف لغة
+        //     window.removeLanguage = function(button) {
+        //         const container = document.getElementById('languages-container');
+        //         if (container.children.length > 1) {
+        //             button.parentElement.remove();
+        //             reindexLanguages();
+        //         }
+        //         checkLanguages();
+        //     };
+
+        //     // إعادة ترتيب أرقام اللغات
+        //     window.reindexLanguages = function() {
+        //         const container = document.getElementById('languages-container');
+        //         const items = container.querySelectorAll('.language-item');
+
+        //         items.forEach((item, index) => {
+        //             const languageSelect = item.querySelector('.language-select');
+        //             const proficiencySelect = item.querySelector('.proficiency-select');
+        //             const customInput = item.querySelector('.other-language-input');
+
+        //             languageSelect.name = `Languages[${index}].LanguageName`;
+        //             proficiencySelect.name = `Languages[${index}].ProficiencyLevel`;
+        //             customInput.name = `Languages[${index}].CustomLanguageName`;
+        //         });
+
+        //         languageCounter = items.length;
+        //     };
+
+        //     // عند تغيير اللغة
+        //     window.languageChange = function(selectElement) {
+        //         const otherInput = selectElement.parentElement.querySelector('.other-language-input');
+
+        //         if (selectElement.value === 'أخرى') {
+        //             otherInput.style.display = 'block';
+        //             otherInput.setAttribute('required', 'required');
+        //         } else {
+        //             otherInput.style.display = 'none';
+        //             otherInput.removeAttribute('required');
+        //             otherInput.value = '';
+        //         }
+
+        //         checkLanguages();
+        //     };
+
+        //     // التحقق من اللغات
+        //     window.checkLanguages = function() {
+        //         const languageSelects = document.querySelectorAll('.language-select');
+        //         const proficiencySelects = document.querySelectorAll('.proficiency-select');
+        //         const addButton = document.querySelector('.add-language');
+
+        //         let canAddLanguage = true;
+
+        //         for (let i = 0; i < languageSelects.length; i++) {
+        //             const languageSelected = languageSelects[i].value;
+        //             const proficiencySelected = proficiencySelects[i].value;
+
+        //             if (!languageSelected || !proficiencySelected) {
+        //                 canAddLanguage = false;
+        //                 break;
+        //             }
+
+        //             // تحقق من إدخال اسم اللغة المخصص إذا كان الاختيار "أخرى"
+        //             if (languageSelected === 'أخرى') {
+        //                 const customInput = languageSelects[i].parentElement.querySelector('.other-language-input');
+        //                 if (!customInput.value) {
+        //                     canAddLanguage = false;
+        //                     break;
+        //                 }
+        //             }
+        //         }
+
+        //         addButton.disabled = !canAddLanguage;
+        //     };
+
+        //     // تهيئة اللغات عند تحميل الصفحة
+        //     window.addEventListener('load', function() {
+        //         // تحديث حالة زر إضافة اللغة
+        //         checkLanguages();
+
+        //         // تفعيل التحقق من التغييرات في اللغات
+        //         const inputFields = document.querySelectorAll('input.other-language-input');
+        //         inputFields.forEach(input => {
+        //             input.addEventListener('input', checkLanguages);
+        //         });
+        //     });
+
+        //     // تنفيذ وظيفة تحديث اللغة عند التحميل
+        //     const languageSelects = document.querySelectorAll('.language-select');
+        //     languageSelects.forEach(select => {
+        //         languageChange(select);
+        //     });
+        // });
+    </script>
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
