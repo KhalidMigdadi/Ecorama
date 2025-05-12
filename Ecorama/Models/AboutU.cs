@@ -7,9 +7,9 @@ public partial class AboutU
 {
     public int Id { get; set; }
 
-    public string Title { get; set; } = null!;
+    public string? Title { get; set; }
 
-    public string Content { get; set; } = null!;
+    public string? Description { get; set; }
 
-    public string? ImagePath { get; set; }
+    public DateTime? CreatedAt { get; set; }
 }

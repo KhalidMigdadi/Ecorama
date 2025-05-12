@@ -12,4 +12,6 @@ public partial class Village
     public string Name { get; set; } = null!;
 
     public virtual District District { get; set; } = null!;
+
+    public virtual ICollection<Residence> Residences { get; set; } = new List<Residence>();
 }

@@ -13,5 +13,7 @@ public partial class District
 
     public virtual Governorate Governorate { get; set; } = null!;
 
+    public virtual ICollection<Residence> Residences { get; set; } = new List<Residence>();
+
     public virtual ICollection<Village> Villages { get; set; } = new List<Village>();
 }

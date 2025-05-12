@@ -28,7 +28,13 @@ namespace Ecorama.Controllers
 
         public IActionResult ViewAllUsers()
         {
-            return View(_context.Users.ToList());
+            var users = _context.Users
+                .Include(u => u.Residences)
+                .Include(u => u.Educations)
+                .Include(u => u.Languages)
+                .ToList();
+
+            return View(users);
         }
 
 

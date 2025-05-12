@@ -17,5 +17,17 @@ public partial class Residence
 
     public bool? IsCustomVillage { get; set; }
 
+    public int? GovernorateId { get; set; }
+
+    public int? DistrictId { get; set; }
+
+    public int? VillageId { get; set; }
+
+    public virtual District? DistrictNavigation { get; set; }
+
+    public virtual Governorate? GovernorateNavigation { get; set; }
+
     public virtual User User { get; set; } = null!;
+
+    public virtual Village? VillageNavigation { get; set; }
 }

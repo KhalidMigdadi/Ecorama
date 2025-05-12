@@ -10,4 +10,6 @@ public partial class Governorate
     public string Name { get; set; } = null!;
 
     public virtual ICollection<District> Districts { get; set; } = new List<District>();
+
+    public virtual ICollection<Residence> Residences { get; set; } = new List<Residence>();
 }

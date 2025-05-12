@@ -19,6 +19,8 @@ public partial class MyDbContext : DbContext
 
     public virtual DbSet<Announcement> Announcements { get; set; }
 
+    public virtual DbSet<ContactU> ContactUs { get; set; }
+
     public virtual DbSet<Course> Courses { get; set; }
 
     public virtual DbSet<CourseLesson> CourseLessons { get; set; }
@@ -69,7 +71,7 @@ public partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK__AboutUs__3214EC07348EC2C6");
 
-            entity.Property(e => e.ImagePath).HasMaxLength(500);
+            //entity.Property(e => e.ImagePath).HasMaxLength(500);
             entity.Property(e => e.Title).HasMaxLength(200);
         });
 
@@ -82,6 +84,18 @@ public partial class MyDbContext : DbContext
                 .HasColumnType("datetime");
             entity.Property(e => e.ImageUrl).HasMaxLength(255);
             entity.Property(e => e.Title).HasMaxLength(200);
+        });
+
+        modelBuilder.Entity<ContactU>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__ContactU__3214EC07D0A76010");
+
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.Email).HasMaxLength(100);
+            entity.Property(e => e.FullName).HasMaxLength(100);
+            entity.Property(e => e.Subject).HasMaxLength(150);
         });
 
         modelBuilder.Entity<Course>(entity =>
@@ -205,9 +219,14 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.IsCustomVillage).HasDefaultValue(false);
             entity.Property(e => e.Village).HasMaxLength(100);
 
+
+        
+
             entity.HasOne(d => d.User).WithMany(p => p.Residences)
                 .HasForeignKey(d => d.UserId)
                 .HasConstraintName("FK_Residences_Users");
+
+          
         });
 
         modelBuilder.Entity<SliderItem>(entity =>
