@@ -212,5 +212,64 @@ namespace Ecorama.Controllers
         {
             return View();
         }
+
+
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult Login(LoginViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            if (model.Email.ToLower() == "admin@gmail.com" && model.Password == "admin123")
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+
+
+            var user = _context.Users
+                .FirstOrDefault(u => u.Email == model.Email && u.IsActive);
+
+            if (user == null || user.PasswordHash != model.Password) // يجب استخدام تشفير في الإنتاج
+            {
+                ModelState.AddModelError("", "البريد أو كلمة المرور غير صحيحة");
+                return View(model);
+            }
+
+            // تخزين البيانات في الجلسة
+            HttpContext.Session.SetInt32("UserId", user.Id);
+            HttpContext.Session.SetString("UserName", user.FirstName + " " + user.LastName);
+            HttpContext.Session.SetString("UserEmail", user.Email);
+            HttpContext.Session.SetString("FirstName", user.FirstName);
+            HttpContext.Session.SetString("MiddleName", user.MiddleName);
+            HttpContext.Session.SetString("LastName", user.LastName);
+            HttpContext.Session.SetString("NationalityId", user.NationalId);
+            HttpContext.Session.SetString("Birthday", user.Birthdate.ToString());
+            HttpContext.Session.SetString("UserRole", user.Role);
+            HttpContext.Session.SetString("Gender", user.Gender);
+            HttpContext.Session.SetString("PhoneNumber", user.PhoneNumber);
+
+            if (user.Email.ToLower() == "admin@gmail.com")
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear(); // حذف كل بيانات الجلسة
+            return RedirectToAction("Login");
+        }
+
+
+
     }
 }

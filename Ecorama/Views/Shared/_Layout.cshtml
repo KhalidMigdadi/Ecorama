@@ -362,9 +362,16 @@
 					<li><a href="#">تواصل معنا</a></li>
 				</ul>
 				<div class="auth-buttons">
-					@* <a  class="login-btn">تسجيل دخول</a> *@
-					<a href="@Url.Action("Register", "Login")" class="signup-btn">تسجيل دخول</a>
+					@if (Context.Session.GetString("UserEmail") != null)
+					{
+						<a href="@Url.Action("Profile", "Account")" class="signup-btn">الملف الشخصي</a>
+					}
+					else
+					{
+						<a href="@Url.Action("Login", "Login")" class="signup-btn">تسجيل دخول</a>
+					}
 				</div>
+
 				<div class="hamburger">
 					<span></span>
 					<span></span>
