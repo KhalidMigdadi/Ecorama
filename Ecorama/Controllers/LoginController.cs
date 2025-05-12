@@ -7,13 +7,13 @@ namespace Ecorama.Controllers
 {
     public class LoginController : Controller
     {
-
         private readonly MyDbContext _context;
 
         public LoginController(MyDbContext context)
         {
             _context = context;
         }
+
         public async Task<IActionResult> Register()
         {
             // تحميل البيانات الأساسية للنموذج
@@ -22,11 +22,32 @@ namespace Ecorama.Controllers
         }
 
         // POST: User/Register
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
+            // التحقق من صحة حقل CustomLanguageName فقط إذا كان نوع اللغة "أخرى"
+            if (model.Languages != null)
+            {
+                foreach (var lang in model.Languages.ToList())
+                {
+                    if (lang.LanguageName == "أخرى" && string.IsNullOrEmpty(lang.CustomLanguageName))
+                    {
+                        ModelState.AddModelError("Languages", "الرجاء إدخال اسم اللغة عند اختيار 'أخرى'");
+                    }
+                    // إذا لم تكن اللغة "أخرى"، فلا داعي للتحقق من CustomLanguageName
+                    else if (lang.LanguageName != "أخرى")
+                    {
+                        // إزالة أي خطأ تحقق متعلق بـ CustomLanguageName إذا لم تكن اللغة "أخرى"
+                        var key = $"Languages[{model.Languages.IndexOf(lang)}].CustomLanguageName";
+                        if (ModelState.ContainsKey(key))
+                        {
+                            ModelState.Remove(key);
+                        }
+                    }
+                }
+            }
+
             if (ModelState.IsValid)
             {
                 // التحقق من عدم وجود مستخدم بنفس الرقم الوطني
@@ -58,16 +79,14 @@ namespace Ecorama.Controllers
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
 
-                // البحث عن اللواء في قاعدة البيانات
-                var district = await _context.Districts.FirstOrDefaultAsync(d => d.Name == model.District);
-
-                // إضافة معلومات السكن - بدون إشارة إلى القرية
+                // إضافة معلومات السكن مع القرية يدوياً
                 var residence = new Residence
                 {
                     UserId = user.Id,
                     Governorate = model.Governorate,
                     District = model.District,
-                    IsCustomVillage = true  // دائمًا true لأن لا توجد قرية مرتبطة
+                    Village = model.Village,
+                    IsCustomVillage = true  // تعيين القيمة إلى true لأن المستخدم أدخل القرية يدوياً
                 };
 
                 _context.Residences.Add(residence);
@@ -87,14 +106,29 @@ namespace Ecorama.Controllers
                 {
                     foreach (var lang in model.Languages)
                     {
-                        var language = new Language
+                        // التعامل مع اللغات بشكل صحيح
+                        if (lang.LanguageName == "أخرى" && !string.IsNullOrEmpty(lang.CustomLanguageName))
                         {
-                            UserId = user.Id,
-                            LanguageName = lang.LanguageName,
-                            CustomLanguageName = lang.LanguageName == "other" ? lang.CustomLanguageName : null,
-                            ProficiencyLevel = lang.ProficiencyLevel
-                        };
-                        _context.Languages.Add(language);
+                            var language = new Language
+                            {
+                                UserId = user.Id,
+                                LanguageName = lang.LanguageName,
+                                CustomLanguageName = lang.CustomLanguageName,
+                                ProficiencyLevel = lang.ProficiencyLevel
+                            };
+                            _context.Languages.Add(language);
+                        }
+                        else if (lang.LanguageName != "أخرى")
+                        {
+                            var language = new Language
+                            {
+                                UserId = user.Id,
+                                LanguageName = lang.LanguageName,
+                                CustomLanguageName = null,  // تعيين قيمة فارغة إذا لم تكن اللغة "أخرى"
+                                ProficiencyLevel = lang.ProficiencyLevel
+                            };
+                            _context.Languages.Add(language);
+                        }
                     }
                 }
 
@@ -109,54 +143,68 @@ namespace Ecorama.Controllers
             return View(model);
         }
 
-
-        // طريقة مساعدة لتحميل البيانات الأساسية للنموذج - نحذف تحميل القرى
+        // طريقة مساعدة لتحميل البيانات الأساسية للنموذج
         private async Task LoadFormData()
         {
-            // تحميل المحافظات
-            var governorates = await _context.Governorates.ToListAsync();
-            ViewBag.Governorates = new SelectList(governorates, "Name", "Name");
+            // تحميل الألوية التابعة لمحافظة إربد فقط
+            var irbidGovernorate = await _context.Governorates
+                .Include(g => g.Districts)
+                .FirstOrDefaultAsync(g => g.Name == "إربد");
+
+            if (irbidGovernorate != null)
+            {
+                var irbidDistricts = irbidGovernorate.Districts
+                    .OrderBy(d => d.Name)
+                    .ToList();
+
+                ViewBag.IrbidDistricts = new SelectList(irbidDistricts, "Name", "Name");
+            }
+            else
+            {
+                // في حالة عدم وجود محافظة إربد في قاعدة البيانات
+                ViewBag.IrbidDistricts = new SelectList(new List<string>());
+            }
 
             // تحميل مستويات التعليم
             var educationLevels = new List<string>
-    {
-        "ثانوية عامة",
-        "دبلوم",
-        "بكالوريوس",
-        "ماجستير",
-        "دكتوراه"
-    };
+            {
+                "ثانوية عامة",
+                "دبلوم",
+                "بكالوريوس",
+                "ماجستير",
+                "دكتوراه"
+            };
             ViewBag.EducationLevels = new SelectList(educationLevels);
 
             // تحميل أنواع البرامج
             var programTypes = new List<string>
-    {
-        "توجيه",
-        "تدريب"
-    };
+            {
+                "توجيه",
+                "تدريب"
+            };
             ViewBag.ProgramTypes = new SelectList(programTypes);
 
             // تحميل قائمة اللغات
             var languages = new List<string>
-    {
-        "العربية",
-        "الإنجليزية",
-        "الفرنسية",
-        "الألمانية",
-        "الإسبانية",
-        "أخرى"
-    };
+            {
+                "العربية",
+                "الإنجليزية",
+                "الفرنسية",
+                "الألمانية",
+                "الإسبانية",
+                "أخرى"
+            };
             ViewBag.Languages = new SelectList(languages);
 
             // تحميل مستويات إتقان اللغة
             var proficiencyLevels = new List<string>
-    {
-        "اللغة الأم",
-        "طلاقة",
-        "متقدم",
-        "متوسط",
-        "مبتدئ"
-    };
+            {
+                "اللغة الأم",
+                "طلاقة",
+                "متقدم",
+                "متوسط",
+                "مبتدئ"
+            };
             ViewBag.ProficiencyLevels = new SelectList(proficiencyLevels);
         }
 
@@ -164,55 +212,5 @@ namespace Ecorama.Controllers
         {
             return View();
         }
-
-
-        // GET: Api/GetDistricts
-        [HttpGet("api/[controller]/GetDistricts")]
-        public async Task<IActionResult> GetDistricts(string governorate)
-        {
-            if (string.IsNullOrEmpty(governorate))
-            {
-                return BadRequest("يجب تحديد المحافظة");
-            }
-
-            var governorateEntity = await _context.Governorates
-                .Include(g => g.Districts)
-                .FirstOrDefaultAsync(g => g.Name == governorate);
-
-            if (governorateEntity == null)
-            {
-                return NotFound("المحافظة غير موجودة");
-            }
-
-            var districts = governorateEntity.Districts.OrderBy(d => d.Name)
-                .Select(d => new { id = d.DistrictId, name = d.Name });
-
-            return Ok(districts);
-        }
-
-        // GET: Api/GetVillages
-        [HttpGet("api/[controller]/GetVillages")]
-        public async Task<IActionResult> GetVillages(int districtId)
-        {
-            if (districtId <= 0)
-            {
-                return BadRequest("يجب تحديد اللواء");
-            }
-
-            var districtEntity = await _context.Districts
-                .Include(d => d.Villages)
-                .FirstOrDefaultAsync(d => d.DistrictId == districtId);
-
-            if (districtEntity == null)
-            {
-                return NotFound("اللواء غير موجود");
-            }
-
-            var villages = districtEntity.Villages.OrderBy(v => v.Name)
-                .Select(v => new { id = v.VillageId, name = v.Name });
-
-            return Ok(villages);
-        }
     }
 }
-

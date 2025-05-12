@@ -150253,7 +150253,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 10 May 2025 09:52:30 GMT"
+          "Value": "Mon, 12 May 2025 04:59:53 GMT"
         }
       ],
       "EndpointProperties": [
@@ -150290,7 +150290,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 10 May 2025 09:52:30 GMT"
+          "Value": "Mon, 12 May 2025 04:59:53 GMT"
         }
       ],
       "EndpointProperties": [
@@ -150551,6 +150551,88 @@
         {
           "Name": "label",
           "Value": "css/lesson.css"
+        }
+      ]
+    },
+    {
+      "Route": "css/register.css",
+      "AssetFile": "css/register.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6184"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"42h3WHDwSkWAl6arOLBB5Vb6zvGHuZJKyX+iFFBRlc4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 12 May 2025 04:39:54 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-42h3WHDwSkWAl6arOLBB5Vb6zvGHuZJKyX+iFFBRlc4="
+        }
+      ]
+    },
+    {
+      "Route": "css/register.dsy07c52x7.css",
+      "AssetFile": "css/register.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6184"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"42h3WHDwSkWAl6arOLBB5Vb6zvGHuZJKyX+iFFBRlc4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 12 May 2025 04:39:54 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dsy07c52x7"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-42h3WHDwSkWAl6arOLBB5Vb6zvGHuZJKyX+iFFBRlc4="
+        },
+        {
+          "Name": "label",
+          "Value": "css/register.css"
         }
       ]
     },

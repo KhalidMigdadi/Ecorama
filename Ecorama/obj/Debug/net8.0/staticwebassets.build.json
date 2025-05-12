@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+5qayvrT4lqsxyx7uvH/vPYzFKiPb7dpltj2qAzQ8+g=",
+  "Hash": "zElG+QLYbiIRmMJUyVG3Iuc02F+AXh+yO11H+SxT8ms=",
   "Source": "Ecorama",
   "BasePath": "_content/Ecorama",
   "Mode": "Default",
@@ -38592,6 +38592,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\lesson.css"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\register.css",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "css/register#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dsy07c52x7",
+      "Integrity": "42h3WHDwSkWAl6arOLBB5Vb6zvGHuZJKyX+iFFBRlc4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\register.css"
     },
     {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\site.css",
@@ -190893,6 +190914,88 @@
       ]
     },
     {
+      "Route": "css/register.css",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\register.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6184"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"42h3WHDwSkWAl6arOLBB5Vb6zvGHuZJKyX+iFFBRlc4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 12 May 2025 04:39:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-42h3WHDwSkWAl6arOLBB5Vb6zvGHuZJKyX+iFFBRlc4="
+        }
+      ]
+    },
+    {
+      "Route": "css/register.dsy07c52x7.css",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\register.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6184"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"42h3WHDwSkWAl6arOLBB5Vb6zvGHuZJKyX+iFFBRlc4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 12 May 2025 04:39:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dsy07c52x7"
+        },
+        {
+          "Name": "label",
+          "Value": "css/register.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-42h3WHDwSkWAl6arOLBB5Vb6zvGHuZJKyX+iFFBRlc4="
+        }
+      ]
+    },
+    {
       "Route": "css/site.7e6tgtpdkl.css",
       "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\site.css",
       "Selectors": [],
@@ -191079,7 +191182,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 10 May 2025 09:52:30 GMT"
+          "Value": "Mon, 12 May 2025 04:59:53 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -191116,7 +191219,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 10 May 2025 09:52:30 GMT"
+          "Value": "Mon, 12 May 2025 04:59:53 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -191153,7 +191256,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 10 May 2025 09:52:30 GMT"
+          "Value": "Mon, 12 May 2025 04:59:53 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -191198,7 +191301,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 10 May 2025 09:52:30 GMT"
+          "Value": "Mon, 12 May 2025 04:59:53 GMT"
         },
         {
           "Name": "Cache-Control",

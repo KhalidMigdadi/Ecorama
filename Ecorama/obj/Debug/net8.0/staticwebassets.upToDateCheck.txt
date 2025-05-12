@@ -1833,6 +1833,7 @@ wwwroot\Admin\js\sb-admin-2.js
 wwwroot\css\course.css
 wwwroot\css\Home.css
 wwwroot\css\lesson.css
+wwwroot\css\register.css
 wwwroot\css\site.css
 wwwroot\css\workshop.css
 wwwroot\favicon.ico
