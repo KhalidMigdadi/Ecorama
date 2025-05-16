@@ -69,15 +69,20 @@ public partial class MyDbContext : DbContext
     {
         modelBuilder.Entity<AboutU>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__AboutUs__3214EC07348EC2C6");
+            entity.HasKey(e => e.Id).HasName("PK__AboutUs__3214EC079A402192");
 
-            //entity.Property(e => e.ImagePath).HasMaxLength(500);
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.ImageUrl)
+                .HasMaxLength(500)
+                .HasColumnName("ImageURL");
             entity.Property(e => e.Title).HasMaxLength(200);
         });
 
         modelBuilder.Entity<Announcement>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Announce__3214EC07FB7761EE");
+            entity.HasKey(e => e.Id).HasName("PK__Announce__3214EC07CC41CDF5");
 
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
@@ -88,7 +93,7 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<ContactU>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ContactU__3214EC07D0A76010");
+            entity.HasKey(e => e.Id).HasName("PK__ContactU__3214EC0778275091");
 
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
@@ -100,7 +105,7 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<Course>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Courses__3214EC0771DB26B2");
+            entity.HasKey(e => e.Id).HasName("PK__Courses__3214EC07A584E77D");
 
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
@@ -112,7 +117,7 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<CourseLesson>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__CourseLe__3214EC07D2C9EE61");
+            entity.HasKey(e => e.Id).HasName("PK__CourseLe__3214EC077A08F984");
 
             entity.Property(e => e.ImageUrl).HasMaxLength(255);
             entity.Property(e => e.Title).HasMaxLength(200);
@@ -124,7 +129,7 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<CourseRegistration>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__CourseRe__3214EC07B652BCAF");
+            entity.HasKey(e => e.Id).HasName("PK__CourseRe__3214EC07E96F2233");
 
             entity.Property(e => e.Email).HasMaxLength(100);
             entity.Property(e => e.FullName).HasMaxLength(200);
@@ -144,7 +149,7 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<District>(entity =>
         {
-            entity.HasKey(e => e.DistrictId).HasName("PK__District__85FDA4C64839C4A6");
+            entity.HasKey(e => e.DistrictId).HasName("PK__District__85FDA4C66D0EE7A7");
 
             entity.HasIndex(e => new { e.GovernorateId, e.Name }, "UQ_District_Governorate").IsUnique();
 
@@ -157,12 +162,12 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<Education>(entity =>
         {
-            entity.HasKey(e => e.EducationId).HasName("PK__Educatio__4BBE3805CEB68ED9");
+            entity.HasKey(e => e.EducationId).HasName("PK__Educatio__4BBE3805768876EA");
 
             entity.ToTable("Education");
 
-            entity.Property(e => e.EducationLevel).HasMaxLength(30);
-            entity.Property(e => e.ProgramType).HasMaxLength(30);
+            entity.Property(e => e.EducationLevel).HasMaxLength(100);
+            entity.Property(e => e.ProgramType).HasMaxLength(100);
 
             entity.HasOne(d => d.User).WithMany(p => p.Educations)
                 .HasForeignKey(d => d.UserId)
@@ -171,20 +176,20 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<Governorate>(entity =>
         {
-            entity.HasKey(e => e.GovernorateId).HasName("PK__Governor__D314AD9AA5220DB7");
+            entity.HasKey(e => e.GovernorateId).HasName("PK__Governor__D314AD9A2E980C72");
 
-            entity.HasIndex(e => e.Name, "UQ__Governor__737584F60B7C00C4").IsUnique();
+            entity.HasIndex(e => e.Name, "UQ__Governor__737584F6C73E2ED3").IsUnique();
 
             entity.Property(e => e.Name).HasMaxLength(50);
         });
 
         modelBuilder.Entity<Language>(entity =>
         {
-            entity.HasKey(e => e.LanguageId).HasName("PK__Language__B93855ABF61B0612");
+            entity.HasKey(e => e.LanguageId).HasName("PK__Language__B93855AB9628052B");
 
-            entity.Property(e => e.CustomLanguageName).HasMaxLength(50);
-            entity.Property(e => e.LanguageName).HasMaxLength(50);
-            entity.Property(e => e.ProficiencyLevel).HasMaxLength(20);
+            entity.Property(e => e.CustomLanguageName).HasMaxLength(100);
+            entity.Property(e => e.LanguageName).HasMaxLength(100);
+            entity.Property(e => e.ProficiencyLevel).HasMaxLength(100);
 
             entity.HasOne(d => d.User).WithMany(p => p.Languages)
                 .HasForeignKey(d => d.UserId)
@@ -193,7 +198,7 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<News>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__News__3214EC07B02CA610");
+            entity.HasKey(e => e.Id).HasName("PK__News__3214EC07C91BC7C5");
 
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
@@ -205,33 +210,40 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<Partner>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Partners__3214EC077C9750B5");
+            entity.HasKey(e => e.Id).HasName("PK__Partners__3214EC07494A9101");
 
             entity.Property(e => e.Name).HasMaxLength(100);
         });
 
         modelBuilder.Entity<Residence>(entity =>
         {
-            entity.HasKey(e => e.ResidenceId).HasName("PK__Residenc__FA66BEB277539A80");
+            entity.HasKey(e => e.ResidenceId).HasName("PK__Residenc__FA66BEB25FFA3818");
 
-            entity.Property(e => e.District).HasMaxLength(50);
-            entity.Property(e => e.Governorate).HasMaxLength(50);
+            entity.Property(e => e.District).HasMaxLength(100);
+            entity.Property(e => e.Governorate).HasMaxLength(100);
             entity.Property(e => e.IsCustomVillage).HasDefaultValue(false);
             entity.Property(e => e.Village).HasMaxLength(100);
 
+            entity.HasOne(d => d.DistrictNavigation).WithMany(p => p.Residences)
+                .HasForeignKey(d => d.DistrictId)
+                .HasConstraintName("FK_Residences_District");
 
-        
+            entity.HasOne(d => d.GovernorateNavigation).WithMany(p => p.Residences)
+                .HasForeignKey(d => d.GovernorateId)
+                .HasConstraintName("FK_Residences_Governorate");
 
             entity.HasOne(d => d.User).WithMany(p => p.Residences)
                 .HasForeignKey(d => d.UserId)
                 .HasConstraintName("FK_Residences_Users");
 
-          
+            entity.HasOne(d => d.VillageNavigation).WithMany(p => p.Residences)
+                .HasForeignKey(d => d.VillageId)
+                .HasConstraintName("FK_Residences_Village");
         });
 
         modelBuilder.Entity<SliderItem>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__SliderIt__3214EC07A8B4B085");
+            entity.HasKey(e => e.Id).HasName("PK__SliderIt__3214EC07BD532269");
 
             entity.Property(e => e.Description).HasMaxLength(500);
             entity.Property(e => e.ImageFilePath).HasMaxLength(500);
@@ -242,7 +254,7 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<SocialMediaLink>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__SocialMe__3214EC07C318A754");
+            entity.HasKey(e => e.Id).HasName("PK__SocialMe__3214EC072C91EBCA");
 
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
@@ -256,7 +268,7 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<TeamMember>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__TeamMemb__3214EC072B9A2D7D");
+            entity.HasKey(e => e.Id).HasName("PK__TeamMemb__3214EC078785F779");
 
             entity.Property(e => e.Email).HasMaxLength(100);
             entity.Property(e => e.GitHubLink).HasMaxLength(255);
@@ -268,7 +280,7 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<TrainingProgram>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Training__3214EC0724D2AE3F");
+            entity.HasKey(e => e.Id).HasName("PK__Training__3214EC07EE6B3F39");
 
             entity.Property(e => e.ImageUrl).HasMaxLength(255);
             entity.Property(e => e.Title).HasMaxLength(200);
@@ -276,7 +288,7 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<TrainingProgramRegistration>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Training__3214EC0704E2487A");
+            entity.HasKey(e => e.Id).HasName("PK__Training__3214EC07C942C4D0");
 
             entity.Property(e => e.Email).HasMaxLength(100);
             entity.Property(e => e.ExperienceLevel).HasMaxLength(100);
@@ -297,11 +309,11 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC078A59DC49");
+            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC077477A910");
 
-            entity.HasIndex(e => e.Email, "UQ__Users__A9D10534D9836C4D").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Users__A9D10534C982D159").IsUnique();
 
-            entity.HasIndex(e => e.NationalId, "UQ__Users__E9AA32FAF6338822").IsUnique();
+            entity.HasIndex(e => e.NationalId, "UQ__Users__E9AA32FAC939EE34").IsUnique();
 
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
@@ -315,6 +327,7 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.NationalId).HasMaxLength(20);
             entity.Property(e => e.PasswordHash).HasMaxLength(255);
             entity.Property(e => e.PhoneNumber).HasMaxLength(20);
+            entity.Property(e => e.ProfileImagePath).HasMaxLength(255);
             entity.Property(e => e.Role)
                 .HasMaxLength(50)
                 .HasDefaultValue("User");
@@ -322,7 +335,7 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<UserCourseSubscription>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__UserCour__3214EC07CDA09778");
+            entity.HasKey(e => e.Id).HasName("PK__UserCour__3214EC0735D3C5FF");
 
             entity.Property(e => e.SubscribedAt)
                 .HasDefaultValueSql("(getdate())")
@@ -347,7 +360,7 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<Village>(entity =>
         {
-            entity.HasKey(e => e.VillageId).HasName("PK__Villages__1A7F539858BE255F");
+            entity.HasKey(e => e.VillageId).HasName("PK__Villages__1A7F53982642C31E");
 
             entity.HasIndex(e => new { e.DistrictId, e.Name }, "UQ_Village_District").IsUnique();
 
@@ -360,14 +373,14 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<Workshop>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Workshop__3214EC07561F4CA4");
+            entity.HasKey(e => e.Id).HasName("PK__Workshop__3214EC0753531171");
 
             entity.Property(e => e.Title).HasMaxLength(200);
         });
 
         modelBuilder.Entity<WorkshopRegistration>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Workshop__3214EC0761EF6DD7");
+            entity.HasKey(e => e.Id).HasName("PK__Workshop__3214EC0730504D1C");
 
             entity.Property(e => e.Email).HasMaxLength(100);
             entity.Property(e => e.FullName).HasMaxLength(200);

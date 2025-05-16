@@ -13,7 +13,7 @@ body {
 }
 
 .course-header {
-    background: linear-gradient(135deg, #FF416C, #FF4B2B);
+    background: linear-gradient(135deg, #007bff, #007bff);
     color: white;
     padding: 3rem 2rem;
     text-align: center;
@@ -180,7 +180,7 @@ body {
 .btn {
     display: inline-block;
     padding: 0.8rem 1.5rem;
-    background: linear-gradient(135deg, #FF416C, #FF4B2B);
+    background: linear-gradient(135deg, #007bff);
     color: white;
     border: none;
     border-radius: 30px;
@@ -204,21 +204,21 @@ body {
 }
 
     .btn-outline:hover {
-        background: linear-gradient(135deg, #FF416C, #FF4B2B);
+        background: linear-gradient(135deg, #007bff);
         color: white;
     }
 
 .back-to-courses {
     display: inline-block;
     margin-bottom: 2rem;
-    color: #FF416C;
+    color: #007bff;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
     .back-to-courses:hover {
-        color: #FF4B2B;
+        color: #007bff;
     }
 
     .back-to-courses i {

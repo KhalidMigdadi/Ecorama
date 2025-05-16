@@ -18,8 +18,19 @@
 				<h1>إيكوراما</h1>
 			</div>
 			<h2>إنشاء حساب جديد</h2>
+			@if (TempData["SuccessMessage"] != null)
+			{
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+					@TempData["SuccessMessage"]
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
 
-			<div asp-validation-summary="All" class="validation-summary-errors"></div>
+			}
+
+			@if (!ViewData.ModelState.IsValid)
+			{
+				<div asp-validation-summary="All" class="validation-summary-errors"></div>
+			}
 
 			<form asp-action="Register" asp-controller="Login" method="post">
 				<div class="section-title">المعلومات الشخصية</div>

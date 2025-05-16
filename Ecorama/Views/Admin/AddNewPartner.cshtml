@@ -1,0 +1,64 @@
+﻿@{
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+@section Style {
+    <link href="~/css/AddNewPartners.css" rel="stylesheet" asp-append-version="true" />
+}
+
+<div class="container">
+    <div class="header">
+        <h1 class="title">إضافة شريك جديد</h1>
+    </div>
+
+    <form id="addPartnerForm" method="post" asp-action="AddNewPartner_1" asp-controller="Admin" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-col">
+                <div class="form-group">
+                    <label for="partnerName" class="form-label">اسم الشريك</label>
+                    <input type="text" name="name" id="partnerName" class="form-control" placeholder="أدخل اسم الشريك" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="partnerUrl" class="form-label">رابط الموقع الإلكتروني</label>
+                    <input type="url" name="websiteUrl" id="partnerUrl" class="form-control" placeholder="https://www.example.com" required />
+                </div>
+            </div>
+
+            <div class="form-col">
+                <div class="form-group">
+                    <label class="form-label">صورة الشريك</label>
+                    <div id="imagePreviewContainer" class="image-preview-container">
+                        <div id="uploadPlaceholder">
+                            <div class="upload-icon">📷</div>
+                            <div class="upload-text">اضغط أو اسحب صورة هنا</div>
+
+                        </div>
+                        <img id="imagePreview" class="image-preview" src="" alt="معاينة الصورة" style="display: none;" />
+                    </div>
+                    <input type="file" name="imageFile" id="partnerImage" class="file-input" accept="image/*" required />
+                    <div class="note">* يجب أن تكون الصورة بصيغة JPG أو PNG وبحجم لا يتجاوز 2MB</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="button" id="resetBtn" class="btn btn-secondary">إلغاء</button>
+            <button type="submit" class="btn btn-primary">حفظ</button>
+        </div>
+
+        @if (TempData["MSG"] != null)
+        {
+            var msg = TempData["MSG"].ToString();
+            var isSuccess = msg.Contains("تم") || msg.Contains("نجاح") || msg.ToLower().Contains("success");
+
+            <div class="alert @(isSuccess ? "alert-success" : "alert-danger")">
+                @msg
+            </div>
+        }
+    </form>
+</div>
+
+@section Scripts {
+    <script src="~/js/AddNewPartnersJs.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Ecorama.Models.Partner>
+
+@{
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+@section Style {
+    <link href="~/css/ShowAllPartners.css" rel="stylesheet" asp-append-version="true" />
+}
+
+<div class="container">
+    <h1>جدول الشركاء</h1>
+
+    @if (TempData["MSG_3"] != null)
+    {
+        <div class="alert alert-success">@TempData["MSG_3"]</div>
+    }
+
+    <a asp-action="AddNewPartner" asp-controller="Admin" class="add-btn">إضافة شريك جديد</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>الصورة</th>
+                <th>اسم الشريك</th>
+                <th>الموقع الإلكتروني</th>
+                <th>الإجراءات</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="img-container">
+                            <img src="@(!string.IsNullOrEmpty(item.ImageUrl) ? item.ImageUrl : "/images/default.png")" alt="@item.Name" />
+                        </div>
+                    </td>
+                    <td>@item.Name</td>
+                    <td><a href="@item.WebsiteUrl" target="_blank">@item.WebsiteUrl</a></td>
+                    <td class="actions">
+                        <a asp-action="UpdatePartner" asp-controller="Admin" asp-route-Id="@item.Id" class="btn btn-edit">تعديل</a>
+
+                        <form asp-action="DeletePartner" asp-controller="Admin" asp-route-id="@item.Id"
+                              method="post" onsubmit="return confirm('هل أنت متأكد من رغبتك في حذف هذا الشريك؟');"
+                              style="display:inline;">
+                            <button type="submit" class="btn btn-delete">حذف</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            }
+          
+{
+        </tbody>
+    </table>
+</div>

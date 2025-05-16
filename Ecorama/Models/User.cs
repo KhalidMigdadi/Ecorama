@@ -31,6 +31,8 @@ public partial class User
 
     public string? Role { get; set; }
 
+    public string? ProfileImagePath { get; set; }
+
     public virtual ICollection<CourseRegistration> CourseRegistrations { get; set; } = new List<CourseRegistration>();
 
     public virtual ICollection<Education> Educations { get; set; } = new List<Education>();

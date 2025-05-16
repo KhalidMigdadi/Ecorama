@@ -67,8 +67,6 @@
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 0 20px;
-
-
 	}
 
 	/* Header styles */
@@ -111,16 +109,16 @@
 			color: #ff6b3d;
 		}
 
-	.nav-links {
+	.nav-linkss {
 		display: flex;
 		list-style: none;
 	}
 
-		.nav-links li {
+		.nav-linkss li {
 			margin-right: 20px;
 		}
 
-		.nav-links a {
+		.nav-linkss a {
 			text-decoration: none;
 			color: #2a2c41;
 			font-weight: 500;
@@ -128,11 +126,11 @@
 			position: relative;
 		}
 
-			.nav-links a:hover {
+			.nav-linkss a:hover {
 				color: #15a1cf;
 			}
 
-			.nav-links a::after {
+			.nav-linkss a::after {
 				content: '';
 				position: absolute;
 				width: 0;
@@ -143,7 +141,7 @@
 				transition: all 0.3s ease;
 			}
 
-			.nav-links a:hover::after {
+			.nav-linkss a:hover::after {
 				width: 100%;
 			}
 
@@ -185,6 +183,46 @@
 			background-color: #063b5c;
 			transition: all 0.3s ease;
 		}
+
+
+	/* Dropdown List Styling */
+	
+
+	/* Hamburger Menu (Mobile) */
+	@@media (max-width: 768px) {
+		.navbar {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.nav-linkss {
+			flex-direction: column;
+			width: 100%;
+			display: none;
+		}
+
+			.nav-linkss li {
+				margin: 10px 0;
+				width: 100%;
+			}
+
+			.nav-linkss.active {
+				display: flex;
+			}
+
+		.hamburger {
+			display: flex;
+			align-self: flex-end;
+		}
+
+		.dropdown-menu {
+			position: static;
+			box-shadow: none;
+			background-color: transparent;
+			padding-left: 15px;
+		}
+	}
+
 
 
 
@@ -345,32 +383,81 @@
 		color: #ccc;
 	}
 
+
+	.profile-image {
+		width: 45px;
+		height: 45px;
+		border-radius: 50%;
+		object-fit: cover;
+		border: 2px solid #fff;
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	}
+
+	.profile-image-link {
+		display: inline-block;
+	}
+
+
+	.dropdown-toggle:after {
+		display: none !important;
+	}
+
 </style>
 
+
+
 <body>
+	@{
+		var profileImagePath = Context.Session.GetString("ProfileImagePath"); // مثال: "/images/users/user1.jpg"
+	}
+
+
+
 	<!-- Navbar -->
 	<header>
 		<div class="containerHeader">
 			<nav class="navbar">
 				<a href="#" class="logo"><i class="fas fa-graduation-cap"></i>إيكوراما</a>
-				<ul class="nav-links">
+				<ul class="nav-linkss">
 					<li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
 					<li><a href="@Url.Action("Courses","Course")">الكورسات</a></li>
 					<li><a href="@Url.Action("Workshops","WorkShops")">الورشات</a></li>
+
+
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+							الأخبار والإعلانات
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="@Url.Action("Advertisements", "News")">الإعلانات</a></li>
+							<li><a class="dropdown-item" href="@Url.Action("News", "News")">الأخبار</a></li>
+						</ul>
+					</li>
+
 					@* <li><a href="#">الشركاء</a></li> *@
-					<li><a href="#">من نحن</a></li>
-					<li><a href="#">تواصل معنا</a></li>
+					<li><a href="@Url.Action("AboutUs","Home")">من نحن</a></li>
+					<li><a href="@Url.Action("Index","Contact")">تواصل معنا</a></li>
 				</ul>
 				<div class="auth-buttons">
 					@if (Context.Session.GetString("UserEmail") != null)
 					{
-						<a href="@Url.Action("Profile", "Account")" class="signup-btn">الملف الشخصي</a>
+						if (!string.IsNullOrEmpty(profileImagePath))
+						{
+							<a href="@Url.Action("Profile", "Profile")" class="profile-image-link">
+								<img src="@profileImagePath" alt="صورة الملف الشخصي" class="profile-image" />
+							</a>
+						}
+						else
+						{
+							<a href="@Url.Action("Profile", "Profile")" class="signup-btn">الملف الشخصي</a>
+						}
 					}
 					else
 					{
 						<a href="@Url.Action("Login", "Login")" class="signup-btn">تسجيل دخول</a>
 					}
 				</div>
+
 
 				<div class="hamburger">
 					<span></span>
@@ -382,7 +469,7 @@
 	</header>
 
 	<main role="main" class="pb-3">
-			@RenderBody()
+		@RenderBody()
 	</main>
 
 
@@ -427,11 +514,11 @@
 					<ul class="contact-info">
 						<li>
 							<i class="fas fa-map-marker-alt"></i>
-							<div>الرياض، المملكة العربية السعودية</div>
+							<div>إربد، المملكة الأردنية الهاشمية - حديثة تونس</div>
 						</li>
 						<li>
 							<i class="fas fa-phone-alt"></i>
-							<div>+966 12 345 6789</div>
+							<div dir="ltr"><a href="tel:+962797550423" style="color: inherit; text-decoration: none;">+962 797 550 423</a></div>
 						</li>
 						<li>
 							<i class="fas fa-envelope"></i>
@@ -439,11 +526,16 @@
 						</li>
 					</ul>
 				</div>
-				
+
 			</div>
 			<div class="footer-bottom">
-				<p>&copy; 2025 إيكوراما. جميع الحقوق محفوظة.</p>
+				<p style="font-weight: bold;">
+					<a href="@Url.Action("Team","Home")" style="text-decoration: none; color: inherit;">
+						Powered by Orange Coding Academy © 2025
+					</a>
+				</p>
 			</div>
+
 		</div>
 	</footer>
 
@@ -456,6 +548,17 @@
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="~/js/site.js" asp-append-version="true"></script>
-		@await RenderSectionAsync("Scripts", required: false)
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const hamburger = document.querySelector(".hamburger");
+			const navLinks = document.querySelector(".nav-linkss");
+
+			hamburger.addEventListener("click", function () {
+				navLinks.classList.toggle("active");
+			});
+		});
+	</script>
+
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

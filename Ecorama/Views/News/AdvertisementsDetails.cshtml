@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewData["Title"] = "AdvertisementsDetails";
+}
+
+@section Style {
+    <link rel="stylesheet" href="~/css/advertisements.css" />
+    <link rel="stylesheet" href="~/css/NEWs.css" />
+
+}
+
+<div class="advertisement-details">
+    <!-- رأس الصفحة -->
+    <div class="news-header text-center">
+        <div class="container position-relative">
+            <h1 class="fw-bold mb-3 animate__animated animate__fadeInDown">تفاصيل الإعلان</h1>
+            <p class="lead animate__animated animate__fadeInUp animate__delay-1s">معلومات كاملة عن الإعلان المحدد</p>
+        </div>
+    </div>
+
+    <!-- محتوى التفاصيل -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="ad-detail-card">
+                    <div class="ad-detail-header">
+                        <span class="category-badge">إعلان رسمي</span>
+                        <h2>إطلاق برنامج المنح الدراسية الجديد للاجئين</h2>
+                        <div class="ad-meta">
+                            <span class="ad-date"><i class="far fa-calendar-alt"></i> 20 يونيو 2023</span>
+                            @*                             <span class="ad-views"><i class="far fa-eye"></i> 356 مشاهدة</span>
+ *@                        </div>
+                    </div>
+
+                    <div class="ad-detail-image">
+                        <img src="/images/pexels-shkrabaanthony-4348401.jpg" alt="صورة الإعلان" class="img-fluid rounded">
+                    </div>
+
+                    <div class="ad-detail-content">
+                        <h3>تفاصيل البرنامج:</h3>
+                        <p>تعلن المفوضية السامية للأمم المتحدة لشؤون اللاجئين عن إطلاق برنامج المنح الدراسية للعام الأكاديمي 2023-2024، والذي يهدف إلى توفير فرص تعليمية للطلاب اللاجئين في مختلف الدول.</p>
+
+                        <h3>شروط التقديم:</h3>
+                        <ul>
+                            <li>أن يكون المتقدم لاجئاً مسجلاً لدى المفوضية</li>
+                            <li>أن يكون حاصلاً على شهادة الثانوية العامة أو ما يعادلها</li>
+                            <li>أن يكون عمره بين 18 و25 سنة</li>
+                            <li>أن يكون لديه قبول مبدئي من إحدى الجامعات المعترف بها</li>
+                        </ul>
+
+                        <h3>مميزات المنحة:</h3>
+                        <ul>
+                            <li>تغطية كاملة لرسوم الدراسة</li>
+                            <li>بدل معيشة شهري</li>
+                            <li>تأمين صحي</li>
+                            <li>دورات تدريبية مصاحبة</li>
+                        </ul>
+
+                        <h3>طريقة التقديم:</h3>
+                        <p>يتم التقديم عبر الموقع الإلكتروني للمفوضية من خلال تعبئة النموذج الإلكتروني وإرفاق المستندات المطلوبة والتي تشمل:</p>
+                        <ol>
+                            <li>صورة عن وثيقة اللجوء</li>
+                            <li>صورة عن الشهادة الدراسية</li>
+                            <li>خطاب قبول من الجامعة (إن وجد)</li>
+                            <li>صورة شخصية</li>
+                            <li>السيرة الذاتية</li>
+                        </ol>
+
+                        <div class="alert alert-info">
+                            <h4><i class="fas fa-info-circle"></i> ملاحظات هامة:</h4>
+                            <ul>
+                                <li>آخر موعد للتقديم: 15 يوليو 2023</li>
+                                <li>سيتم التواصل مع المرشحين الناجحين عبر البريد الإلكتروني</li>
+                                <li>لن يتم النظر في الطلبات غير المكتملة</li>
+                            </ul>
+                        </div>
+
+                        <div class="ad-detail-files">
+                            <h4>مستندات مرفقة:</h4>
+                            <div class="file-list">
+                                <a href="#" class="file-item">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span>نموذج التقديم للمنحة الدراسية.pdf</span>
+                                    <small>(2.4 MB)</small>
+                                </a>
+                                <a href="#" class="file-item">
+                                    <i class="fas fa-file-word"></i>
+                                    <span>قائمة الجامعات المعتمدة.docx</span>
+                                    <small>(1.1 MB)</small>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ad-detail-footer">
+                        <div class="share-buttons">
+                            <span>مشاركة:</span>
+                            <a href="#" class="btn btn-outline-primary btn-sm"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="btn btn-outline-info btn-sm"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="btn btn-outline-danger btn-sm"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm"><i class="fas fa-envelope"></i></a>
+                        </div>
+                        <a href="@Url.Action("Advertisements", "News")" class="btn btn-primary">
+                            <i class="fas fa-arrow-left"></i> العودة إلى قائمة الإعلانات
+                        </a>
+                    </div>
+                </div>
+
+                <!-- إعلانات مشابهة -->
+                <div class="related-ads mt-5">
+                    <h3 class="mb-4">إعلانات مشابهة</h3>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="ad-card">
+                                <div class="card-body">
+                                    <div class="ad-date">
+                                        <i class="far fa-calendar-alt me-2"></i> 15 يونيو 2023
+                                    </div>
+                                    <h5 class="card-title">برنامج المنح الدراسية للدراسات العليا</h5>
+                                    <p class="card-text">إعلان عن فتح باب التقديم لبرنامج المنح الدراسية لمرحلة الماجستير.</p>
+                                    <a href="/Advertisements/Details/9" class="read-more">التفاصيل</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="ad-card">
+                                <div class="card-body">
+                                    <div class="ad-date">
+                                        <i class="far fa-calendar-alt me-2"></i> 10 يونيو 2023
+                                    </div>
+                                    <h5 class="card-title">دورات تدريبية مجانية للاجئين</h5>
+                                    <p class="card-text">إعلان عن بدء التسجيل في سلسلة الدورات التدريبية المهنية المجانية.</p>
+                                    <a href="/Advertisements/Details/10" class="read-more">التفاصيل</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

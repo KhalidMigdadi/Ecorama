@@ -1,0 +1,191 @@
+﻿@model Ecorama.Models.User
+
+@{
+    ViewData["Title"] = "الملف الشخصي";
+}
+
+<div class="container py-5">
+    <!-- Header with Profile Image -->
+    <div class="row mb-5" style="margin-top: 3rem;">
+        <div class="col-md-12">
+            <div class="card shadow border-0">
+
+
+
+                <div class="card shadow-sm p-4">
+                    <div class="row">
+                        <!-- الصورة -->
+                        <div class="col-md-3 text-center mb-4 mb-md-0">
+                            @if (!string.IsNullOrEmpty(Model.ProfileImagePath))
+                            {
+                                <img src="@Model.ProfileImagePath" alt="صورة الملف الشخصي" class="rounded-circle shadow" style="width: 150px; height: 150px; object-fit: cover;" />
+                            }
+                            else
+                            {
+                                <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center shadow" style="width: 150px; height: 150px;">
+                                    <i class="fa fa-user text-white" style="font-size: 60px;"></i>
+                                </div>
+                            }
+                        </div>
+
+                        <!-- التفاصيل -->
+                        <div class="col-md-9">
+                            <div class="row">
+                                <!-- العمود الأول: المعلومات الشخصية -->
+                                <div class="col-md-6 mb-3">
+                                    <h4 class="fw-bold mb-3">@Model.FirstName @Model.MiddleName @Model.LastName</h4>
+                                    <p class="mb-2">
+                                        <i class="fa fa-calendar me-2"></i>تاريخ الميلاد: @(Model.Birthdate.ToString("dd/MM/yyyy"))
+                                    </p>
+                                    <p class="mb-2">
+                                        <i class="fa fa-venus-mars me-2"></i>الجنس: @Model.Gender
+                                    </p>
+                                    <p class="mb-2">
+                                        <i class="fa fa-id-card me-2"></i>الرقم الوطني: @Model.NationalId
+                                    </p>
+                                </div>
+
+                                <!-- العمود الثاني: معلومات الاتصال -->
+                                <div class="col-md-6 mb-3">
+                                    <p class="mb-2">
+                                        <i class="fa fa-envelope me-2"></i>البريد الإلكتروني: @Model.Email
+                                    </p>
+                                    <p class="mb-2">
+                                        <i class="fa fa-phone me-2"></i>رقم الهاتف: @Model.PhoneNumber
+                                    </p>
+                                    @* إذا كان عندك معلومات أخرى ممكن تضيفها هنا *@
+                                </div>
+                            </div>
+
+                            <!-- زر تعديل -->
+                            <div class="text-end mt-3">
+                                <a href="@Url.Action("Edit", "Profile")" class="btn btn-primary">
+                                    <i class="fa fa-edit me-2"></i>تعديل البيانات
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="row">
+        <!-- Residence Information -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow h-100 border-0">
+                <div class="card-header bg-white py-3">
+                    <h5 class="mb-0 text-primary">
+                        <i class="fa fa-map-marker-alt me-2"></i>معلومات السكن
+                    </h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.Residences != null && Model.Residences.Any())
+                    {
+                        var residence = Model.Residences.First();
+                        <div class="mb-3">
+                            <h6 class="text-muted mb-2">المحافظة</h6>
+                            <p class="mb-0 fw-bold">@residence.Governorate</p>
+                        </div>
+                        <div class="mb-3">
+                            <h6 class="text-muted mb-2">المديرية</h6>
+                            <p class="mb-0 fw-bold">@residence.District</p>
+                        </div>
+                        <div>
+                            <h6 class="text-muted mb-2">القرية</h6>
+                            <p class="mb-0 fw-bold">@residence.Village</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted">لا توجد بيانات سكن متاحة</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Information -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow h-100 border-0">
+                <div class="card-header bg-white py-3">
+                    <h5 class="mb-0 text-primary">
+                        <i class="fa fa-graduation-cap me-2"></i>المعلومات التعليمية
+                    </h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.Educations != null && Model.Educations.Any())
+                    {
+                        var education = Model.Educations.First();
+                        <div class="mb-3">
+                            <h6 class="text-muted mb-2">المستوى التعليمي</h6>
+                            <p class="mb-0 fw-bold">@education.EducationLevel</p>
+                        </div>
+                        <div>
+                            <h6 class="text-muted mb-2">نوع البرنامج</h6>
+                            <p class="mb-0 fw-bold">@education.ProgramType</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted">لا توجد بيانات تعليمية متاحة</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Language Information -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow h-100 border-0">
+                <div class="card-header bg-white py-3">
+                    <h5 class="mb-0 text-primary">
+                        <i class="fa fa-language me-2"></i>اللغات
+                    </h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.Languages != null && Model.Languages.Any())
+                    {
+                        foreach (var language in Model.Languages)
+                        {
+                            string displayName = language.LanguageName == "أخرى" ? language.CustomLanguageName : language.LanguageName;
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <h6 class="fw-bold mb-0">@displayName</h6>
+                                    <span class="badge bg-primary">@language.ProficiencyLevel</span>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    @{
+                                        int progressValue = 20;
+                                        switch (language.ProficiencyLevel)
+                                        {
+                                            case "اللغة الأم": progressValue = 100; break;
+                                            case "طلاقة": progressValue = 90; break;
+                                            case "متقدم": progressValue = 75; break;
+                                            case "متوسط": progressValue = 50; break;
+                                            case "مبتدئ": progressValue = 25; break;
+                                        }
+                                    }
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: @progressValue%" aria-valuenow="@progressValue" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p class="text-muted">لا توجد بيانات لغات متاحة</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Add any custom scripts for the profile page here
+    </script>
+}

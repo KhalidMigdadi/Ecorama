@@ -1,0 +1,235 @@
+﻿@model Ecorama.Models.ContactU
+@{
+    ViewData["Title"] = "اتصل بنا";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+
+}
+
+@section Style {
+    <style>
+        .contact-info h4 {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .contact-info p {
+            color: #7f8c8d;
+            margin-right: 25px;
+        }
+
+        .info-item i {
+            color: #3498db;
+        }
+
+        /* Animation Styles */
+        .envelope-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .envelope {
+            position: relative;
+            width: 200px;
+            height: 120px;
+            background-color: #e74c3c;
+            border-radius: 5px;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg);
+            transition: all 1s ease;
+        }
+
+        .front {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-top: 60px solid #FFD700;
+            top: 0;
+            transform-origin: top;
+            transform: rotateX(0deg);
+            transition: all 1s ease;
+            z-index: 1;
+        }
+
+        .back {
+            position: absolute;
+            width: 200px;
+            height: 120px;
+            background-color: #FFD700;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .letter {
+            position: absolute;
+            width: 180px;
+            height: 100px;
+            background-color: white;
+            margin: 10px;
+            border-radius: 3px;
+            /* z-index: 1; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 1s ease;
+        }
+
+            .letter .text {
+                font-size: 20px;
+                font-weight: bold;
+                color: #2c3e50;
+            }
+
+        .envelope.open .front {
+            transform: rotateX(180deg);
+        }
+
+        .envelope.open .letter {
+            transform: translateY(-60px);
+        }
+
+        .fly-away {
+            animation: fly 2s forwards;
+        }
+
+        @@keyframes fly {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(-1000px) rotate(30deg);
+                opacity: 0;
+            }
+        }
+    </style>
+}
+
+
+
+
+<div class="container my-5" ; style="margin-top: 110px !important;">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success text-center">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <div class="row">
+        <!-- الجزء الأيمن - المعلومات الثابتة -->
+        <div class="col-md-6">
+            <div class="contact-info p-4 h-100" style="background-color: #f8f9fa; border-radius: 10px;">
+                <h2 class="mb-4 text-primary">معلومات التواصل</h2>
+                <div class="info-item mb-4">
+                    <h4><i class="fas fa-map-marker-alt me-2"></i> العنوان</h4>
+                    <p>حديقة تونس  ، اربد، المملكة الاردنية الهاشمية</p>
+                </div>
+                <div class="info-item mb-4">
+                    <h4><i class="fas fa-phone me-2"></i> الهاتف</h4>
+                    <p dir="ltr">+962 797 550 423 </p>
+                </div>
+                <div class="info-item mb-4">
+                    <h4><i class="fas fa-envelope me-2"></i> البريد الإلكتروني</h4>
+                    <p>info@ecorama.com</p>
+                </div>
+                <div class="info-item">
+                    <h4><i class="fas fa-clock me-2"></i> ساعات العمل</h4>
+                    <p>الأحد - الخميس: 8 صباحًا - 5 مساءً</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- الجزء الأيسر - نموذج التواصل -->
+        <div class="col-md-6">
+            <div class="contact-form p-4 h-100" style="background-color: #f8f9fa; border-radius: 10px;">
+                <h2 class="mb-4 text-primary">أرسل لنا رسالة</h2>
+                <form id="contactForm" asp-action="SubmitForm" method="post">
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-group mb-3">
+                        <label asp-for="FullName" class="form-label">الاسم الكامل</label>
+                        <input asp-for="FullName" class="form-control" placeholder="أدخل اسمك الكامل" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Email" class="form-label">البريد الإلكتروني</label>
+                        <input asp-for="Email" class="form-control" placeholder="أدخل بريدك الإلكتروني" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Subject" class="form-label">الموضوع</label>
+                        <input asp-for="Subject" class="form-control" placeholder="موضوع الرسالة (اختياري)" />
+                        <span asp-validation-for="Subject" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label asp-for="Message" class="form-label">الرسالة</label>
+                        <textarea asp-for="Message" class="form-control" rows="5" placeholder="أدخل رسالتك هنا"></textarea>
+                        <span asp-validation-for="Message" class="text-danger"></span>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                            <i class="fas fa-paper-plane me-2"></i> إرسال الرسالة
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Animation Elements -->
+<div id="envelopeAnimation" class="envelope-animation" style="display: none;">
+    <div class="envelope">
+        @* <div class="front"></div> *@
+        <div class="back"></div>
+        <div class="letter">
+            <div class="text" style="margin-bottom:40%">شكرًا لك!</div>
+
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+@section Scripts {
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        $(document).ready(function() {
+            $('#contactForm').on('submit', function(e) {
+                if ($(this).valid()) {
+                    e.preventDefault();
+
+                    // Show animation
+                    $('#envelopeAnimation').show();
+                    $('.envelope').addClass('open');
+
+                    // After animation completes, submit the form
+                    setTimeout(function() {
+                        $('.envelope').addClass('fly-away');
+
+                        setTimeout(function() {
+                            $('#contactForm').off('submit').submit();
+                        }, 1000);
+                    }, 1500);
+                }
+            });
+        });
+    </script>
+}

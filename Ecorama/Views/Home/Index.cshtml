@@ -9,7 +9,10 @@
 }
 
 
+
 @section Style {
+
+	
 
 	<link rel="stylesheet" href="/css/course/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/course/css/font-awesome.min.css">
@@ -70,7 +73,12 @@
 			text-align: center;
 		}
 
-
+		footer {
+			background-color: #1e1e1e;
+			color: white;
+			padding-top: 70px;
+			padding-bottom: 50px !important;
+		}
 		.btnWorkShop {
 			padding: 10px 20px;
 			font-size: 14px;
@@ -342,7 +350,7 @@
 				left: 0;
 				width: 0%;
 				height: 100%;
-				background: linear-gradient(to right, #ff6b3d, #ff8e3c);
+				background: linear-gradient(to right, #1bb6d6, #1bb6d6);
 				transition: all 0.5s ease;
 				z-index: -1;
 			}
@@ -527,72 +535,7 @@
 
 
 
-		/* Partners */
-		.partners-slider-section {
-			padding: 60px 0;
-			background: white;
-			overflow: hidden;
-		}
-
-		.slider-containerP {
-			position: relative;
-			width: 100%;
-			margin: 40px auto;
-			overflow: hidden;
-		}
-
-		.slider-track {
-			display: flex;
-			width: max-content;
-			animation: scroll 20s linear infinite;
-			will-change: transform;
-		}
-
-		.slider-containerP:hover .slider-track {
-			animation-play-state: paused;
-		}
-
-		.slider-item {
-			width: 200px;
-			height: 100px;
-			margin: 0 25px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			flex-shrink: 0;
-		}
-
-			.slider-item img {
-				max-width: 100%;
-				max-height: 70px;
-				filter: grayscale(100%);
-				opacity: 1;
-				transition: all 0.3s ease;
-			}
-
-			.slider-item:hover img {
-				filter: grayscale(0);
-				opacity: 1;
-				transform: scale(1.1);
-			}
-
-		@@keyframes scroll {
-			0% {
-				transform: translateX(0);
-			}
-
-			100% {
-				transform: translateX(-50%);
-			}
-			/* تحريك بنسبة 50% فقط */
-		}
-
-		@@media (max-width: 768px) {
-			.slider-item {
-				width: 150px;
-				margin: 0 15px;
-			}
-		}
+	
 
 		/* End Partners */
 
@@ -1410,6 +1353,154 @@
 		/* End Slider */
 
 
+		.partners {
+			padding: 60px 0;
+			background-color: white;
+			overflow: hidden;
+		}
+
+		.partners-container {
+			position: relative;
+			margin: 30px 0;
+		}
+
+		.partners-slider {
+			display: flex;
+			animation: partnerSlide 60s linear infinite;
+		}
+
+		@@keyframes partnerSlide {
+			0% {
+				transform: translateX(0);
+			}
+
+			100% {
+				transform: translateX(-50%);
+			}
+		}
+
+
+		.partners-slider:hover {
+			animation-play-state: paused;
+		}
+
+		.partner-item {
+			min-width: 200px;
+			height: 100px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 0 30px;
+			filter: grayscale(100%);
+			transition: all 0.5s ease;
+			opacity: 0.7;
+		}
+
+			.partner-item:hover {
+				filter: grayscale(0);
+				transform: scale(1.1);
+				opacity: 1;
+			}
+
+			.partner-item img {
+				max-width: 100%;
+				max-height: 80px;
+				object-fit: contain;
+			}
+
+
+		/* Partners */
+		.partners-slider-section {
+			padding: 60px 0;
+			background: white;
+			overflow: hidden;
+		}
+
+		.slider-containerP {
+			position: relative;
+			width: 100%;
+			margin: 40px auto;
+			overflow: hidden;
+		}
+
+		.slider-track {
+			display: flex;
+			width: max-content;
+			animation: scroll 20s linear infinite;
+			will-change: transform;
+		}
+
+		.slider-containerP:hover .slider-track {
+			animation-play-state: paused;
+		}
+
+		.slider-item {
+			width: 200px;
+			height: 100px;
+			margin: 0 25px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+		}
+
+			.slider-item img {
+				max-width: 100%;
+				max-height: 70px;
+				filter: grayscale(100%);
+				opacity: 1;
+				transition: all 0.3s ease;
+			}
+
+			.slider-item:hover img {
+				filter: grayscale(0);
+				opacity: 1;
+				transform: scale(1.1);
+			}
+
+		@@keyframes scroll {
+			0% {
+				transform: translateX(0);
+			}
+
+			100% {
+				transform: translateX(-50%);
+			}
+			/* تحريك بنسبة 50% فقط */
+		}
+
+		@@media (max-width: 768px) {
+			.slider-item {
+				width: 150px;
+				margin: 0 15px;
+			}
+		}
+
+		.partners-slider {
+			display: flex;
+			/* animation يتم إضافتها عبر JS */
+		}
+
+			@@keyframes partnerSlide {
+			0%
+
+		{
+			transform: translateX(0);
+		}
+
+		100% {
+			transform: translateX(-50%);
+		}
+
+		}
+
+		.partners-slider.animate {
+			animation: partnerSlide 60s linear infinite;
+		}
+
+		.partners-slider:hover {
+			animation-play-state: paused;
+		}
 
 
 	</style>
@@ -1454,7 +1545,7 @@
 	{
 		<div class="slider-image @(index == 0 ? "active" : "")" style="background-image: url('@Url.Content(slide.ImageUrl)')">
 			<div class="overlay">
-				<h2 style="color: #fff;">@slide.Title</h2>   <br />
+				@* <h2 style="color: #fff;">@slide.Title</h2>   <br /> *@
 				<p class="text">@slide.Description</p>
 			</div>
 		</div>
@@ -1511,7 +1602,7 @@
 					<li><i class="fas fa-check-circle"></i> شهادات حضور</li>
 					<li><i class="fas fa-check-circle"></i> تدريب عملي</li>
 				</ul>
-				<a href="#" class="main-btn">تصفح الورشات <i class="fas fa-arrow-left"></i></a>
+				<a href="@Url.Action("WorkShops","WorkShops")" class="main-btn">تصفح الورشات <i class="fas fa-arrow-left"></i></a>
 			</div>
 		</div>
 
@@ -1530,7 +1621,7 @@
 					<li><i class="fas fa-check-circle"></i> اختبارات تفاعلية</li>
 					<li><i class="fas fa-check-circle"></i> متابعة مستمرة</li>
 				</ul>
-				<a href="#" class="main-btn">تصفح الكورسات <i class="fas fa-arrow-left"></i></a>
+				<a href="@Url.Action("Courses","Course")" class="main-btn">تصفح الكورسات <i class="fas fa-arrow-left"></i></a>
 			</div>
 		</div>
 
@@ -1603,7 +1694,7 @@
 		<div class="workshops-container">
 			<div class="workshop-card">
 				<div class="workshop-image">
-					<img src="~/images/pexels-zhuhehuai-716276.jpg" alt="ورشة عمل">
+					<img src="https://edraak-marketing-uploads.edraak.org/Courses/UX.png" alt="ورشة عمل">
 					<div class="workshop-date">25 مايو 2025</div>
 				</div>
 				<div class="workshop-content">
@@ -1624,7 +1715,7 @@
 			</div>
 			<div class="workshop-card">
 				<div class="workshop-image">
-					<img src="~/images/pexels-zhuhehuai-716276.jpg" alt="ورشة عمل">
+					<img src="https://www.alrab7on.com/wp-content/uploads/2019/02/%D8%A7%D9%84%D8%AA%D8%B3%D9%88%D9%8A%D9%82-%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A.png" alt="ورشة عمل">
 					<div class="workshop-date">2 يونيو 2025</div>
 				</div>
 				<div class="workshop-content">
@@ -1645,7 +1736,7 @@
 			</div>
 			<div class="workshop-card">
 				<div class="workshop-image">
-					<img src="~/images/pexels-zhuhehuai-716281.jpg" alt="ورشة عمل">
+					<img src="https://expertishouse.com/wp-content/uploads/2024/04/%D9%85%D8%B3%D8%AA%D9%82%D8%A8%D9%84-%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%D8%A7%D8%AA-%D8%A7%D9%84%D9%88%D9%8A%D8%A8.jpg" alt="ورشة عمل">
 					<div class="workshop-date">10 يونيو 2025</div>
 				</div>
 				<div class="workshop-content">
@@ -1667,7 +1758,7 @@
 		</div>
 
 		<div class="view-all-btn">
-			<a href="#">عرض جميع الورشات</a>
+			<a href="@Url.Action("Workshops","WorkShops")">عرض جميع الورشات</a>
 		</div>
 	</div>
 </section>
@@ -1686,7 +1777,7 @@
 				<!-- Course 1 -->
 				<div class="swiper-slide edu-slide">
 					<div class="edu-img-wrapper" style="position: relative;">
-						<img src="images/courses-image1.jpg" alt="إدارة وسائل التواصل" />
+						<img src="https://www.alrab7on.com/wp-content/uploads/2019/10/%D9%83%D9%8A%D9%81%D9%8A%D8%A9-%D8%A7%D8%AF%D8%A7%D8%B1%D8%A9-%D9%85%D9%88%D8%A7%D9%82%D8%B9-%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84-%D8%A7%D9%84%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%D9%8A.png" alt="إدارة وسائل التواصل" />
 						<div class="edu-date-badge">12 يوليو 2024</div>
 					</div>
 					<div class="edu-content-box">
@@ -1697,7 +1788,7 @@
 						</div>
 						<p>تعلم إدارة الحملات على المنصات الاجتماعية بفعالية.</p>
 						<div class="edu-bottom-bar">
-							<div class="edu-cost">25 دولار</div>
+							<div class="edu-cost no-cost">مجاني</div>
 							<a href="#" class="edu-button">اشترك الآن</a>
 						</div>
 					</div>
@@ -1706,7 +1797,7 @@
 				<!-- Course 2 -->
 				<div class="swiper-slide edu-slide">
 					<div class="edu-img-wrapper" style="position: relative;">
-						<img src="images/courses-image2.jpg" alt="تصميم جرافيكي وويب" />
+						<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFXHLMBbFmpWQnuTNklv3fvl9DdVVhQyz7XK_mCPayD_vsd1BJOgB91mXL1VD-kMnpBgx8SS0_uy9aNB52JAvQyjCjdrhc1lsUwg9JN-p08gPeSDwqKRybvaAGbWVTElIl7qoT2ia2upQ/s1600/Graphic-Vs-Web-design.jpg" alt="تصميم جرافيكي وويب" />
 						<div class="edu-date-badge">20 يوليو 2024</div>
 					</div>
 					<div class="edu-content-box">
@@ -1717,7 +1808,7 @@
 						</div>
 						<p>أساسيات التصميم باستخدام أدوات Adobe و HTML/CSS.</p>
 						<div class="edu-bottom-bar">
-							<div class="edu-cost">80 دولار</div>
+							<div class="edu-cost no-cost">مجاني</div>
 							<a href="#" class="edu-button">اشترك الآن</a>
 						</div>
 					</div>
@@ -1726,7 +1817,7 @@
 				<!-- Course 3 -->
 				<div class="swiper-slide edu-slide">
 					<div class="edu-img-wrapper" style="position: relative;">
-						<img src="images/courses-image3.jpg" alt="الاتصال التسويقي" />
+						<img src="https://aait.sa/wp-content/uploads/2024/08/%D8%A7%D9%84%D8%A7%D8%AA%D8%B5%D8%A7%D9%84-%D8%A7%D9%84%D8%AA%D8%B3%D9%88%D9%8A%D9%82%D9%8A.png" alt="الاتصال التسويقي" />
 						<div class="edu-date-badge">15 أغسطس 2024</div>
 					</div>
 					<div class="edu-content-box">
@@ -1746,7 +1837,7 @@
 				<!-- Course 4 -->
 				<div class="swiper-slide edu-slide">
 					<div class="edu-img-wrapper" style="position: relative;">
-						<img src="images/courses-image4.jpg" alt="تحليل البيانات" />
+						<img src="https://lim-admin.lookinmena.com/wp-content/uploads/2021/07/%D8%AA%D8%AD%D9%84%D9%8A%D9%84-%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA-01-scaled.jpg" alt="تحليل البيانات" />
 						<div class="edu-date-badge">22 أغسطس 2024</div>
 					</div>
 					<div class="edu-content-box">
@@ -1757,7 +1848,7 @@
 						</div>
 						<p>تعلم استخدام Excel وPower BI لتحليل البيانات واتخاذ القرار.</p>
 						<div class="edu-bottom-bar">
-							<div class="edu-cost">45 دولار</div>
+							<div class="edu-cost no-cost">مجاني</div>
 							<a href="#" class="edu-button">اشترك الآن</a>
 						</div>
 					</div>
@@ -1766,7 +1857,7 @@
 				<!-- Course 5 -->
 				<div class="swiper-slide edu-slide">
 					<div class="edu-img-wrapper" style="position: relative;">
-						<img src="images/courses-image5.jpg" alt="أساسيات البرمجة" />
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNh5191B_Nefa9X48UYfyy-56RPDX8nOM2YQ&s" alt="أساسيات البرمجة" />
 						<div class="edu-date-badge">5 سبتمبر 2024</div>
 					</div>
 					<div class="edu-content-box">
@@ -1777,7 +1868,7 @@
 						</div>
 						<p>ابدأ رحلتك في عالم البرمجة باستخدام Python وأساسيات التفكير المنطقي.</p>
 						<div class="edu-bottom-bar">
-							<div class="edu-cost">60 دولار</div>
+							<div class="edu-cost no-cost">مجاني</div>
 							<a href="#" class="edu-button">اشترك الآن</a>
 						</div>
 					</div>
@@ -1786,7 +1877,7 @@
 				<!-- Course 6 -->
 				<div class="swiper-slide edu-slide">
 					<div class="edu-img-wrapper" style="position: relative;">
-						<img src="images/courses-image6.jpg" alt="الذكاء الاصطناعي" />
+						<img src="https://www.clickyourfuture.com/wp-content/uploads/2023/09/%D9%85%D9%82%D8%AF%D9%85%D8%A9-%D8%B9%D9%86-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%89-%D9%88%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D8%A7%D9%85%D8%A7%D8%AA%D9%87-%D9%81%D9%89-%D8%A7%D9%84%D8%AA%D8%B3%D9%88%D9%8A%D9%82-%D8%A8%D8%A7%D9%84%D9%85%D8%AD%D8%AA%D9%88%D9%89.jpg" alt="الذكاء الاصطناعي" />
 						<div class="edu-date-badge">18 سبتمبر 2024</div>
 					</div>
 					<div class="edu-content-box">
@@ -1811,7 +1902,7 @@
 		</div>
 
 		<div class="edu-more-link">
-			<a href="#"><i class="fas fa-chevron-left"></i> عرض جميع الكورسات</a>
+			<a href="@Url.Action("","Home")"><i class="fas fa-chevron-left"></i> عرض جميع الكورسات</a>
 		</div>
 	</div>
 </section>
@@ -1828,15 +1919,17 @@
 			</div>
 			<div class="ticker-item">
 				<i class="fas fa-bullhorn"></i>
-				<span>خصم 30% على جميع الكورسات بمناسبة اليوم العالمي للتعليم</span>
+				<span>
+					11 مايو 2025 بدء التسجيل في دورة المهارات الرقمية للاجئين 2025</span>
 			</div>
 			<div class="ticker-item">
 				<i class="fas fa-bullhorn"></i>
-				<span>انضمام مدربين جدد إلى فريق إيكوراما من مختلف التخصصات</span>
+				<span>
+					2 مايو 2025 تخريج الدفعة الأولى من برنامج ToT في الزعتري</span>
 			</div>
 			<div class="ticker-item">
 				<i class="fas fa-bullhorn"></i>
-				<span>عقد شراكة جديدة مع جامعة عالمية لاعتماد شهادات منصة إيكوراما</span>
+				<span>جلسات توعية مهنية عن سوق العمل المحلي</span>
 			</div>
 		</div>
 	</div>
@@ -1864,7 +1957,7 @@
 				<div class="news-content-wrapper">
 					<div class="news-content-flex">
 						<div class="news-image-container">
-							<img src="~/images/pexels-zhuhehuai-716281.jpg" alt="زراعة الأشجار في المناطق الحضرية">
+							<img src="https://www.emaratalyoum.com/polopoly_fs/1.1290096.1577648367!/image/image.jpg" alt="زراعة الأشجار في المناطق الحضرية">
 							<div class="news-category">مبادرات خضراء</div>
 						</div>
 						<div class="news-text-content">
@@ -1885,7 +1978,7 @@
 				<div class="news-content-wrapper">
 					<div class="news-content-flex">
 						<div class="news-image-container">
-							<img src="/images/pexels-fauxels-3183197.jpg" alt="الطاقة المتجددة">
+							<img src="https://solarabic.com/wp-content/uploads/2023/03/Yellow-Door-Energy.jpg" alt="الطاقة المتجددة">
 							<div class="news-category">الطاقة المتجددة</div>
 						</div>
 						<div class="news-text-content">
@@ -1906,7 +1999,7 @@
 				<div class="news-content-wrapper">
 					<div class="news-content-flex">
 						<div class="news-image-container">
-							<img src="/Admin/img/undraw_posting_photo.svg" alt="ورشة عمل إعادة التدوير">
+							<img src="https://atlaspreneur.com/wp-content/uploads/2024/10/2150196688-e1727780164313.jpg" alt="ورشة عمل إعادة التدوير">
 							<div class="news-category">فعاليات</div>
 						</div>
 						<div class="news-text-content">
@@ -1920,7 +2013,7 @@
 		</div>
 
 		<div class="view-all-btn">
-			<a href="#">عرض جميع الأخبار</a>
+			<a href="@Url.Action("News","News")">عرض جمع الأخبار</a>
 		</div>
 	</div>
 </section>
@@ -1930,7 +2023,7 @@
 
 
 <!-- Partners -->
-<section class="partners-slider-section">
+<section class="partners-slider-section" id="partners-section">
 	<div class="container">
 		<div class="section-header">
 			<h2>شركاء النجاح</h2>
@@ -1939,28 +2032,46 @@
 		</div>
 
 		<div class="slider-containerP">
-			<div class="slider-track">
-				<!-- العناصر الأصلية -->
-				<div class="slider-item"><img src="~/images/pexels-zhuhehuai-716281.jpg" alt="شريك"></div>
-				<div class="slider-item"><img src="/api/placeholder/200/100" alt="شريك"></div>
-				<div class="slider-item"><img src="/api/placeholder/200/100" alt="شريك"></div>
-				<div class="slider-item"><img src="/api/placeholder/200/100" alt="شريك"></div>
-				<div class="slider-item"><img src="/api/placeholder/200/100" alt="شريك"></div>
-				<div class="slider-item"><img src="/api/placeholder/200/100" alt="شريك"></div>
-				<div class="slider-item"><img src="/api/placeholder/200/100" alt="شريك"></div>
-				<div class="slider-item"><img src="/api/placeholder/200/100" alt="شريك"></div>
+			<div class="slider-track partners-slider">
+				<!-- العناصر الأصلية (تم تكرارها لتأثير الدوران المستمر) -->
+				<div class="partner-item"><img src="/images/Orange_Is_Here.png" alt="شريك"></div>
+				<div class="partner-item"><img src="https://i.pinimg.com/736x/d1/95/83/d19583fa1070c1786b8e641d64f85693.jpg" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/R.a606ea283ee8d8592ba2f9a2653e8110?rik=stTEJi9zFyeq%2bg&pid=ImgRaw&r=0&sres=1&sresct=1" alt="شريك"></div>
+				<div class="partner-item"><img src="https://i.pinimg.com/736x/ee/de/3f/eede3ffea12426acff8bf8fc98ecca95.jpg" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/R.e7a9193f296417bf8a6436c4a910d1d4?rik=VVJ5Oz4hQTlBJg&pid=ImgRaw&r=0" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.ewam4qTJX9G2wZjZMKJ2FAHaDt?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.jTMiMvHRaCC7AcQp_d8ZDwHaE8?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.Zr5VXmqikf1ajcpnjYnnnAHaEK?cb=iwc2&w=700&h=393&rs=1&pid=ImgDetMain" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.7uNQPIlL4yHzGpnRKUzNewHaFn?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.dYBXFsEv5w0YQotjfKNvMgHaHa?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
+					<div class="partner-item"><img src="/images/Orange_Is_Here.png" alt="شريك"></div>
+				<div class="partner-item"><img src="https://i.pinimg.com/736x/d1/95/83/d19583fa1070c1786b8e641d64f85693.jpg" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/R.a606ea283ee8d8592ba2f9a2653e8110?rik=stTEJi9zFyeq%2bg&pid=ImgRaw&r=0&sres=1&sresct=1" alt="شريك"></div>
+				<div class="partner-item"><img src="https://i.pinimg.com/736x/ee/de/3f/eede3ffea12426acff8bf8fc98ecca95.jpg" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/R.e7a9193f296417bf8a6436c4a910d1d4?rik=VVJ5Oz4hQTlBJg&pid=ImgRaw&r=0" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.ewam4qTJX9G2wZjZMKJ2FAHaDt?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.jTMiMvHRaCC7AcQp_d8ZDwHaE8?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.Zr5VXmqikf1ajcpnjYnnnAHaEK?cb=iwc2&w=700&h=393&rs=1&pid=ImgDetMain" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.7uNQPIlL4yHzGpnRKUzNewHaFn?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.dYBXFsEv5w0YQotjfKNvMgHaHa?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
+					<div class="partner-item"><img src="/images/Orange_Is_Here.png" alt="شريك"></div>
+				<div class="partner-item"><img src="https://i.pinimg.com/736x/d1/95/83/d19583fa1070c1786b8e641d64f85693.jpg" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/R.a606ea283ee8d8592ba2f9a2653e8110?rik=stTEJi9zFyeq%2bg&pid=ImgRaw&r=0&sres=1&sresct=1" alt="شريك"></div>
+				<div class="partner-item"><img src="https://i.pinimg.com/736x/ee/de/3f/eede3ffea12426acff8bf8fc98ecca95.jpg" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/R.e7a9193f296417bf8a6436c4a910d1d4?rik=VVJ5Oz4hQTlBJg&pid=ImgRaw&r=0" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.ewam4qTJX9G2wZjZMKJ2FAHaDt?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.jTMiMvHRaCC7AcQp_d8ZDwHaE8?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.Zr5VXmqikf1ajcpnjYnnnAHaEK?cb=iwc2&w=700&h=393&rs=1&pid=ImgDetMain" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.7uNQPIlL4yHzGpnRKUzNewHaFn?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
+				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.dYBXFsEv5w0YQotjfKNvMgHaHa?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
 
-				<!-- تكرار العناصر لضمان الاستمرارية -->
-				<div class="slider-item"><img src="~/images/pexels-zhuhehuai-716281.jpg" alt="شريك"></div>
-				<div class="slider-item"><img src="/api/placeholder/200/100" alt="شريك"></div>
-				<div class="slider-item"><img src="/api/placeholder/200/100" alt="شريك"></div>
-				<div class="slider-item"><img src="/api/placeholder/200/100" alt="شريك"></div>
-				<div class="slider-item"><img src="/api/placeholder/200/100" alt="شريك"></div>
-				<div class="slider-item"><img src="/api/placeholder/200/100" alt="شريك"></div>
-				<div class="slider-item"><img src="/api/placeholder/200/100" alt="شريك"></div>
-				<div class="slider-item"><img src="/api/placeholder/200/100" alt="شريك"></div>
+				<!-- تكرار نفس العناصر لمضاعفة المسار للسلايدر -->
+				<div class="partner-item"><img src="/images/Orange_Is_Here.png" alt="شريك"></div>
+				<div class="partner-item"><img src="https://i.pinimg.com/736x/d1/95/83/d19583fa1070c1786b8e641d64f85693.jpg" alt="شريك"></div>
+				<!-- كرر الباقي حسب الحاجة -->
 			</div>
 		</div>
+
 	</div>
 </section>
 
@@ -1973,8 +2084,8 @@
 			<h2 style="color: #fff;">ابدأ رحلتك التعليمية الآن</h2>
 			<p style="color: #fff;">انضم إلى مجتمع إيكوراما التعليمي واستفد من مجموعة واسعة من الكورسات والورشات التي ستساعدك على تطوير مهاراتك وتحقيق أهدافك.</p>
 			<div class="cta-buttons">
-				<a href="#" class="cta-btn primary-btn">سجل الآن</a>
-				<a href="#" class="cta-btn secondary-btn">تواصل معنا</a>
+				<a href="@Url.Action("Login","Login")" class="cta-btn primary-btn">سجل الآن</a>
+				<a href="@Url.Action("Index","Contact")" class="cta-btn secondary-btn">تواصل معنا</a>
 			</div>
 		</div>
 	</div>
@@ -2115,6 +2226,30 @@
 			  slidesPerView: 3,
 			},
 		  },
+		});
+
+
+				document.addEventListener("DOMContentLoaded", function () {
+			const slider = document.querySelector(".partners-slider");
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							slider.classList.add("animate");
+						} else {
+							slider.classList.remove("animate");
+						}
+					});
+				},
+				{
+					threshold: 0.5, // يبدأ عندما يظهر نصف العنصر على الأقل
+				}
+			);
+
+			const section = document.querySelector("#partners-section");
+			if (section) {
+				observer.observe(section);
+			}
 		});
 
 	</script>

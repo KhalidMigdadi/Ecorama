@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Ecorama.Models.Announcement>
+@{
+    ViewData["Title"] = "All Announcements";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+
+}
+
+<h2>Announcements</h2>
+
+<a class="btn btn-success mb-3" href="@Url.Action("Create")">Add New Announcement</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Image URL</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ann in Model)
+        {
+            <tr>
+                <td>@ann.Title</td>
+                <td>@ann.Content</td>
+                <td><img src="@ann.ImageUrl" width="100" /></td>
+                <td>@ann.CreatedAt?.ToString("g")</td>
+                <td>
+                    <a class="btn btn-warning btn-sm" href="@Url.Action("Edit", new { id = ann.Id })">Edit</a>
+                    <form asp-action="Delete" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@ann.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?');">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

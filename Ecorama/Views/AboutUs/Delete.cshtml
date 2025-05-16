@@ -1,0 +1,30 @@
+﻿ @model Ecorama.Models.AboutU
+
+@{
+	ViewData["Title"] = "حذف المحتوى";
+	Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+
+}
+
+<h2 class="text-danger">@ViewData["Title"]</h2>
+
+<h4>هل أنت متأكد أنك تريد حذف هذا المحتوى؟</h4>
+
+<div class="border p-3 mb-3">
+	<dl class="row">
+		<dt class="col-sm-3">العنوان</dt>
+		<dd class="col-sm-9">@Model.Title</dd>
+
+		<dt class="col-sm-3">الوصف</dt>
+		<dd class="col-sm-9">@Model.Description</dd>
+
+		<dt class="col-sm-3">تاريخ الإضافة</dt>
+		<dd class="col-sm-9">@Model.CreatedAt?.ToString("yyyy-MM-dd")</dd>
+	</dl>
+
+	<form asp-action="Delete">
+		<input type="hidden" asp-for="Id" />
+		<button type="submit" class="btn btn-danger">نعم، احذف</button>
+		<a asp-action="Index" class="btn btn-secondary">إلغاء</a>
+	</form>
+</div>

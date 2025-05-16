@@ -134,8 +134,10 @@ namespace Ecorama.Controllers
 
                 await _context.SaveChangesAsync();
 
-                // إعادة التوجيه إلى صفحة تأكيد التسجيل
-                return RedirectToAction(nameof(RegistrationSuccess));
+                TempData["SuccessMessage"] = "تم إنشاء الحساب بنجاح.";
+
+
+                return RedirectToAction(nameof(Register));
             }
 
             // إذا كان هناك أخطاء في النموذج، يتم إعادة تحميل البيانات وعرض النموذج مرة أخرى
@@ -254,6 +256,13 @@ namespace Ecorama.Controllers
             HttpContext.Session.SetString("UserRole", user.Role);
             HttpContext.Session.SetString("Gender", user.Gender);
             HttpContext.Session.SetString("PhoneNumber", user.PhoneNumber);
+
+
+            if (!string.IsNullOrEmpty(user.ProfileImagePath))
+            {
+                HttpContext.Session.SetString("ProfileImagePath", user.ProfileImagePath);
+            }
+
 
             if (user.Email.ToLower() == "admin@gmail.com")
             {

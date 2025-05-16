@@ -1,12 +1,32 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Ecorama.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Ecorama.Controllers
 {
     public class WorkShopsController : Controller
     {
+        private readonly MyDbContext _context;
+
+        public WorkShopsController(MyDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Workshops()
         {
-            return View();
+            var workshops = _context.Workshops.ToList();
+            return View(workshops);
         }
+
+
+        public IActionResult WorkshopsDetails(int id)
+        {
+            var workshop = _context.Workshops.FirstOrDefault(w => w.Id == id && w.IsActive);
+            if (workshop == null)
+                return NotFound();
+
+            return View(workshop);
+        }
+
+
     }
 }

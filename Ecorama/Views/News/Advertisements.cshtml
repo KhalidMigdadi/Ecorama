@@ -1,0 +1,256 @@
+﻿
+@{
+    ViewData["Title"] = "Advertisements";
+}
+
+@section Style {
+    <link rel="stylesheet" href="~/css/advertisements.css" />
+    <link rel="stylesheet" href="~/css/NEWs.css" />
+}
+
+<div class="advertisements-container">
+    <!-- رأس الصفحة -->
+    <div class="news-header text-center">
+        <div class="floating-shapes">
+            <div class="shape" style="width: 100px; height: 100px; background: white; top: 20%; left: 10%; animation-delay: 0s;"></div>
+            <div class="shape" style="width: 150px; height: 150px; background: var(--unhcr-blue); top: 60%; left: 80%; animation-delay: 2s;"></div>
+            <div class="shape" style="width: 80px; height: 80px; background: white; top: 80%; left: 30%; animation-delay: 4s;"></div>
+        </div>
+        <div class="container position-relative">
+            <h1 class="fw-bold mb-3 animate__animated animate__fadeInDown">الدورات وورش العمل - Ecorama</h1>
+            <p class="lead animate__animated animate__fadeInUp animate__delay-1s">تابع أحدث الدورات التدريبية وورش العمل التعليمية المقدمة من المفوضية</p>
+        </div>
+    </div>
+
+    <!-- فلترة الإعلانات -->
+    <div class="container mb-4 animate__animated animate__fadeIn">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="search-box">
+                    <input type="text" class="form-control" placeholder="ابحث عن دورة أو ورشة...">
+                    <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <select class="form-select">
+                    <option selected>جميع الفئات</option>
+                    <option>دورات تدريبية</option>
+                    <option>ورش عمل</option>
+                    <option>تعليم رقمي</option>
+                    <option>تنمية مهارات</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- قائمة الدورات -->
+    <div class="container">
+        <div class="row">
+            <!-- دورة رئيسية -->
+            <div class="col-lg-6 mb-4">
+                <div class="ad-card main-ad">
+                    <div class="position-relative">
+                        <img src="/images/pexels-shkrabaanthony-4348401.jpg" class="card-img-top" alt="دورة رقمية">
+                        <span class="category-badge">دورة تدريبية</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="ad-date">
+
+                            <i class="far fa-calendar-alt me-2"></i> 10 مايو 2025
+                        </div>
+                        <h3 class="card-title">إطلاق دورة المهارات الرقمية للاجئين 2025</h3>
+                        <p class="card-text">تعلن Ecorama عن بدء التسجيل في دورة شاملة لتعليم المهارات الرقمية، مخصصة للاجئين في مختلف المناطق.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="@Url.Action("AdvertisementsDetails","News")" class="read-more">التفاصيل</a>
+                            <span class="ad-views"><i class="far fa-eye"></i> 320</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ورش عمل -->
+            <div class="col-lg-6">
+                <div class="row">
+                    <!-- ورشة 1 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="ad-card">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCjuOKPVqZpLjv-LH68Yu707Nm7ykX8htAcg&s" class="card-img-top" alt="دورة تدريب المدربين">
+
+                            <div class="card-body">
+                                <div class="ad-date">
+                                    <i class="far fa-calendar-alt me-2"></i> 8 مايو 2025
+                                </div>
+                                <h5 class="card-title">ورشة عمل حول ريادة الأعمال</h5>
+                                <p class="card-text">تهدف الورشة إلى تمكين المشاركين من تطوير أفكار مشاريع صغيرة قابلة للتنفيذ.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="/Advertisements/Details/2" class="read-more">التفاصيل</a>
+                                    <span class="ad-views"><i class="far fa-eye"></i> 198</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- دورة 2 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="ad-card">
+                            <img src="https://watanimg.elwatannews.com/image_archive/original_lower_quality/10220107761714649019.jpg" class="card-img-top" alt="دورة تدريب المدربين">
+
+                            <div class="card-body">
+                                <div class="ad-date">
+                                    <i class="far fa-calendar-alt me-2"></i> 5 مايو 2025
+                                </div>
+                                <h5 class="card-title">فرص تدريب مجانية في التصميم الجرافيكي</h5>
+                                <p class="card-text">سجّل الآن في برنامج تدريبي مجاني لتعلم مهارات التصميم باستخدام أدوات احترافية.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="/Advertisements/Details/3" class="read-more">التفاصيل</a>
+                                    <span class="ad-views"><i class="far fa-eye"></i> 241</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- دورة 3 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="ad-card">
+                            <img src="https://www.alwefaak.com/uplode/images/course/image-39.png" class="card-img-top" alt="دورة تدريب المدربين">
+                            <div class="card-body">
+                                <div class="ad-date">
+                                    <i class="far fa-calendar-alt me-2"></i> 2 مايو 2025
+                                </div>
+                                <h5 class="card-title">دورة تدريب المدربين (ToT)</h5>
+                                <p class="card-text">تقدم Ecorama دورة لتأهيل مدربين محليين قادرين على نشر المعرفة ضمن مجتمعاتهم.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="/Advertisements/Details/4" class="read-more">التفاصيل</a>
+                                    <span class="ad-views"><i class="far fa-eye"></i> 165</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- جلسة توعية -->
+                    <div class="col-md-6 mb-4">
+                        <div class="ad-card">
+                            <img src="https://i.ytimg.com/vi/uf55XcN7h1M/sddefault.jpg" class="card-img-top" alt="دورة تدريب المدربين">
+
+                            <div class="card-body">
+                                <div class="ad-date">
+                                    <i class="far fa-calendar-alt me-2"></i> 29 أبريل 2025
+                                </div>
+                                <h5 class="card-title">جلسات توعية مهنية حول سوق العمل</h5>
+                                <p class="card-text">سلسلة من الجلسات التفاعلية لتوجيه اللاجئين نحو فرص مهنية مناسبة.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="/Advertisements/Details/5" class="read-more">التفاصيل</a>
+                                    <span class="ad-views"><i class="far fa-eye"></i> 208</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- دورات وورش سابقة -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h3 class="mb-4" style="color: var(--unhcr-dark-blue);">دورات وورش سابقة</h3>
+            </div>
+
+            <!-- سابق 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="ad-card">
+                    <img src="https://www.raya.com/wp-content/uploads/2020/11/18210410/%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%91%D9%85-%D8%B9%D9%86-%D8%A8%D8%B9%D8%AF.jpg" class="card-img-top" alt="دورة تدريب المدربين">
+
+                    <div class="card-body">
+                        <div class="ad-date">
+                            <i class="far fa-calendar-alt me-2"></i> 20 أبريل 2025
+                        </div>
+                        <h5 class="card-title">مبادرة التعليم عن بُعد للنازحين</h5>
+                        <p class="card-text">تجربة رائدة في توفير تعليم رقمي مجاني للطلاب في المناطق النائية.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="/Advertisements/Details/6" class="read-more">التفاصيل</a>
+                            <span class="ad-views"><i class="far fa-eye"></i> 142</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- سابق 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="ad-card">
+                    <img src="https://eduhub21.com/wp-content/uploads/2024/08/%D9%85%D8%A7-%D9%87%D9%8A-%D8%A7%D9%87%D9%85-%D8%A7%D9%84%D9%85%D9%87%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%84%D8%BA%D9%88%D9%8A%D9%87%D8%9F-768x768.jpg.webp" class="card-img-top" alt="دورة تدريب المدربين">
+
+                    <div class="card-body">
+                        <div class="ad-date">
+                            <i class="far fa-calendar-alt me-2"></i> 15 أبريل 2025
+                        </div>
+                        <h5 class="card-title">ورشة بناء المهارات اللغوية</h5>
+                        <p class="card-text">تهدف الورشة لتقوية مهارات التواصل الشفهي والكتابي باللغة الإنجليزية.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="/Advertisements/Details/7" class="read-more">التفاصيل</a>
+                            <span class="ad-views"><i class="far fa-eye"></i> 117</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- سابق 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="ad-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaniQdSgOeeN9s4DbRXaokPzpndb6i-tgoKw&s" class="card-img-top" alt="دورة تدريب المدربين">
+
+                    <div class="card-body">
+                        <div class="ad-date">
+                            <i class="far fa-calendar-alt me-2"></i> 10 أبريل 2025
+                        </div>
+                        <h5 class="card-title">دورة العمل الإنساني للمبتدئين</h5>
+                        <p class="card-text">مقدمة لفهم المبادئ الأساسية للعمل مع المنظمات غير الربحية.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="/Advertisements/Details/8" class="read-more">التفاصيل</a>
+                            <span class="ad-views"><i class="far fa-eye"></i> 189</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ترقيم الصفحات -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">السابق</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">التالي</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // كود JavaScript لصفحة الدورات
+        document.addEventListener('DOMContentLoaded', function () {
+            const adCards = document.querySelectorAll('.ad-card');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            adCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+}
+

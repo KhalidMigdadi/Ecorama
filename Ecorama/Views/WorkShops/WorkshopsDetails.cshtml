@@ -1,0 +1,62 @@
+﻿@model Ecorama.Models.Workshop
+
+@{
+    ViewData["Title"] = "تفاصيل الورشة";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Style {
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="~/css/workshopDetails.css" rel="stylesheet" />
+}
+
+<div class="details-container">
+    <div class="details-header">
+        <h1>@Model.Title</h1>
+        <span class="tag">الورشة</span>
+    </div>
+
+    <div class="details-content">
+        <div class="image-box">
+            <img src="@Model.ImageUrl" alt="صورة الورشة">
+        </div>
+
+        <div class="info-box">
+            <p class="description">
+                @Model.Description
+            </p>
+
+            <ul class="workshop-info">
+                <li>
+                    <i class="fas fa-calendar-day"></i>
+                    التاريخ: @(Model.Date.HasValue ? Model.Date.Value.ToString("dd MMMM yyyy", System.Globalization.CultureInfo.InvariantCulture) : "غير متوفر")
+                </li>
+                @if (Model.Duration.HasValue)
+                {
+                    <li><i class="fas fa-clock"></i> المدة: @Model.Duration أيام</li>
+                }
+                @if (Model.SeatsAvailable.HasValue)
+                {
+                    <li><i class="fas fa-users"></i> المقاعد المتاحة: @Model.SeatsAvailable</li>
+                }
+               @*  @if (Model.Price.HasValue)
+                {
+                    <li><i class="fas fa-tag"></i> السعر: <strong>@Model.Price ريال</strong></li>
+                } *@
+            </ul>
+
+            @if (!string.IsNullOrEmpty(Model.WebSiteUrl))
+            {
+                <a href="@Model.WebSiteUrl" class="external-link" target="_blank">
+                    <i class="fas fa-link"></i> زيارة الموقع الرسمي للورشة
+                </a>
+            }
+
+            <div class="action-buttons">
+                <a href="@Model.WebSiteUrl" class="btn-register">سجل الآن</a>
+                <a asp-action="Workshops" class="btn-back">العودة للورشات</a>
+            </div>
+        </div>
+    </div>
+</div>

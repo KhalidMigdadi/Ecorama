@@ -12,4 +12,6 @@ public partial class AboutU
     public string? Description { get; set; }
 
     public DateTime? CreatedAt { get; set; }
+
+    public string? ImageUrl { get; set; }
 }

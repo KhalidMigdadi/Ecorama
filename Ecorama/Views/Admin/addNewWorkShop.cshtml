@@ -1,22 +1,14 @@
-﻿@model Ecorama.Models.Workshop
+﻿@model Ecorama.Models.WorkshopViewModel
 
 @{
     ViewData["Title"] = "Add New WorkShop";
     Layout = "~/Views/Shared/_Admin_Layout.cshtml";
 }
-@section Style {
-    <style>
-        body {
-            overflow-x: hidden;
-        }
-
-    </style>
-}
 
 <h2 class="my-4 text-center text-primary">Add New WorkShop</h2>
 
 <div class="card shadow p-4" style="margin: 1.2rem !important">
-    <form asp-action="addNewWorkShop" method="post" class="row g-3">
+    <form asp-action="addNewWorkShop" method="post" class="row g-3" enctype="multipart/form-data">
         @Html.AntiForgeryToken()
 
         <div class="col-md-6">
@@ -38,15 +30,27 @@
         </div>
 
         <div class="col-md-6">
-            <label asp-for="ImageUrl" class="form-label">Image URL</label>
-            <input asp-for="ImageUrl" class="form-control" placeholder="https://example.com/image.jpg" />
-            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            <label asp-for="ImageFile" class="form-label">Image</label>
+            <input asp-for="ImageFile" type="file" class="form-control" />
+            <span asp-validation-for="ImageFile" class="text-danger"></span>
         </div>
 
         <div class="col-md-6">
             <label asp-for="WebSiteUrl" class="form-label">Website URL</label>
             <input asp-for="WebSiteUrl" class="form-control" placeholder="https://example.com" />
             <span asp-validation-for="WebSiteUrl" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Duration" class="form-label">Duration In Hours</label>
+            <input asp-for="Duration" class="form-control" type="number" placeholder="Enter duration" />
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="SeatsAvailable" class="form-label">Seats Available</label>
+            <input asp-for="SeatsAvailable" class="form-control" type="number" placeholder="Enter number of seats" />
+            <span asp-validation-for="SeatsAvailable" class="text-danger"></span>
         </div>
 
         <div style="margin-top: 2%;" class="col-12 text-end">

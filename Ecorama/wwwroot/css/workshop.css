@@ -12,7 +12,7 @@ body {
 }
 
 .headWorkshop {
-    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    background: linear-gradient(135deg, #6366f1 0%, #007bff 100%);
     color: white;
     padding: 2rem 0;
     text-align: center;
@@ -567,7 +567,7 @@ body {
 
 .search-button {
     width: 60px;
-    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    background: linear-gradient(135deg, #007bff);
     color: white;
     border: none;
     cursor: pointer;
@@ -576,7 +576,7 @@ body {
 }
 
     .search-button:hover {
-        background: linear-gradient(135deg, #5e7eea, #9767d0);
+        background: linear-gradient(135deg, #5e7eea, #007bff);
     }
 
     .search-button:active {

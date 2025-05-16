@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Ecorama.Models.CourseLesson>
+
+@{
+    ViewData["Title"] = "دروس الكورس";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+    var courseId = ViewBag.CourseId;
+}
+
+<h2>الدروس التابعة للكورس</h2>
+<hr />
+
+<a asp-action="Create" asp-route-courseId="@courseId" class="btn btn-primary mb-3">+ إضافة درس جديد</a>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>العنوان</th>
+            <th>رابط الصورة</th>
+            <th>رابط يوتيوب</th>
+            <th>إجراءات</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="@item.ImageUrl" width="80" />
+                    }
+                </td>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.YoutubeLink))
+                    {
+                        <a href="@item.YoutubeLink" target="_blank">فتح الفيديو</a>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">تعديل</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">حذف</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Courses" asp-action="Index" class="btn btn-outline-secondary mt-2">العودة إلى الكورسات</a>

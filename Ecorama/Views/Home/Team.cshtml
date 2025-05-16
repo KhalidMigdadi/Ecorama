@@ -1,0 +1,556 @@
+﻿
+@{
+    ViewData["Title"] = "Team";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+@section Style {
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --dark-bg: #343a40;
+            --text-dark: #2d3436;
+            --text-light: #f1f2f6;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        .headerTeam {
+            background-color: var(--primary-color);
+            background-image: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 100px 0 50px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            z-index: 0;
+            margin-top: 14px;
+        }
+
+            .headerTeam::before {
+                content: "";
+                position: absolute;
+                top: -50px;
+                left: -50px;
+                width: 150px;
+                height: 150px;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+            }
+
+            .headerTeam::after {
+                content: "";
+                position: absolute;
+                bottom: -50px;
+                right: -50px;
+                width: 200px;
+                height: 200px;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+            }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-title {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Team Grid */
+        .team-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+            .section-title h2 {
+                font-size: 2.5rem;
+                color: var(--secondary-color);
+                margin-bottom: 15px;
+                position: relative;
+                display: inline-block;
+            }
+
+                .section-title h2::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 50px;
+                    height: 3px;
+                    background-color: var(--accent-color);
+                }
+
+            .section-title p {
+                font-size: 1.1rem;
+                color: #777;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .team-member {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            position: relative;
+        }
+
+            .team-member:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            }
+
+        .member-image {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+
+            .member-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: var(--transition);
+            }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .member-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .team-member:hover .member-overlay {
+            opacity: 1;
+        }
+
+        .member-info {
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+            .member-info::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50px;
+                height: 3px;
+                background-color: var(--primary-color);
+            }
+
+        .member-name {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+
+        .member-role {
+            font-size: 0.95rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .member-bio {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 20px;
+            height: 60px;
+            overflow: hidden;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: var(--light-bg);
+            color: var(--primary-color);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+            .social-link:hover {
+                background-color: var(--primary-color);
+                color: white;
+                transform: translateY(-3px);
+            }
+
+        /* Decorative Elements */
+        .shape {
+            position: absolute;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .shape-1 {
+            top: 20%;
+            left: 5%;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+
+        .shape-2 {
+            bottom: 10%;
+            right: 5%;
+            width: 200px;
+            height: 200px;
+            background-color: var(--accent-color);
+            transform: rotate(45deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Mobile Responsive */
+        @@media (max-width: 992px) {
+            .team-grid
+
+        {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .header-title {
+            font-size: 2.5rem;
+        }
+
+        }
+
+        @@media (max-width: 576px) {
+            .team-grid
+
+        {
+            grid-template-columns: 1fr;
+        }
+
+        .header-title {
+            font-size: 2rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+        }
+
+        }
+
+        /* Button Style */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+            .btn:hover {
+                background-color: var(--secondary-color);
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+        /* Animation */
+        @@keyframes fadeInUp {
+            from
+
+        {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        }
+
+        .fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        .delay-5 {
+            animation-delay: 1s;
+        }
+
+        .delay-6 {
+            animation-delay: 1.2s;
+        }
+
+        .delay-7 {
+            animation-delay: 1.4s;
+        }
+
+        .delay-8 {
+            animation-delay: 1.6s;
+        }
+
+        .team-member {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.member-image {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.member-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain; /* ✅ يجعل الصورة تظهر كاملة دون قص */
+}
+
+.member-overlay {
+    display: none; /* ✅ إخفاء أي تغطية داكنة على الصورة */
+}
+
+.member-info {
+    padding: 15px;
+}
+
+.member-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+.member-role {
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.member-social a {
+    margin: 0 5px;
+    color: #0077b5;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.member-social a:hover {
+    color: #005582;
+}
+
+        .team-member {
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+            .team-member:hover {
+                transform: translateY(-5px);
+            }
+
+        .member-image img {
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* إظهار الصورة كاملة */
+        }
+
+        .member-social a {
+            color: #0077b5;
+            font-size: 1.2rem;
+            margin: 0 5px;
+            transition: color 0.3s;
+        }
+
+            .member-social a:hover {
+                color: #005582;
+            }
+
+
+    </style>
+}
+
+<!-- Header Section -->
+<header class="headerTeam">
+    <div class="container">
+        <div class="header-content">
+            <h1 class="header-title">فريق العمل</h1>
+            <p class="header-subtitle">نحن مجموعة من المحترفين المتحمسين الذين يعملون معًا لتحقيق أهداف استثنائية. تعرّف على الأشخاص المتميزين الذين يقفون وراء نجاح مشاريعنا</p>
+        </div>
+    </div>
+</header>
+
+<!-- Team Section -->
+<section class="team-section" id="team">
+    <div class="container">
+        <div class="section-title text-center mb-5">
+            <h2>فريقنا المميز</h2>
+            <p>نفخر بامتلاكنا فريق عمل متكامل من الخبراء في مختلف المجالات</p>
+        </div>
+        <div class="row">
+            @foreach (var member in Model.TeamMembers)
+            {
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="team-member card h-100">
+                        <div class="member-image">
+                            <img src="@member.ImageUrl" alt="@member.Name" class="card-img-top">
+                        </div>
+                        <div class="member-info card-body text-center">
+                            <h3 class="member-name card-title">@member.Name</h3>
+                            <p class="member-role card-subtitle mb-2 text-muted">@member.Role</p>
+                            <div class="member-social mt-3">
+                                @if (!string.IsNullOrEmpty(member.LinkedInLink))
+                                {
+                                    <a href="@member.LinkedInLink" class="social-link me-2"><i class="fab fa-linkedin-in"></i></a>
+                                }
+                                @if (!string.IsNullOrEmpty(member.GitHubLink))
+                                {
+                                    <a href="@member.GitHubLink" class="social-link"><i class="fab fa-github"></i></a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        // Animate elements on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const teamMembers = document.querySelectorAll('.team-member');
+
+            // Check if element is in viewport
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.bottom >= 0
+                );
+            }
+
+            // Add visible class when element is in viewport
+            function checkVisibility() {
+                teamMembers.forEach(member => {
+                    if (isInViewport(member)) {
+                        member.style.opacity = '1';
+                    }
+                });
+            }
+
+            // Set initial state
+            teamMembers.forEach(member => {
+                member.style.opacity = '0';
+                member.style.transition = 'opacity 0.5s ease-out';
+            });
+
+            // Check visibility on load and scroll
+            window.addEventListener('scroll', checkVisibility);
+            checkVisibility();
+        });
+    </script>
+}

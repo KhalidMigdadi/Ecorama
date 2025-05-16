@@ -17,8 +17,15 @@ namespace Ecorama.Controllers
 
         public IActionResult Index()
         {
+            int? userId = HttpContext.Session.GetInt32("UserId");
+
             var sliders = _context.SliderItems.Where(s => s.IsActive).OrderBy(s => s.Order).ToList();
             var socialLinks = _context.SocialMediaLinks.Where(s => s.IsActive).ToList();
+
+
+            HttpContext.Session.GetString("ProfileImagePath");
+
+
 
             var viewModel = new HomeViewModel
             {
@@ -40,11 +47,18 @@ namespace Ecorama.Controllers
 
 
 
-
         public async Task<IActionResult> AboutUs()
         {
-            //var aboutUsList = await _context.AboutUs.ToListAsync();
-            return View();
+            var aboutUsList = await _context.AboutUs.ToListAsync();
+            var teamMembersList = await _context.TeamMembers.ToListAsync();
+
+            var viewModel = new TeamViewModel
+            {
+                AboutUs = aboutUsList,
+                TeamMembers = teamMembersList
+            };
+
+            return View(viewModel);
         }
 
 
@@ -52,7 +66,17 @@ namespace Ecorama.Controllers
 
 
 
+        // team 
 
+        public async Task<IActionResult> Team()
+        {
+            var viewModel = new TeamViewModel
+            {
+                TeamMembers = await _context.TeamMembers.ToListAsync()
+            };
+
+            return View(viewModel);
+        }
 
 
 

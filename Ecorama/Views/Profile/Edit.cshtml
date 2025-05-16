@@ -1,0 +1,383 @@
+﻿@model Ecorama.Models.User
+
+@{
+    ViewData["Title"] = "تعديل الملف الشخصي";
+}
+
+<div class="container py-5" style="margin-top: 3rem;">
+    <div class="card shadow border-0 mb-4">
+        <div class="card-header bg-white py-3">
+            <h3 class="mb-0 text-primary">
+                <i class="fa fa-edit me-2"></i>تعديل البيانات الشخصية
+            </h3>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="Id" />
+
+                @if (TempData["Success"] != null)
+                {
+                    <div class="alert alert-success mb-4">
+                        @TempData["Success"]
+                    </div>
+                }
+
+                <!-- Personal Information Section -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h5 class="border-bottom pb-2 mb-3">المعلومات الشخصية</h5>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label asp-for="FirstName" class="form-label">الاسم الأول</label>
+                        <input asp-for="FirstName" class="form-control" required />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label asp-for="MiddleName" class="form-label">اسم الأب</label>
+                        <input asp-for="MiddleName" class="form-control" />
+                        <span asp-validation-for="MiddleName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label asp-for="LastName" class="form-label">اسم العائلة</label>
+                        <input asp-for="LastName" class="form-control" required />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label asp-for="Gender" class="form-label">الجنس</label>
+                        <select asp-for="Gender" class="form-select">
+                            <option value="ذكر">ذكر</option>
+                            <option value="أنثى">أنثى</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label asp-for="Birthdate" class="form-label">تاريخ الميلاد</label>
+                        <input asp-for="Birthdate" class="form-control" type="date" />
+                        <span asp-validation-for="Birthdate" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label asp-for="PhoneNumber" class="form-label">رقم الهاتف</label>
+                        <input asp-for="PhoneNumber" class="form-control" required />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">صورة الملف الشخصي</label>
+                        <input type="file" name="ProfileImage" class="form-control" />
+                        @if (!string.IsNullOrEmpty(Model.ProfileImagePath))
+                        {
+                            <div class="mt-2">
+                                <img src="@Model.ProfileImagePath" alt="الصورة الحالية" class="img-thumbnail" style="height: 80px;" />
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Residence Information Section -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h5 class="border-bottom pb-2 mb-3">معلومات السكن</h5>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">المحافظة</label>
+                        <select id="governorateId" name="residenceGovernorateId" class="form-select" required>
+                            <option value="">-- اختر المحافظة --</option>
+                            @foreach (var item in ViewBag.Governorates)
+                            {
+                                var selected = Model.Residences?.FirstOrDefault()?.GovernorateId == Convert.ToInt32(item.Value);
+                                <option value="@item.Value" selected="@selected">@item.Text</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">المديرية</label>
+                        <select id="districtId" name="residenceDistrictId" class="form-select" required>
+                            <option value="">-- اختر المديرية --</option>
+                            @if (ViewBag.Districts != null)
+                            {
+                                foreach (var item in ViewBag.Districts)
+                                {
+                                    var selected = Model.Residences?.FirstOrDefault()?.DistrictId == Convert.ToInt32(item.Value);
+                                    <option value="@item.Value" selected="@selected">@item.Text</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">القرية</label>
+                        <input type="text" id="customVillage" name="residenceCustomVillage" class="form-control"
+                               value="@(Model.Residences?.FirstOrDefault()?.Village ?? "")"
+                               placeholder="أدخل اسم القرية" />
+                    </div>
+
+                </div>
+
+                <!-- Education Information Section -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h5 class="border-bottom pb-2 mb-3">المعلومات التعليمية</h5>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">المستوى التعليمي</label>
+                        <select name="educationLevel" class="form-select" required>
+                            <option value="">-- اختر المستوى التعليمي --</option>
+                            @foreach (var item in ViewBag.EducationLevels)
+                            {
+                                var selected = Model.Educations?.FirstOrDefault()?.EducationLevel == item.Text;
+                                <option value="@item.Text" selected="@selected">@item.Text</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">نوع البرنامج</label>
+                        <select name="programType" class="form-select" required>
+                            <option value="">-- اختر نوع البرنامج --</option>
+                            @foreach (var item in ViewBag.ProgramTypes)
+                            {
+                                var selected = Model.Educations?.FirstOrDefault()?.ProgramType == item.Text;
+                                <option value="@item.Text" selected="@selected">@item.Text</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Languages Section -->
+                <div class="row mb-4">
+                    <div class="col-12 d-flex justify-content-between align-items-center">
+                        <h5 class="border-bottom pb-2 mb-3">اللغات</h5>
+                        <button type="button" class="btn btn-primary" id="addLanguage">
+                            <i class="fa fa-plus me-2"></i>إضافة لغة
+                        </button>
+                    </div>
+                    <div class="col-12">
+                        <div id="languagesContainer">
+                            @if (Model.Languages != null && Model.Languages.Any())
+                            {
+                                foreach (var language in Model.Languages)
+                                {
+                                    <div class="language-item row mb-3">
+                                        <div class="col-md-4 mb-2">
+                                            <select name="languageNames" class="form-select language-select" required>
+                                                <option value="">-- اختر اللغة --</option>
+                                                @foreach (var item in ViewBag.Languages)
+                                                {
+                                                    var selected = language.LanguageName == item.Text;
+                                                    <option value="@item.Text" selected="@selected">@item.Text</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 mb-2 custom-language @(language.LanguageName != "أخرى" ? "d-none" : "")">
+                                            <input type="text" name="customLanguageNames" class="form-control"
+                                                   value="@language.CustomLanguageName" placeholder="أدخل اسم اللغة" />
+                                        </div>
+                                        <div class="col-md-4 mb-2">
+                                            <select name="proficiencyLevels" class="form-select" required>
+                                                <option value="">-- مستوى الإتقان --</option>
+                                                @foreach (var item in ViewBag.ProficiencyLevels)
+                                                {
+                                                    var selected = language.ProficiencyLevel == item.Text;
+                                                    <option value="@item.Text" selected="@selected">@item.Text</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2 mb-2">
+                                            <button type="button" class="btn btn-danger remove-language">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="language-item row mb-3">
+                                    <div class="col-md-4 mb-2">
+                                        <select name="languageNames" class="form-select language-select" required>
+                                            <option value="">-- اختر اللغة --</option>
+                                            @foreach (var item in ViewBag.Languages)
+                                            {
+                                                <option value="@item.Text">@item.Text</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 mb-2 custom-language d-none">
+                                        <input type="text" name="customLanguageNames" class="form-control" placeholder="أدخل اسم اللغة" />
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <select name="proficiencyLevels" class="form-select" required>
+                                            <option value="">-- مستوى الإتقان --</option>
+                                            @foreach (var item in ViewBag.ProficiencyLevels)
+                                            {
+                                                <option value="@item.Text">@item.Text</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2 mb-2">
+                                        <button type="button" class="btn btn-danger remove-language">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary px-4">
+                            <i class="fa fa-save me-2"></i>حفظ التغييرات
+                        </button>
+                        <a href="@Url.Action("Profile", "Profile")" class="btn btn-outline-secondary px-4 ms-2">
+                            <i class="fa fa-times me-2"></i>إلغاء
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Governorate and District change events
+            $('#governorateId').change(function () {
+                var governorateId = $(this).val();
+                if (governorateId) {
+                    loadDistricts(governorateId);
+                } else {
+                    $('#districtId').html('<option value="">-- اختر المديرية --</option>');
+                    $('#villageId').html('<option value="">-- اختر القرية --</option>');
+                }
+            });
+
+            $('#districtId').change(function () {
+                var districtId = $(this).val();
+                if (districtId) {
+                    loadVillages(districtId);
+                } else {
+                    $('#villageId').html('<option value="">-- اختر القرية --</option>');
+                }
+            });
+
+            // Custom village toggle
+            $('#isCustomVillage').change(function () {
+                if ($(this).is(':checked')) {
+                    $('#customVillageContainer').removeClass('d-none');
+                    $('#villageId').prop('required', false);
+                    $('#customVillage').prop('required', true);
+                } else {
+                    $('#customVillageContainer').addClass('d-none');
+                    $('#villageId').prop('required', true);
+                    $('#customVillage').prop('required', false);
+                }
+            });
+
+            // Initialize custom village state
+            if ($('#isCustomVillage').is(':checked')) {
+                $('#villageId').prop('required', false);
+                $('#customVillage').prop('required', true);
+            }
+
+            // Add language button
+            $('#addLanguage').click(function () {
+                var languageItem = `
+                    <div class="language-item row mb-3">
+                        <div class="col-md-4 mb-2">
+                            <select name="languageNames" class="form-select language-select" required>
+                                <option value="">-- اختر اللغة --</option>
+        @foreach (var item in ViewBag.Languages)
+        {
+                                        <option value="@item.Text">@item.Text</option>
+        }
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-2 custom-language d-none">
+                            <input type="text" name="customLanguageNames" class="form-control" placeholder="أدخل اسم اللغة" />
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <select name="proficiencyLevels" class="form-select" required>
+                                <option value="">-- مستوى الإتقان --</option>
+        @foreach (var item in ViewBag.ProficiencyLevels)
+        {
+                                        <option value="@item.Text">@item.Text</option>
+        }
+                            </select>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <button type="button" class="btn btn-danger remove-language">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                $('#languagesContainer').append(languageItem);
+                bindLanguageEvents();
+            });
+
+            // Remove language button
+            function bindLanguageEvents() {
+                $('.remove-language').off('click').on('click', function () {
+                    // Don't remove if it's the only language item
+                    if ($('.language-item').length > 1) {
+                        $(this).closest('.language-item').remove();
+                    } else {
+                        alert('يجب إدخال لغة واحدة على الأقل');
+                    }
+                });
+
+                $('.language-select').off('change').on('change', function () {
+                    var customLanguageField = $(this).closest('.language-item').find('.custom-language');
+                    if ($(this).val() === 'أخرى') {
+                        customLanguageField.removeClass('d-none');
+                        customLanguageField.find('input').prop('required', true);
+                    } else {
+                        customLanguageField.addClass('d-none');
+                        customLanguageField.find('input').prop('required', false);
+                    }
+                });
+            }
+
+            // Initialize language events
+            bindLanguageEvents();
+
+            // Functions to load districts and villages
+            function loadDistricts(governorateId) {
+                $.ajax({
+                    url: '@Url.Action("GetDistricts", "Profile")',
+                    type: 'GET',
+                    data: { governorateId: governorateId },
+                    success: function (data) {
+                        var options = '<option value="">-- اختر المديرية --</option>';
+                        $.each(data, function (index, item) {
+                            options += '<option value="' + item.districtId + '">' + item.name + '</option>';
+                        });
+                        $('#districtId').html(options);
+                        $('#villageId').html('<option value="">-- اختر القرية --</option>');
+                    },
+                    error: function (error) {
+                        console.log('Error loading districts:', error);
+                    }
+                });
+            }
+
+            function loadVillages(districtId) {
+                $.ajax({
+                    url: '@Url.Action("GetVillages", "Profile")',
+                    type: 'GET',
+                    data: { districtId: districtId },
+                    success: function (data) {
+                        var options = '<option value="">-- اختر القرية --</option>';
+                        $.each(data, function (index, item) {
+                            options += '<option value="' + item.villageId + '">' + item.name + '</option>';
+                        });
+                        $('#villageId').html(options);
+                    },
+                    error: function (error) {
+                        console.log('Error loading villages:', error);
+                    }
+                });
+            }
+        });
+    </script>
+}

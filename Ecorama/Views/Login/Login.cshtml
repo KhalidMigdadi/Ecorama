@@ -19,7 +19,10 @@
             </div>
             <h2>تسجيل الدخول</h2>
 
-            <div asp-validation-summary="All" class="validation-summary-errors"></div>
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div asp-validation-summary="All" class="validation-summary-errors"></div>
+            }
 
             <form asp-action="Login" asp-controller="Login" method="post">
                 <div class="form-group">
