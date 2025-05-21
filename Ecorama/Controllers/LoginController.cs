@@ -8,11 +8,14 @@ namespace Ecorama.Controllers
     public class LoginController : Controller
     {
         private readonly MyDbContext _context;
+        private readonly string _adminAuthCode = "Eco2025Admin"; // رمز التفويض للمشرفين - يفضل نقله إلى ملف التكوين
 
         public LoginController(MyDbContext context)
         {
             _context = context;
         }
+
+        #region User Registration
 
         public async Task<IActionResult> Register()
         {
@@ -55,6 +58,15 @@ namespace Ecorama.Controllers
                 if (existingUser != null)
                 {
                     ModelState.AddModelError("NationalId", "هذا الرقم الوطني مسجل مسبقاً");
+                    await LoadFormData();
+                    return View(model);
+                }
+
+                // التحقق من عدم وجود مستخدم بنفس البريد الإلكتروني
+                existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
+                if (existingUser != null)
+                {
+                    ModelState.AddModelError("Email", "هذا البريد الإلكتروني مسجل مسبقاً");
                     await LoadFormData();
                     return View(model);
                 }
@@ -137,7 +149,7 @@ namespace Ecorama.Controllers
                 TempData["SuccessMessage"] = "تم إنشاء الحساب بنجاح.";
 
 
-                return RedirectToAction(nameof(Register));
+                return RedirectToAction(nameof(Login));
             }
 
             // إذا كان هناك أخطاء في النموذج، يتم إعادة تحميل البيانات وعرض النموذج مرة أخرى
@@ -210,12 +222,66 @@ namespace Ecorama.Controllers
             ViewBag.ProficiencyLevels = new SelectList(proficiencyLevels);
         }
 
-        public IActionResult RegistrationSuccess()
+        #endregion
+
+        #region Admin Registration
+
+        public IActionResult RegisterAdmin()
         {
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RegisterAdmin(AdminRegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // التحقق من صحة رمز التفويض
+                if (model.AuthorizationCode != _adminAuthCode)
+                {
+                    ModelState.AddModelError("AuthorizationCode", "رمز التفويض غير صحيح");
+                    return View(model);
+                }
 
+                // التحقق من عدم وجود مستخدم بنفس البريد الإلكتروني
+                var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
+                if (existingUser != null)
+                {
+                    ModelState.AddModelError("Email", "هذا البريد الإلكتروني مسجل مسبقاً");
+                    return View(model);
+                }
+
+                // إنشاء كائن المستخدم المشرف الجديد
+                var admin = new User
+                {
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Email = model.Email,
+                    PasswordHash = model.Password, // في الإنتاج يجب استخدام تشفير لكلمة المرور
+                    CreatedAt = DateTime.Now,
+                    Role = "Admin", // تعيين دور المستخدم كمشرف
+                    IsActive = true,
+                    // قيم افتراضية للحقول الإلزامية في جدول Users
+                    Gender = "غير محدد",
+                    Birthdate = DateOnly.FromDateTime(DateTime.Now),
+                    NationalId = $"ADMIN-{Guid.NewGuid().ToString().Substring(0, 8)}",
+                    PhoneNumber = "000000000"
+                };
+
+                _context.Users.Add(admin);
+                await _context.SaveChangesAsync();
+
+                TempData["SuccessMessage"] = "تم إنشاء حساب المشرف بنجاح.";
+                return RedirectToAction(nameof(Login));
+            }
+
+            return View(model);
+        }
+
+        #endregion
+
+        #region Login
 
         public IActionResult Login()
         {
@@ -224,19 +290,14 @@ namespace Ecorama.Controllers
 
 
         [HttpPost]
-        public IActionResult Login(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
                 return View(model);
 
-            if (model.Email.ToLower() == "admin@gmail.com" && model.Password == "admin123")
-            {
-                return RedirectToAction("Index", "Admin");
-            }
-
-
-            var user = _context.Users
-                .FirstOrDefault(u => u.Email == model.Email && u.IsActive);
+            // البحث عن المستخدم بالبريد الإلكتروني
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.Email == model.Email && u.IsActive);
 
             if (user == null || user.PasswordHash != model.Password) // يجب استخدام تشفير في الإنتاج
             {
@@ -244,18 +305,27 @@ namespace Ecorama.Controllers
                 return View(model);
             }
 
-            // تخزين البيانات في الجلسة
-            HttpContext.Session.SetInt32("UserId", user.Id);
-            HttpContext.Session.SetString("UserName", user.FirstName + " " + user.LastName);
-            HttpContext.Session.SetString("UserEmail", user.Email);
-            HttpContext.Session.SetString("FirstName", user.FirstName);
-            HttpContext.Session.SetString("MiddleName", user.MiddleName);
-            HttpContext.Session.SetString("LastName", user.LastName);
-            HttpContext.Session.SetString("NationalityId", user.NationalId);
-            HttpContext.Session.SetString("Birthday", user.Birthdate.ToString());
-            HttpContext.Session.SetString("UserRole", user.Role);
-            HttpContext.Session.SetString("Gender", user.Gender);
-            HttpContext.Session.SetString("PhoneNumber", user.PhoneNumber);
+            if (user.Role == "Admin")
+            {
+                HttpContext.Session.SetInt32("AdminId", user.Id);
+
+            }
+            else
+            {
+                // تخزين البيانات في الجلسة
+                HttpContext.Session.SetInt32("UserId", user.Id);
+                HttpContext.Session.SetString("UserName", user.FirstName + " " + user.LastName);
+                HttpContext.Session.SetString("UserEmail", user.Email);
+                HttpContext.Session.SetString("FirstName", user.FirstName);
+                HttpContext.Session.SetString("MiddleName", user.MiddleName);
+                HttpContext.Session.SetString("LastName", user.LastName);
+                HttpContext.Session.SetString("NationalityId", user.NationalId);
+                HttpContext.Session.SetString("Birthday", user.Birthdate.ToString());
+                HttpContext.Session.SetString("UserRole", user.Role);
+                HttpContext.Session.SetString("Gender", user.Gender);
+                HttpContext.Session.SetString("PhoneNumber", user.PhoneNumber);
+            }
+
 
 
             if (!string.IsNullOrEmpty(user.ProfileImagePath))
@@ -263,8 +333,8 @@ namespace Ecorama.Controllers
                 HttpContext.Session.SetString("ProfileImagePath", user.ProfileImagePath);
             }
 
-
-            if (user.Email.ToLower() == "admin@gmail.com")
+            // توجيه المستخدم بناءً على دوره
+            if (user.Role == "Admin")
             {
                 return RedirectToAction("Index", "Admin");
             }
@@ -278,7 +348,11 @@ namespace Ecorama.Controllers
             return RedirectToAction("Login");
         }
 
+        #endregion
 
-
+        public IActionResult RegistrationSuccess()
+        {
+            return View();
+        }
     }
 }

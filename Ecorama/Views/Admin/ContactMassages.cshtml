@@ -1,0 +1,53 @@
+﻿
+@model List<ContactU>
+
+@{
+    ViewData["Title"] = "Contact Messages";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">📬 Contact Messages</h2>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover shadow-sm">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>#</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Received At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@Model[i].FullName</td>
+                            <td>@Model[i].Email</td>
+                            <td>@(string.IsNullOrEmpty(Model[i].Subject) ? "-" : Model[i].Subject)</td>
+                            <td>@Model[i].Message</td>
+                            <td>@(Model[i].CreatedAt?.ToString("yyyy-MM-dd HH:mm")?? "-")</td>
+
+
+                        </tr>
+                    }
+
+                 
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info text-center">
+            No messages have been received yet.
+        </div>
+    }
+</div>

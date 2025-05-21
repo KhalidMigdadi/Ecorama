@@ -15,11 +15,25 @@ namespace Ecorama.Controllers
         }
         public ActionResult Index()
         {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             return View();
         }
 
         public ActionResult Details(int id)
         {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             return View();
         }
 
@@ -28,6 +42,15 @@ namespace Ecorama.Controllers
 
         public IActionResult ViewAllUsers()
         {
+
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
             var users = _context.Users
                 .Include(u => u.Residences)
                 .Include(u => u.Educations)
@@ -44,6 +67,13 @@ namespace Ecorama.Controllers
         [HttpPost]
         public IActionResult ToggleActivation(int id)
         {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             var user = _context.Users.FirstOrDefault(u => u.Id == id);
             if (user == null)
             {
@@ -63,12 +93,19 @@ namespace Ecorama.Controllers
         public IActionResult seeAllWorkShop()
         {
 
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             var allWorkShops = _context.Workshops.ToList();
 
             var latestWorkshops = allWorkShops
                 .Where(w => w.Date != null)
                 .OrderByDescending(w => w.Date);
-                
+
 
             return View(latestWorkshops);
         }
@@ -78,6 +115,15 @@ namespace Ecorama.Controllers
 
         public IActionResult AddNewWorkshop()
         {
+
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
             return View();
         }
 
@@ -85,6 +131,8 @@ namespace Ecorama.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult AddNewWorkshop(WorkshopViewModel model)
         {
+
+
             if (ModelState.IsValid)
             {
                 string imagePath = null;
@@ -138,6 +186,13 @@ namespace Ecorama.Controllers
         [HttpPost]
         public IActionResult DeleteWorkshop(int id)
         {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             var workshop = _context.Workshops.FirstOrDefault(w => w.Id == id);
             if (workshop == null)
             {
@@ -154,6 +209,13 @@ namespace Ecorama.Controllers
 
         public IActionResult EditWorkShop(int id)
         {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             var currentWorkshop = _context.Workshops.Find(id);
             return View(currentWorkshop);
         }
@@ -164,6 +226,13 @@ namespace Ecorama.Controllers
         [HttpPost]
         public IActionResult EditWorkShop(Workshop workshop)
         {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             if (!ModelState.IsValid)
                 return View("EditWorkShop");
 
@@ -181,10 +250,18 @@ namespace Ecorama.Controllers
         // partnet  Page
 
 
-     
+
 
         public IActionResult ShowAllPartner()
         {
+
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
 
 
             var allPartners = _context.Partners.ToList();
@@ -209,14 +286,29 @@ namespace Ecorama.Controllers
 
         public IActionResult AddNewPartner()
         {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> AddNewPartner_1(string name, string websiteUrl, IFormFile imageFile)
         {
-            if (string.IsNullOrEmpty(name) || imageFile == null  || imageFile.Length == 0)
-     {
+
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+            if (string.IsNullOrEmpty(name) || imageFile == null || imageFile.Length == 0)
+            {
                 TempData["MSG"] = "الرجاء تعبئة جميع الحقول المطلوبة.";
                 return View(nameof(AddNewPartner));
             }
@@ -283,6 +375,15 @@ namespace Ecorama.Controllers
         public IActionResult UpdatePartner(int Id)
         {
 
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
+
             var Partner = _context.Partners.FirstOrDefault(p => p.Id == Id);
 
             if (Partner == null)
@@ -300,6 +401,13 @@ namespace Ecorama.Controllers
         [HttpPost]
         public IActionResult UpdatePartner_1(Partner Part, IFormFile imageFile)
         {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             if (string.IsNullOrEmpty(Part.Name) || string.IsNullOrEmpty(Part.WebsiteUrl))
             {
                 TempData["MSG_2"] = "الرجاء تعبئة جميع الحقول المطلوبة.";
@@ -368,6 +476,15 @@ namespace Ecorama.Controllers
         [HttpPost]
         public IActionResult DeletePartner(int id)
         {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
+
             var partner = _context.Partners.FirstOrDefault(p => p.Id == id);
 
             if (partner == null)
@@ -394,7 +511,19 @@ namespace Ecorama.Controllers
         }
 
 
+        public IActionResult ContactMassages()
+        {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
 
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
+            return View(_context.ContactUs.ToList());
+
+        }
 
 
     }
