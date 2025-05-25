@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Ecorama.Models.News>
+
+@{
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+    ViewData["Title"] = "الأخبار";
+}
+
+<div class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <a asp-action="CreateNews" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> إضافة خبر جديد
+        </a>
+        <h2 class="text-primary">إدارة الأخبار</h2>
+
+    </div>
+    <br />
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="/img/news/@item.ImageUrl" class="card-img-top" alt="@item.Title" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5  class="card-title">@item.Title</h5>
+                        <p class="card-text text-muted" style="white-space: pre-line;">
+                            @((item.Content.Length > 100) ? item.Content.Substring(0, 100) + "..." : item.Content)
+                        </p>
+                        <p class="mb-1">
+                            <strong>تاريخ النشر:</strong>
+                            @(item.CreatedAt.HasValue ? item.CreatedAt.Value.ToString("yyyy/MM/dd") : "غير متوفر")
+                        </p>
+                        <span class="badge @(item.IsActive ? "bg-success" : "bg-danger")">
+                            @(item.IsActive ? "نشط" : "غير نشط")
+                        </span>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between">
+                        <a asp-action="EditNews" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">تعديل</a>
+                        <a asp-action="DetalisNews" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info">تفاصيل</a>
+
+                        <form method="post" action="@Url.Action("DeleteNews", "Admin")" class="delete-news-form">
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <button type="submit" class="btn btn-sm btn-outline-danger">حذف</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        document.querySelectorAll(".delete-news-form").forEach(form => {
+            form.addEventListener("submit", function (e) {
+                e.preventDefault(); // امنع الإرسال مؤقتاً
+
+                Swal.fire({
+                    title: 'هل أنت متأكد؟',
+                    text: "لا يمكنك التراجع بعد الحذف!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#6c757d',
+                    confirmButtonText: 'نعم، احذف',
+                    cancelButtonText: 'إلغاء'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit(); // نفّذ الإرسال إذا وافق
+                    }
+                });
+            });
+        });
+    </script>
+}

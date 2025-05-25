@@ -1,4 +1,144 @@
 ﻿
+@* @{ *@
+@*     ViewData["Title"] = "NewsDetails"; *@
+@* } *@
+
+@* @section Style { *@
+@*     <link rel="stylesheet" href="~/css/NEWs.css" /> *@
+
+@*     <link rel="stylesheet" href="~/css/newsdetails.css" /> *@
+@* } *@
+
+@* <div class="news-details-container"> *@
+@*     <!-- رأس الصفحة --> *@
+@*     <div class="news-header text-center"> *@
+@*         <div class="container position-relative"> *@
+@*             <h1 class="fw-bold mb-3 animate__animated animate__fadeInDown">تفاصيل الخبر</h1> *@
+@*             <p class="lead animate__animated animate__fadeInUp animate__delay-1s">كل ما تحتاج معرفته عن الخبر</p> *@
+@*         </div> *@
+@*     </div> *@
+
+@*     <!-- محتوى التفاصيل --> *@
+@*     <div class="container"> *@
+@*         <div class="row"> *@
+@*             <div class="col-lg-8 mx-auto"> *@
+@*                 <article class="news-detail-card"> *@
+@*                     <!-- عنوان وتفاصيل الخبر --> *@
+@*                     <div class="news-detail-header"> *@
+@*                         <span class="category-badge">تعليم</span> *@
+@*                         <h2>بدء التسجيل في دورة المهارات الرقمية للاجئين 2025</h2> *@
+@*                         <div class="news-meta"> *@
+@*                             <span class="news-date"><i class="far fa-calendar-alt"></i> 11 مايو 2025</span> *@
+@*                             <span class="news-author"><i class="far fa-user"></i> منصة Ecorama</span> *@
+@*                             <span class="news-views"><i class="far fa-eye"></i> 850 مشاهدة</span> *@
+@*                         </div> *@
+@*                     </div> *@
+
+@*                     <!-- صورة --> *@
+@*                     <div class="news-detail-image"> *@
+@*                         <img src="https://images.unsplash.com/photo-1581090700227-1e8e4819d8d5?auto=format&fit=crop&w=1000&q=80" *@
+@*                              alt="دورة المهارات الرقمية" *@
+@*                              class="img-fluid rounded"> *@
+@*                         <div class="image-caption">صورة رمزية للتعلم الرقمي – المصدر: Unsplash</div> *@
+@*                     </div> *@
+
+@*                     <!-- محتوى --> *@
+@*                     <div class="news-detail-content"> *@
+@*                         <p class="lead"> *@
+@*                             أعلنت منصة <strong>Ecorama</strong> عن فتح باب التسجيل لدورتها الجديدة في المهارات الرقمية لعام 2025، المخصصة للاجئين في مختلف المناطق. تهدف الدورة إلى تمكين المشاركين من أساسيات التكنولوجيا ومهارات العمل عن بُعد. *@
+@*                         </p> *@
+
+@*                         <h3>برنامج تدريبي متكامل</h3> *@
+@*                         <p> *@
+@*                             ستُقدَّم الدورة بنظام التعليم المدمج (حضوري + عن بُعد) لمدة 8 أسابيع، وتشمل مواضيع متعددة مثل: المهارات المكتبية، أدوات الإنتاج الرقمي، الأمن السيبراني الأساسي، ومقدمة في الذكاء الاصطناعي. *@
+@*                         </p> *@
+
+@*                         <div class="news-quote"> *@
+@*                             <blockquote> *@
+@*                                 <p>"نحن نؤمن بأن المهارات الرقمية اليوم ليست رفاهية، بل ضرورة للاندماج الاقتصادي والاجتماعي."</p> *@
+@*                                 <footer>- فريق Ecorama</footer> *@
+@*                             </blockquote> *@
+@*                         </div> *@
+
+@*                         <h3>شهادات معتمدة وفرص عمل</h3> *@
+@*                         <p> *@
+@*                             بنهاية الدورة، يحصل المشاركون على شهادات معتمدة من جهات تدريب دولية، كما سيتم ربطهم بمنصات العمل الحر وبرامج التوظيف الرقمية بالشراكة مع مؤسسات دولية. *@
+@*                         </p> *@
+
+@*                         <ul> *@
+@*                             <li>مدة الدورة: 8 أسابيع</li> *@
+@*                             <li>نمط التدريب: مدمج (حضوري + أونلاين)</li> *@
+@*                             <li>الفئات المستهدفة: لاجئون ولاجئات فوق 16 عاماً</li> *@
+@*                             <li>عدد المقاعد المتاحة: 150 مشارك/ة</li> *@
+@*                         </ul> *@
+
+@*                         <div class="news-stats"> *@
+@*                             <div class="stat-item"> *@
+@*                                 <div class="stat-number">150</div> *@
+@*                                 <div class="stat-label">مقعد تدريبي</div> *@
+@*                             </div> *@
+@*                             <div class="stat-item"> *@
+@*                                 <div class="stat-number">8</div> *@
+@*                                 <div class="stat-label">أسابيع تدريبية</div> *@
+@*                             </div> *@
+@*                             <div class="stat-item"> *@
+@*                                 <div class="stat-number">2</div> *@
+@*                                 <div class="stat-label">أنماط تعليم</div> *@
+@*                             </div> *@
+@*                         </div> *@
+
+@*                         <div class="alert alert-info"> *@
+@*                             <h4><i class="fas fa-info-circle"></i> هل أنت مهتم؟</h4> *@
+@*                             <p>للتسجيل ومعرفة تفاصيل الدورة، يمكنك زيارة <a href="https://ecorama.org/">موقع منصة Ecorama</a> أو التواصل عبر البريد الرسمي <a href="mailto:info@ecorama.org">info@ecorama.org</a>.</p> *@
+@*                         </div> *@
+@*                     </div> *@
+
+@*                     <!-- مشاركة --> *@
+@*                     <div class="news-social-share"> *@
+@*                         <h4>شارك الخبر:</h4> *@
+@*                         <div class="share-buttons"> *@
+@*                             <a href="#" class="btn btn-facebook"><i class="fab fa-facebook-f"></i> فيسبوك</a> *@
+@*                             <a href="#" class="btn btn-twitter"><i class="fab fa-twitter"></i> تويتر</a> *@
+@*                             <a href="#" class="btn btn-linkedin"><i class="fab fa-linkedin-in"></i> لينكد إن</a> *@
+@*                             <a href="#" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> واتساب</a> *@
+@*                         </div> *@
+@*                     </div> *@
+
+@*                     <!-- زر العودة --> *@
+@*                     <div class="news-back-button"> *@
+@*                         <a href="@Url.Action("News","News")" class="btn btn-primary"> *@
+@*                             <i class="fas fa-arrow-left"></i> العودة إلى قائمة الأخبار *@
+@*                         </a> *@
+@*                     </div> *@
+@*                 </article> *@
+@*             </div> *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@
+
+@* @section Scripts { *@
+@*     <script> *@
+@*         document.addEventListener('DOMContentLoaded', function() { *@
+@*             const elements = document.querySelectorAll('.news-detail-image, .news-quote, .news-stats, .news-social-share'); *@
+@*             const observer = new IntersectionObserver((entries) => { *@
+@*                 entries.forEach((entry) => { *@
+@*                     if (entry.isIntersecting) { *@
+@*                         entry.target.classList.add('animate__animated', 'animate__fadeInUp'); *@
+@*                         observer.unobserve(entry.target); *@
+@*                     } *@
+@*                 }); *@
+@*             }, { threshold: 0.1 }); *@
+
+@*             elements.forEach(element => { *@
+@*                 observer.observe(element); *@
+@*             }); *@
+@*         }); *@
+@*     </script> *@
+@* } *@
+
+
+
+@model Ecorama.Models.News
 @{
     ViewData["Title"] = "NewsDetails";
 }
@@ -25,82 +165,61 @@
                 <article class="news-detail-card">
                     <!-- عنوان وتفاصيل الخبر -->
                     <div class="news-detail-header">
-                        <span class="category-badge">تعليم</span>
-                        <h2>بدء التسجيل في دورة المهارات الرقمية للاجئين 2025</h2>
+                        <h2>@Model.Title</h2>
                         <div class="news-meta">
-                            <span class="news-date"><i class="far fa-calendar-alt"></i> 11 مايو 2025</span>
+                            <span class="news-date"><i class="far fa-calendar-alt"></i> @Model.CreatedAt</span>
                             <span class="news-author"><i class="far fa-user"></i> منصة Ecorama</span>
-                            <span class="news-views"><i class="far fa-eye"></i> 850 مشاهدة</span>
-                        </div>
+                            @*                             <span class="news-views"><i class="far fa-eye"></i> 850 مشاهدة</span>
+ *@                        </div>
                     </div>
 
                     <!-- صورة -->
                     <div class="news-detail-image">
-                        <img src="https://images.unsplash.com/photo-1581090700227-1e8e4819d8d5?auto=format&fit=crop&w=1000&q=80"
-                             alt="دورة المهارات الرقمية"
+                        <img src="~/img/news/@Model.ImageUrl"
+                             alt="@Model.Title"
                              class="img-fluid rounded">
-                        <div class="image-caption">صورة رمزية للتعلم الرقمي – المصدر: Unsplash</div>
-                    </div>
+                        @*                         <div class="image-caption">صورة رمزية للتعلم الرقمي – المصدر: Unsplash</div>
+ *@                    </div>
 
                     <!-- محتوى -->
                     <div class="news-detail-content">
-                        <p class="lead">
-                            أعلنت منصة <strong>Ecorama</strong> عن فتح باب التسجيل لدورتها الجديدة في المهارات الرقمية لعام 2025، المخصصة للاجئين في مختلف المناطق. تهدف الدورة إلى تمكين المشاركين من أساسيات التكنولوجيا ومهارات العمل عن بُعد.
-                        </p>
-
-                        <h3>برنامج تدريبي متكامل</h3>
-                        <p>
-                            ستُقدَّم الدورة بنظام التعليم المدمج (حضوري + عن بُعد) لمدة 8 أسابيع، وتشمل مواضيع متعددة مثل: المهارات المكتبية، أدوات الإنتاج الرقمي، الأمن السيبراني الأساسي، ومقدمة في الذكاء الاصطناعي.
-                        </p>
-
-                        <div class="news-quote">
-                            <blockquote>
-                                <p>"نحن نؤمن بأن المهارات الرقمية اليوم ليست رفاهية، بل ضرورة للاندماج الاقتصادي والاجتماعي."</p>
-                                <footer>- فريق Ecorama</footer>
-                            </blockquote>
-                        </div>
-
-                        <h3>شهادات معتمدة وفرص عمل</h3>
-                        <p>
-                            بنهاية الدورة، يحصل المشاركون على شهادات معتمدة من جهات تدريب دولية، كما سيتم ربطهم بمنصات العمل الحر وبرامج التوظيف الرقمية بالشراكة مع مؤسسات دولية.
-                        </p>
-
-                        <ul>
-                            <li>مدة الدورة: 8 أسابيع</li>
-                            <li>نمط التدريب: مدمج (حضوري + أونلاين)</li>
-                            <li>الفئات المستهدفة: لاجئون ولاجئات فوق 16 عاماً</li>
-                            <li>عدد المقاعد المتاحة: 150 مشارك/ة</li>
-                        </ul>
-
-                        <div class="news-stats">
-                            <div class="stat-item">
-                                <div class="stat-number">150</div>
-                                <div class="stat-label">مقعد تدريبي</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">8</div>
-                                <div class="stat-label">أسابيع تدريبية</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">2</div>
-                                <div class="stat-label">أنماط تعليم</div>
-                            </div>
-                        </div>
-
-                        <div class="alert alert-info">
-                            <h4><i class="fas fa-info-circle"></i> هل أنت مهتم؟</h4>
-                            <p>للتسجيل ومعرفة تفاصيل الدورة، يمكنك زيارة <a href="https://ecorama.org/">موقع منصة Ecorama</a> أو التواصل عبر البريد الرسمي <a href="mailto:info@ecorama.org">info@ecorama.org</a>.</p>
-                        </div>
+                        @Model.Content
                     </div>
+                    @{
+                        // الحصول على رابط الصفحة الحالي بشكل صحيح
+                        var currentUrl = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}";
+                        var encodedUrl = Uri.EscapeDataString(currentUrl);
 
-                    <!-- مشاركة -->
+                        // نص المشاركة الأساسي
+                        var defaultTitle = "ورشة ريادة الأعمال للشباب في عمّان";
+                        var newsTitle = Model?.Title ?? defaultTitle;
+                        var shareMessage = $"اقرأ هذا الخبر: {newsTitle}";
+
+                        // روابط المشاركة المعدلة لكل منصة
+                        var facebookUrl = $"https://www.facebook.com/sharer.php?u={encodedUrl}&quote={Uri.EscapeDataString(shareMessage)}";
+                        var twitterUrl = $"https://twitter.com/intent/tweet?url={encodedUrl}&text={Uri.EscapeDataString(shareMessage)}";
+                        var linkedinUrl = $"https://www.linkedin.com/sharing/share-offsite/?url={encodedUrl}";
+                        var whatsappUrl = $"https://wa.me/?text={Uri.EscapeDataString($"{shareMessage} {currentUrl}")}";
+                    }
+
                     <div class="news-social-share">
                         <h4>شارك الخبر:</h4>
                         <div class="share-buttons">
-                            <a href="#" class="btn btn-facebook"><i class="fab fa-facebook-f"></i> فيسبوك</a>
-                            <a href="#" class="btn btn-twitter"><i class="fab fa-twitter"></i> تويتر</a>
-                            <a href="#" class="btn btn-linkedin"><i class="fab fa-linkedin-in"></i> لينكد إن</a>
-                            <a href="#" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> واتساب</a>
+                            <a href="@facebookUrl" class="btn btn-facebook" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, 'facebook-share', 'width=600,height=400'); return false;">
+                                <i class="fab fa-facebook-f"></i> فيسبوك
+                            </a>
+
+                            <a href="@twitterUrl" class="btn btn-twitter" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, 'twitter-share', 'width=600,height=300'); return false;">
+                                <i class="fab fa-twitter"></i> تويتر
+                            </a>
+
+                            <a href="@linkedinUrl" class="btn btn-linkedin" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=500'); return false;">
+                                <i class="fab fa-linkedin-in"></i> لينكد إن
+                            </a>
+
+                            <a href="@whatsappUrl" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, 'whatsapp-share', 'width=600,height=600'); return false;">
+                                <i class="fab fa-whatsapp"></i> واتساب
+                            </a>
                         </div>
                     </div>
 
@@ -135,4 +254,3 @@
         });
     </script>
 }
-

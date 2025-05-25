@@ -7365,12 +7365,20 @@
       "PackagePath": "staticwebassets\\css\\login.css"
     },
     {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\myCourses.css",
+      "PackagePath": "staticwebassets\\css\\myCourses.css"
+    },
+    {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\newsdetails.css",
       "PackagePath": "staticwebassets\\css\\newsdetails.css"
     },
     {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\register.css",
       "PackagePath": "staticwebassets\\css\\register.css"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\registerLesons.css",
+      "PackagePath": "staticwebassets\\css\\registerLesons.css"
     },
     {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\site.css",
@@ -7387,6 +7395,14 @@
     {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\4fb38b43-5a12-43bd-a7ee-47d52447fd27.jpg",
+      "PackagePath": "staticwebassets\\images\\4fb38b43-5a12-43bd-a7ee-47d52447fd27.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\5728593c-9711-400d-beec-69c07eb0a4da.jpg",
+      "PackagePath": "staticwebassets\\images\\5728593c-9711-400d-beec-69c07eb0a4da.jpg"
     },
     {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\Course-3X1.jpg",
@@ -7535,6 +7551,38 @@
     {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\workshops\\d746c1b2-9abd-4667-abd1-c0c4d2b81a45.png",
       "PackagePath": "staticwebassets\\images\\workshops\\d746c1b2-9abd-4667-abd1-c0c4d2b81a45.png"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\1746627164255.jpg",
+      "PackagePath": "staticwebassets\\img\\news\\1746627164255.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\179054_10_1648145898.jpg",
+      "PackagePath": "staticwebassets\\img\\news\\179054_10_1648145898.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\24.jpg",
+      "PackagePath": "staticwebassets\\img\\news\\24.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\FlagofJordan.jpg",
+      "PackagePath": "staticwebassets\\img\\news\\FlagofJordan.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\Screenshot 2024-12-10 191931.png",
+      "PackagePath": "staticwebassets\\img\\news\\Screenshot 2024-12-10 191931.png"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\file-10-4.jpeg",
+      "PackagePath": "staticwebassets\\img\\news\\file-10-4.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\himg_4572.jpg",
+      "PackagePath": "staticwebassets\\img\\news\\himg_4572.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\images.jpg",
+      "PackagePath": "staticwebassets\\img\\news\\images.jpg"
     },
     {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\js\\AddNewPartnersJs.js",
@@ -7777,8 +7825,24 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\images\\a0430300-6030-4e18-8c2e-dd9be530ec9f.png",
+      "PackagePath": "staticwebassets\\uploads\\images\\a0430300-6030-4e18-8c2e-dd9be530ec9f.png"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\lesson-images\\3040f541-50ba-4b7b-a445-13aced04247d.png",
+      "PackagePath": "staticwebassets\\uploads\\lesson-images\\3040f541-50ba-4b7b-a445-13aced04247d.png"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\lesson-images\\ab38ce46-9e04-4ca2-be42-59768f043e90.jpg",
+      "PackagePath": "staticwebassets\\uploads\\lesson-images\\ab38ce46-9e04-4ca2-be42-59768f043e90.jpg"
+    },
+    {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\partners\\baa53753-98a0-4b80-95e7-3614996615ba.jpg",
       "PackagePath": "staticwebassets\\uploads\\partners\\baa53753-98a0-4b80-95e7-3614996615ba.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\pdfs\\906c54cf-f2ba-4b02-a266-c09226948270.pdf",
+      "PackagePath": "staticwebassets\\uploads\\pdfs\\906c54cf-f2ba-4b02-a266-c09226948270.pdf"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Ecorama.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

@@ -1836,14 +1836,18 @@ wwwroot\css\course.css
 wwwroot\css\Home.css
 wwwroot\css\lesson.css
 wwwroot\css\login.css
+wwwroot\css\myCourses.css
 wwwroot\css\NEWs.css
 wwwroot\css\newsdetails.css
 wwwroot\css\register.css
+wwwroot\css\registerLesons.css
 wwwroot\css\ShowAllPartners.css
 wwwroot\css\site.css
 wwwroot\css\workshop.css
 wwwroot\css\workshopDetails.css
 wwwroot\favicon.ico
+wwwroot\images\4fb38b43-5a12-43bd-a7ee-47d52447fd27.jpg
+wwwroot\images\5728593c-9711-400d-beec-69c07eb0a4da.jpg
 wwwroot\images\Course-3X1.jpg
 wwwroot\images\javascript.jpg
 wwwroot\images\Orange_Is_Here.png
@@ -1881,6 +1885,14 @@ wwwroot\images\workshops\323b4b12-7ecc-4598-9636-3aa4d8d71dc3.jpg
 wwwroot\images\workshops\488159ca-6bdf-4069-a2ec-f369501ab8f3.jpg
 wwwroot\images\workshops\b8e13c4c-3327-41b2-81ae-bd399ccd5e0f.jpg
 wwwroot\images\workshops\d746c1b2-9abd-4667-abd1-c0c4d2b81a45.png
+wwwroot\img\news\1746627164255.jpg
+wwwroot\img\news\179054_10_1648145898.jpg
+wwwroot\img\news\24.jpg
+wwwroot\img\news\file-10-4.jpeg
+wwwroot\img\news\FlagofJordan.jpg
+wwwroot\img\news\himg_4572.jpg
+wwwroot\img\news\images.jpg
+wwwroot\img\news\Screenshot 2024-12-10 191931.png
 wwwroot\js\AddNewPartnersJs.js
 wwwroot\js\course.js
 wwwroot\js\site.js
@@ -1941,4 +1953,8 @@ wwwroot\lib\jquery-validation\LICENSE.md
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\uploads\images\a0430300-6030-4e18-8c2e-dd9be530ec9f.png
+wwwroot\uploads\lesson-images\3040f541-50ba-4b7b-a445-13aced04247d.png
+wwwroot\uploads\lesson-images\ab38ce46-9e04-4ca2-be42-59768f043e90.jpg
 wwwroot\uploads\partners\baa53753-98a0-4b80-95e7-3614996615ba.jpg
+wwwroot\uploads\pdfs\906c54cf-f2ba-4b02-a266-c09226948270.pdf

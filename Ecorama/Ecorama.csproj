@@ -38,4 +38,10 @@
     <None Include="wwwroot\images\Ecorama.jpg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\uploads\images\" />
+    <Folder Include="wwwroot\uploads\pdfs\" />
+    <Folder Include="wwwroot\uploads\lesson-images\" />
+  </ItemGroup>
+
 </Project>

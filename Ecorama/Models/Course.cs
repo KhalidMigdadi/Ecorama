@@ -17,6 +17,8 @@ public partial class Course
 
     public DateTime? CreatedAt { get; set; }
 
+    public bool IsActive { get; set; }
+
     public virtual ICollection<CourseLesson> CourseLessons { get; set; } = new List<CourseLesson>();
 
     public virtual ICollection<CourseRegistration> CourseRegistrations { get; set; } = new List<CourseRegistration>();

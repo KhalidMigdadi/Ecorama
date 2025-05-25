@@ -526,6 +526,162 @@ namespace Ecorama.Controllers
         }
 
 
+
+
+        // ================= News ==================
+
+        public IActionResult News()
+        {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+            var news = _context.News.ToList();
+            return View(news);
+        }
+
+        public IActionResult DetalisNews(int id)
+        {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+            if (id == null) return NotFound();
+
+            var news = _context.News.FirstOrDefault(N => N.Id == id);
+
+            if (news == null) return NotFound();
+
+            return View(news);
+
+        }
+
+
+        public IActionResult CreateNews()
+        {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateNews(News news, IFormFile ImageFile)
+        {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+            if (ImageFile != null)
+            {
+                string NewsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/news");
+                string fileName = Path.GetFileName(ImageFile.FileName);
+                string filePath = Path.Combine(NewsFolder, fileName);
+
+                if (!Directory.Exists(NewsFolder))
+                    Directory.CreateDirectory(NewsFolder);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    ImageFile.CopyTo(stream);
+                }
+
+                news.ImageUrl = fileName;
+            }
+
+            news.CreatedAt = DateTime.Now;
+            news.IsActive = true;
+
+
+
+            _context.News.Add(news);
+            _context.SaveChanges();
+            return RedirectToAction("News");
+        }
+
+
+        public IActionResult EditNews(int? id)
+        {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+            if (id == null) return NotFound();
+            var news = _context.News.Find(id);
+            if (news == null) return NotFound();
+
+            ViewBag.newsTitle = news.Title;
+            ViewBag.newsContent = news.Content;
+            ViewBag.newsImageUrl = news.ImageUrl;
+            ViewBag.newsIsActive = news.IsActive;
+
+            return View(news);
+
+        }
+
+        [HttpPost]
+        public IActionResult EditNews(News news, IFormFile ImageFile)
+        {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+            var n = _context.News.Find(news.Id);
+
+            if (ImageFile != null)
+            {
+                string NewsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/news");
+                string fileName = Path.GetFileName(ImageFile.FileName);
+                string filePath = Path.Combine(NewsFolder, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    ImageFile.CopyTo(stream);
+                }
+
+                n.ImageUrl = fileName;
+            }
+
+            n.Title = news.Title;
+            n.Content = news.Content;
+            n.IsActive = news.IsActive;
+
+            _context.News.Update(n);
+            _context.SaveChanges();
+            return RedirectToAction("News");
+
+        }
+
+        [HttpPost]
+        public IActionResult DeleteNews(int id)
+        {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+            var news = _context.News.Find(id);
+            _context.News.Remove(news);
+            _context.SaveChanges();
+            return RedirectToAction("News");
+        }
+
+
+
     }
 
 

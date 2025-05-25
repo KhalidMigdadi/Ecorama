@@ -1,0 +1,87 @@
+﻿@model Ecorama.Models.CourseRegistration
+@{
+    ViewData["Title"] = "التسجيل في الكورس";
+}
+
+@section Style {
+    <link href="~/css/registerLesons.css" rel="stylesheet" />
+}
+
+<div class="registration-container">
+    <div class="registration-card">
+        <div class="card-header">
+            <h2>التسجيل في الكورس</h2>
+            <div class="card-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+        </div>
+
+        @if (TempData["Message"] != null)
+        {
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                @TempData["Message"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+
+        <form asp-action="Register" method="post" class="registration-form">
+            <input type="hidden" asp-for="CourseId" />
+            <input type="hidden" asp-for="UserId" />
+
+            <div class="form-floating mb-3">
+                <input asp-for="FullName" class="form-control" id="fullName" placeholder=" " />
+                <label asp-for="FullName" for="fullName">الاسم الكامل</label>
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Email" class="form-control" id="email" placeholder=" " />
+                <label asp-for="Email" for="email">البريد الإلكتروني</label>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="PhoneNumber" class="form-control" id="phone" placeholder=" " />
+                <label asp-for="PhoneNumber" for="phone">رقم الهاتف</label>
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-register">
+                    <i class="fas fa-check-circle"></i> تأكيد الاشتراك
+                </button>
+                <a asp-action="Index" class="btn btn-cancel">
+                    <i class="fas fa-times-circle"></i> إلغاء
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        // تنشيط أيقونات Font Awesome
+        document.addEventListener('DOMContentLoaded', function() {
+            // تحقق من تركيز الحقول عند التحميل
+            const inputs = document.querySelectorAll('.form-control');
+            inputs.forEach(input => {
+                if (input.value) {
+                    input.classList.add('has-value');
+                }
+
+                input.addEventListener('input', function() {
+                    if (this.value) {
+                        this.classList.add('has-value');
+                    } else {
+                        this.classList.remove('has-value');
+                    }
+                });
+            });
+        });
+    </script>
+}
+

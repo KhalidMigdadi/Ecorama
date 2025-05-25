@@ -1,0 +1,45 @@
+﻿@model Ecorama.Models.Course
+@{
+    ViewData["Title"] = "تعديل كورس";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h2>تعديل الكورس</h2>
+<hr />
+
+<form asp-action="Edit" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>الصورة الحالية</label><br />
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <img src="@Model.ImageUrl" width="100" class="mb-2" />
+        }
+        <input type="file" name="imageFile" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>الملف PDF الحالي</label><br />
+        @if (!string.IsNullOrEmpty(Model.PdfUrl))
+        {
+            <a href="@Model.PdfUrl" target="_blank">تحميل الملف الحالي</a>
+        }
+        <input type="file" name="pdfFile" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">تحديث</button>
+    <a asp-action="Index" class="btn btn-secondary">إلغاء</a>
+</form>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Ecorama.Models.Course>
+@{
+    ViewData["Title"] = "إدارة الكورسات";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h2>جميع الكورسات</h2>
+<a class="btn btn-success mb-3" asp-action="Create">+ إضافة كورس جديد</a>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>العنوان</th>
+            <th>الصورة</th>
+            <th>PDF</th>
+            <th>تاريخ الإنشاء</th>
+            <th>التحكم</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model)
+        {
+            <tr>
+                <td>@course.Title</td>
+                <td><img src="@course.ImageUrl" width="100" /></td>
+                <td>
+                    @if (!string.IsNullOrEmpty(course.PdfUrl))
+                    {
+                        <a href="@course.PdfUrl" target="_blank">تحميل PDF</a>
+                    }
+                </td>
+                <td>@course.CreatedAt?.ToString("yyyy/MM/dd")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@course.Id" class="btn btn-sm btn-warning">تعديل</a>
+                    @* <a asp-action="Delete" asp-route-id="@course.Id" class="btn btn-sm btn-danger">حذف</a> *@
+                    <a asp-action="ToggleActivation" asp-route-id="@course.Id" class="btn btn-sm @(course.IsActive ? "btn-outline-danger" : "btn-outline-success")">
+                        @(course.IsActive ? "إلغاء التفعيل" : "تفعيل")
+                    </a>
+
+                    <a asp-controller="CourseLessons" asp-action="Index" asp-route-courseId="@course.Id" class="btn btn-sm btn-info">الدروس</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

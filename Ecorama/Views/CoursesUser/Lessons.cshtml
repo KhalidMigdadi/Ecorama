@@ -1,0 +1,103 @@
+﻿@model List<Ecorama.Models.CourseLesson>
+@{
+	var course = ViewBag.Course as Ecorama.Models.Course; // to make link with course table too
+}
+@{
+	ViewData["Title"] = "Lessons";
+
+	Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@section Style {
+	<link href="~/css/lesson.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+}
+
+
+
+<section class="course-header">
+	<h1>@course.Title</h1>
+	<p>@course.Description</p>
+	<div class="progress-container">
+		<div class="progress-bar" style="width: 30%;"></div>
+	</div>
+</section>
+
+<div class="container">
+	<a href="@Url.Action("Index","CoursesUser")" class="back-to-courses">
+		<i class="fas fa-arrow-right"></i> العودة إلى الكورسات
+	</a>
+
+	<div class="lessons-container">
+		@foreach (var lesson in Model)
+		{
+			<!-- درس 1 -->
+			<div class="lesson-card" style="animation-delay: 0.1s;">
+				<a href="@lesson.YoutubeLink" target="_blank" class="youtube-link">
+					<div class="youtube-thumbnail">
+						@if (!string.IsNullOrEmpty(lesson.ImageUrl))
+						{
+							<img src="@lesson.ImageUrl" alt="@lesson.Title">
+
+						}
+
+						<div class="youtube-play-btn">
+							<i class="fab fa-youtube"></i>
+						</div>
+					</div>
+				</a>
+				<div class="lesson-content">
+					<h3>@lesson.Title</h3>
+					<p>@lesson.Description.</p>
+					<div class="lesson-meta">
+	
+					</div>
+					<a href="@lesson.YoutubeLink" target="_blank" class="btn" style="width: 100%; text-align: center; margin-top: 10px;">
+						شاهد على يوتيوب
+					</a>
+				</div>
+			</div>
+		}
+
+
+	</div>
+</div>
+
+
+@section Scripts {
+	<script>
+		// جعل الكروت تظهر واحدة تلو الأخرى
+		document.addEventListener('DOMContentLoaded', function() {
+			const cards = document.querySelectorAll('.lesson-card');
+			cards.forEach((card, index) => {
+				card.style.animationDelay = `${index * 0.1}s`;
+			});
+
+			// إضافة تأثير عند التمرير
+			window.addEventListener('scroll', function() {
+				cards.forEach(card => {
+					const cardPosition = card.getBoundingClientRect().top;
+					const screenPosition = window.innerHeight / 1.3;
+
+					if (cardPosition < screenPosition) {
+						card.style.animation = 'fadeInUp 0.5s ease forwards';
+					}
+				});
+			});
+
+			// تحديث شريط التقدم عند مشاهدة الدروس
+			function updateProgress() {
+				const completedLessons = document.querySelectorAll('.lesson-completed').length;
+				const totalLessons = document.querySelectorAll('.lesson-card').length;
+				const progressPercentage = (completedLessons / totalLessons) * 100;
+
+				document.querySelector('.progress-bar').style.width = `${progressPercentage}%`;
+			}
+
+			// يمكنك استدعاء updateProgress() عند اكتمال مشاهدة درس
+		});
+	</script>
+}

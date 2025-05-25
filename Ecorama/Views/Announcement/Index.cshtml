@@ -25,7 +25,7 @@
             <tr>
                 <td>@ann.Title</td>
                 <td>@ann.Content</td>
-                <td><img src="@ann.ImageUrl" width="100" /></td>
+                <td><img src="~/images/@ann.ImageUrl" width="100" /></td>
                 <td>@ann.CreatedAt?.ToString("g")</td>
                 <td>
                     <a class="btn btn-warning btn-sm" href="@Url.Action("Edit", new { id = ann.Id })">Edit</a>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xgLlJePl16anepks9VJvI8QCzgGPNiI8ufpXXXwcXH0=",
+  "Hash": "D7bVec2AkqcQW5pDOdIz7pD+0AH6OUuox5hSuXL9f40=",
   "Source": "Ecorama",
   "BasePath": "_content/Ecorama",
   "Mode": "Default",
@@ -38587,8 +38587,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "7ww2neg8sx",
-      "Integrity": "+X14LzcbQha0lF5aQam/XBxsuXpakXDk7C2NJ39Qvuo=",
+      "Fingerprint": "ch481t76y9",
+      "Integrity": "sO24R/CjhVdT49u8yh5Y1L2oAP2x7wQclTA9NQ0NmkI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\course.css"
@@ -38629,8 +38629,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "s0u7ewc0bt",
-      "Integrity": "RF6rmcMbHYjbDaChtiJFHgbkJIV6gucWXJ8/5VxBqO0=",
+      "Fingerprint": "rv2iv9vca1",
+      "Integrity": "FxKjH54uj8ZCkFKMIG4FkmSGXfZ4KFqZW1pmJdn+M1Q=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\lesson.css"
@@ -38657,6 +38657,27 @@
       "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\myCourses.css",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "css/myCourses#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "xr4fy1zkaj",
+      "Integrity": "7ft+S99d3od4gEZfFPiW/bwgGkepaiCySR6mr2/LD5M=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\myCourses.css"
+    },
+    {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\NEWs.css",
       "SourceId": "Ecorama",
       "SourceType": "Discovered",
@@ -38671,8 +38692,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ocshb03uzp",
-      "Integrity": "yESWpxfl14p8qpmgczmAKKwh6otH4CojiNJcqTW3TTg=",
+      "Fingerprint": "2me2v0o9kk",
+      "Integrity": "hgpGPL3CIpKVX3lz6x6NolaMhZWGpEeDE9/l3PGnpK8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\NEWs.css"
@@ -38692,8 +38713,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "96vwb8gxt1",
-      "Integrity": "L08hoC2qQ7fSv1Z9JlL/xT4pUebLg7BUhHzqdCw46/o=",
+      "Fingerprint": "j61viwxu5m",
+      "Integrity": "u3nB0qx1Y7V9SUGpJ97gNGZFKT7Mph8u+ZXv4pfp9GQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\newsdetails.css"
@@ -38718,6 +38739,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\register.css"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\registerLesons.css",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "css/registerLesons#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mp1ijbnhdm",
+      "Integrity": "KogKruRq4bQHeelVFjd9kPKgdNwqxj4i10dXWCD2A8w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\registerLesons.css"
     },
     {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\ShowAllPartners.css",
@@ -38823,6 +38865,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\4fb38b43-5a12-43bd-a7ee-47d52447fd27.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/4fb38b43-5a12-43bd-a7ee-47d52447fd27#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "gmck1lvzuy",
+      "Integrity": "GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\4fb38b43-5a12-43bd-a7ee-47d52447fd27.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\5728593c-9711-400d-beec-69c07eb0a4da.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/5728593c-9711-400d-beec-69c07eb0a4da#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "gmck1lvzuy",
+      "Integrity": "GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\5728593c-9711-400d-beec-69c07eb0a4da.jpg"
     },
     {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\Course-3X1.jpg",
@@ -39600,6 +39684,174 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\workshops\\d746c1b2-9abd-4667-abd1-c0c4d2b81a45.png"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\1746627164255.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "img/news/1746627164255#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "zz9svgydxf",
+      "Integrity": "n0BffXshqHRqfh3PiLxZyuPiLE+mkFiiIobZe7IC29w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\news\\1746627164255.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\179054_10_1648145898.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "img/news/179054_10_1648145898#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "gmck1lvzuy",
+      "Integrity": "GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\news\\179054_10_1648145898.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\24.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "img/news/24#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "yhoaiguqzd",
+      "Integrity": "enPDDsiyoq/kJM0djo6qBxVx+TG4W+PGnhTj2VkvXE8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\news\\24.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\file-10-4.jpeg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "img/news/file-10-4#[.{fingerprint}]?.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "x6ygpuhrv7",
+      "Integrity": "5y3IzAQ1dECqdeWQjxo98tDQ/YJs08Mrzqa+Ud3Q/IU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\news\\file-10-4.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\FlagofJordan.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "img/news/FlagofJordan#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "j2ysi8behm",
+      "Integrity": "hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\news\\FlagofJordan.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\himg_4572.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "img/news/himg_4572#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8q2t7xj75d",
+      "Integrity": "EC7S+T+bPFFq2pHyTuT5S11ndX5coGFGG61WSLmvW5Y=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\news\\himg_4572.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\images.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "img/news/images#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "u0vwm04e9q",
+      "Integrity": "8gTwnaMrHvGNwZ5Wb/DTatDBsQoDXV8mn4iEmCDC5rw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\news\\images.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\Screenshot 2024-12-10 191931.png",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "img/news/Screenshot 2024-12-10 191931#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dnkm0pwyu5",
+      "Integrity": "92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\news\\Screenshot 2024-12-10 191931.png"
     },
     {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\js\\AddNewPartnersJs.js",
@@ -40862,6 +41114,69 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\images\\a0430300-6030-4e18-8c2e-dd9be530ec9f.png",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "uploads/images/a0430300-6030-4e18-8c2e-dd9be530ec9f#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "zxl6k8ky52",
+      "Integrity": "addmrrglrJKI5HCmK+w8cEmgUQlrie6tf5apfwmXrv4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\images\\a0430300-6030-4e18-8c2e-dd9be530ec9f.png"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\lesson-images\\3040f541-50ba-4b7b-a445-13aced04247d.png",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "uploads/lesson-images/3040f541-50ba-4b7b-a445-13aced04247d#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "zxl6k8ky52",
+      "Integrity": "addmrrglrJKI5HCmK+w8cEmgUQlrie6tf5apfwmXrv4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\lesson-images\\3040f541-50ba-4b7b-a445-13aced04247d.png"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\lesson-images\\ab38ce46-9e04-4ca2-be42-59768f043e90.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "uploads/lesson-images/ab38ce46-9e04-4ca2-be42-59768f043e90#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "j2ysi8behm",
+      "Integrity": "hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\lesson-images\\ab38ce46-9e04-4ca2-be42-59768f043e90.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\partners\\baa53753-98a0-4b80-95e7-3614996615ba.jpg",
       "SourceId": "Ecorama",
       "SourceType": "Discovered",
@@ -40881,6 +41196,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\partners\\baa53753-98a0-4b80-95e7-3614996615ba.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\pdfs\\906c54cf-f2ba-4b02-a266-c09226948270.pdf",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "uploads/pdfs/906c54cf-f2ba-4b02-a266-c09226948270#[.{fingerprint}]?.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "e76cuv14fi",
+      "Integrity": "anSSCmkJmqhMN5FZ08lDuXDvUnKuP6okUvlI+9YBhc4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\pdfs\\906c54cf-f2ba-4b02-a266-c09226948270.pdf"
     }
   ],
   "Endpoints": [
@@ -191273,7 +191609,7 @@
       ]
     },
     {
-      "Route": "css/course.7ww2neg8sx.css",
+      "Route": "css/course.ch481t76y9.css",
       "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\course.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -191283,7 +191619,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8313"
+          "Value": "8960"
         },
         {
           "Name": "Content-Type",
@@ -191291,11 +191627,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+X14LzcbQha0lF5aQam/XBxsuXpakXDk7C2NJ39Qvuo=\""
+          "Value": "\"sO24R/CjhVdT49u8yh5Y1L2oAP2x7wQclTA9NQ0NmkI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 09:55:08 GMT"
+          "Value": "Wed, 21 May 2025 16:49:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -191305,7 +191641,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "7ww2neg8sx"
+          "Value": "ch481t76y9"
         },
         {
           "Name": "label",
@@ -191313,7 +191649,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-+X14LzcbQha0lF5aQam/XBxsuXpakXDk7C2NJ39Qvuo="
+          "Value": "sha256-sO24R/CjhVdT49u8yh5Y1L2oAP2x7wQclTA9NQ0NmkI="
         }
       ]
     },
@@ -191328,7 +191664,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8313"
+          "Value": "8960"
         },
         {
           "Name": "Content-Type",
@@ -191336,11 +191672,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+X14LzcbQha0lF5aQam/XBxsuXpakXDk7C2NJ39Qvuo=\""
+          "Value": "\"sO24R/CjhVdT49u8yh5Y1L2oAP2x7wQclTA9NQ0NmkI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 09:55:08 GMT"
+          "Value": "Wed, 21 May 2025 16:49:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -191350,7 +191686,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-+X14LzcbQha0lF5aQam/XBxsuXpakXDk7C2NJ39Qvuo="
+          "Value": "sha256-sO24R/CjhVdT49u8yh5Y1L2oAP2x7wQclTA9NQ0NmkI="
         }
       ]
     },
@@ -191447,7 +191783,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5768"
+          "Value": "5657"
         },
         {
           "Name": "Content-Type",
@@ -191455,11 +191791,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"RF6rmcMbHYjbDaChtiJFHgbkJIV6gucWXJ8/5VxBqO0=\""
+          "Value": "\"FxKjH54uj8ZCkFKMIG4FkmSGXfZ4KFqZW1pmJdn+M1Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 10:02:17 GMT"
+          "Value": "Wed, 21 May 2025 17:13:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -191469,12 +191805,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-RF6rmcMbHYjbDaChtiJFHgbkJIV6gucWXJ8/5VxBqO0="
+          "Value": "sha256-FxKjH54uj8ZCkFKMIG4FkmSGXfZ4KFqZW1pmJdn+M1Q="
         }
       ]
     },
     {
-      "Route": "css/lesson.s0u7ewc0bt.css",
+      "Route": "css/lesson.rv2iv9vca1.css",
       "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\lesson.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -191484,7 +191820,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5768"
+          "Value": "5657"
         },
         {
           "Name": "Content-Type",
@@ -191492,11 +191828,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"RF6rmcMbHYjbDaChtiJFHgbkJIV6gucWXJ8/5VxBqO0=\""
+          "Value": "\"FxKjH54uj8ZCkFKMIG4FkmSGXfZ4KFqZW1pmJdn+M1Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 10:02:17 GMT"
+          "Value": "Wed, 21 May 2025 17:13:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -191506,7 +191842,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "s0u7ewc0bt"
+          "Value": "rv2iv9vca1"
         },
         {
           "Name": "label",
@@ -191514,7 +191850,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-RF6rmcMbHYjbDaChtiJFHgbkJIV6gucWXJ8/5VxBqO0="
+          "Value": "sha256-FxKjH54uj8ZCkFKMIG4FkmSGXfZ4KFqZW1pmJdn+M1Q="
         }
       ]
     },
@@ -191601,6 +191937,133 @@
       ]
     },
     {
+      "Route": "css/myCourses.css",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\myCourses.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2490"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7ft+S99d3od4gEZfFPiW/bwgGkepaiCySR6mr2/LD5M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 16:48:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7ft+S99d3od4gEZfFPiW/bwgGkepaiCySR6mr2/LD5M="
+        }
+      ]
+    },
+    {
+      "Route": "css/myCourses.xr4fy1zkaj.css",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\myCourses.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2490"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7ft+S99d3od4gEZfFPiW/bwgGkepaiCySR6mr2/LD5M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 16:48:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xr4fy1zkaj"
+        },
+        {
+          "Name": "label",
+          "Value": "css/myCourses.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7ft+S99d3od4gEZfFPiW/bwgGkepaiCySR6mr2/LD5M="
+        }
+      ]
+    },
+    {
+      "Route": "css/NEWs.2me2v0o9kk.css",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\NEWs.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7034"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hgpGPL3CIpKVX3lz6x6NolaMhZWGpEeDE9/l3PGnpK8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:16:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2me2v0o9kk"
+        },
+        {
+          "Name": "label",
+          "Value": "css/NEWs.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hgpGPL3CIpKVX3lz6x6NolaMhZWGpEeDE9/l3PGnpK8="
+        }
+      ]
+    },
+    {
       "Route": "css/NEWs.css",
       "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\NEWs.css",
       "Selectors": [],
@@ -191611,7 +192074,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "7030"
+          "Value": "7034"
         },
         {
           "Name": "Content-Type",
@@ -191619,11 +192082,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yESWpxfl14p8qpmgczmAKKwh6otH4CojiNJcqTW3TTg=\""
+          "Value": "\"hgpGPL3CIpKVX3lz6x6NolaMhZWGpEeDE9/l3PGnpK8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 09:57:41 GMT"
+          "Value": "Thu, 22 May 2025 20:16:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -191633,97 +192096,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-yESWpxfl14p8qpmgczmAKKwh6otH4CojiNJcqTW3TTg="
-        }
-      ]
-    },
-    {
-      "Route": "css/NEWs.ocshb03uzp.css",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\NEWs.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "7030"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"yESWpxfl14p8qpmgczmAKKwh6otH4CojiNJcqTW3TTg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 09:57:41 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ocshb03uzp"
-        },
-        {
-          "Name": "label",
-          "Value": "css/NEWs.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-yESWpxfl14p8qpmgczmAKKwh6otH4CojiNJcqTW3TTg="
-        }
-      ]
-    },
-    {
-      "Route": "css/newsdetails.96vwb8gxt1.css",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\newsdetails.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4814"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"L08hoC2qQ7fSv1Z9JlL/xT4pUebLg7BUhHzqdCw46/o=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 19:57:44 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "96vwb8gxt1"
-        },
-        {
-          "Name": "label",
-          "Value": "css/newsdetails.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-L08hoC2qQ7fSv1Z9JlL/xT4pUebLg7BUhHzqdCw46/o="
+          "Value": "sha256-hgpGPL3CIpKVX3lz6x6NolaMhZWGpEeDE9/l3PGnpK8="
         }
       ]
     },
@@ -191738,7 +192111,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4814"
+          "Value": "5053"
         },
         {
           "Name": "Content-Type",
@@ -191746,11 +192119,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"L08hoC2qQ7fSv1Z9JlL/xT4pUebLg7BUhHzqdCw46/o=\""
+          "Value": "\"u3nB0qx1Y7V9SUGpJ97gNGZFKT7Mph8u+ZXv4pfp9GQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 19:57:44 GMT"
+          "Value": "Thu, 22 May 2025 19:50:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -191760,7 +192133,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-L08hoC2qQ7fSv1Z9JlL/xT4pUebLg7BUhHzqdCw46/o="
+          "Value": "sha256-u3nB0qx1Y7V9SUGpJ97gNGZFKT7Mph8u+ZXv4pfp9GQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/newsdetails.j61viwxu5m.css",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\newsdetails.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5053"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u3nB0qx1Y7V9SUGpJ97gNGZFKT7Mph8u+ZXv4pfp9GQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 19:50:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j61viwxu5m"
+        },
+        {
+          "Name": "label",
+          "Value": "css/newsdetails.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-u3nB0qx1Y7V9SUGpJ97gNGZFKT7Mph8u+ZXv4pfp9GQ="
         }
       ]
     },
@@ -191843,6 +192261,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-GvrhGHslw0URalxBY4cm+4YQ3+S0a+T2IwDDcEnNjpU="
+        }
+      ]
+    },
+    {
+      "Route": "css/registerLesons.css",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\registerLesons.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4217"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KogKruRq4bQHeelVFjd9kPKgdNwqxj4i10dXWCD2A8w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 16:24:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-KogKruRq4bQHeelVFjd9kPKgdNwqxj4i10dXWCD2A8w="
+        }
+      ]
+    },
+    {
+      "Route": "css/registerLesons.mp1ijbnhdm.css",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\registerLesons.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4217"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KogKruRq4bQHeelVFjd9kPKgdNwqxj4i10dXWCD2A8w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 16:24:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mp1ijbnhdm"
+        },
+        {
+          "Name": "label",
+          "Value": "css/registerLesons.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-KogKruRq4bQHeelVFjd9kPKgdNwqxj4i10dXWCD2A8w="
         }
       ]
     },
@@ -192417,6 +192917,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "images/4fb38b43-5a12-43bd-a7ee-47d52447fd27.gmck1lvzuy.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\4fb38b43-5a12-43bd-a7ee-47d52447fd27.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "53794"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:31:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gmck1lvzuy"
+        },
+        {
+          "Name": "label",
+          "Value": "images/4fb38b43-5a12-43bd-a7ee-47d52447fd27.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4="
+        }
+      ]
+    },
+    {
+      "Route": "images/4fb38b43-5a12-43bd-a7ee-47d52447fd27.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\4fb38b43-5a12-43bd-a7ee-47d52447fd27.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "53794"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:31:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4="
+        }
+      ]
+    },
+    {
+      "Route": "images/5728593c-9711-400d-beec-69c07eb0a4da.gmck1lvzuy.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\5728593c-9711-400d-beec-69c07eb0a4da.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "53794"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:29:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gmck1lvzuy"
+        },
+        {
+          "Name": "label",
+          "Value": "images/5728593c-9711-400d-beec-69c07eb0a4da.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4="
+        }
+      ]
+    },
+    {
+      "Route": "images/5728593c-9711-400d-beec-69c07eb0a4da.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\5728593c-9711-400d-beec-69c07eb0a4da.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "53794"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:29:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4="
         }
       ]
     },
@@ -195451,6 +196115,662 @@
         {
           "Name": "integrity",
           "Value": "sha256-deiCK0Pvi98JSAsQOSrjerZNZZFzLDtB0UQgfziM6ek="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/1746627164255.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\1746627164255.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "113006"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"n0BffXshqHRqfh3PiLxZyuPiLE+mkFiiIobZe7IC29w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:15:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-n0BffXshqHRqfh3PiLxZyuPiLE+mkFiiIobZe7IC29w="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/1746627164255.zz9svgydxf.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\1746627164255.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "113006"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"n0BffXshqHRqfh3PiLxZyuPiLE+mkFiiIobZe7IC29w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:15:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zz9svgydxf"
+        },
+        {
+          "Name": "label",
+          "Value": "img/news/1746627164255.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-n0BffXshqHRqfh3PiLxZyuPiLE+mkFiiIobZe7IC29w="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/179054_10_1648145898.gmck1lvzuy.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\179054_10_1648145898.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "53794"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:14:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gmck1lvzuy"
+        },
+        {
+          "Name": "label",
+          "Value": "img/news/179054_10_1648145898.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/179054_10_1648145898.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\179054_10_1648145898.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "53794"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:14:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/24.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\24.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "47009"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"enPDDsiyoq/kJM0djo6qBxVx+TG4W+PGnhTj2VkvXE8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:15:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-enPDDsiyoq/kJM0djo6qBxVx+TG4W+PGnhTj2VkvXE8="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/24.yhoaiguqzd.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\24.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "47009"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"enPDDsiyoq/kJM0djo6qBxVx+TG4W+PGnhTj2VkvXE8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:15:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yhoaiguqzd"
+        },
+        {
+          "Name": "label",
+          "Value": "img/news/24.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-enPDDsiyoq/kJM0djo6qBxVx+TG4W+PGnhTj2VkvXE8="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/file-10-4.jpeg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\file-10-4.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "28187"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5y3IzAQ1dECqdeWQjxo98tDQ/YJs08Mrzqa+Ud3Q/IU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:14:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5y3IzAQ1dECqdeWQjxo98tDQ/YJs08Mrzqa+Ud3Q/IU="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/file-10-4.x6ygpuhrv7.jpeg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\file-10-4.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "28187"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5y3IzAQ1dECqdeWQjxo98tDQ/YJs08Mrzqa+Ud3Q/IU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:14:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "x6ygpuhrv7"
+        },
+        {
+          "Name": "label",
+          "Value": "img/news/file-10-4.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5y3IzAQ1dECqdeWQjxo98tDQ/YJs08Mrzqa+Ud3Q/IU="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/FlagofJordan.j2ysi8behm.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\FlagofJordan.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:11:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j2ysi8behm"
+        },
+        {
+          "Name": "label",
+          "Value": "img/news/FlagofJordan.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/FlagofJordan.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\FlagofJordan.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:11:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/himg_4572.8q2t7xj75d.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\himg_4572.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "275348"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EC7S+T+bPFFq2pHyTuT5S11ndX5coGFGG61WSLmvW5Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:13:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8q2t7xj75d"
+        },
+        {
+          "Name": "label",
+          "Value": "img/news/himg_4572.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-EC7S+T+bPFFq2pHyTuT5S11ndX5coGFGG61WSLmvW5Y="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/himg_4572.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\himg_4572.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "275348"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EC7S+T+bPFFq2pHyTuT5S11ndX5coGFGG61WSLmvW5Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:13:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-EC7S+T+bPFFq2pHyTuT5S11ndX5coGFGG61WSLmvW5Y="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/images.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\images.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10172"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8gTwnaMrHvGNwZ5Wb/DTatDBsQoDXV8mn4iEmCDC5rw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:12:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8gTwnaMrHvGNwZ5Wb/DTatDBsQoDXV8mn4iEmCDC5rw="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/images.u0vwm04e9q.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\images.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10172"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8gTwnaMrHvGNwZ5Wb/DTatDBsQoDXV8mn4iEmCDC5rw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:12:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "u0vwm04e9q"
+        },
+        {
+          "Name": "label",
+          "Value": "img/news/images.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8gTwnaMrHvGNwZ5Wb/DTatDBsQoDXV8mn4iEmCDC5rw="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/Screenshot 2024-12-10 191931.dnkm0pwyu5.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\Screenshot 2024-12-10 191931.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8506"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:01:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dnkm0pwyu5"
+        },
+        {
+          "Name": "label",
+          "Value": "img/news/Screenshot 2024-12-10 191931.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/Screenshot 2024-12-10 191931.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\img\\news\\Screenshot 2024-12-10 191931.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8506"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 20:01:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU="
         }
       ]
     },
@@ -200375,6 +201695,252 @@
       ]
     },
     {
+      "Route": "uploads/images/a0430300-6030-4e18-8c2e-dd9be530ec9f.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\images\\a0430300-6030-4e18-8c2e-dd9be530ec9f.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "258832"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"addmrrglrJKI5HCmK+w8cEmgUQlrie6tf5apfwmXrv4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 15:38:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-addmrrglrJKI5HCmK+w8cEmgUQlrie6tf5apfwmXrv4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/images/a0430300-6030-4e18-8c2e-dd9be530ec9f.zxl6k8ky52.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\images\\a0430300-6030-4e18-8c2e-dd9be530ec9f.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "258832"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"addmrrglrJKI5HCmK+w8cEmgUQlrie6tf5apfwmXrv4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 15:38:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zxl6k8ky52"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/images/a0430300-6030-4e18-8c2e-dd9be530ec9f.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-addmrrglrJKI5HCmK+w8cEmgUQlrie6tf5apfwmXrv4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/lesson-images/3040f541-50ba-4b7b-a445-13aced04247d.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\lesson-images\\3040f541-50ba-4b7b-a445-13aced04247d.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "258832"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"addmrrglrJKI5HCmK+w8cEmgUQlrie6tf5apfwmXrv4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 15:39:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-addmrrglrJKI5HCmK+w8cEmgUQlrie6tf5apfwmXrv4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/lesson-images/3040f541-50ba-4b7b-a445-13aced04247d.zxl6k8ky52.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\lesson-images\\3040f541-50ba-4b7b-a445-13aced04247d.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "258832"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"addmrrglrJKI5HCmK+w8cEmgUQlrie6tf5apfwmXrv4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 15:39:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zxl6k8ky52"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/lesson-images/3040f541-50ba-4b7b-a445-13aced04247d.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-addmrrglrJKI5HCmK+w8cEmgUQlrie6tf5apfwmXrv4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/lesson-images/ab38ce46-9e04-4ca2-be42-59768f043e90.j2ysi8behm.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\lesson-images\\ab38ce46-9e04-4ca2-be42-59768f043e90.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 17:02:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j2ysi8behm"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/lesson-images/ab38ce46-9e04-4ca2-be42-59768f043e90.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/lesson-images/ab38ce46-9e04-4ca2-be42-59768f043e90.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\lesson-images\\ab38ce46-9e04-4ca2-be42-59768f043e90.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 17:02:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
+        }
+      ]
+    },
+    {
       "Route": "uploads/partners/baa53753-98a0-4b80-95e7-3614996615ba.4ygzqzohzc.jpg",
       "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\partners\\baa53753-98a0-4b80-95e7-3614996615ba.jpg",
       "Selectors": [],
@@ -200453,6 +202019,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-dDm5gIFeLXuzqswUAPXix/GNERLF24trh/bdEruXf24="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/pdfs/906c54cf-f2ba-4b02-a266-c09226948270.e76cuv14fi.pdf",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\pdfs\\906c54cf-f2ba-4b02-a266-c09226948270.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "225856"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"anSSCmkJmqhMN5FZ08lDuXDvUnKuP6okUvlI+9YBhc4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 15:38:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "e76cuv14fi"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/pdfs/906c54cf-f2ba-4b02-a266-c09226948270.pdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-anSSCmkJmqhMN5FZ08lDuXDvUnKuP6okUvlI+9YBhc4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/pdfs/906c54cf-f2ba-4b02-a266-c09226948270.pdf",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\pdfs\\906c54cf-f2ba-4b02-a266-c09226948270.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "225856"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"anSSCmkJmqhMN5FZ08lDuXDvUnKuP6okUvlI+9YBhc4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 15:38:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-anSSCmkJmqhMN5FZ08lDuXDvUnKuP6okUvlI+9YBhc4="
         }
       ]
     }

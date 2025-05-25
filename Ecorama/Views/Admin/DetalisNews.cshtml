@@ -1,0 +1,48 @@
+﻿@model Ecorama.Models.News
+
+@{
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "تفاصيل الخبر";
+}
+
+<div class="container my-5">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card mb-4 shadow-sm border-0">
+            <div style="height: 300px; overflow: hidden;">
+                <img src="@Url.Content("~/img/news/" + Model.ImageUrl)" class="w-100" style="object-fit: cover; height: 150%;" alt="@Model.Title" />
+            </div>
+            <div class="col-md-7">
+                <div class="card-body p-4">
+                    <h2 class="card-title mb-3 text-primary">@Model.Title</h2>
+
+                    <p class="card-text mb-4 text-muted" style="white-space: pre-line;">
+                        @Model.Content
+                    </p>
+
+                    <div class="mb-2">
+                        <strong>تاريخ النشر:</strong>
+                        <span class="text-secondary">
+                            @(Model.CreatedAt.HasValue ? Model.CreatedAt.Value.ToString("yyyy/MM/dd hh:mm tt") : "غير متوفر")
+                        </span>
+
+                    </div>
+
+                    <div class="mb-4">
+                        <strong>الحالة:</strong>
+                        <span class="badge @(Model.IsActive ? "bg-success" : "bg-danger")">
+                            @(Model.IsActive ? "نشط" : "غير نشط")
+                        </span>
+                    </div>
+
+                    <a asp-action="EditNews" asp-route-id="@Model.Id" class="btn btn-outline-primary me-2">
+                        تعديل الخبر
+                    </a>
+                    <a asp-action="News" class="btn btn-outline-secondary">عودة للقائمة</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

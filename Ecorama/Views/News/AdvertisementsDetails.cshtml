@@ -1,143 +1,152 @@
-﻿
+﻿@model Announcement
 @{
-    ViewData["Title"] = "AdvertisementsDetails";
+    ViewData["Title"] = Model?.Title ?? "تفاصيل الإعلان";
+    var relatedAnnouncements = ViewBag.RelatedAnnouncements as List<Announcement>;
 }
 
 @section Style {
     <link rel="stylesheet" href="~/css/advertisements.css" />
     <link rel="stylesheet" href="~/css/NEWs.css" />
-
 }
 
-<div class="advertisement-details">
-    <!-- رأس الصفحة -->
-    <div class="news-header text-center">
-        <div class="container position-relative">
-            <h1 class="fw-bold mb-3 animate__animated animate__fadeInDown">تفاصيل الإعلان</h1>
-            <p class="lead animate__animated animate__fadeInUp animate__delay-1s">معلومات كاملة عن الإعلان المحدد</p>
+@if (Model != null)
+{
+    <div class="advertisement-details">
+        <!-- رأس الصفحة -->
+        <div class="news-header text-center">
+            <div class="container position-relative">
+                <h1 class="fw-bold mb-3 animate__animated animate__fadeInDown">تفاصيل الإعلان</h1>
+                <p class="lead animate__animated animate__fadeInUp animate__delay-1s">معلومات كاملة عن الإعلان المحدد</p>
+            </div>
         </div>
-    </div>
 
-    <!-- محتوى التفاصيل -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="ad-detail-card">
-                    <div class="ad-detail-header">
-                        <span class="category-badge">إعلان رسمي</span>
-                        <h2>إطلاق برنامج المنح الدراسية الجديد للاجئين</h2>
-                        <div class="ad-meta">
-                            <span class="ad-date"><i class="far fa-calendar-alt"></i> 20 يونيو 2023</span>
-                            @*                             <span class="ad-views"><i class="far fa-eye"></i> 356 مشاهدة</span>
- *@                        </div>
-                    </div>
+        <!-- محتوى التفاصيل -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="ad-detail-card">
+                        <div class="ad-detail-header">
+                            <h2>@Html.DisplayFor(m => m.Title)</h2>
+                           
 
-                    <div class="ad-detail-image">
-                        <img src="/images/pexels-shkrabaanthony-4348401.jpg" alt="صورة الإعلان" class="img-fluid rounded">
-                    </div>
-
-                    <div class="ad-detail-content">
-                        <h3>تفاصيل البرنامج:</h3>
-                        <p>تعلن المفوضية السامية للأمم المتحدة لشؤون اللاجئين عن إطلاق برنامج المنح الدراسية للعام الأكاديمي 2023-2024، والذي يهدف إلى توفير فرص تعليمية للطلاب اللاجئين في مختلف الدول.</p>
-
-                        <h3>شروط التقديم:</h3>
-                        <ul>
-                            <li>أن يكون المتقدم لاجئاً مسجلاً لدى المفوضية</li>
-                            <li>أن يكون حاصلاً على شهادة الثانوية العامة أو ما يعادلها</li>
-                            <li>أن يكون عمره بين 18 و25 سنة</li>
-                            <li>أن يكون لديه قبول مبدئي من إحدى الجامعات المعترف بها</li>
-                        </ul>
-
-                        <h3>مميزات المنحة:</h3>
-                        <ul>
-                            <li>تغطية كاملة لرسوم الدراسة</li>
-                            <li>بدل معيشة شهري</li>
-                            <li>تأمين صحي</li>
-                            <li>دورات تدريبية مصاحبة</li>
-                        </ul>
-
-                        <h3>طريقة التقديم:</h3>
-                        <p>يتم التقديم عبر الموقع الإلكتروني للمفوضية من خلال تعبئة النموذج الإلكتروني وإرفاق المستندات المطلوبة والتي تشمل:</p>
-                        <ol>
-                            <li>صورة عن وثيقة اللجوء</li>
-                            <li>صورة عن الشهادة الدراسية</li>
-                            <li>خطاب قبول من الجامعة (إن وجد)</li>
-                            <li>صورة شخصية</li>
-                            <li>السيرة الذاتية</li>
-                        </ol>
-
-                        <div class="alert alert-info">
-                            <h4><i class="fas fa-info-circle"></i> ملاحظات هامة:</h4>
-                            <ul>
-                                <li>آخر موعد للتقديم: 15 يوليو 2023</li>
-                                <li>سيتم التواصل مع المرشحين الناجحين عبر البريد الإلكتروني</li>
-                                <li>لن يتم النظر في الطلبات غير المكتملة</li>
-                            </ul>
+                            <img src="@Url.Content("~/images/" + Model.ImageUrl)" alt="@Model.Title" class="img-fluid rounded"
+                                 style="width: 100%; height: auto; object-fit: cover;"
+                                 onerror="this.style.display='none';" />
+                            @if (Model.CreatedAt.HasValue)
+                            {
+                                <div class="ad-meta">
+                                    <span class="ad-date">
+                                        <i class="far fa-calendar-alt"></i>
+                                        @Model.CreatedAt.Value.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("ar-SA"))
+                                    </span>
+                                    <span class="ad-views">
+                                        <i class="far fa-eye"></i>
+                                        @Random.Shared.Next(100, 500) مشاهدة
+                                    </span>
+                                </div>
+                            }
                         </div>
 
-                        <div class="ad-detail-files">
-                            <h4>مستندات مرفقة:</h4>
-                            <div class="file-list">
-                                <a href="#" class="file-item">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <span>نموذج التقديم للمنحة الدراسية.pdf</span>
-                                    <small>(2.4 MB)</small>
-                                </a>
-                                <a href="#" class="file-item">
-                                    <i class="fas fa-file-word"></i>
-                                    <span>قائمة الجامعات المعتمدة.docx</span>
-                                    <small>(1.1 MB)</small>
+                        @if (!string.IsNullOrWhiteSpace(Model.ImageUrl))
+                        {
+                            <div class="ad-detail-image">
+                                <img src="@Model.ImageUrl" alt="@Model.Title" class="img-fluid rounded"
+                                     onerror="this.style.display='none';">
+                            </div>
+                        }
+
+                        @if (!string.IsNullOrWhiteSpace(Model.Content))
+                        {
+                            <div class="ad-detail-content">
+                                @Html.Raw(Model.Content)
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="ad-detail-content">
+                                <p class="text-muted">لا يوجد محتوى لهذا الإعلان.</p>
+                            </div>
+                        }
+
+                        <div class="ad-detail-footer">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="ad-info">
+                                    <small class="text-muted">
+                                        رقم الإعلان: #@Model.Id
+                                        @if (Model.CreatedAt.HasValue)
+                                        {
+                                            <span class="ms-3">
+                                                تاريخ النشر: @Model.CreatedAt.Value.ToString("dd/MM/yyyy HH:mm", new System.Globalization.CultureInfo("ar-SA"))
+                                            </span>
+                                        }
+                                    </small>
+                                </div>
+                                <a href="@Url.Action("Advertisements", "News")" class="btn btn-primary">
+                                    <i class="fas fa-arrow-left"></i> العودة إلى قائمة الإعلانات
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="ad-detail-footer">
-                        <div class="share-buttons">
-                            <span>مشاركة:</span>
-                            <a href="#" class="btn btn-outline-primary btn-sm"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="btn btn-outline-info btn-sm"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="btn btn-outline-danger btn-sm"><i class="fab fa-whatsapp"></i></a>
-                            <a href="#" class="btn btn-outline-secondary btn-sm"><i class="fas fa-envelope"></i></a>
-                        </div>
-                        <a href="@Url.Action("Advertisements", "News")" class="btn btn-primary">
-                            <i class="fas fa-arrow-left"></i> العودة إلى قائمة الإعلانات
-                        </a>
-                    </div>
-                </div>
-
-                <!-- إعلانات مشابهة -->
-                <div class="related-ads mt-5">
-                    <h3 class="mb-4">إعلانات مشابهة</h3>
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <div class="ad-card">
-                                <div class="card-body">
-                                    <div class="ad-date">
-                                        <i class="far fa-calendar-alt me-2"></i> 15 يونيو 2023
+                    <!-- إعلانات مشابهة -->
+                   @*  @if (relatedAnnouncements != null && relatedAnnouncements.Any())
+                    {
+                        <div class="related-ads mt-5">
+                            <h3 class="mb-4">إعلانات مشابهة</h3>
+                            <div class="row">
+                                @foreach (var related in relatedAnnouncements.Take(4))
+                                {
+                                    <div class="col-md-6 mb-4">
+                                        <div class="ad-card">
+                                            @if (!string.IsNullOrWhiteSpace(related.ImageUrl))
+                                            {
+                                                <img src="@related.ImageUrl" class="card-img-top" alt="@related.Title"
+                                                     style="height: 150px; object-fit: cover;"
+                                                     onerror="this.style.display='none';">
+                                            }
+                                            <div class="card-body">
+                                                @if (related.CreatedAt.HasValue)
+                                                {
+                                                    <div class="ad-date">
+                                                        <i class="far fa-calendar-alt me-2"></i>
+                                                        @related.CreatedAt.Value.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("ar-SA"))
+                                                    </div>
+                                                }
+                                                <h5 class="card-title">@Html.DisplayFor(m => related.Title)</h5>
+                                                @if (!string.IsNullOrWhiteSpace(related.Content))
+                                                {
+                                                    <p class="card-text">
+                                                        @{
+                                                            string truncatedContent = related.Content.Length > 100
+                                                            ? Html.Raw(related.Content).ToString().Substring(0, 100) + "..."
+                                                            : Html.Raw(related.Content).ToString();
+                                                        }
+                                                        @Html.Raw(truncatedContent)
+                                                    </p>
+                                                }
+                                                <a href="@Url.Action("AdvertisementsDetails", "News", new { id = related.Id })"
+                                                   class="read-more">التفاصيل</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <h5 class="card-title">برنامج المنح الدراسية للدراسات العليا</h5>
-                                    <p class="card-text">إعلان عن فتح باب التقديم لبرنامج المنح الدراسية لمرحلة الماجستير.</p>
-                                    <a href="/Advertisements/Details/9" class="read-more">التفاصيل</a>
-                                </div>
+                                }
                             </div>
                         </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="ad-card">
-                                <div class="card-body">
-                                    <div class="ad-date">
-                                        <i class="far fa-calendar-alt me-2"></i> 10 يونيو 2023
-                                    </div>
-                                    <h5 class="card-title">دورات تدريبية مجانية للاجئين</h5>
-                                    <p class="card-text">إعلان عن بدء التسجيل في سلسلة الدورات التدريبية المهنية المجانية.</p>
-                                    <a href="/Advertisements/Details/10" class="read-more">التفاصيل</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    } *@
                 </div>
             </div>
         </div>
     </div>
-</div>
-
+}
+else
+{
+    <div class="container text-center mt-5">
+        <div class="alert alert-warning">
+            <h4>الإعلان غير موجود</h4>
+            <p>الإعلان المطلوب غير متوفر أو تم حذفه.</p>
+            <a href="@Url.Action("Advertisements", "News")" class="btn btn-primary">
+                <i class="fas fa-arrow-left"></i> العودة إلى قائمة الإعلانات
+            </a>
+        </div>
+    </div>
+}

@@ -111,6 +111,7 @@ public partial class MyDbContext : DbContext
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
             entity.Property(e => e.ImageUrl).HasMaxLength(255);
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
             entity.Property(e => e.PdfUrl).HasMaxLength(255);
             entity.Property(e => e.Title).HasMaxLength(200);
         });
@@ -375,6 +376,7 @@ public partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK__Workshop__3214EC0753531171");
 
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
             entity.Property(e => e.Title).HasMaxLength(200);
         });
 

@@ -258,3 +258,20 @@
         margin-bottom: 30px;
     }
 }
+
+
+.btn-linkedin:hover {
+    color: #0077b5 !important;
+}
+
+.btn-facebook:hover {
+    color: #3b5998 !important;
+}
+
+.btn-twitter:hover {
+    color: #1da1f2 !important;
+}
+
+.btn-whatsapp:hover {
+    color: #25d366 !important;
+}

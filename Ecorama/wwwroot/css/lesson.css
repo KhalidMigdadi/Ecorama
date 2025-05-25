@@ -187,8 +187,7 @@ body {
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(255, 65, 108, 0.3);
+
 }
 
     .btn:hover {

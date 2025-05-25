@@ -7,7 +7,7 @@
 
 <h2>Create Announcement</h2>
 
-<form asp-action="Create" method="post">
+<form asp-action="Create" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label>Title</label>
         <input asp-for="Title" class="form-control" />
@@ -17,8 +17,8 @@
         <textarea asp-for="Content" class="form-control"></textarea>
     </div>
     <div class="form-group">
-        <label>Image URL</label>
-        <input asp-for="ImageUrl" class="form-control" />
+        <label>Upload Image</label>
+        <input type="file" name="ImageFile" class="form-control" />
     </div>
     <button type="submit" class="btn btn-primary">Save</button>
     <a asp-action="Index" class="btn btn-secondary">Cancel</a>

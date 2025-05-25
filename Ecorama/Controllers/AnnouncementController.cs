@@ -25,17 +25,43 @@ namespace Ecorama.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Announcement announcement)
+        public IActionResult Create(Announcement announcement, IFormFile ImageFile)
         {
             if (ModelState.IsValid)
             {
+                if (ImageFile != null && ImageFile.Length > 0)
+                {
+                    // تحديد مجلد الحفظ
+                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
+                    if (!Directory.Exists(uploadsFolder))
+                    {
+                        Directory.CreateDirectory(uploadsFolder);
+                    }
+
+                    // إنشاء اسم فريد للملف
+                    var uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(ImageFile.FileName);
+
+                    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    // حفظ الملف فعلياً في المجلد
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        ImageFile.CopyTo(fileStream);
+                    }
+
+                    // حفظ اسم الملف (أو المسار النسبي) في الـ Announcement
+                    announcement.ImageUrl = uniqueFileName;
+                }
+
                 announcement.CreatedAt = DateTime.Now;
                 _context.Announcements.Add(announcement);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(announcement);
         }
+
 
         public IActionResult Edit(int id)
         {
