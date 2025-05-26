@@ -78,6 +78,7 @@ public partial class MyDbContext : DbContext
                 .HasMaxLength(500)
                 .HasColumnName("ImageURL");
             entity.Property(e => e.Title).HasMaxLength(200);
+            entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
         });
 
         modelBuilder.Entity<Announcement>(entity =>

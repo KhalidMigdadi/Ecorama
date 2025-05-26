@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+}
+
+<div class="social-links">
+    @foreach (var link in Model)
+    {
+        <a href="@link.Url" target="_blank">
+            <i class="@link.IconClass" style="color: @link.IconColor"></i>
+        </a>
+    }
+</div>
+

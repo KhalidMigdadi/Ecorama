@@ -1,57 +1,403 @@
 ﻿@model Ecorama.Models.Workshop
 
 @{
-    ViewData["Title"] = "Edit WorkShop";
+    ViewData["Title"] = "Edit Workshop";
     Layout = "~/Views/Shared/_Admin_Layout.cshtml";
 }
 
-<h1 class="my-4 text-center text-primary">Edit WorkShop</h1>
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                    <h3 class="mb-0">
+                        <i class="fas fa-edit me-2"></i>
+                        Edit Workshop
+                    </h3>
+                    <a asp-action="seeAllWorkShop" class="btn btn-light">
+                        <i class="fas fa-arrow-left me-1"></i>
+                        Back to List
+                    </a>
+                </div>
 
-<div class="card shadow p-4" style="margin: 1.2rem;">
-    <form asp-action="EditWorkShop" method="post" class="row g-3">
-        <input type="hidden" asp-for="Id" />
+                <div class="card-body p-4">
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade-show">
+                            <i class="fas fa-exclamation-circle me-2"></i>
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
 
-        <div class="col-md-6">
-            <label asp-for="Title" class="form-label">Title</label>
-            <input asp-for="Title" class="form-control" />
-            <span asp-validation-for="Title" class="text-danger"></span>
+                    <form asp-action="EditWorkShop" method="post" id="editWorkshopForm">
+                        <input asp-for="Id" type="hidden" />
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- Title Field -->
+                                <div class="mb-4">
+                                    <label asp-for="Title" class="form-label fw-bold">
+                                        <i class="fas fa-heading me-2 text-primary"></i>
+                                        Workshop Title <span class="text-danger">*</span>
+                                    </label>
+                                    <input asp-for="Title" class="form-control form-control-lg"
+                                           placeholder="Enter workshop title..." />
+                                    <span asp-validation-for="Title" class="text-danger small"></span>
+                                </div>
+
+                                <!-- Date Field -->
+                                <div class="mb-4">
+                                    <label asp-for="Date" class="form-label fw-bold">
+                                        <i class="fas fa-calendar me-2 text-primary"></i>
+                                        Workshop Date <span class="text-danger">*</span>
+                                    </label>
+                                    <input asp-for="Date" type="date" class="form-control form-control-lg" />
+                                    <span asp-validation-for="Date" class="text-danger small"></span>
+                                </div>
+
+                                <!-- Website URL Field -->
+                                <div class="mb-4">
+                                    <label asp-for="WebSiteUrl" class="form-label fw-bold">
+                                        <i class="fas fa-link me-2 text-primary"></i>
+                                        Website URL
+                                    </label>
+                                    <input asp-for="WebSiteUrl" class="form-control"
+                                           placeholder="https://example.com" />
+                                    <span asp-validation-for="WebSiteUrl" class="text-danger small"></span>
+                                    <div class="form-text">
+                                        <i class="fas fa-info-circle me-1"></i>
+                                        Optional: Link to workshop registration or details page
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <!-- Image URL Field -->
+                                <div class="mb-4">
+                                    <label asp-for="ImageUrl" class="form-label fw-bold">
+                                        <i class="fas fa-image me-2 text-primary"></i>
+                                        Image URL
+                                    </label>
+                                    <input asp-for="ImageUrl" class="form-control"
+                                           placeholder="https://example.com/image.jpg" id="imageUrlInput" />
+                                    <span asp-validation-for="ImageUrl" class="text-danger small"></span>
+                                </div>
+
+                                <!-- Image Preview -->
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-eye me-2 text-success"></i>
+                                        Image Preview
+                                    </label>
+                                    <div class="image-preview-container">
+                                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                                        {
+                                            <div class="position-relative">
+                                                <img src="@Model.ImageUrl" alt="@Model.Title"
+                                                     class="img-fluid rounded shadow-sm preview-image"
+                                                     style="width: 100%; height: 200px; object-fit: cover;" id="previewImg" />
+                                                <div class="image-overlay">
+                                                    <i class="fas fa-eye text-white"></i>
+                                                </div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="no-image-placeholder d-flex flex-column align-items-center justify-content-center rounded bg-light"
+                                                 style="height: 200px;" id="noImagePlaceholder">
+                                                <i class="fas fa-image fa-3x text-muted mb-2"></i>
+                                                <span class="text-muted">No image available</span>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Description Field -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mb-4">
+                                    <label asp-for="Description" class="form-label fw-bold">
+                                        <i class="fas fa-align-left me-2 text-primary"></i>
+                                        Workshop Description <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea asp-for="Description" class="form-control" rows="5"
+                                              placeholder="Enter detailed workshop description..."></textarea>
+                                    <span asp-validation-for="Description" class="text-danger small"></span>
+                                    <div class="form-text">
+                                        <i class="fas fa-info-circle me-1"></i>
+                                        Provide a clear and detailed description of the workshop content and objectives
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between align-items-center border-top pt-4">
+                                    <div class="form-text text-muted">
+                                        <i class="fas fa-clock me-1"></i>
+                                        Workshop ID: @Model.Id
+                                    </div>
+                                    <div class="btn-group">
+                                        <a asp-action="seeAllWorkShop" class="btn btn-outline-secondary">
+                                            <i class="fas fa-times me-1"></i>
+                                            Cancel
+                                        </a>
+                                        <button type="submit" class="btn btn-success px-4" id="submitBtn">
+                                            <i class="fas fa-save me-1"></i>
+                                            <span class="btn-text">Save Changes</span>
+                                            <span class="spinner-border spinner-border-sm ms-1 d-none" role="status"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Additional Info Card -->
+            <div class="card border-0 shadow-sm mt-4">
+                <div class="card-body bg-light">
+                    <h6 class="card-title text-primary mb-3">
+                        <i class="fas fa-lightbulb me-2"></i>
+                        Important Tips
+                    </h6>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            Use clear and descriptive titles that reflect the workshop content
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            Choose high-quality images with appropriate dimensions (recommended: 1200×600 pixels)
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            Write detailed descriptions that clearly explain the workshop objectives
+                        </li>
+                        <li class="mb-0">
+                            <i class="fas fa-check text-success me-2"></i>
+                            Ensure the date is accurate and the website URL is functional
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-
-        <div class="col-md-6">
-            <label asp-for="Date" class="form-label">Date</label>
-            <input asp-for="Date" type="date" class="form-control" />
-            <span asp-validation-for="Date" class="text-danger"></span>
-        </div>
-
-        <div class="col-12">
-            <label asp-for="Description" class="form-label">Description</label>
-            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
-            <span asp-validation-for="Description" class="text-danger"></span>
-        </div>
-
-        <div class="col-md-6">
-            <label asp-for="ImageUrl" class="form-label">Image URL</label>
-            <input asp-for="ImageUrl" class="form-control" />
-            <span asp-validation-for="ImageUrl" class="text-danger"></span>
-        </div>
-
-        <div class="col-md-6">
-            <label asp-for="WebSiteUrl" class="form-label">Website URL</label>
-            <input asp-for="WebSiteUrl" class="form-control" />
-            <span asp-validation-for="WebSiteUrl" class="text-danger"></span>
-        </div>
-
-        <div class="col-12 text-end" style="margin-top: 2%;">
-            <button type="submit" class="btn btn-success">
-                <i class="bi bi-check-circle"></i> Save Changes
-            </button>
-            <a asp-action="seeAllWorkShop" class="btn btn-secondary">
-                <i class="bi bi-arrow-left"></i> Cancel
-            </a>
-        </div>
-    </form>
+    </div>
 </div>
 
 @section Scripts {
-    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Form submission handling
+            const form = document.getElementById('editWorkshopForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const spinner = submitBtn.querySelector('.spinner-border');
+            const btnText = submitBtn.querySelector('.btn-text');
+
+            form.addEventListener('submit', function() {
+                submitBtn.disabled = true;
+                spinner.classList.remove('d-none');
+                btnText.textContent = 'Saving...';
+            });
+
+            // Image URL preview functionality
+            const imageUrlInput = document.getElementById('imageUrlInput');
+            const previewImg = document.getElementById('previewImg');
+            const noImagePlaceholder = document.getElementById('noImagePlaceholder');
+
+            imageUrlInput.addEventListener('input', function() {
+                const imageUrl = this.value.trim();
+
+                if (imageUrl) {
+                    // Test if the image loads
+                    const testImg = new Image();
+                    testImg.onload = function() {
+                        if (previewImg) {
+                            previewImg.src = imageUrl;
+                        } else {
+                            // Create new image element if placeholder exists
+                            const newImg = document.createElement('img');
+                            newImg.src = imageUrl;
+                            newImg.className = 'img-fluid rounded shadow-sm preview-image';
+                            newImg.style.cssText = 'width: 100%; height: 200px; object-fit: cover;';
+                            newImg.id = 'previewImg';
+
+                            const overlay = document.createElement('div');
+                            overlay.className = 'image-overlay';
+                            overlay.innerHTML = '<i class="fas fa-eye text-white"></i>';
+
+                            const container = document.createElement('div');
+                            container.className = 'position-relative';
+                            container.appendChild(newImg);
+                            container.appendChild(overlay);
+
+                            noImagePlaceholder.replaceWith(container);
+                        }
+                    };
+                    testImg.onerror = function() {
+                        // If image fails to load, show placeholder
+                        if (previewImg && noImagePlaceholder) {
+                            const container = previewImg.closest('.position-relative');
+                            container.replaceWith(noImagePlaceholder);
+                        }
+                    };
+                    testImg.src = imageUrl;
+                }
+            });
+
+            // Image preview click to view full size
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('preview-image')) {
+                    const modal = document.createElement('div');
+                    modal.className = 'modal fade';
+                    modal.innerHTML = `
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Workshop Image Preview</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <img src="${e.target.src}" class="img-fluid rounded" />
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    document.body.appendChild(modal);
+                    const bsModal = new bootstrap.Modal(modal);
+                    bsModal.show();
+
+                    modal.addEventListener('hidden.bs.modal', function() {
+                        document.body.removeChild(modal);
+                    });
+                }
+            });
+        });
+    </script>
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+@section Style {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        .fade-show {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @@keyframes fadeIn {
+            from
+
+        {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        }
+
+        .preview-image {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .preview-image:hover {
+                transform: scale(1.02);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+            }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 0.375rem;
+        }
+
+            .preview-image:hover + .image-overlay,
+            .image-overlay:hover {
+                opacity: 1;
+            }
+
+        .no-image-placeholder {
+            transition: all 0.3s ease;
+        }
+
+            .no-image-placeholder:hover {
+                background-color: #e9ecef !important;
+            }
+
+        .form-control:focus,
+        .form-control-file:focus {
+            border-color: #198754;
+            box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+        }
+
+        .btn-success {
+            background-color: #198754;
+            border-color: #198754;
+        }
+
+            .btn-success:hover {
+                background-color: #157347;
+                border-color: #146c43;
+            }
+
+        .card {
+            border-radius: 1rem;
+        }
+
+        .card-header {
+            border-radius: 1rem 1rem 0 0 !important;
+            padding: 1.5rem;
+        }
+
+        .form-control,
+        .form-select {
+            border-radius: 0.5rem;
+            border: 2px solid #e9ecef;
+            padding: 0.75rem 1rem;
+        }
+
+            .form-control:focus,
+            .form-select:focus {
+                border-color: #198754;
+                box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+            }
+
+        .btn {
+            border-radius: 0.5rem;
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+        }
+
+        .text-danger {
+            font-size: 0.875rem;
+        }
+
+        .bg-success {
+            background-color: #198754 !important;
+        }
+    </style>
 }

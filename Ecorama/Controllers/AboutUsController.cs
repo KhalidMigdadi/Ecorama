@@ -7,122 +7,297 @@ namespace Ecorama.Controllers
     public class AboutUsController : Controller
     {
         private readonly MyDbContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public AboutUsController(MyDbContext context)
+        public AboutUsController(MyDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
-        // GET: AboutU
-        public async Task<IActionResult> Index()
+        // GET: AboutUs/Manage
+        public async Task<IActionResult> Manage()
         {
-            var teamMembers = await _context.TeamMembers.ToListAsync();
-            var aboutUs = await _context.AboutUs.ToListAsync();
-
-            var viewModel = new TeamViewModel
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            if (adminId == null)
             {
-                TeamMembers = teamMembers,
-                AboutUs = aboutUs
-            };
+                return RedirectToAction("Login", "Login");
+            }
 
-            return View(viewModel);
 
+            var aboutUsItems = await _context.AboutUs.OrderBy(x => x.CreatedAt).ToListAsync();
+            return View(aboutUsItems);
         }
 
-        // GET: AboutU/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // GET: AboutUs/Create
+        public IActionResult CreateSlider()
         {
-            if (id == null) return NotFound();
 
-            var aboutU = await _context.AboutUs.FirstOrDefaultAsync(m => m.Id == id);
-            if (aboutU == null) return NotFound();
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
 
-            return View(aboutU);
-        }
 
-        // GET: AboutU/Create
-        public IActionResult Create()
-        {
             return View();
         }
 
-        // POST: AboutU/Create
+        // POST: AboutUs/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,CreatedAt")] AboutU aboutU)
+        public async Task<IActionResult> CreateSlider(AboutU aboutU, IFormFile? imageFile)
         {
+
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
+
             if (ModelState.IsValid)
             {
-                _context.Add(aboutU);
+                // Handle image upload
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images", "about");
+                    Directory.CreateDirectory(uploadsFolder);
+
+                    var uniqueFileName = Guid.NewGuid().ToString() + "_" + imageFile.FileName;
+                    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await imageFile.CopyToAsync(fileStream);
+                    }
+
+                    aboutU.ImageUrl = "/images/about/" + uniqueFileName;
+                }
+
+                aboutU.CreatedAt = DateTime.Now;
+                _context.AboutUs.Add(aboutU);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                TempData["Success"] = "تم إضافة العنصر بنجاح!";
+                return RedirectToAction(nameof(Manage));
             }
+
             return View(aboutU);
         }
 
-        // GET: AboutU/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+
+
+
+
+
+        // GET: AboutUs/Edit/5
+        public async Task<IActionResult> EditSlider(int? id)
         {
-            if (id == null) return NotFound();
+
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
+
+            if (id == null)
+            {
+                return NotFound();
+            }
 
             var aboutU = await _context.AboutUs.FindAsync(id);
-            if (aboutU == null) return NotFound();
+            if (aboutU == null)
+            {
+                return NotFound();
+            }
 
             return View(aboutU);
         }
 
-        // POST: AboutU/Edit/5
+        // POST: AboutUs/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,CreatedAt")] AboutU aboutU)
+        public async Task<IActionResult> EditSlider(int id, AboutU aboutU, IFormFile? imageFile)
         {
-            if (id != aboutU.Id) return NotFound();
+
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
+
+            if (id != aboutU.Id)
+            {
+                return NotFound();
+            }
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(aboutU);
+                    var existingAboutU = await _context.AboutUs.FindAsync(id);
+                    if (existingAboutU == null)
+                    {
+                        return NotFound();
+                    }
+
+                    // Handle image upload
+                    if (imageFile != null && imageFile.Length > 0)
+                    {
+                        // Delete old image if exists
+                        if (!string.IsNullOrEmpty(existingAboutU.ImageUrl))
+                        {
+                            var oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, existingAboutU.ImageUrl.TrimStart('/'));
+                            if (System.IO.File.Exists(oldImagePath))
+                            {
+                                System.IO.File.Delete(oldImagePath);
+                            }
+                        }
+
+                        var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images", "about");
+                        Directory.CreateDirectory(uploadsFolder);
+
+                        var uniqueFileName = Guid.NewGuid().ToString() + "_" + imageFile.FileName;
+                        var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                        using (var fileStream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await imageFile.CopyToAsync(fileStream);
+                        }
+
+                        existingAboutU.ImageUrl = "/images/about/" + uniqueFileName;
+                    }
+
+                    existingAboutU.Title = aboutU.Title;
+                    existingAboutU.Description = aboutU.Description;
+
+
+                    existingAboutU.UpdatedAt = DateTime.Now;
+
+
+
+                    _context.Update(existingAboutU);
                     await _context.SaveChangesAsync();
+
+                    TempData["Success"] = "تم تحديث العنصر بنجاح!";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AboutUExists(aboutU.Id)) return NotFound();
-                    else throw;
+                    if (!AboutUExists(aboutU.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Manage));
             }
             return View(aboutU);
         }
 
-        // GET: AboutU/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // GET: AboutUs/Details/5
+        public async Task<IActionResult> DetailsSlider(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null)
+            {
+                return NotFound();
+            }
 
             var aboutU = await _context.AboutUs.FirstOrDefaultAsync(m => m.Id == id);
-            if (aboutU == null) return NotFound();
+            if (aboutU == null)
+            {
+                return NotFound();
+            }
 
             return View(aboutU);
         }
 
-        // POST: AboutU/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // GET: AboutUs/Delete/5
+        public async Task<IActionResult> DeleteSlider(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var aboutU = await _context.AboutUs.FirstOrDefaultAsync(m => m.Id == id);
+            if (aboutU == null)
+            {
+                return NotFound();
+            }
+
+            return View(aboutU);
+        }
+
+        // POST: AboutUs/Delete/5
+        [HttpPost, ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var aboutU = await _context.AboutUs.FindAsync(id);
             if (aboutU != null)
             {
+                // Delete associated image
+                if (!string.IsNullOrEmpty(aboutU.ImageUrl))
+                {
+                    var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, aboutU.ImageUrl.TrimStart('/'));
+                    if (System.IO.File.Exists(imagePath))
+                    {
+                        System.IO.File.Delete(imagePath);
+                    }
+                }
+
                 _context.AboutUs.Remove(aboutU);
                 await _context.SaveChangesAsync();
+                TempData["Success"] = "تم حذف العنصر بنجاح!";
             }
-            return RedirectToAction(nameof(Index));
+
+            return RedirectToAction(nameof(Manage));
         }
 
         private bool AboutUExists(int id)
         {
             return _context.AboutUs.Any(e => e.Id == id);
+        }
+
+
+
+
+
+
+        // AJAX endpoint to reorder slides
+        [HttpPost]
+        public async Task<IActionResult> ReorderSlides([FromBody] List<int> slideIds)
+        {
+            try
+            {
+                var slides = await _context.AboutUs.Where(a => slideIds.Contains(a.Id)).ToListAsync();
+
+                for (int i = 0; i < slideIds.Count; i++)
+                {
+                    var slide = slides.FirstOrDefault(s => s.Id == slideIds[i]);
+                    if (slide != null)
+                    {
+                        // You can add an Order field to your model to maintain order
+                        // slide.Order = i;
+                    }
+                }
+
+                await _context.SaveChangesAsync();
+                return Json(new { success = true });
+            }
+            catch
+            {
+                return Json(new { success = false });
+            }
         }
     }
 }

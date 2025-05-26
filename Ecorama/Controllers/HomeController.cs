@@ -1,4 +1,5 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using System.Linq;
 using Ecorama.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -26,11 +27,81 @@ namespace Ecorama.Controllers
             HttpContext.Session.GetString("ProfileImagePath");
 
 
+            var latestWorkshops = _context.Workshops
+               .Where(w => w.IsActive)
+               .OrderBy(w => w.Date)
+               .Take(3)
+               .ToList();
+
+
+
+            // اجلب عدد الدروس لكل كورس في القائمة فقط
+            var courses = _context.Courses
+          .Where(c => c.IsActive)
+          .OrderByDescending(c => c.CreatedAt)
+          .Take(8)
+          .ToList();
+
+            // جلب عدد الدروس لكل كورس من جدول CourseLessons
+            var courseIds = courses.Select(c => c.Id).ToList();
+
+            var courseLessonsCounts = _context.CourseLessons
+                .Where(cl => cl.CourseId.HasValue && courseIds.Contains(cl.CourseId.Value))
+                .GroupBy(cl => cl.CourseId)
+                .Select(g => new
+                {
+                    CourseId = (int?)g.Key,  // هنا تأكد أن المفتاح nullable int
+                    LessonCount = g.Count()
+                })
+                .ToDictionary(x => x.CourseId, x => x.LessonCount);
+
+
+            ViewBag.CourseLessonsCounts = courseLessonsCounts;
+
+
+
+            var students = _context.Users.Where(s => s.Role == "User").Count();
+            ViewBag.Students = students;
+
+            var learnCourses = _context.Courses.Count();
+            ViewBag.coursesLearn = learnCourses;
+
+            var workShopsCount = _context.Workshops.Count();
+            ViewBag.workshopsCount = workShopsCount;
+
+
+            var latestNews = _context.News
+               .Where(n => n.IsActive)
+               .OrderByDescending(n => n.CreatedAt)
+               .Take(3)
+               .ToList();
+
+            var partners = _context.Partners.ToList();
+
+
+
+            var latestNewsTicker = _context.News
+                .Where(n => n.IsActive)
+                .OrderByDescending(n => n.CreatedAt)
+                .Take(4) 
+                .ToList();
+
+            ViewBag.LatestNewsTicker = latestNewsTicker;
+
+
+
 
             var viewModel = new HomeViewModel
             {
                 Sliders = sliders,
-                SocialLinks = socialLinks
+                SocialLinks = socialLinks,
+                LatestWorkshops = latestWorkshops,
+                Courses = courses,
+                LatestNews = latestNews,
+                Partners = partners
+
+
+
             };
 
             return View(viewModel);

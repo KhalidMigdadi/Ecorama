@@ -1,0 +1,234 @@
+﻿@model IEnumerable<Ecorama.Models.AboutU>
+
+@{
+    ViewData["Title"] = "إدارة شرائح من نحن";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+
+}
+
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h3 class="mb-0">
+                        <i class="fas fa-images me-2"></i>
+                        إدارة شرائح صفحة من نحن
+                    </h3>
+                    <a asp-action="CreateSlider" class="btn btn-light">
+                        <i class="fas fa-plus me-1"></i>
+                        إضافة شريحة جديدة
+                    </a>
+                </div>
+                <div class="card-body">
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade-show">
+                            <i class="fas fa-check-circle me-2"></i>
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    @if (Model.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle" id="slidesTable">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th width="60">الصورة</th>
+                                        <th>العنوان</th>
+                                        <th>الوصف</th>
+                                        <th width="120">تاريخ الإضافة</th>
+                                        <th width="150" class="text-center">الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sortable-slides">
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr data-id="@item.Id" style="cursor: move;">
+                                            <td>
+                                                @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                                {
+                                                    <img src="@item.ImageUrl" alt="@item.Title"
+                                                         class="img-thumbnail" style="width: 50px; height: 50px; object-fit: cover;">
+                                                }
+                                                else
+                                                {
+                                                    <div class="bg-light d-flex align-items-center justify-content-center"
+                                                         style="width: 50px; height: 50px; border-radius: 0.375rem;">
+                                                        <i class="fas fa-image text-muted"></i>
+                                                    </div>
+                                                }
+                                            </td>
+                                            <td>
+                                                <strong>@Html.DisplayFor(modelItem => item.Title)</strong>
+                                            </td>
+                                            <td>
+                                                <span class="text-muted">
+                                                    @{
+                                                        var shortDesc = item.Description?.Length > 80 ?
+                                                        item.Description.Substring(0, 80) + "..." :
+                                                        item.Description;
+                                                    }
+                                                    @shortDesc
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <small class="text-muted">
+                                                    @item.CreatedAt?.ToString("dd/MM/yyyy")
+                                                </small>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="btn-group" role="group">
+                                                    <a asp-action="DetailsSlider" asp-route-id="@item.Id"
+                                                       class="btn btn-sm btn-outline-info" title="عرض التفاصيل">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                    <a asp-action="EditSlider" asp-route-id="@item.Id"
+                                                       class="btn btn-sm btn-outline-warning" title="تعديل">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                    <a asp-action="DeleteSlider" asp-route-id="@item.Id"
+                                                       class="btn btn-sm btn-outline-danger" title="حذف">
+                                                        <i class="fas fa-trash"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-3">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                يمكنك سحب وإفلات الصفوف لإعادة ترتيب الشرائح في الصفحة الرئيسية
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="fas fa-images fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">لا توجد شرائح حالياً</h5>
+                            <p class="text-muted">ابدأ بإضافة شريحة جديدة لصفحة من نحن</p>
+                            <a asp-action="CreateSlider" class="btn btn-primary">
+                                <i class="fas fa-plus me-1"></i>
+                                إضافة أول شريحة
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize sortable
+            const sortableElement = document.getElementById('sortable-slides');
+            if (sortableElement) {
+                const sortable = Sortable.create(sortableElement, {
+                    animation: 150,
+                    ghostClass: 'sortable-ghost',
+                    chosenClass: 'sortable-chosen',
+                    dragClass: 'sortable-drag',
+                    onEnd: function(evt) {
+                        // Get new order of slide IDs
+                        const slideIds = Array.from(sortableElement.children).map(row =>
+                            parseInt(row.getAttribute('data-id'))
+                        );
+
+                        // Send AJAX request to update order
+                        fetch('@Url.Action("ReorderSlides", "AboutUs")', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value
+                            },
+                            body: JSON.stringify(slideIds)
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                // Show success message
+                                showToast('تم حفظ الترتيب الجديد بنجاح', 'success');
+                            } else {
+                                showToast('حدث خطأ في حفظ الترتيب', 'error');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            showToast('حدث خطأ في حفظ الترتيب', 'error');
+                        });
+                    }
+                });
+            }
+        });
+
+        function showToast(message, type) {
+            // Create toast element
+            const toast = document.createElement('div');
+            toast.className = `alert alert-${type === 'success' ? 'success' : 'danger'} position-fixed`;
+            toast.style.cssText = 'top: 20px; right: 20px; z-index: 1060; min-width: 300px;';
+            toast.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'} me-2"></i>
+                ${message}
+            `;
+
+            document.body.appendChild(toast);
+
+            // Remove toast after 3 seconds
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+    </script>
+
+    <style>
+        .sortable-ghost {
+            opacity: 0.4;
+        }
+
+        .sortable-chosen {
+            background-color: #f8f9fa;
+        }
+
+        .sortable-drag {
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        #sortable-slides tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .btn-group .btn {
+            border-radius: 0.375rem;
+            margin: 0 1px;
+        }
+
+        .table th {
+            border-top: none;
+            font-weight: 600;
+        }
+
+        .fade-show {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @@keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+}
+
+@section Style {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+}

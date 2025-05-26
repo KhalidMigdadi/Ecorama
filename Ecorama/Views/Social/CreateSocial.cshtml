@@ -3,27 +3,28 @@
 @{
     ViewData["Title"] = "Create Social Media Link";
     Layout = "~/Views/Shared/_Admin_Layout.cshtml";
-
 }
 
 <h2>@ViewData["Title"]</h2>
 
 <form asp-action="CreateSocial" method="post">
     <div class="mb-3">
-        <label asp-for="Name" class="form-label"></label>
-        <input asp-for="Name" class="form-control" />
+        <label class="form-label">Social Media Platform</label>
+        <select asp-for="Name" asp-items="ViewBag.SocialMediaOptions" class="form-select" onchange="setDefaults(this.value)">
+            <option value="">-- Select Social Media --</option>
+        </select>
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
-        <label asp-for="IconClass" class="form-label"></label>
-        <input asp-for="IconClass" class="form-control" />
+        <label asp-for="IconClass" class="form-label">Icon Class (FontAwesome)</label>
+        <input asp-for="IconClass" class="form-control" id="iconClass" />
         <span asp-validation-for="IconClass" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
         <label asp-for="IconColor" class="form-label">Icon Color</label>
-        <input asp-for="IconColor" class="form-control" type="color" />
+        <input asp-for="IconColor" class="form-control" type="color" id="iconColor" />
         <span asp-validation-for="IconColor" class="text-danger"></span>
     </div>
 
@@ -33,9 +34,9 @@
         <span asp-validation-for="Url" class="text-danger"></span>
     </div>
 
-    <div class="mb-3">
-        <label asp-for="IsActive" class="form-check-label">Is Active</label>
+    <div class="form-check mb-3">
         <input asp-for="IsActive" class="form-check-input" type="checkbox" />
+        <label asp-for="IsActive" class="form-check-label">Is Active</label>
         <span asp-validation-for="IsActive" class="text-danger"></span>
     </div>
 
@@ -43,6 +44,28 @@
 </form>
 
 @section Scripts {
+    <script>
+        function setDefaults(platform) {
+            const defaults = {
+                Facebook: { icon: "fab fa-facebook-f", color: "#3b5998" },
+                X: { icon: "fab fa-x-twitter", color: "#000000" },
+                Instagram: { icon: "fab fa-instagram", color: "#ac2bac" },
+                LinkedIn: { icon: "fab fa-linkedin-in", color: "#0082ca" },
+                GitHub: { icon: "fab fa-github", color: "#333333" },
+                YouTube: { icon: "fab fa-youtube", color: "#FF0000" },
+            };
+
+            const selected = defaults[platform];
+            if (selected) {
+                document.getElementById("iconClass").value = selected.icon;
+                document.getElementById("iconColor").value = selected.color;
+            } else {
+                document.getElementById("iconClass").value = "";
+                document.getElementById("iconColor").value = "#000000";
+            }
+        }
+    </script>
+
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }

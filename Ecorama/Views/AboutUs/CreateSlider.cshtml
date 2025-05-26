@@ -1,0 +1,225 @@
+﻿@model Ecorama.Models.AboutU
+
+@{
+    ViewData["Title"] = "إضافة شريحة جديدة";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+
+}
+
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">
+                        <i class="fas fa-plus-circle me-2"></i>
+                        إضافة شريحة جديدة لصفحة من نحن
+                    </h4>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Create" method="post" enctype="multipart/form-data" id="createForm">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label asp-for="Title" class="form-label fw-bold">
+                                    <i class="fas fa-heading me-1"></i>
+                                    العنوان
+                                </label>
+                                <input asp-for="Title" class="form-control form-control-lg"
+                                       placeholder="أدخل عنوان الشريحة..." />
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label asp-for="Description" class="form-label fw-bold">
+                                    <i class="fas fa-align-left me-1"></i>
+                                    الوصف
+                                </label>
+                                <textarea asp-for="Description" class="form-control" rows="4"
+                                          placeholder="أدخل وصف الشريحة..."></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                                <div class="form-text">يمكنك كتابة وصف مفصل للشريحة هنا</div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 mb-4">
+                                <label for="imageFile" class="form-label fw-bold">
+                                    <i class="fas fa-image me-1"></i>
+                                    صورة الشريحة
+                                </label>
+                                <input type="file" class="form-control" id="imageFile" name="imageFile"
+                                       accept="image/*" onchange="previewImage(this)">
+                                <div class="form-text">اختر صورة بجودة عالية (يفضل 1920x1080 بكسل)</div>
+
+                                <!-- Image Preview -->
+                                <div id="imagePreview" class="mt-3" style="display: none;">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <img id="preview" src="" alt="معاينة الصورة"
+                                                 class="img-fluid rounded" style="max-height: 200px;">
+                                            <div class="mt-2">
+                                                <button type="button" class="btn btn-sm btn-outline-danger"
+                                                        onclick="removeImage()">
+                                                    <i class="fas fa-times me-1"></i>
+                                                    إزالة الصورة
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <a asp-action="Manage" class="btn btn-outline-secondary">
+                                        <i class="fas fa-arrow-right me-1"></i>
+                                        رجوع للقائمة
+                                    </a>
+                                    <button type="submit" class="btn btn-primary btn-lg px-4">
+                                        <i class="fas fa-save me-1"></i>
+                                        حفظ الشريحة
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        function previewImage(input) {
+            const preview = document.getElementById('preview');
+            const previewContainer = document.getElementById('imagePreview');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    previewContainer.style.display = 'block';
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function removeImage() {
+            const input = document.getElementById('imageFile');
+            const previewContainer = document.getElementById('imagePreview');
+
+            input.value = '';
+            previewContainer.style.display = 'none';
+        }
+
+        // Form validation
+        document.getElementById('createForm').addEventListener('submit', function(e) {
+            const title = document.querySelector('input[name="Title"]').value.trim();
+            const description = document.querySelector('textarea[name="Description"]').value.trim();
+
+            if (!title) {
+                e.preventDefault();
+                showAlert('يرجى إدخال عنوان الشريحة', 'warning');
+                return;
+            }
+
+            if (!description) {
+                e.preventDefault();
+                showAlert('يرجى إدخال وصف الشريحة', 'warning');
+                return;
+            }
+        });
+
+        function showAlert(message, type) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+            alertDiv.innerHTML = `
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+
+            const form = document.getElementById('createForm');
+            form.insertBefore(alertDiv, form.firstChild);
+
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 5000);
+        }
+    </script>
+}
+
+@section Style {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .card {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            border: none;
+            padding: 1.5rem;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+            .btn-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+            }
+
+        .form-label {
+            color: #495057;
+            margin-bottom: 0.75rem;
+        }
+
+        .form-text {
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+
+        #imagePreview .card {
+            background-color: #f8f9fa;
+            border: 2px dashed #dee2e6;
+        }
+
+        .alert {
+            border-radius: 10px;
+            border: none;
+        }
+
+        .btn {
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+            .btn:hover {
+                transform: translateY(-1px);
+            }
+    </style>
+}

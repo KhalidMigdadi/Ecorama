@@ -3,90 +3,274 @@
 @{
 	ViewData["Title"] = "seeAllWorkShop";
 	Layout = "~/Views/Shared/_Admin_Layout.cshtml";
-
-
 }
 
-@section Style {
-	<style>
-		body {
-			overflow-x: hidden;
+<div class="container-fluid py-4">
+	<div class="row">
+		<div class="col-12">
+			<div class="card shadow-lg border-0">
+				<div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+					<h3 class="mb-0">
+						<i class="fas fa-tools me-2"></i>
+						All Work Shops
+					</h3>
+					<a asp-action="addNewWorkShop" class="btn btn-light">
+						<i class="fas fa-plus me-1"></i>
+						Add New Workshop
+					</a>
+				</div>
+				<div class="card-body">
+					@if (TempData["Success"] != null)
+					{
+						<div class="alert alert-success alert-dismissible fade-show">
+							<i class="fas fa-check-circle me-2"></i>
+							@TempData["Success"]
+							<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+						</div>
+					}
+
+					@if (Model.Any())
+					{
+						<div class="table-responsive">
+							<table class="table table-hover align-middle" id="workshopsTable">
+								<thead class="table-dark">
+									<tr>
+										<th width="60">الصورة</th>
+										<th>Title</th>
+										<th>Description</th>
+										<th width="120">Date</th>
+										<th width="150">WebSiteUrl</th>
+										<th width="80">IsActive</th>
+										<th width="150" class="text-center">Options</th>
+									</tr>
+								</thead>
+								<tbody>
+									@foreach (var item in Model)
+									{
+										<tr>
+											<td>
+												@if (!string.IsNullOrEmpty(item.ImageUrl))
+												{
+													<img src="@item.ImageUrl" alt="@item.Title"
+														 class="img-thumbnail" style="width: 50px; height: 50px; object-fit: cover;">
+												}
+												else
+												{
+													<div class="bg-light d-flex align-items-center justify-content-center"
+														 style="width: 50px; height: 50px; border-radius: 0.375rem;">
+														<i class="fas fa-tools text-muted"></i>
+													</div>
+												}
+											</td>
+											<td>
+												<strong>@Html.DisplayFor(modelItem => item.Title)</strong>
+											</td>
+											<td>
+												<span class="text-muted">
+													@{
+														var shortDesc = item.Description?.Length > 60 ?
+														item.Description.Substring(0, 60) + "..." :
+														item.Description;
+													}
+													@shortDesc
+												</span>
+											</td>
+											<td>
+												<small class="text-muted">
+													@item.Date?.ToString("yyyy-MM-dd")
+												</small>
+											</td>
+											<td>
+												<a href="@item.WebSiteUrl" target="_blank" class="text-primary text-decoration-none">
+													@{
+														var shortUrl = item.WebSiteUrl?.Length > 30 ?
+														item.WebSiteUrl.Substring(0, 30) + "..." :
+														item.WebSiteUrl;
+													}
+													@shortUrl
+												</a>
+											</td>
+
+
+											<td>
+												<form asp-action="ToggleWorkshopStatus" asp-route-id="@item.Id" method="post" class="d-inline">
+													<select name="isActive" class="form-select form-select-sm status-dropdown" onchange="this.form.submit()">
+														<option value="true" selected="@(item.IsActive ? "selected" : null)">فعّالة</option>
+														<option value="false" selected="@(!item.IsActive ? "selected" : null)">غير فعّالة</option>
+													</select>
+												</form>
+											</td>
+
+
+
+
+											<td class="text-center">
+												<div class="btn-group" role="group">
+													<a asp-action="EditWorkShop" asp-route-id="@item.Id"
+													   class="btn btn-sm btn-outline-warning" title="Edit">
+														<i class="fas fa-edit"></i>
+													</a>
+													<a asp-action="DeleteWorkShop" asp-route-id="@item.Id"
+													   class="btn btn-sm btn-outline-danger" title="Delete"
+													   onclick="return confirm('هل أنت متأكد من الحذف؟')">
+														<i class="fas fa-trash"></i>
+													</a>
+												</div>
+											</td>
+										</tr>
+									}
+								</tbody>
+							</table>
+						</div>
+
+						<div class="mt-3">
+							<div class="alert alert-info">
+								<i class="fas fa-info-circle me-2"></i>
+								Total workshops: <strong>@Model.Count()</strong>
+							</div>
+						</div>
+					}
+					else
+					{
+						<div class="text-center py-5">
+							<i class="fas fa-tools fa-3x text-muted mb-3"></i>
+							<h5 class="text-muted">No workshops available currently</h5>
+							<p class="text-muted">Start by adding a new workshop</p>
+							<a asp-action="addNewWorkShop" class="btn btn-primary">
+								<i class="fas fa-plus me-1"></i>
+								Add First Workshop
+							</a>
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			// Initialize DataTable for better table functionality
+			if (document.getElementById('workshopsTable')) {
+				// Add search functionality
+				const searchInput = document.createElement('input');
+				searchInput.type = 'text';
+				searchInput.placeholder = 'Search about WorkShop Name...';
+				searchInput.className = 'form-control mb-3';
+				searchInput.style.maxWidth = '300px';
+
+				const tableContainer = document.querySelector('.table-responsive');
+				tableContainer.parentNode.insertBefore(searchInput, tableContainer);
+
+				searchInput.addEventListener('input', function() {
+					const searchTerm = this.value.toLowerCase();
+					const rows = document.querySelectorAll('#workshopsTable tbody tr');
+
+					rows.forEach(row => {
+						const text = row.textContent.toLowerCase();
+						row.style.display = text.includes(searchTerm) ? '' : 'none';
+					});
+				});
+			}
+		});
+
+		function showToast(message, type) {
+			// Create toast element
+			const toast = document.createElement('div');
+			toast.className = `alert alert-${type === 'success' ? 'success' : 'danger'} position-fixed`;
+			toast.style.cssText = 'top: 20px; right: 20px; z-index: 1060; min-width: 300px;';
+			toast.innerHTML = `
+				<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'} me-2"></i>
+				${message}
+			`;
+
+			document.body.appendChild(toast);
+
+			// Remove toast after 3 seconds
+			setTimeout(() => {
+				toast.remove();
+			}, 3000);
 		}
+	</script>
+
+	<style>
+		#workshopsTable tr:hover {
+			background-color: #f8f9fa;
+		}
+
+		.btn-group .btn {
+			border-radius: 0.375rem;
+			margin: 0 1px;
+		}
+
+		.table th {
+			border-top: none;
+			font-weight: 600;
+		}
+
+		.fade-show {
+			animation: fadeIn 0.5s ease-in;
+		}
+
+		@@keyframes fadeIn {
+			from {
+				opacity: 0;
+				transform: translateY(-10px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.badge {
+			font-size: 0.75em;
+		}
+
+		.img-thumbnail {
+			border: 1px solid #dee2e6;
+		}
+
+		.text-muted {
+			font-size: 0.9em;
+		}
+
+		  .status-dropdown {
+        width: 120px;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        border: 1px solid #ced4da;
+        background-color: #f8f9fa;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .status-dropdown:hover {
+        border-color: #86b7fe;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
+    }
+    
+    .status-dropdown:focus {
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+    
+    .status-dropdown option[value="true"] {
+        color: #198754; /* لون الخيار الفعّال */
+    }
+    
+    .status-dropdown option[value="false"] {
+        color: #dc3545; /* لون الخيار غير الفعّال */
+    }
+
+
 
 	</style>
 }
 
-<h1 class="my-4 text-center text-primary">All Work Shops</h1>
-
-<div style="margin: 1.2rem !important" class="d-flex justify-content-between align-items-center mb-3">
-	<a asp-action="addNewWorkShop" class="btn btn-success">
-		<i class="bi bi-plus-circle"></i> Add New Workshop
-	</a>
-</div>
-
-<div class="mb-3" style="margin: 1.2rem !important; width: 96%">
-	<input type="text" id="searchInput" class="form-control" placeholder="Search about WorkShop Name...">
-</div>
-
-<table class="table table-bordered table-striped table-hover" style="margin: 1.2rem !important; width: 95%">
-	<thead class="table-dark">
-		<tr>
-			<th>Title</th>
-			<th>Description</th>
-			<th>Date</th>
-			<th>ImageUrl</th>
-			<th>WebSiteUrl</th>
-			<th>IsActive</th>
-			<th>Options</th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var item in Model)
-		{
-			<tr>
-				<td>@item.Title</td>
-				<td>@item.Description</td>
-				<td>@item.Date?.ToString("yyyy-MM-dd")</td>
-				<td>
-					<img src="@item.ImageUrl" alt="@item.Title" style="width: 50px; height: 50px; object-fit: cover;">
-				</td>
-				<td>
-					<a href="@item.WebSiteUrl" target="_blank" class="text-primary">@item.WebSiteUrl</a>
-				</td>
-				<td>@(item.Date > DateOnly.FromDateTime(DateTime.Now) ? "Yes" : "No")</td>
-				<td class="text-center">
-					<div class="d-flex gap-2 justify-content-center">
-						<a asp-action="EditWorkShop" asp-route-id="@item.Id" class="btn btn-sm btn-warning w-100" style="min-width: 80px;" data-bs-toggle="tooltip" title="Edit">
-							<i class="bi bi-pencil"></i> Edit
-						</a>
-						<a asp-action="DeleteWorkShop" asp-route-id="@item.Id" class="btn btn-sm btn-danger w-100" style="min-width: 80px;" onclick="return confirm('هل أنت متأكد من الحذف؟')" data-bs-toggle="tooltip" title="Delete">
-							<i class="bi bi-trash"></i> Delete
-						</a>
-					</div>
-				</td>
-
-			</tr>
-		}
-	</tbody>
-</table>
-
-@section Scripts {
-	<script>
-		// Tooltip
-		var tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-		var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-			return new bootstrap.Tooltip(tooltipTriggerEl)
-		});
-
-		// Search filter
-		document.getElementById("searchInput").addEventListener("keyup", function () {
-			let filter = this.value.toLowerCase();
-			let rows = document.querySelectorAll("table tbody tr");
-
-			rows.forEach(function (row) {
-				let title = row.cells[0].textContent.toLowerCase();
-				row.style.display = title.includes(filter) ? "" : "none";
-			});
-		});
-	</script>
+@section Style {
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 }

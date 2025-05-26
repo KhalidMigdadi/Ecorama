@@ -1,5 +1,6 @@
 ﻿using Ecorama.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 namespace Ecorama.Controllers
 {
@@ -39,8 +40,21 @@ namespace Ecorama.Controllers
         // Social Media 
         public IActionResult CreateSocial()
         {
+            var socialMediaList = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Facebook", Value = "Facebook" },
+                new SelectListItem { Text = "X", Value = "X" },
+                new SelectListItem { Text = "Instagram", Value = "Instagram" },
+                new SelectListItem { Text = "LinkedIn", Value = "LinkedIn" },
+                new SelectListItem { Text = "GitHub", Value = "GitHub" },
+                new SelectListItem { Text = "YouTube", Value = "YouTube" },
+            };
+
+            ViewBag.SocialMediaOptions = socialMediaList;
+
             return View();
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -48,25 +62,27 @@ namespace Ecorama.Controllers
         {
             if (ModelState.IsValid)
             {
-                // تحديد اللون بناءً على اسم الشبكة الاجتماعية
-                link.IconColor = link.Name switch
-                {
-                    "Facebook" => "#3b5998",
-                    "Twitter" => "#55acee",
-                    "Google" => "#dd4b39",
-                    "Instagram" => "#ac2bac",
-                    "LinkedIn" => "#0082ca",
-                    "GitHub" => "#333333",
-                    _ => "#333333"  // الافتراضي إذا لم يتطابق الاسم مع أي شبكة
-                };
-
                 link.CreatedAt = DateTime.Now;
                 _context.Add(link);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+
+            // لإعادة القائمة في حال فشل التحقق
+            ViewBag.SocialMediaOptions = new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Facebook", Value = "Facebook" },
+                    new SelectListItem { Text = "X", Value = "X" },
+                    new SelectListItem { Text = "Instagram", Value = "Instagram" },
+                    new SelectListItem { Text = "LinkedIn", Value = "LinkedIn" },
+                    new SelectListItem { Text = "GitHub", Value = "GitHub" },
+                    new SelectListItem { Text = "YouTube", Value = "YouTube" },
+                };
+
             return View(link);
         }
+
+
 
 
 
@@ -107,7 +123,7 @@ namespace Ecorama.Controllers
                     link.IconColor = link.Name switch
                     {
                         "Facebook" => "#3b5998",
-                        "Twitter" => "#55acee",
+                        "X" => "#000000",
                         "Google" => "#dd4b39",
                         "Instagram" => "#ac2bac",
                         "LinkedIn" => "#0082ca",

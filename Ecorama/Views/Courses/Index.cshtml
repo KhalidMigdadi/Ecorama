@@ -13,6 +13,7 @@
             <th>العنوان</th>
             <th>الصورة</th>
             <th>PDF</th>
+             <th>تاريخ الكورس</th>
             <th>تاريخ الإنشاء</th>
             <th>التحكم</th>
         </tr>
@@ -29,6 +30,18 @@
                         <a href="@course.PdfUrl" target="_blank">تحميل PDF</a>
                     }
                 </td>
+                <td>
+                @if(course.Date.HasValue)
+                {
+                    @course.Date.Value.ToString("yyyy/MM/dd")
+                }
+                else
+                {
+                    <text>-</text>
+                }
+            </td>
+
+
                 <td>@course.CreatedAt?.ToString("yyyy/MM/dd")</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@course.Id" class="btn btn-sm btn-warning">تعديل</a>

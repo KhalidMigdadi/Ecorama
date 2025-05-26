@@ -1,0 +1,402 @@
+﻿@model Ecorama.Models.AboutU
+
+@{
+    ViewData["Title"] = "تعديل شريحة من نحن";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+                    <h3 class="mb-0">
+                        <i class="fas fa-edit me-2"></i>
+                        تعديل شريحة من نحن
+                    </h3>
+                    <a asp-action="Manage" class="btn btn-light">
+                        <i class="fas fa-arrow-left me-1"></i>
+                        العودة للقائمة
+                    </a>
+                </div>
+
+                <div class="card-body p-4">
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade-show">
+                            <i class="fas fa-exclamation-circle me-2"></i>
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    <form asp-action="EditSlider" method="post" enctype="multipart/form-data" id="editSliderForm">
+                        <input asp-for="Id" type="hidden" />
+                        <input asp-for="CreatedAt" type="hidden" />
+                        <input asp-for="ImageUrl" type="hidden" />
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <!-- Title Field -->
+                                <div class="mb-4">
+                                    <label asp-for="Title" class="form-label fw-bold">
+                                        <i class="fas fa-heading me-2 text-primary"></i>
+                                        عنوان الشريحة <span class="text-danger">*</span>
+                                    </label>
+                                    <input asp-for="Title" class="form-control form-control-lg"
+                                           placeholder="أدخل عنوان الشريحة..." />
+                                    <span asp-validation-for="Title" class="text-danger small"></span>
+                                </div>
+
+                                <!-- Description Field -->
+                                <div class="mb-4">
+                                    <label asp-for="Description" class="form-label fw-bold">
+                                        <i class="fas fa-align-left me-2 text-primary"></i>
+                                        وصف الشريحة <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea asp-for="Description" class="form-control" rows="5"
+                                              placeholder="أدخل وصف تفصيلي للشريحة..."></textarea>
+                                    <span asp-validation-for="Description" class="text-danger small"></span>
+                                    <div class="form-text">
+                                        <i class="fas fa-info-circle me-1"></i>
+                                        يُفضل أن يكون الوصف واضح ومفصل ليعبر عن محتوى الشريحة
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <!-- Current Image Preview -->
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-image me-2 text-primary"></i>
+                                        الصورة الحالية
+                                    </label>
+                                    <div class="current-image-container">
+                                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                                        {
+                                            <div class="position-relative">
+                                                <img src="@Model.ImageUrl" alt="@Model.Title"
+                                                     class="img-fluid rounded shadow-sm current-image"
+                                                     style="width: 100%; height: 200px; object-fit: cover;" />
+                                                <div class="image-overlay">
+                                                    <i class="fas fa-eye text-white"></i>
+                                                </div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="no-image-placeholder d-flex flex-column align-items-center justify-content-center rounded bg-light"
+                                                 style="height: 200px;">
+                                                <i class="fas fa-image fa-3x text-muted mb-2"></i>
+                                                <span class="text-muted">لا توجد صورة</span>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+
+                                <!-- New Image Upload -->
+                                <div class="mb-4">
+                                    <label for="imageFile" class="form-label fw-bold">
+                                        <i class="fas fa-cloud-upload-alt me-2 text-success"></i>
+                                        تحديث الصورة
+                                    </label>
+                                    <div class="upload-area border-2 border-dashed border-light rounded p-3 text-center position-relative">
+                                        <input type="file" id="imageFile" name="imageFile"
+                                               class="form-control-file position-absolute w-100 h-100 opacity-0"
+                                               accept="image/*" style="cursor: pointer;" />
+                                        <div class="upload-content">
+                                            <i class="fas fa-cloud-upload-alt fa-2x text-success mb-2"></i>
+                                            <p class="mb-1 fw-bold">اختر صورة جديدة</p>
+                                            <small class="text-muted">أو اسحب وأفلت الصورة هنا</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-text">
+                                        <i class="fas fa-info-circle me-1"></i>
+                                        أترك هذا الحقل فارغاً للاحتفاظ بالصورة الحالية
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between align-items-center border-top pt-4">
+                                    <div class="form-text text-muted">
+                                        <i class="fas fa-clock me-1"></i>
+                                        آخر تحديث: @Model.UpdatedAt?.ToString("dd/MM/yyyy hh:mm tt")
+                                    </div>
+                                    <div class="btn-group">
+                                        <a asp-action="Manage" class="btn btn-outline-secondary">
+                                            <i class="fas fa-times me-1"></i>
+                                            إلغاء
+                                        </a>
+                                        <button type="submit" class="btn btn-warning px-4" id="submitBtn">
+                                            <i class="fas fa-save me-1"></i>
+                                            <span class="btn-text">حفظ التعديلات</span>
+                                            <span class="spinner-border spinner-border-sm ms-1 d-none" role="status"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Additional Info Card -->
+            <div class="card border-0 shadow-sm mt-4">
+                <div class="card-body bg-light">
+                    <h6 class="card-title text-primary mb-3">
+                        <i class="fas fa-lightbulb me-2"></i>
+                        نصائح مهمة
+                    </h6>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            استخدم عناوين واضحة ومعبرة عن محتوى الشريحة
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            اختر صور عالية الجودة بحجم مناسب (يُفضل 1200×600 بكسل)
+                        </li>
+                        <li class="mb-0">
+                            <i class="fas fa-check text-success me-2"></i>
+                            اكتب وصف تفصيلي يوضح رسالة الشريحة بوضوح
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Form submission handling
+            const form = document.getElementById('editSliderForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const spinner = submitBtn.querySelector('.spinner-border');
+            const btnText = submitBtn.querySelector('.btn-text');
+
+            form.addEventListener('submit', function() {
+                submitBtn.disabled = true;
+                spinner.classList.remove('d-none');
+                btnText.textContent = 'جاري الحفظ...';
+            });
+
+            // File upload preview
+            const fileInput = document.getElementById('imageFile');
+            const uploadArea = document.querySelector('.upload-area');
+            const uploadContent = document.querySelector('.upload-content');
+
+            fileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    showFilePreview(file);
+                }
+            });
+
+            // Drag and drop functionality
+            uploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                uploadArea.classList.add('border-success', 'bg-light');
+            });
+
+            uploadArea.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                uploadArea.classList.remove('border-success', 'bg-light');
+            });
+
+            uploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                uploadArea.classList.remove('border-success', 'bg-light');
+
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    const file = files[0];
+                    if (file.type.startsWith('image/')) {
+                        fileInput.files = files;
+                        showFilePreview(file);
+                    }
+                }
+            });
+
+            function showFilePreview(file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    uploadContent.innerHTML = `
+                        <div class="selected-file">
+                            <img src="${e.target.result}" class="img-fluid rounded mb-2" style="max-height: 100px; object-fit: cover;" />
+                            <p class="mb-0 fw-bold text-success">
+                                <i class="fas fa-check-circle me-1"></i>
+                                تم اختيار: ${file.name}
+                            </p>
+                            <small class="text-muted">انقر لتغيير الصورة</small>
+                        </div>
+                    `;
+                };
+                reader.readAsDataURL(file);
+            }
+
+            // Current image hover effect
+            const currentImage = document.querySelector('.current-image');
+            if (currentImage) {
+                currentImage.addEventListener('click', function() {
+                    // Create modal to view full image
+                    const modal = document.createElement('div');
+                    modal.className = 'modal fade';
+                    modal.innerHTML = `
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">معاينة الصورة الحالية</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <img src="${currentImage.src}" class="img-fluid rounded" />
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    document.body.appendChild(modal);
+                    const bsModal = new bootstrap.Modal(modal);
+                    bsModal.show();
+
+                    modal.addEventListener('hidden.bs.modal', function() {
+                        document.body.removeChild(modal);
+                    });
+                });
+            }
+        });
+    </script>
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+@section Style {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        .fade-show {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @@keyframes fadeIn {
+            from
+
+        {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        }
+
+        .upload-area {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+            .upload-area:hover {
+                border-color: #198754 !important;
+                background-color: #f8f9fa;
+            }
+
+        .current-image {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .current-image:hover {
+                transform: scale(1.02);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+            }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 0.375rem;
+        }
+
+            .current-image:hover + .image-overlay,
+            .image-overlay:hover {
+                opacity: 1;
+            }
+
+        .no-image-placeholder {
+            transition: all 0.3s ease;
+        }
+
+            .no-image-placeholder:hover {
+                background-color: #e9ecef !important;
+            }
+
+        .form-control:focus,
+        .form-control-file:focus {
+            border-color: #ffc107;
+            box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            color: #000;
+        }
+
+            .btn-warning:hover {
+                background-color: #ffca2c;
+                border-color: #ffc720;
+                color: #000;
+            }
+
+        .card {
+            border-radius: 1rem;
+        }
+
+        .card-header {
+            border-radius: 1rem 1rem 0 0 !important;
+            padding: 1.5rem;
+        }
+
+        .form-control,
+        .form-select {
+            border-radius: 0.5rem;
+            border: 2px solid #e9ecef;
+            padding: 0.75rem 1rem;
+        }
+
+            .form-control:focus,
+            .form-select:focus {
+                border-color: #ffc107;
+                box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+            }
+
+        .btn {
+            border-radius: 0.5rem;
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+        }
+
+        .text-danger {
+            font-size: 0.875rem;
+        }
+    </style>
+}

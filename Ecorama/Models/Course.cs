@@ -19,6 +19,8 @@ public partial class Course
 
     public bool IsActive { get; set; }
 
+    public DateOnly? Date { get; set; }
+
     public virtual ICollection<CourseLesson> CourseLessons { get; set; } = new List<CourseLesson>();
 
     public virtual ICollection<CourseRegistration> CourseRegistrations { get; set; } = new List<CourseRegistration>();

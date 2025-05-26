@@ -1,7 +1,13 @@
-﻿using Ecorama.Models;
+﻿using System.Net.Mail;
+using Ecorama.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using MailKit.Net.Smtp;
+using MimeKit;
+using MailKit.Security;
+
 
 namespace Ecorama.Controllers
 {
@@ -354,5 +360,193 @@ namespace Ecorama.Controllers
         {
             return View();
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> HandleForgotPassword(string email)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            if (user == null)
+            {
+                TempData["ResetError"] = "البريد الإلكتروني غير موجود!";
+                return RedirectToAction("ForgotPassword");
+            }
+
+            // إنشاء رمز تحقق عشوائي
+            Random rand = new Random();
+            int verificationCode = rand.Next(100000, 999999);
+
+            // تخزين الرمز والبريد الإلكتروني في الجلسة
+            HttpContext.Session.SetString("ResetCode", verificationCode.ToString());
+            HttpContext.Session.SetString("ResetEmail", email);
+
+            // إرسال رمز التحقق عبر البريد الإلكتروني
+            await SendEmailAsync(email, "رمز إعادة تعيين كلمة المرور", $"رمز إعادة التعيين الخاص بك هو: {verificationCode}");
+
+            TempData["VerificationMessage"] = "A verification code has been sent to your email!";
+
+            return RedirectToAction("VerifyResetCode");
+        }
+
+        public IActionResult VerifyResetCode()
+        {
+            var email = HttpContext.Session.GetString("ResetEmail");
+            if (string.IsNullOrEmpty(email))
+            {
+                return RedirectToAction("ForgotPassword");
+            }
+
+            ViewBag.Email = email;
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> HandleVerifyCode(string code)
+        {
+            var storedCode = HttpContext.Session.GetString("ResetCode");
+            var email = HttpContext.Session.GetString("ResetEmail");
+
+            if (string.IsNullOrEmpty(storedCode) || string.IsNullOrEmpty(email))
+            {
+                return RedirectToAction("ForgotPassword");
+            }
+
+            if (storedCode != code)
+            {
+                TempData["CodeError"] = "رمز التحقق غير صحيح!";
+                return RedirectToAction("VerifyResetCode");
+            }
+
+            return RedirectToAction("NewPassword");
+        }
+
+        public IActionResult NewPassword()
+        {
+            var email = HttpContext.Session.GetString("ResetEmail");
+            if (string.IsNullOrEmpty(email))
+            {
+                return RedirectToAction("ForgotPassword");
+            }
+
+            ViewBag.Email = email;
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdatePassword(string newPassword, string confirmPassword)
+        {
+            var email = HttpContext.Session.GetString("ResetEmail");
+            if (string.IsNullOrEmpty(email))
+            {
+                TempData["PasswordError"] = "انتهت الجلسة. يرجى المحاولة مرة أخرى.";
+                return RedirectToAction("ForgotPassword");
+            }
+
+            if (newPassword != confirmPassword)
+            {
+                TempData["PasswordError"] = "كلمات المرور غير متطابقة!";
+                return RedirectToAction("NewPassword");
+            }
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            if (user == null)
+            {
+                TempData["PasswordError"] = "المستخدم غير موجود!";
+                return RedirectToAction("ForgotPassword");
+            }
+
+            // تشفير وتخزين كلمة المرور الجديدة باستخدام PasswordHasher
+            var passwordHasher = new PasswordHasher<User>();
+            user.PasswordHash = passwordHasher.HashPassword(user, newPassword);
+
+            await _context.SaveChangesAsync();
+
+            TempData["PasswordSuccess"] = "تم تحديث كلمة المرور بنجاح!";
+            return RedirectToAction("LoginUserMen");
+        }
+
+        // استبدال دالة SendEmail بهذه الدالة المُحدّثة
+
+        public async Task SendEmailAsync(string toEmail, string subject, string body)
+        {
+            try
+            {
+                // إنشاء رسالة البريد الإلكتروني
+                var message = new MimeMessage();
+
+                // تعيين المرسل
+                message.From.Add(new MailboxAddress("إعادة تعيين كلمة المرور", "cafeuse18@gmail.com"));
+
+                // تعيين المستلم
+                message.To.Add(new MailboxAddress("المستلم", toEmail)); // يمكنك إضافة اسم المستلم هنا
+
+                // تعيين الموضوع والنص
+                message.Subject = subject;
+                message.Body = new TextPart("plain") { Text = body };
+
+                // إرسال البريد الإلكتروني
+                using (var client = new MailKit.Net.Smtp.SmtpClient())
+                {
+                    // الاتصال بالخادم باستخدام TLS عبر المنفذ 587
+                    await client.ConnectAsync("smtp.gmail.com", 465, SecureSocketOptions.SslOnConnect);
+
+                    // مصادقة البريد الإلكتروني باستخدام كلمة مرور التطبيق
+                    await client.AuthenticateAsync("cafeuse18@gmail.com", "mecd idlj jnxt vrrw");
+
+                    // إرسال البريد الإلكتروني
+                    await client.SendAsync(message);
+
+                    // قطع الاتصال
+                    await client.DisconnectAsync(true);
+                }
+
+                Console.WriteLine("تم إرسال البريد الإلكتروني بنجاح!");
+            }
+            catch (Exception ex)
+            {
+                // طباعة رسالة الخطأ
+                Console.WriteLine($"خطأ في إرسال البريد الإلكتروني: {ex.Message}");
+                Console.WriteLine($"تفاصيل الاستثناء: {ex}");
+            }
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }

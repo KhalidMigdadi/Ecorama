@@ -13,9 +13,14 @@ namespace Ecorama.Controllers
         }
         public IActionResult Workshops()
         {
-            var workshops = _context.Workshops.ToList();
-            return View(workshops);
+            var workshops = _context.Workshops
+                                    .Where(w => w.IsActive);
+
+            var worksShops = workshops.ToList();
+
+            return View(worksShops);
         }
+
 
 
         public IActionResult WorkshopsDetails(int id)

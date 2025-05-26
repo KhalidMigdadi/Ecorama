@@ -28,24 +28,28 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/AboutUs/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRVc1xDcmVhdGUuY3NodG1s
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/AboutUs/CreateSlider.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRVc1xDcmVhdGVTbGlkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/AboutUs/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRVc1xEZWxldGUuY3NodG1s
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/AboutUs/DeleteConfirmed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRVc1xEZWxldGVDb25maXJtZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/AboutUs/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRVc1xEZXRhaWxzLmNzaHRtbA==
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/AboutUs/DeleteSlider.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRVc1xEZWxldGVTbGlkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/AboutUs/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRVc1xFZGl0LmNzaHRtbA==
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/AboutUs/DetailsSlider.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRVc1xEZXRhaWxzU2xpZGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/AboutUs/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRVc1xJbmRleC5jc2h0bWw=
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/AboutUs/EditSlider.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRVc1xFZGl0U2xpZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/AboutUs/Manage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRVc1xNYW5hZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Admin/AddNewPartner.cshtml]
@@ -180,8 +184,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUZWFtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Login/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cRm9yZ290UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Login/NewPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTmV3UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Login/Register.cshtml]
@@ -190,6 +202,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Login/RegisterAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUmVnaXN0ZXJBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Login/VerifyResetCode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cVmVyaWZ5UmVzZXRDb2RlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/News/Advertisements.cshtml]
@@ -214,6 +230,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Profile/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Shared/Components/SocialLinks/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU29jaWFsTGlua3NcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Shared/Error.cshtml]

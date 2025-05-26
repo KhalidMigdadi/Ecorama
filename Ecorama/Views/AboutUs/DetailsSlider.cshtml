@@ -1,0 +1,369 @@
+﻿@model Ecorama.Models.AboutU
+
+@{
+    ViewData["Title"] = "تفاصيل شريحة من نحن";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+                    <h3 class="mb-0">
+                        <i class="fas fa-eye me-2"></i>
+                        تفاصيل الشريحة
+                    </h3>
+                    <a asp-action="Manage" class="btn btn-light">
+                        <i class="fas fa-arrow-left me-1"></i>
+                        العودة للقائمة
+                    </a>
+                </div>
+
+                <div class="card-body p-0">
+                    <!-- Image Section -->
+                    @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                    {
+                        <div class="position-relative">
+                            <img src="@Model.ImageUrl" alt="@Model.Title"
+                                 class="img-fluid w-100 details-hero-image"
+                                 style="height: 400px; object-fit: cover;" />
+                            <div class="image-overlay-gradient"></div>
+                            <div class="position-absolute bottom-0 start-0 end-0 p-4 text-white">
+                                <h2 class="display-6 fw-bold mb-2 text-shadow">@Model.Title</h2>
+                                <p class="lead mb-0 text-shadow">
+                                    <i class="fas fa-calendar-alt me-2"></i>
+                                    تم الإنشاء في: @Model.CreatedAt?.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("ar-SA"))
+                                </p>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="bg-light p-5 text-center">
+                            <i class="fas fa-image fa-4x text-muted mb-3"></i>
+                            <h2 class="h4 text-muted mb-2">@Model.Title</h2>
+                            <p class="text-muted mb-0">
+                                <i class="fas fa-calendar-alt me-2"></i>
+                                تم الإنشاء في: @Model.CreatedAt?.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("ar-SA"))
+                            </p>
+                        </div>
+                    }
+
+                    <!-- Content Section -->
+                    <div class="p-4">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <!-- Description -->
+                                <div class="mb-4">
+                                    <h5 class="text-primary mb-3">
+                                        <i class="fas fa-align-left me-2"></i>
+                                        وصف الشريحة
+                                    </h5>
+                                    <div class="description-content bg-light rounded p-4">
+                                        @if (!string.IsNullOrEmpty(Model.Description))
+                                        {
+                                            <p class="mb-0 lh-lg">@Html.Raw(Html.Encode(Model.Description).Replace("\n", "<br />"))</p>
+                                        }
+                                        else
+                                        {
+                                            <p class="text-muted mb-0 fst-italic">لا يوجد وصف متاح لهذه الشريحة</p>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <!-- Metadata Card -->
+                                <div class="card border-0 bg-light">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-primary mb-3">
+                                            <i class="fas fa-info-circle me-2"></i>
+                                            معلومات الشريحة
+                                        </h6>
+
+                                        <div class="info-item mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="fas fa-hashtag text-muted me-2"></i>
+                                                <span class="fw-bold text-muted small">معرف الشريحة</span>
+                                            </div>
+                                            <span class="badge bg-primary">#@Model.Id</span>
+                                        </div>
+
+                                        <div class="info-item mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="fas fa-heading text-muted me-2"></i>
+                                                <span class="fw-bold text-muted small">طول العنوان</span>
+                                            </div>
+                                            <span class="text-dark">@(Model.Title?.Length ?? 0) حرف</span>
+                                        </div>
+
+                                        <div class="info-item mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="fas fa-align-left text-muted me-2"></i>
+                                                <span class="fw-bold text-muted small">طول الوصف</span>
+                                            </div>
+                                            <span class="text-dark">@(Model.Description?.Length ?? 0) حرف</span>
+                                        </div>
+
+                                        <div class="info-item mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="fas fa-image text-muted me-2"></i>
+                                                <span class="fw-bold text-muted small">حالة الصورة</span>
+                                            </div>
+                                            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                                            {
+                                                <span class="badge bg-success">
+                                                    <i class="fas fa-check me-1"></i>
+                                                    متوفرة
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-warning">
+                                                    <i class="fas fa-exclamation me-1"></i>
+                                                    غير متوفرة
+                                                </span>
+                                            }
+                                        </div>
+
+                                        <div class="info-item">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="fas fa-clock text-muted me-2"></i>
+                                                <span class="fw-bold text-muted small">تاريخ الإنشاء</span>
+                                            </div>
+                                            <small class="text-dark">
+                                                @Model.CreatedAt?.ToString("dd/MM/yyyy hh:mm tt")
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Quick Actions -->
+                                <div class="card border-0 bg-light mt-3">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-primary mb-3">
+                                            <i class="fas fa-tools me-2"></i>
+                                            إجراءات سريعة
+                                        </h6>
+                                        <div class="d-grid gap-2">
+                                            <a asp-action="EditSlider" asp-route-id="@Model.Id"
+                                               class="btn btn-warning btn-sm">
+                                                <i class="fas fa-edit me-1"></i>
+                                                تعديل الشريحة
+                                            </a>
+                                            <a asp-action="DeleteSlider" asp-route-id="@Model.Id"
+                                               class="btn btn-outline-danger btn-sm">
+                                                <i class="fas fa-trash me-1"></i>
+                                                حذف الشريحة
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preview Card -->
+            <div class="card border-0 shadow-sm mt-4">
+                <div class="card-body bg-light">
+                    <h6 class="card-title text-primary mb-3">
+                        <i class="fas fa-desktop me-2"></i>
+                        معاينة كيف ستظهر في الموقع
+                    </h6>
+                    <div class="preview-container border rounded p-3 bg-white">
+                        <div class="row align-items-center">
+                            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                            {
+                                <div class="col-md-4">
+                                    <img src="@Model.ImageUrl" alt="@Model.Title"
+                                         class="img-fluid rounded shadow-sm"
+                                         style="width: 100%; height: 150px; object-fit: cover;" />
+                                </div>
+                                <div class="col-md-8">
+                                    <h5 class="mb-2">@Model.Title</h5>
+                                    <p class="text-muted mb-0">
+                                        @{
+                                            var previewDesc = Model.Description?.Length > 150 ?
+                                            Model.Description.Substring(0, 150) + "..." :
+                                            Model.Description;
+                                        }
+                                        @previewDesc
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-12 text-center py-4">
+                                    <h5 class="mb-2">@Model.Title</h5>
+                                    <p class="text-muted mb-0">@Model.Description</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <small class="text-muted">
+                        <i class="fas fa-info-circle me-1"></i>
+                        هذه معاينة تقريبية لكيفية ظهور الشريحة في الصفحة الرئيسية
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Style {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        .details-hero-image {
+            transition: all 0.3s ease;
+        }
+
+        .image-overlay-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+            pointer-events: none;
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .description-content {
+            border-left: 4px solid #0dcaf0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .info-item {
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 0.75rem;
+        }
+
+            .info-item:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+        .preview-container {
+            border: 2px dashed #dee2e6 !important;
+            transition: all 0.3s ease;
+        }
+
+            .preview-container:hover {
+                border-color: #0dcaf0 !important;
+                box-shadow: 0 0 0 0.2rem rgba(13, 202, 240, 0.1);
+            }
+
+        .card {
+            border-radius: 1rem;
+        }
+
+        .card-header {
+            border-radius: 1rem 1rem 0 0 !important;
+            padding: 1.5rem;
+        }
+
+        .btn {
+            border-radius: 0.5rem;
+            font-weight: 500;
+        }
+
+        .badge {
+            font-size: 0.875rem;
+        }
+
+        @@media (max-width: 768px) {
+            .details-hero-image
+
+        {
+            height: 250px !important;
+        }
+
+        .display-6 {
+            font-size: 1.5rem;
+        }
+
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Image click to expand
+            const heroImage = document.querySelector('.details-hero-image');
+            if (heroImage) {
+                heroImage.addEventListener('click', function() {
+                    // Create modal to view full image
+                    const modal = document.createElement('div');
+                    modal.className = 'modal fade';
+                    modal.innerHTML = `
+                        <div class="modal-dialog modal-xl modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">
+                                        <i class="fas fa-image me-2"></i>
+                                        ${heroImage.alt}
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body text-center p-0">
+                                    <img src="${heroImage.src}" class="img-fluid" style="max-height: 80vh;" />
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    document.body.appendChild(modal);
+                    const bsModal = new bootstrap.Modal(modal);
+                    bsModal.show();
+
+                    modal.addEventListener('hidden.bs.modal', function() {
+                        document.body.removeChild(modal);
+                    });
+                });
+
+                // Add cursor pointer to indicate clickable
+                heroImage.style.cursor = 'pointer';
+                heroImage.title = 'انقر لعرض الصورة بحجم أكبر';
+            }
+
+            // Smooth scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                    }
+                });
+            });
+
+            document.querySelectorAll('.card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+
+    <style>
+        @@keyframes fadeInUp {
+            from
+
+        {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        }
+    </style>
+}

@@ -15,15 +15,39 @@ namespace Ecorama.Controllers
 
         public async Task<IActionResult> Index()
         {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             var courses = await _context.Courses.ToListAsync();
             return View(courses);
         }
 
-        public IActionResult Create() => View();
+        public IActionResult Create()
+        {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+            return View();
+        }
 
         [HttpPost]
         public async Task<IActionResult> Create(Course course, IFormFile imageFile, IFormFile pdfFile)
         {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             if (ModelState.IsValid)
             {
                 // مسارات التخزين
@@ -56,6 +80,8 @@ namespace Ecorama.Controllers
                 }
 
                 course.CreatedAt = DateTime.Now;
+                course.IsActive = true;
+
                 _context.Courses.Add(course);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -67,12 +93,27 @@ namespace Ecorama.Controllers
 
         public async Task<IActionResult> Edit(int id)
         {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             var course = await _context.Courses.FindAsync(id);
             return course == null ? NotFound() : View(course);
         }
         [HttpPost]
         public async Task<IActionResult> Edit(Course course, IFormFile? imageFile, IFormFile? pdfFile)
         {
+
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             if (ModelState.IsValid)
             {
                 var existingCourse = await _context.Courses.AsNoTracking().FirstOrDefaultAsync(c => c.Id == course.Id);
@@ -114,7 +155,7 @@ namespace Ecorama.Controllers
                     course.PdfUrl = existingCourse.PdfUrl;
                 }
 
-                course.CreatedAt = existingCourse.CreatedAt; // نحتفظ بتاريخ الإنشاء الأصلي
+                course.CreatedAt = existingCourse.CreatedAt; 
                 _context.Courses.Update(course);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -125,6 +166,14 @@ namespace Ecorama.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
             var course = await _context.Courses.FindAsync(id);
             if (course != null)
             {
@@ -135,6 +184,14 @@ namespace Ecorama.Controllers
         }
         public async Task<IActionResult> ToggleActivation(int id)
         {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+
+
+            }
             var course = await _context.Courses.FindAsync(id);
             if (course != null)
             {

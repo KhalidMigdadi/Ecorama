@@ -6,6 +6,9 @@
 @{
 	ViewData["Title"] = "Home";
 	Layout = "~/Views/Shared/_Layout.cshtml"; // أو أي Layout عام بتستخدمه
+	var courseLessonsCounts = ViewBag.CourseLessonsCounts as Dictionary<int?, int>;
+	var registeredCourseIds = ViewBag.RegisteredCourseIds as List<int> ?? new List<int>();
+
 }
 
 
@@ -487,7 +490,7 @@
 			position: absolute;
 			top: 15px;
 			right: 15px;
-			background-color: #ff6b3d; /* اللون المميز */
+			background-color: #15a1cf; /* اللون المميز */
 			color: white;
 			padding: 5px 10px;
 			border-radius: 5px;
@@ -969,6 +972,7 @@
 			margin-left: 30px;
 			z-index: 1;
 			border: 3px solid #ff6b3d;
+			margin-right: -15px;
 		}
 
 			.news-date-badge .day {
@@ -1072,7 +1076,7 @@
 
 			.view-all-btn a {
 				display: inline-block;
-				background-color: #ff6b3d;
+				background-color: #15a1cf;
 				color: white;
 				padding: 12px 30px;
 				border-radius: 25px;
@@ -1083,7 +1087,7 @@
 			}
 
 				.view-all-btn a:hover {
-					background-color: #e55a2e;
+					background-color: #007bff;
 					transform: translateY(-2px);
 					box-shadow: 0 6px 12px rgba(255, 107, 61, 0.4);
 				}
@@ -1322,6 +1326,7 @@
 				font-weight: bold;
 				text-shadow: 2px 2px 8px rgba(0,0,0,0.6); /* Added text shadow for better visibility */
 				animation: fadeIn 2s ease-in-out;
+				margin-top: 19%;
 			}
 
 		/* Animation for text */
@@ -1502,6 +1507,20 @@
 			animation-play-state: paused;
 		}
 
+		.read {
+			color: #fff;
+		}
+		.read:hover {
+			background-color: #fff;
+			color: #ff6b3d;
+			font-wight: bold;
+		
+		}
+
+
+
+
+
 
 	</style>
 }
@@ -1567,7 +1586,7 @@
 				<h3>منصة إيكوراما التعليمية</h3>
 				<p>إيكوراما هي منصة تعليمية شاملة تهدف إلى تقديم محتوى تعليمي متميز وورش عمل تفاعلية لتطوير المهارات وتنمية القدرات في مختلف المجالات.</p>
 				<p>نسعى في إيكوراما إلى تقديم تجربة تعليمية فريدة من خلال توفير مجموعة متنوعة من الكورسات والورشات التي تلبي احتياجات مختلف الفئات والمستويات.</p>
-				<a href="#" class="btn btnWorkShop">اقرأ المزيد</a>
+				<a href="@Url.Action("AboutUs","Home")" class="btn btnWorkShop read" >اقرأ المزيد</a>
 			</div>
 			<div class="about-image">
 				<img src="~/images/pexels-zhuhehuai-716281.jpg" alt="منصة إيكوراما">
@@ -1621,12 +1640,12 @@
 					<li><i class="fas fa-check-circle"></i> اختبارات تفاعلية</li>
 					<li><i class="fas fa-check-circle"></i> متابعة مستمرة</li>
 				</ul>
-				<a href="@Url.Action("Courses","Course")" class="main-btn">تصفح الكورسات <i class="fas fa-arrow-left"></i></a>
+				<a href="@Url.Action("Index","CoursesUser")" class="main-btn">تصفح الكورسات <i class="fas fa-arrow-left"></i></a>
 			</div>
 		</div>
 
 		<!-- Service 3 -->
-		<div class="service-row">
+	@* 	<div class="service-row">
 			<div class="service-illustration">
 				<div class="illustration-container">
 					<i class="fas fa-certificate"></i>
@@ -1642,7 +1661,7 @@
 				</ul>
 				<a href="#" class="main-btn">اعرف المزيد <i class="fas fa-arrow-left"></i></a>
 			</div>
-		</div>
+		</div> *@
 	</div>
 </section>
 
@@ -1654,30 +1673,30 @@
 				<div class="stat-icon">
 					<i class="fas fa-users"></i>
 				</div>
-				<div class="stat-number" data-count="5000">5000</div>
+				<div style="font-size: 2rem; font-weight: bold;">@ViewBag.Students</div>
 				<div class="stat-text">طالب مسجل</div>
 			</div>
 			<div class="stat-item">
 				<div class="stat-icon">
 					<i class="fas fa-laptop"></i>
 				</div>
-				<div class="stat-number" data-count="120">120</div>
+				<div style="font-size: 2rem; font-weight: bold;">@ViewBag.coursesLearn</div>
 				<div class="stat-text">كورس تعليمي</div>
 			</div>
 			<div class="stat-item">
 				<div class="stat-icon">
 					<i class="fas fa-chalkboard-teacher"></i>
 				</div>
-				<div class="stat-number" data-count="75">75</div>
+				<div style="font-size: 2rem; font-weight: bold;">@ViewBag.workshopsCount</div>
 				<div class="stat-text">ورشة عمل</div>
 			</div>
-			<div class="stat-item">
+		@* 	<div class="stat-item">
 				<div class="stat-icon">
 					<i class="fas fa-certificate"></i>
 				</div>
 				<div class="stat-number" data-count="3500">3500</div>
 				<div class="stat-text">شهادة معتمدة</div>
-			</div>
+			</div> *@
 		</div>
 	</div>
 </section>
@@ -1689,72 +1708,32 @@
 		<div class="section-title">
 			<h2>أحدث الورشات</h2>
 			<div class="title-decoration"></div>
-
 		</div>
 		<div class="workshops-container">
-			<div class="workshop-card">
-				<div class="workshop-image">
-					<img src="https://edraak-marketing-uploads.edraak.org/Courses/UX.png" alt="ورشة عمل">
-					<div class="workshop-date">25 مايو 2025</div>
-				</div>
-				<div class="workshop-content">
-					<h3>ورشة تصميم واجهات المستخدم</h3>
-					<div class="workshop-details">
-						<div class="workshop-detail">
-							<i class="fas fa-clock"></i>
-							<span>5 ساعات</span>
-						</div>
-						<div class="workshop-detail">
-							<i class="fas fa-map-marker-alt"></i>
-							<span>أونلاين</span>
-						</div>
+			@foreach (var workshop in Model.LatestWorkshops)
+			{
+				<div class="workshop-card">
+					<div class="workshop-image">
+						<img src="@workshop.ImageUrl" alt="ورشة عمل">
+						<div class="workshop-date">@workshop.Date?.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("ar-AE"))</div>
 					</div>
-					<p>تعلم أساسيات تصميم واجهات المستخدم وأحدث التقنيات المستخدمة في هذا المجال.</p>
-					<a href="#" style="color: #fff;" class="btn btnWorkShop">سجل الآن</a>
-				</div>
-			</div>
-			<div class="workshop-card">
-				<div class="workshop-image">
-					<img src="https://www.alrab7on.com/wp-content/uploads/2019/02/%D8%A7%D9%84%D8%AA%D8%B3%D9%88%D9%8A%D9%82-%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A.png" alt="ورشة عمل">
-					<div class="workshop-date">2 يونيو 2025</div>
-				</div>
-				<div class="workshop-content">
-					<h3>ورشة التسويق الرقمي</h3>
-					<div class="workshop-details">
-						<div class="workshop-detail">
-							<i class="fas fa-clock"></i>
-							<span>8 ساعات</span>
+					<div class="workshop-content">
+						<h3>@workshop.Title</h3>
+						<div class="workshop-details">
+							<div class="workshop-detail">
+								<i class="fas fa-clock"></i>
+								<span>@workshop.Duration ساعات</span>
+							</div>
+							<div class="workshop-detail">
+								<i class="fas fa-map-marker-alt"></i>
+								<span>أونلاين</span> <!-- يمكنك ربطه لاحقًا بمكان الورشة إن توفر -->
+							</div>
 						</div>
-						<div class="workshop-detail">
-							<i class="fas fa-map-marker-alt"></i>
-							<span>أونلاين</span>
-						</div>
+						<p>@workshop.Description</p>
+						<a href="@Url.Action("WorkshopsDetails","WorkShops")" style="color: #fff; background: #15a1cf" class="btn btnWorkShop">سجل الآن</a>
 					</div>
-					<p>تعلم استراتيجيات التسويق الرقمي الفعالة وكيفية تطبيقها لتنمية مشروعك.</p>
-					<a href="#" style="color: #fff;" class="btn btnWorkShop">سجل الآن</a>
 				</div>
-			</div>
-			<div class="workshop-card">
-				<div class="workshop-image">
-					<img src="https://expertishouse.com/wp-content/uploads/2024/04/%D9%85%D8%B3%D8%AA%D9%82%D8%A8%D9%84-%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%D8%A7%D8%AA-%D8%A7%D9%84%D9%88%D9%8A%D8%A8.jpg" alt="ورشة عمل">
-					<div class="workshop-date">10 يونيو 2025</div>
-				</div>
-				<div class="workshop-content">
-					<h3>ورشة تطوير تطبيقات الويب</h3>
-					<div class="workshop-details">
-						<div class="workshop-detail">
-							<i class="fas fa-clock"></i>
-							<span>10 ساعات</span>
-						</div>
-						<div class="workshop-detail">
-							<i class="fas fa-map-marker-alt"></i>
-							<span>أونلاين</span>
-						</div>
-					</div>
-					<p>تعلم أساسيات تطوير تطبيقات الويب باستخدام أحدث التقنيات والأدوات.</p>
-					<a href="#" style="color: #fff;" class="btn btnWorkShop">سجل الآن</a>
-				</div>
-			</div>
+			}
 		</div>
 
 		<div class="view-all-btn">
@@ -1774,138 +1753,66 @@
 
 		<div class="swiper eduCoursesSwiper edu-swiper">
 			<div class="swiper-wrapper">
-				<!-- Course 1 -->
-				<div class="swiper-slide edu-slide">
-					<div class="edu-img-wrapper" style="position: relative;">
-						<img src="https://www.alrab7on.com/wp-content/uploads/2019/10/%D9%83%D9%8A%D9%81%D9%8A%D8%A9-%D8%A7%D8%AF%D8%A7%D8%B1%D8%A9-%D9%85%D9%88%D8%A7%D9%82%D8%B9-%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84-%D8%A7%D9%84%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%D9%8A.png" alt="إدارة وسائل التواصل" />
-						<div class="edu-date-badge">12 يوليو 2024</div>
-					</div>
-					<div class="edu-content-box">
-						<h3>إدارة وسائل التواصل</h3>
-						<div class="edu-meta-info">
-							<div class="edu-meta-item"><i class="fas fa-clock"></i> 7 ساعات</div>
-							<div class="edu-meta-item"><i class="fas fa-user-tie"></i> Mark Wilson</div>
+				@foreach (var course in Model.Courses)
+				{
+					int lessonCount = 0;
+					if (courseLessonsCounts != null && courseLessonsCounts.ContainsKey(course.Id))
+					{
+						lessonCount = courseLessonsCounts[course.Id];
+					}
+					<div class="swiper-slide edu-slide">
+						<div class="edu-img-wrapper" style="position: relative;">
+							<img src="@course.ImageUrl" alt="@course.Title" />
+							<div class="edu-date-badge">@course.Date?.ToString("dd MMMM yyyy")</div>
 						</div>
-						<p>تعلم إدارة الحملات على المنصات الاجتماعية بفعالية.</p>
-						<div class="edu-bottom-bar">
-							<div class="edu-cost no-cost">مجاني</div>
-							<a href="#" class="edu-button">اشترك الآن</a>
-						</div>
-					</div>
-				</div>
+						<div class="edu-content-box">
+							<h3>@course.Title</h3>
+							<div class="edu-meta-info">
 
-				<!-- Course 2 -->
-				<div class="swiper-slide edu-slide">
-					<div class="edu-img-wrapper" style="position: relative;">
-						<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFXHLMBbFmpWQnuTNklv3fvl9DdVVhQyz7XK_mCPayD_vsd1BJOgB91mXL1VD-kMnpBgx8SS0_uy9aNB52JAvQyjCjdrhc1lsUwg9JN-p08gPeSDwqKRybvaAGbWVTElIl7qoT2ia2upQ/s1600/Graphic-Vs-Web-design.jpg" alt="تصميم جرافيكي وويب" />
-						<div class="edu-date-badge">20 يوليو 2024</div>
-					</div>
-					<div class="edu-content-box">
-						<h3>تصميم جرافيكي وويب</h3>
-						<div class="edu-meta-info">
-							<div class="edu-meta-item"><i class="fas fa-clock"></i> 4.5 ساعات</div>
-							<div class="edu-meta-item"><i class="fas fa-user-tie"></i> Jessica</div>
-						</div>
-						<p>أساسيات التصميم باستخدام أدوات Adobe و HTML/CSS.</p>
-						<div class="edu-bottom-bar">
-							<div class="edu-cost no-cost">مجاني</div>
-							<a href="#" class="edu-button">اشترك الآن</a>
-						</div>
-					</div>
-				</div>
+								
+								<div class="edu-meta-item">
+									<i class="fa-solid fa-hashtag"></i> @lessonCount درس
+								</div>
 
-				<!-- Course 3 -->
-				<div class="swiper-slide edu-slide">
-					<div class="edu-img-wrapper" style="position: relative;">
-						<img src="https://aait.sa/wp-content/uploads/2024/08/%D8%A7%D9%84%D8%A7%D8%AA%D8%B5%D8%A7%D9%84-%D8%A7%D9%84%D8%AA%D8%B3%D9%88%D9%8A%D9%82%D9%8A.png" alt="الاتصال التسويقي" />
-						<div class="edu-date-badge">15 أغسطس 2024</div>
-					</div>
-					<div class="edu-content-box">
-						<h3>الاتصال التسويقي</h3>
-						<div class="edu-meta-info">
-							<div class="edu-meta-item"><i class="fas fa-clock"></i> 6 ساعات</div>
-							<div class="edu-meta-item"><i class="fas fa-user-tie"></i> Catherine</div>
-						</div>
-						<p>استراتيجيات الإعلان والتواصل مع الجمهور المستهدف.</p>
-						<div class="edu-bottom-bar">
-							<div class="edu-cost no-cost">مجاني</div>
-							<a href="#" class="edu-button">اشترك الآن</a>
-						</div>
-					</div>
-				</div>
+							</div>
+							<p>@course.Description</p>
+							<div class="edu-bottom-bar">
+								@if (registeredCourseIds.Contains(course.Id))
+								{
+									<a asp-controller="CoursesUser" asp-action="Lessons" asp-route-courseId="@course.Id" class="btn btn-lessons">
+										<i class="fas fa-play-circle icon"></i>
+										عرض الدروس
+									</a>
+									@if (!string.IsNullOrEmpty(course.PdfUrl))
+									{
+										<a href="@course.PdfUrl" target="_blank" class="btn btn-pdf">
+											<i class="fas fa-file-pdf icon"></i>
+											تحميل PDF
+										</a>
+									}
+								}
+								else
+								{
+									<a asp-action="Register" asp-route-courseId="@course.Id" class="enroll-btn">اشترك الآن</a>
+								}
 
-				<!-- Course 4 -->
-				<div class="swiper-slide edu-slide">
-					<div class="edu-img-wrapper" style="position: relative;">
-						<img src="https://lim-admin.lookinmena.com/wp-content/uploads/2021/07/%D8%AA%D8%AD%D9%84%D9%8A%D9%84-%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA-01-scaled.jpg" alt="تحليل البيانات" />
-						<div class="edu-date-badge">22 أغسطس 2024</div>
-					</div>
-					<div class="edu-content-box">
-						<h3>تحليل البيانات</h3>
-						<div class="edu-meta-info">
-							<div class="edu-meta-item"><i class="fas fa-clock"></i> 8 ساعات</div>
-							<div class="edu-meta-item"><i class="fas fa-user-tie"></i> Ahmed Youssef</div>
-						</div>
-						<p>تعلم استخدام Excel وPower BI لتحليل البيانات واتخاذ القرار.</p>
-						<div class="edu-bottom-bar">
-							<div class="edu-cost no-cost">مجاني</div>
-							<a href="#" class="edu-button">اشترك الآن</a>
+							</div>
 						</div>
 					</div>
-				</div>
-
-				<!-- Course 5 -->
-				<div class="swiper-slide edu-slide">
-					<div class="edu-img-wrapper" style="position: relative;">
-						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNh5191B_Nefa9X48UYfyy-56RPDX8nOM2YQ&s" alt="أساسيات البرمجة" />
-						<div class="edu-date-badge">5 سبتمبر 2024</div>
-					</div>
-					<div class="edu-content-box">
-						<h3>أساسيات البرمجة</h3>
-						<div class="edu-meta-info">
-							<div class="edu-meta-item"><i class="fas fa-clock"></i> 10 ساعات</div>
-							<div class="edu-meta-item"><i class="fas fa-user-tie"></i> Lina Khaled</div>
-						</div>
-						<p>ابدأ رحلتك في عالم البرمجة باستخدام Python وأساسيات التفكير المنطقي.</p>
-						<div class="edu-bottom-bar">
-							<div class="edu-cost no-cost">مجاني</div>
-							<a href="#" class="edu-button">اشترك الآن</a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Course 6 -->
-				<div class="swiper-slide edu-slide">
-					<div class="edu-img-wrapper" style="position: relative;">
-						<img src="https://www.clickyourfuture.com/wp-content/uploads/2023/09/%D9%85%D9%82%D8%AF%D9%85%D8%A9-%D8%B9%D9%86-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%89-%D9%88%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D8%A7%D9%85%D8%A7%D8%AA%D9%87-%D9%81%D9%89-%D8%A7%D9%84%D8%AA%D8%B3%D9%88%D9%8A%D9%82-%D8%A8%D8%A7%D9%84%D9%85%D8%AD%D8%AA%D9%88%D9%89.jpg" alt="الذكاء الاصطناعي" />
-						<div class="edu-date-badge">18 سبتمبر 2024</div>
-					</div>
-					<div class="edu-content-box">
-						<h3>مقدمة في الذكاء الاصطناعي</h3>
-						<div class="edu-meta-info">
-							<div class="edu-meta-item"><i class="fas fa-clock"></i> 5 ساعات</div>
-							<div class="edu-meta-item"><i class="fas fa-user-tie"></i> Dr. Sami</div>
-						</div>
-						<p>استكشف مفاهيم الذكاء الاصطناعي وتعلم مبادئ تعلم الآلة والتطبيقات الحديثة.</p>
-						<div class="edu-bottom-bar">
-							<div class="edu-cost no-cost">مجاني</div>
-							<a href="#" class="edu-button">اشترك الآن</a>
-						</div>
-					</div>
-				</div>
+				}
 			</div>
 
-			<!-- Navigation -->
 			<div class="swiper-button-next edu-nav-next"></div>
 			<div class="swiper-button-prev edu-nav-prev"></div>
 			<div class="swiper-pagination"></div>
 		</div>
 
 		<div class="edu-more-link">
-			<a href="@Url.Action("","Home")"><i class="fas fa-chevron-left"></i> عرض جميع الكورسات</a>
+			<a href="@Url.Action("Index", "CoursesUser")"><i class="fas fa-chevron-left"></i> عرض جميع الكورسات</a>
 		</div>
 	</div>
 </section>
+
 
 <!-- News Ticker -->
 <section class="news-ticker">
@@ -1913,28 +1820,21 @@
 
 	<div class="ticker-wrapper">
 		<div class="ticker-news">
-			<div class="ticker-item">
-				<i class="fas fa-bullhorn"></i>
-				<span>إطلاق دورة جديدة في تعلم الذكاء الاصطناعي ابتداءً من 15 يونيو 2025</span>
-			</div>
-			<div class="ticker-item">
-				<i class="fas fa-bullhorn"></i>
-				<span>
-					11 مايو 2025 بدء التسجيل في دورة المهارات الرقمية للاجئين 2025</span>
-			</div>
-			<div class="ticker-item">
-				<i class="fas fa-bullhorn"></i>
-				<span>
-					2 مايو 2025 تخريج الدفعة الأولى من برنامج ToT في الزعتري</span>
-			</div>
-			<div class="ticker-item">
-				<i class="fas fa-bullhorn"></i>
-				<span>جلسات توعية مهنية عن سوق العمل المحلي</span>
-			</div>
+			@if (ViewBag.LatestNewsTicker != null)
+			{
+				foreach (var news in ViewBag.LatestNewsTicker)
+				{
+					<div class="ticker-item">
+						<i class="fas fa-bullhorn"></i>
+						<a href="@Url.Action("NewsDetails", "News", new { id = news.Id })" style="color: #fff" class="ticker-link">
+							@news.Title
+						</a>
+					</div>
+				}
+			}
 		</div>
 	</div>
 </section>
-
 
 
 
@@ -1948,76 +1848,53 @@
 		<div class="news-timeline">
 			<div class="timeline-line"></div>
 
-			<!-- خبر 1 -->
-			<div class="news-item">
-				<div class="news-date-badge">
-					<div class="day">10</div>
-					<div class="month">مايو</div>
-				</div>
-				<div class="news-content-wrapper">
-					<div class="news-content-flex">
-						<div class="news-image-container">
-							<img src="https://www.emaratalyoum.com/polopoly_fs/1.1290096.1577648367!/image/image.jpg" alt="زراعة الأشجار في المناطق الحضرية">
-							<div class="news-category">مبادرات خضراء</div>
-						</div>
-						<div class="news-text-content">
-							<h3 class="news-title">انطلاق حملة "أكسجين المدينة" لزراعة 5000 شجرة في العاصمة</h3>
-							<p class="news-excerpt">تنطلق اليوم حملة وطنية طموحة تهدف إلى زيادة المساحات الخضراء في المناطق الحضرية وتحسين جودة الهواء لسكان المدينة...</p>
-							<a href="#" class="read-more">اقرأ المزيد &larr;</a>
-						</div>
-					</div>
-				</div>
-			</div>
+			@foreach (var news in Model.LatestNews)
+			{
+				<div class="news-item">
+					<div class="news-date-badge">
 
-			<!-- خبر 2 -->
-			<div class="news-item">
-				<div class="news-date-badge">
-					<div class="day">08</div>
-					<div class="month">مايو</div>
-				</div>
-				<div class="news-content-wrapper">
-					<div class="news-content-flex">
-						<div class="news-image-container">
-							<img src="https://solarabic.com/wp-content/uploads/2023/03/Yellow-Door-Energy.jpg" alt="الطاقة المتجددة">
-							<div class="news-category">الطاقة المتجددة</div>
-						</div>
-						<div class="news-text-content">
-							<h3 class="news-title">افتتاح أكبر محطة للطاقة الشمسية في المنطقة بسعة 500 ميجاواط</h3>
-							<p class="news-excerpt">تم افتتاح المحطة الجديدة للطاقة الشمسية والتي ستوفر الكهرباء لأكثر من 150,000 منزل وتقلل من انبعاثات الكربون بنسبة 30%...</p>
-							<a href="#" class="read-more">اقرأ المزيد &larr;</a>
-						</div>
-					</div>
-				</div>
-			</div>
+						@if (news.CreatedAt.HasValue)
+						{
+							<div class="day">@news.CreatedAt.Value.Day.ToString("00")</div>
+							<div class="month">@news.CreatedAt.Value.ToString("MMM yyyy", System.Globalization.CultureInfo.InvariantCulture)</div>
+						}
+						else
+						{
+							<div class="day">--</div>
+							<div class="month">--</div>
+						}
 
-			<!-- خبر 3 -->
-			<div class="news-item">
-				<div class="news-date-badge">
-					<div class="day">05</div>
-					<div class="month">مايو</div>
-				</div>
-				<div class="news-content-wrapper">
-					<div class="news-content-flex">
-						<div class="news-image-container">
-							<img src="https://atlaspreneur.com/wp-content/uploads/2024/10/2150196688-e1727780164313.jpg" alt="ورشة عمل إعادة التدوير">
-							<div class="news-category">فعاليات</div>
-						</div>
-						<div class="news-text-content">
-							<h3 class="news-title">ورشة عمل مجانية حول إعادة التدوير المنزلي وتقليل النفايات</h3>
-							<p class="news-excerpt">ينظم إيكوراما ورشة عمل مجانية للمهتمين بتطوير مهاراتهم في إعادة التدوير المنزلي وتعلم طرق مبتكرة لتقليل النفايات اليومية...</p>
-							<a href="#" class="read-more">اقرأ المزيد &larr;</a>
+
+					</div>
+
+
+					<div class="news-content-wrapper">
+						<div class="news-content-flex">
+							<div class="news-image-container">
+								<img src="~/img/news/@news.ImageUrl" alt="@news.Title" />
+								<div class="news-category"> <!-- ممكن تضيف تصنيف إذا عندك --> </div>
+							</div>
+							<div class="news-text-content">
+								<h3 class="news-title">@news.Title</h3>
+								<p class="news-excerpt">
+									@(
+																news.Content.Length > 150 ? news.Content.Substring(0, 150) + "..." : news.Content
+																)
+								</p>
+								<a href="@Url.Action("NewsDetails", "News", new { id = news.Id })" class="read-more">اقرأ المزيد &larr;</a>
+
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			}
 		</div>
 
 		<div class="view-all-btn">
-			<a href="@Url.Action("News","News")">عرض جمع الأخبار</a>
+			<a href="@Url.Action("News","News")">عرض جميع الأخبار</a>
 		</div>
 	</div>
 </section>
-
 
 
 
@@ -2028,50 +1905,20 @@
 		<div class="section-header">
 			<h2>شركاء النجاح</h2>
 			<div class="title-decoration"></div>
-
 		</div>
 
 		<div class="slider-containerP">
 			<div class="slider-track partners-slider">
-				<!-- العناصر الأصلية (تم تكرارها لتأثير الدوران المستمر) -->
-				<div class="partner-item"><img src="/images/Orange_Is_Here.png" alt="شريك"></div>
-				<div class="partner-item"><img src="https://i.pinimg.com/736x/d1/95/83/d19583fa1070c1786b8e641d64f85693.jpg" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/R.a606ea283ee8d8592ba2f9a2653e8110?rik=stTEJi9zFyeq%2bg&pid=ImgRaw&r=0&sres=1&sresct=1" alt="شريك"></div>
-				<div class="partner-item"><img src="https://i.pinimg.com/736x/ee/de/3f/eede3ffea12426acff8bf8fc98ecca95.jpg" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/R.e7a9193f296417bf8a6436c4a910d1d4?rik=VVJ5Oz4hQTlBJg&pid=ImgRaw&r=0" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.ewam4qTJX9G2wZjZMKJ2FAHaDt?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.jTMiMvHRaCC7AcQp_d8ZDwHaE8?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.Zr5VXmqikf1ajcpnjYnnnAHaEK?cb=iwc2&w=700&h=393&rs=1&pid=ImgDetMain" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.7uNQPIlL4yHzGpnRKUzNewHaFn?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.dYBXFsEv5w0YQotjfKNvMgHaHa?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
-					<div class="partner-item"><img src="/images/Orange_Is_Here.png" alt="شريك"></div>
-				<div class="partner-item"><img src="https://i.pinimg.com/736x/d1/95/83/d19583fa1070c1786b8e641d64f85693.jpg" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/R.a606ea283ee8d8592ba2f9a2653e8110?rik=stTEJi9zFyeq%2bg&pid=ImgRaw&r=0&sres=1&sresct=1" alt="شريك"></div>
-				<div class="partner-item"><img src="https://i.pinimg.com/736x/ee/de/3f/eede3ffea12426acff8bf8fc98ecca95.jpg" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/R.e7a9193f296417bf8a6436c4a910d1d4?rik=VVJ5Oz4hQTlBJg&pid=ImgRaw&r=0" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.ewam4qTJX9G2wZjZMKJ2FAHaDt?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.jTMiMvHRaCC7AcQp_d8ZDwHaE8?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.Zr5VXmqikf1ajcpnjYnnnAHaEK?cb=iwc2&w=700&h=393&rs=1&pid=ImgDetMain" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.7uNQPIlL4yHzGpnRKUzNewHaFn?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.dYBXFsEv5w0YQotjfKNvMgHaHa?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
-					<div class="partner-item"><img src="/images/Orange_Is_Here.png" alt="شريك"></div>
-				<div class="partner-item"><img src="https://i.pinimg.com/736x/d1/95/83/d19583fa1070c1786b8e641d64f85693.jpg" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/R.a606ea283ee8d8592ba2f9a2653e8110?rik=stTEJi9zFyeq%2bg&pid=ImgRaw&r=0&sres=1&sresct=1" alt="شريك"></div>
-				<div class="partner-item"><img src="https://i.pinimg.com/736x/ee/de/3f/eede3ffea12426acff8bf8fc98ecca95.jpg" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/R.e7a9193f296417bf8a6436c4a910d1d4?rik=VVJ5Oz4hQTlBJg&pid=ImgRaw&r=0" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.ewam4qTJX9G2wZjZMKJ2FAHaDt?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.jTMiMvHRaCC7AcQp_d8ZDwHaE8?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.Zr5VXmqikf1ajcpnjYnnnAHaEK?cb=iwc2&w=700&h=393&rs=1&pid=ImgDetMain" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.7uNQPIlL4yHzGpnRKUzNewHaFn?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
-				<div class="partner-item"><img src="https://th.bing.com/th/id/OIP.dYBXFsEv5w0YQotjfKNvMgHaHa?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك"></div>
-
-				<!-- تكرار نفس العناصر لمضاعفة المسار للسلايدر -->
-				<div class="partner-item"><img src="/images/Orange_Is_Here.png" alt="شريك"></div>
-				<div class="partner-item"><img src="https://i.pinimg.com/736x/d1/95/83/d19583fa1070c1786b8e641d64f85693.jpg" alt="شريك"></div>
-				<!-- كرر الباقي حسب الحاجة -->
+				@foreach (var partner in Model.Partners)
+				{
+					<div class="partner-item">
+						<a href="@partner.WebsiteUrl" target="_blank" rel="noopener noreferrer">
+							<img src="@partner.ImageUrl" alt="@partner.Name" />
+						</a>
+					</div>
+				}
 			</div>
 		</div>
-
 	</div>
 </section>
 

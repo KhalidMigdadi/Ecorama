@@ -483,32 +483,26 @@
 					<a href="#" class="footer-logo"><i class="fas fa-graduation-cap"></i>إيكوراما</a>
 					<p>منصة تعليمية متكاملة تهدف إلى توفير محتوى تعليمي عالي الجودة وورشات عمل تفاعلية لمساعدتك على تطوير مهاراتك وتحقيق النجاح في حياتك المهنية.</p>
 					<div class="social-links">
-						<a href="#"><i class="fab fa-facebook-f"></i></a>
-						<a href="#"><i class="fab fa-twitter"></i></a>
-						<a href="#"><i class="fab fa-instagram"></i></a>
-						<a href="#"><i class="fab fa-linkedin-in"></i></a>
-						<a href="#"><i class="fab fa-youtube"></i></a>
+						@await Component.InvokeAsync("SocialLinks")
+
 					</div>
 				</div>
 				<div class="footer-column">
 					<h3 class="footer-title">روابط مهمة</h3>
 					<ul class="footer-links">
-						<li><a href="#"><i class="fas fa-angle-left"></i> الرئيسية</a></li>
-						<li><a href="#"><i class="fas fa-angle-left"></i> من نحن</a></li>
-						<li><a href="#"><i class="fas fa-angle-left"></i> الورشات</a></li>
-						<li><a href="#"><i class="fas fa-angle-left"></i> الكورسات</a></li>
-						<li><a href="#"><i class="fas fa-angle-left"></i> الشركاء</a></li>
-						<li><a href="#"><i class="fas fa-angle-left"></i> تواصل معنا</a></li>
+						<li><a href="@Url.Action("Index","Home")"><i class="fas fa-angle-left"></i> الرئيسية</a></li>
+						<li><a href="@Url.Action("AboutUs","Home")"><i class="fas fa-angle-left"></i> من نحن</a></li>
+						<li><a href="@Url.Action("Workshops","WorkShops")"><i class="fas fa-angle-left"></i> الورشات</a></li>
+						<li><a href="@Url.Action("Index","CoursesUser")"><i class="fas fa-angle-left"></i> الكورسات</a></li>
+						<li><a href="@Url.Action("Index","Contact")"><i class="fas fa-angle-left"></i> تواصل معنا</a></li>
 					</ul>
 				</div>
 				<div class="footer-column">
 					<h3 class="footer-title">خدماتنا</h3>
 					<ul class="footer-links">
-						<li><a href="#"><i class="fas fa-angle-left"></i> ورشات عمل</a></li>
-						<li><a href="#"><i class="fas fa-angle-left"></i> كورسات تعليمية</a></li>
-						<li><a href="#"><i class="fas fa-angle-left"></i> شهادات معتمدة</a></li>
-						<li><a href="#"><i class="fas fa-angle-left"></i> تدريب متخصص</a></li>
-						<li><a href="#"><i class="fas fa-angle-left"></i> استشارات مهنية</a></li>
+						<li><a href="@Url.Action("Workshops","WorkShops")"><i class="fas fa-angle-left"></i> ورشات عمل</a></li>
+						<li><a href="@Url.Action("Index","CoursesUser")"><i class="fas fa-angle-left"></i> كورسات تعليمية</a></li>
+						<li><a href="@Url.Action("Index","Contact")"><i class="fas fa-angle-left"></i> استشارات مهنية</a></li>
 					</ul>
 				</div>
 				<div class="footer-column">
