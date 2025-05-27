@@ -1,463 +1,465 @@
 ﻿@model TeamViewModel
 
 @{
-    ViewData["Title"] = "من نحن";
+	ViewData["Title"] = "من نحن";
 }
 
 @section Style {
-    <style>
-        /* Common Styles */
-        :root {
-        --primary-color: #2a9d8f;
-        --secondary-color: #e76f51;
-        --accent-color: #f4a261;
-        --light-bg: #f8f9fa;
-        --dark-bg: #264653;
-        --text-color: #333;
-        --light-text: #fff;
-        }
+	<style>
+		/* Common Styles */
+		:root {
+			--primary-color: #2a9d8f;
+			--secondary-color: #e76f51;
+			--accent-color: #f4a261;
+			--light-bg: #f8f9fa;
+			--dark-bg: #264653;
+			--text-color: #333;
+			--light-text: #fff;
+		}
 
-        .section-title {
-        position: relative;
-        margin-bottom: 40px;
-        text-align: center;
-        }
+		.section-title {
+			position: relative;
+			margin-bottom: 40px;
+			text-align: center;
+		}
 
-        .section-title h2 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        position: relative;
-        display: inline-block;
-        margin-bottom: 20px;
-        color: var(--primary-color);
-        }
+			.section-title h2 {
+				font-size: 2.5rem;
+				font-weight: 700;
+				position: relative;
+				display: inline-block;
+				margin-bottom: 20px;
+				color: var(--primary-color);
+			}
 
-        .section-title h2::after {
-        content: '';
-        position: absolute;
-        height: 3px;
-        width: 70%;
-        background-color: var(--secondary-color);
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        transition: width 0.5s ease;
-        }
+				.section-title h2::after {
+					content: '';
+					position: absolute;
+					height: 3px;
+					width: 70%;
+					background-color: var(--secondary-color);
+					bottom: -10px;
+					left: 50%;
+					transform: translateX(-50%);
+					transition: width 0.5s ease;
+				}
 
-        .section-title:hover h2::after {
-        width: 100%;
-        }
+			.section-title:hover h2::after {
+				width: 100%;
+			}
 
-        .section-title p {
-        color: var(--text-color);
-        font-size: 1.1rem;
-        max-width: 700px;
-        margin: 0 auto;
-        }
+			.section-title p {
+				color: var(--text-color);
+				font-size: 1.1rem;
+				max-width: 700px;
+				margin: 0 auto;
+			}
 
-        /* Hero Section */
-        .hero-section {
-        overflow: hidden;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        margin-bottom: 60px;
-        }
+		/* Hero Section */
+		.hero-section {
+			overflow: hidden;
+			border-radius: 15px;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+			margin-bottom: 60px;
+		}
 
-        .hero-image-container {
-        position: relative;
-        overflow: hidden;
-        }
+		.hero-image-container {
+			position: relative;
+			overflow: hidden;
+		}
 
-        .hero-image-container::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(rgba(38, 70, 83, 0.1), rgba(38, 70, 83, 0.7));
-        z-index: 1;
-        }
+			.hero-image-container::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(rgba(38, 70, 83, 0.1), rgba(38, 70, 83, 0.7));
+				z-index: 1;
+			}
 
-        .hero-caption {
-        padding: 30px;
-        border-radius: 15px;
-        backdrop-filter: blur(5px);
-        transition: all 0.5s ease;
-        transform: translateY(10px);
-        opacity: 0;
-        animation: fadeInUp 1s forwards 0.5s;
-        }
+		.hero-caption {
+			padding: 30px;
+			border-radius: 15px;
+			backdrop-filter: blur(5px);
+			transition: all 0.5s ease;
+			transform: translateY(10px);
+			opacity: 0;
+			animation: fadeInUp 1s forwards 0.5s;
+		}
 
-        /* Team Section */
-        .team-section {
-        padding: 60px 0;
-        background-color: var(--light-bg);
-        border-radius: 15px;
-        margin-bottom: 60px;
-        }
+		/* Team Section */
+		.team-section {
+			padding: 60px 0;
+			background-color: var(--light-bg);
+			border-radius: 15px;
+			margin-bottom: 60px;
+		}
 
-        .team-member {
-        text-align: center;
-        transition: transform 0.3s ease;
-        padding: 20px;
-        }
+		.team-member {
+			text-align: center;
+			transition: transform 0.3s ease;
+			padding: 20px;
+		}
 
-        .team-member:hover {
-        transform: translateY(-10px);
-        }
+			.team-member:hover {
+				transform: translateY(-10px);
+			}
 
-        .team-member img {
-        width: 150px;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 5px solid white;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        }
+			.team-member img {
+				width: 150px;
+				height: 150px;
+				object-fit: cover;
+				border-radius: 50%;
+				border: 5px solid white;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+				transition: all 0.3s ease;
+			}
 
-        .team-member:hover img {
-        border-color: var(--primary-color);
-        transform: scale(1.05);
-        }
+			.team-member:hover img {
+				border-color: var(--primary-color);
+				transform: scale(1.05);
+			}
 
-        .team-member h5 {
-        margin-top: 20px;
-        margin-bottom: 5px;
-        color: var(--primary-color);
-        font-weight: 600;
-        }
+			.team-member h5 {
+				margin-top: 20px;
+				margin-bottom: 5px;
+				color: var(--primary-color);
+				font-weight: 600;
+			}
 
-        .team-member p {
-        color: var(--text-color);
-        font-style: italic;
-        }
+			.team-member p {
+				color: var(--text-color);
+				font-style: italic;
+			}
 
-        .team-social {
-        margin-top: 15px;
-        }
+		.team-social {
+			margin-top: 15px;
+		}
 
-        .team-social a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 35px;
-        height: 35px;
-        background-color: var(--light-bg);
-        border-radius: 50%;
-        margin: 0 5px;
-        color: var(--primary-color);
-        text-decoration: none;
-        transition: all 0.3s ease;
-        }
+			.team-social a {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 35px;
+				height: 35px;
+				background-color: var(--light-bg);
+				border-radius: 50%;
+				margin: 0 5px;
+				color: var(--primary-color);
+				text-decoration: none;
+				transition: all 0.3s ease;
+			}
 
-        .team-social a:hover {
-        background-color: var(--primary-color);
-        color: white;
-        transform: translateY(-3px);
-        }
+				.team-social a:hover {
+					background-color: var(--primary-color);
+					color: white;
+					transform: translateY(-3px);
+				}
 
-        /* Partners Section */
-        .partners {
-        padding: 60px 0;
-        background-color: white;
-        overflow: hidden;
-        }
+		/* Partners Section */
+		.partners {
+			padding: 60px 0;
+			background-color: white;
+			overflow: hidden;
+		}
 
-        .partners-container {
-        position: relative;
-        margin: 30px 0;
-        }
+		.partners-container {
+			position: relative;
+			margin: 30px 0;
+		}
 
-        .partners-slider {
-        display: flex;
-        animation: partnerSlide 30s linear infinite;
-        }
+		.partners-slider {
+			display: flex;
+			animation: partnerSlide 30s linear infinite;
+		}
 
-        @@keyframes partnerSlide {
-        0% {
-        transform: translateX(0);
-        }
+		@@keyframes partnerSlide {
+			0% {
+				transform: translateX(0);
+			}
 
-        100% {
-        transform: translateX(-100%);
-        }
-        }
+			100% {
+				transform: translateX(-100%);
+			}
+		}
 
-        .partners-slider:hover {
-        animation-play-state: paused;
-        }
+		.partners-slider:hover {
+			animation-play-state: paused;
+		}
 
-        .partner-item {
-        min-width: 200px;
-        height: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 30px;
-        filter: grayscale(100%);
-        transition: all 0.5s ease;
-        opacity: 0.7;
-        }
+		.partner-item {
+			min-width: 200px;
+			height: 100px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 0 30px;
+			filter: grayscale(100%);
+			transition: all 0.5s ease;
+			opacity: 0.7;
+		}
 
-        .partner-item:hover {
-        filter: grayscale(0);
-        transform: scale(1.1);
-        opacity: 1;
-        }
+			.partner-item:hover {
+				filter: grayscale(0);
+				transform: scale(1.1);
+				opacity: 1;
+			}
 
-        .partner-item img {
-        max-width: 100%;
-        max-height: 80px;
-        object-fit: contain;
-        }
+			.partner-item img {
+				max-width: 100%;
+				max-height: 80px;
+				object-fit: contain;
+			}
 
-        /* Why Choose Us Section */
-        .why-us {
-        padding: 60px 0;
-        background: linear-gradient(135deg, #f6f9fc 0%, #f1f4f8 100%);
-        border-radius: 15px;
-        }
+		/* Why Choose Us Section */
+		.why-us {
+			padding: 60px 0;
+			background: linear-gradient(135deg, #f6f9fc 0%, #f1f4f8 100%);
+			border-radius: 15px;
+		}
 
-        .feature-item {
-        padding: 30px 20px;
-        border-radius: 10px;
-        background-color: white;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        margin-bottom: 30px;
-        text-align: right;
-        transition: all 0.3s ease;
-        transform: translateY(20px);
-        opacity: 0;
-        }
+		.feature-item {
+			padding: 30px 20px;
+			border-radius: 10px;
+			background-color: white;
+			box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+			margin-bottom: 30px;
+			text-align: right;
+			transition: all 0.3s ease;
+			transform: translateY(20px);
+			opacity: 0;
+			height: 100%;
+		}
 
-        .feature-item.animated {
-        transform: translateY(0);
-        opacity: 1;
-        }
+			.feature-item.animated {
+				transform: translateY(0);
+				opacity: 1;
+			}
 
-        .feature-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
+			.feature-item:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+			}
 
-        .feature-icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        background-color: rgba(42, 157, 143, 0.1);
-        color: var(--primary-color);
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-        transition: all 0.3s ease;
-        }
+		.feature-icon {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 70px;
+			height: 70px;
+			border-radius: 50%;
+			background-color: rgba(42, 157, 143, 0.1);
+			color: var(--primary-color);
+			font-size: 1.5rem;
+			margin-bottom: 20px;
+			transition: all 0.3s ease;
+		}
 
-        .feature-item:hover .feature-icon {
-        background-color: var(--primary-color);
-        color: white;
-        transform: rotateY(180deg);
-        }
+		.feature-item:hover .feature-icon {
+			background-color: var(--primary-color);
+			color: white;
+			transform: rotateY(180deg);
+		}
 
-        .feature-title {
-        margin-bottom: 15px;
-        color: var(--primary-color);
-        font-weight: 600;
-        }
+		.feature-title {
+			margin-bottom: 15px;
+			color: var(--primary-color);
+			font-weight: 600;
+		}
 
-        .feature-desc {
-        color: var(--text-color);
-        line-height: 1.7;
-        }
+		.feature-desc {
+			color: var(--text-color);
+			line-height: 1.7;
+		}
 
-        /* Stats Section */
-        .stats-section {
-        padding: 40px 0;
-        background-color: var(--dark-bg);
-        color: var(--light-text);
-        border-radius: 15px;
-        margin: 60px 0;
-        }
+		/* Stats Section */
+		.stats-section {
+			padding: 40px 0;
+			background-color: var(--dark-bg);
+			color: var(--light-text);
+			border-radius: 15px;
+			margin: 60px 0;
+		}
 
-        .stat-item {
-        text-align: center;
-        padding: 20px;
-        }
+		.stat-item {
+			text-align: center;
+			padding: 20px;
+		}
 
-        .stat-count {
-        font-size: 3rem;
-        font-weight: 700;
-        color: var(--accent-color);
-        margin-bottom: 10px;
-        opacity: 0;
-        transform: scale(0.5);
-        transition: all 1s ease;
-        }
+		.stat-count {
+			font-size: 3rem;
+			font-weight: 700;
+			color: var(--accent-color);
+			margin-bottom: 10px;
+			opacity: 0;
+			transform: scale(0.5);
+			transition: all 1s ease;
+		}
 
-        .stat-count.counted {
-        opacity: 1;
-        transform: scale(1);
-        }
+			.stat-count.counted {
+				opacity: 1;
+				transform: scale(1);
+			}
 
-        .stat-label {
-        font-size: 1.1rem;
-        color: #eee;
-        }
+		.stat-label {
+			font-size: 1.1rem;
+			color: #eee;
+		}
 
-        /* Animations */
-        @@keyframes fadeInUp {
-        from {
-        opacity: 0;
-        transform: translateY(30px);
-        }
+		/* Animations */
+		@@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(30px);
+			}
 
-        to {
-        opacity: 1;
-        transform: translateY(0);
-        }
-        }
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
 
-        @@keyframes fadeIn {
-        from {
-        opacity: 0;
-        }
+		@@keyframes fadeIn {
+			from {
+				opacity: 0;
+			}
 
-        to {
-        opacity: 1;
-        }
-        }
+			to {
+				opacity: 1;
+			}
+		}
 
-        @@keyframes slideInRight {
-        from {
-        transform: translateX(50px);
-        opacity: 0;
-        }
+		@@keyframes slideInRight {
+			from {
+				transform: translateX(50px);
+				opacity: 0;
+			}
 
-        to {
-        transform: translateX(0);
-        opacity: 1;
-        }
-        }
+			to {
+				transform: translateX(0);
+				opacity: 1;
+			}
+		}
 
-        .fade-in {
-        opacity: 0;
-        animation: fadeIn 1s forwards;
-        }
+		.fade-in {
+			opacity: 0;
+			animation: fadeIn 1s forwards;
+		}
 
-        .slide-in-right {
-        opacity: 0;
-        animation: slideInRight 0.5s forwards;
-        }
+		.slide-in-right {
+			opacity: 0;
+			animation: slideInRight 0.5s forwards;
+		}
 
-        /* Custom Swiper Styles */
-        .swiper-pagination-bullet {
-        width: 12px;
-        height: 12px;
-        background-color: var(--primary-color);
-        opacity: 0.5;
-        transition: all 0.3s ease;
-        }
+		/* Custom Swiper Styles */
+		.swiper-pagination-bullet {
+			width: 12px;
+			height: 12px;
+			background-color: var(--primary-color);
+			opacity: 0.5;
+			transition: all 0.3s ease;
+		}
 
-        .swiper-pagination-bullet-active {
-        opacity: 1;
-        width: 30px;
-        border-radius: 6px;
-        }
+		.swiper-pagination-bullet-active {
+			opacity: 1;
+			width: 30px;
+			border-radius: 6px;
+		}
 
-        /* Responsive styles */
-        @@media (max-width: 768px) {
-        .section-title h2 {
-        font-size: 2rem;
-        }
+		/* Responsive styles */
+		@@media (max-width: 768px) {
+			.section-title h2 {
+				font-size: 2rem;
+			}
 
-        .stat-count {
-        font-size: 2.5rem;
-        }
-        }
-    </style>
+			.stat-count {
+				font-size: 2.5rem;
+			}
+		}
+
+	</style>
 }
 
 <div class="container py-5">
-    <!-- Hero Section -->
-    <section class="hero-section mb-5">
-        <div class="swiper heroSwiper">
-            <div class="swiper-wrapper">
-                @foreach (var about in Model.AboutUs)
-                {
-                    <div class="swiper-slide hero-image-container">
-                        <img src="@about.ImageUrl" class="img-fluid w-100" style="height: 500px; object-fit: cover;" />
-                        <div class="position-absolute top-50 start-50 translate-middle text-white text-center p-4 rounded hero-caption">
-                            <h2 class="display-4 fw-bold mb-3">@about.Title</h2>
-                            <p class="lead mb-4">@about.Description</p>
-                        </div>
-                    </div>
-                }
-                <div class="swiper-slide hero-image-container position-relative">
-                    <video autoplay muted loop class="img-fluid w-100" style="height: 500px; object-fit: cover;">
-                        <source src="~/images/about.mp4" type="video/mp4">
-                        متصفحك لا يدعم تشغيل الفيديو.
-                    </video>
-                    <div class="position-absolute top-50 start-50 translate-middle text-white text-center p-4 rounded hero-caption">
-                        <h2 class="display-4 fw-bold mb-3">رؤيتنا</h2>
-                        <p class="lead mb-4">نسعى لتقديم أفضل الخدمات والمنتجات لعملائنا بجودة عالية وأسعار منافسة</p>
-                        @* <a href="#contact" class="btn btn-primary btn-lg px-4">تواصل معنا</a> *@
-                    </div>
-                </div>
+	<!-- Hero Section -->
+	<section class="hero-section mb-5">
+		<div class="swiper heroSwiper">
+			<div class="swiper-wrapper">
+				@foreach (var about in Model.AboutUs)
+				{
+					<div class="swiper-slide hero-image-container">
+						<img src="@about.ImageUrl" class="img-fluid w-100" style="height: 500px; object-fit: cover;" />
+						<div class="position-absolute top-50 start-50 translate-middle text-white text-center p-4 rounded hero-caption">
+							<h2 class="display-4 fw-bold mb-3">@about.Title</h2>
+							<p class="lead mb-4">@about.Description</p>
+						</div>
+					</div>
+				}
+				<div class="swiper-slide hero-image-container position-relative">
+					<video autoplay muted loop class="img-fluid w-100" style="height: 500px; object-fit: cover;">
+						<source src="~/images/about.mp4" type="video/mp4">
+						متصفحك لا يدعم تشغيل الفيديو.
+					</video>
+					<div class="position-absolute top-50 start-50 translate-middle text-white text-center p-4 rounded hero-caption">
+						<h2 class="display-4 fw-bold mb-3">رؤيتنا</h2>
+						<p class="lead mb-4">نسعى لتقديم أفضل الخدمات والمنتجات لعملائنا بجودة عالية وأسعار منافسة</p>
+						@* <a href="#contact" class="btn btn-primary btn-lg px-4">تواصل معنا</a> *@
+					</div>
+				</div>
 
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </section>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+	</section>
 
-    <!-- About Section with Animation -->
-    <section class="mb-5 about-section">
-        <div class="section-title">
-            <h2>من نحن</h2>
-            <p>تعرف على قصتنا وما الذي يميزنا</p>
-        </div>
-        <div class="row align-items-center">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <div class="about-image position-relative rounded overflow-hidden shadow-lg" style="transform: translateX(-20px);" id="aboutImage">
-                    <img src="https://i.pinimg.com/736x/dd/ff/ae/ddffae2cada741a7ce59e847194e6c9c.jpg" class="img-fluid w-100" alt="About Us">
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div style="margin: 31px">
-                    <h3 class="mb-4 text-primary">نبذه عن ايكوراما</h3>
-                    <p class="mb-4"> مركز إيكورما هو فكرة مبتكرة تُسلّط الضوء على التعاون والتكامل بين الجهات الفاعلة في مجال التمكين الاقتصادي في إربد، بما يضمن توفير سبل عيش فعّالة واستجابةً فعّالة للتمكين الاقتصادي. يقع مركز إيكورما في حديقة تونس، وهي حديقة عامة في مدينة إربد، حيث يُمكن للاجئين والمجتمع المُضيف التواصل للحصول على فرص عمل وتدريب على المهارات.</p>
-                    <p class="mb-4">سيوفر الموقع معلومات وجلسات تدريبية وأنشطة تسويقية لأصحاب المشاريع المنزلية من مجموعة متنوعة من الجهات المعنية والشركاء.</p>
-                    <div class="row g-4 mt-3">
-                        <div class="col-sm-6">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="flex-shrink-0 me-3 text-primary">
-                                    <i class="fas fa-check-circle fa-2x"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mb-0">الجودة العالية</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="flex-shrink-0 me-3 text-primary">
-                                    <i class="fas fa-medal fa-2x"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mb-0">خبرة واسعة</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+	<!-- About Section with Animation -->
+	<section class="mb-5 about-section">
+		<div class="section-title">
+			<h2>من نحن</h2>
+			<p>تعرف على قصتنا وما الذي يميزنا</p>
+		</div>
+		<div class="row align-items-center">
+			<div class="col-lg-6 mb-4 mb-lg-0">
+				<div class="about-image position-relative rounded overflow-hidden shadow-lg" style="transform: translateX(-20px);" id="aboutImage">
+					<img src="https://i.pinimg.com/736x/dd/ff/ae/ddffae2cada741a7ce59e847194e6c9c.jpg" class="img-fluid w-100" alt="About Us">
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div style="margin: 31px">
+					<h3 class="mb-4 text-primary">نبذه عن ايكوراما</h3>
+					<p class="mb-4"> مركز إيكورما هو فكرة مبتكرة تُسلّط الضوء على التعاون والتكامل بين الجهات الفاعلة في مجال التمكين الاقتصادي في إربد، بما يضمن توفير سبل عيش فعّالة واستجابةً فعّالة للتمكين الاقتصادي. يقع مركز إيكورما في حديقة تونس، وهي حديقة عامة في مدينة إربد، حيث يُمكن للاجئين والمجتمع المُضيف التواصل للحصول على فرص عمل وتدريب على المهارات.</p>
+					<p class="mb-4">سيوفر الموقع معلومات وجلسات تدريبية وأنشطة تسويقية من مجموعة متنوعة من الجهات المعنية والشركاء.</p>
+					<div class="row g-4 mt-3">
+						<div class="col-sm-6">
+							<div class="d-flex align-items-center mb-3">
+								<div class="flex-shrink-0 me-3 text-primary">
+									<i class="fas fa-check-circle fa-2x"></i>
+								</div>
+								<div class="flex-grow-1">
+									<h5 class="mb-0">الجودة العالية</h5>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="d-flex align-items-center mb-3">
+								<div class="flex-shrink-0 me-3 text-primary">
+									<i class="fas fa-medal fa-2x"></i>
+								</div>
+								<div class="flex-grow-1">
+									<h5 class="mb-0">خبرة واسعة</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
+	<!-- Stats Section -->
+	   <section class="stats-section" style="display: none;">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-6">
@@ -489,144 +491,92 @@
     </section>
 
 
-    <!-- Partners with Enhanced Animation -->
-    <section class="partners">
-        <div class="container">
-            <div class="section-title">
-                <h2>شركاؤنا</h2>
-                <p>نفتخر بشراكتنا مع كبرى الشركات العالمية والمحلية</p>
-            </div>
-            <div class="partners-container">
-                <div class="partners-slider">
-                    <div class="partner-item">
-                        <img src="/images/Orange_Is_Here.png" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://i.pinimg.com/736x/d1/95/83/d19583fa1070c1786b8e641d64f85693.jpg" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://th.bing.com/th/id/R.a606ea283ee8d8592ba2f9a2653e8110?rik=stTEJi9zFyeq%2bg&pid=ImgRaw&r=0&sres=1&sresct=1" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://i.pinimg.com/736x/ee/de/3f/eede3ffea12426acff8bf8fc98ecca95.jpg" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://th.bing.com/th/id/R.e7a9193f296417bf8a6436c4a910d1d4?rik=VVJ5Oz4hQTlBJg&pid=ImgRaw&r=0" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://th.bing.com/th/id/OIP.ewam4qTJX9G2wZjZMKJ2FAHaDt?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://th.bing.com/th/id/OIP.jTMiMvHRaCC7AcQp_d8ZDwHaE8?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://th.bing.com/th/id/OIP.Zr5VXmqikf1ajcpnjYnnnAHaEK?cb=iwc2&w=700&h=393&rs=1&pid=ImgDetMain" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://th.bing.com/th/id/OIP.7uNQPIlL4yHzGpnRKUzNewHaFn?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://th.bing.com/th/id/OIP.dYBXFsEv5w0YQotjfKNvMgHaHa?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك">
-                    </div>
-                    <!-- Clone for infinite scroll effect -->
-                    <div class="partner-item">
-                        <img src="https://i.pinimg.com/736x/d1/95/83/d19583fa1070c1786b8e641d64f85693.jpg" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://th.bing.com/th/id/R.a606ea283ee8d8592ba2f9a2653e8110?rik=stTEJi9zFyeq%2bg&pid=ImgRaw&r=0&sres=1&sresct=1" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://i.pinimg.com/736x/ee/de/3f/eede3ffea12426acff8bf8fc98ecca95.jpg" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://i.pinimg.com/736x/71/62/81/716281e1b1a7d1d2c8d7f3f3e3e3e3e3.jpg" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://th.bing.com/th/id/OIP.dYBXFsEv5w0YQotjfKNvMgHaHa?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://th.bing.com/th/id/OIP.dYBXFsEv5w0YQotjfKNvMgHaHa?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://i.pinimg.com/736x/d1/95/83/d19583fa1070c1786b8e641d64f85693.jpg" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://th.bing.com/th/id/R.a606ea283ee8d8592ba2f9a2653e8110?rik=stTEJi9zFyeq%2bg&pid=ImgRaw&r=0&sres=1&sresct=1" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://i.pinimg.com/736x/ee/de/3f/eede3ffea12426acff8bf8fc98ecca95.jpg" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://th.bing.com/th/id/R.e7a9193f296417bf8a6436c4a910d1d4?rik=VVJ5Oz4hQTlBJg&pid=ImgRaw&r=0" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://th.bing.com/th/id/OIP.ewam4qTJX9G2wZjZMKJ2FAHaDt?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://th.bing.com/th/id/OIP.jTMiMvHRaCC7AcQp_d8ZDwHaE8?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://th.bing.com/th/id/OIP.Zr5VXmqikf1ajcpnjYnnnAHaEK?cb=iwc2&w=700&h=393&rs=1&pid=ImgDetMain" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://th.bing.com/th/id/OIP.7uNQPIlL4yHzGpnRKUzNewHaFn?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك">
-                    </div>
-                    <div class="partner-item">
-                        <img src="https://th.bing.com/th/id/OIP.dYBXFsEv5w0YQotjfKNvMgHaHa?cb=iwc2&rs=1&pid=ImgDetMain" alt="شريك">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us - Enhanced Version -->
-    <section class="why-us" id="why-us">
-        <div class="container">
-            <div class="section-title text-center">
-                <h2>لماذا تختارنا؟</h2>
-                <p>نقدم لكم مجموعة من المميزات التي تجعلنا الخيار الأمثل</p>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6 mb-3">
-                    <div class="feature-item text-center">
-                        <div class="feature-icon">
-                            <i class="fas fa-medal"></i>
-                        </div>
-                        <h4 class="feature-title">خبرة واسعة</h4>
-                        <p class="feature-desc">نمتلك خبرة تمتد لأكثر من 15 عاماً في مجالنا، مما يؤهلنا لتقديم أفضل الحلول</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-3">
-                    <div class="feature-item text-center">
-                        <div class="feature-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <h4 class="feature-title">دعم فني متميز</h4>
-                        <p class="feature-desc">فريق دعم فني متكامل جاهز للرد على استفساراتكم على مدار الساعة</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-3">
-                    <div class="feature-item text-center">
-                        <div class="feature-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h4 class="feature-title">حلول مخصصة</h4>
-                        <p class="feature-desc">نصمم حلولاً مخصصة تناسب احتياجات عملائنا المختلفة</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+	<!-- Partners with Enhanced Animation -->
 
 
-    <!-- Call to Action -->
-    <section class="cta-section my-5 text-center py-5 rounded" style="background-color: var(--primary-color); color: white;">
-        <div class="container">
-            <h2 class="mb-4 fw-bold">هل أنت مستعد للبدء معنا؟</h2>
-            <p class="lead mb-4">دعنا نساعدك في تحقيق أهدافك وتطوير أعمالك</p>
-            <a class="btn btn-light btn-lg px-5" asp-controller="Contact" asp-action="Index">تواصل معنا الآن</a>
-        </div>
-    </section>
+
+	<section class="partners-slider-section" id="partners-section">
+		<div class="container">
+			<div class="section-header">
+				<h2 style="text-align: center;">شركاء النجاح</h2>
+				<div class="title-decoration"></div>
+			</div>
+
+			@if (Model.Partners != null && Model.Partners.Any())
+			{
+				<div class="slider-containerP">
+					<div class="slider-track partners-slider">
+						@foreach (var partner in Model.Partners)
+						{
+							<div class="partner-item">
+								<a href="@partner.WebsiteUrl" target="_blank" rel="noopener noreferrer">
+									<img src="@partner.ImageUrl" alt="@partner.Name" />
+								</a>
+							</div>
+						}
+					</div>
+				</div>
+			}
+			else
+			{
+				<p>لا يوجد شركاء حالياً.</p>
+			}
+
+		</div>
+	</section>
+
+
+
+
+
+	<!-- Why Choose Us - Enhanced Version -->
+	<section class="why-us" id="why-us">
+		<div class="container">
+			<div class="section-title text-center">
+				<h2>لماذا تختارنا؟</h2>
+				<p>نقدم لكم مجموعة من المميزات التي تجعلنا الخيار الأمثل</p>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-4 col-md-6 mb-3">
+					<div class="feature-item text-center">
+						<div class="feature-icon">
+							<i class="fas fa-graduation-cap"></i>
+						</div>
+						<h4 class="feature-title">كورسات مجانية</h4>
+						<p class="feature-desc">تعلم عبر فيديوهات يوتيوب مع مواد PDF للتحميل لكل كورس</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 mb-3">
+					<div class="feature-item text-center">
+						<div class="feature-icon">
+							<i class="fas fa-bullhorn"></i>
+						</div>
+						<h4 class="feature-title">أحدث الفرص</h4>
+						<p class="feature-desc">ابق على اطلاع بآخر الإعلانات والأخبار التعليمية</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 mb-3">
+					<div class="feature-item text-center">
+						<div class="feature-icon">
+							<i class="fas fa-chalkboard"></i>
+						</div>
+						<h4 class="feature-title">ورشات عملية</h4>
+						<p class="feature-desc">سجل في ورشاتنا المجانية واطلع على محفوظات الورشات السابقة</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Call to Action -->
+	<section class="cta-section my-5 text-center py-5 rounded" style="background-color: var(--primary-color); color: white;">
+		<div class="container">
+			<h2 class="mb-4 fw-bold">هل أنت مستعد للبدء معنا؟</h2>
+			<p class="lead mb-4">دعنا نساعدك في تحقيق أهدافك وتطوير أعمالك</p>
+			<a class="btn btn-light btn-lg px-5" asp-controller="Contact" asp-action="Index">تواصل معنا الآن</a>
+		</div>
+	</section>
 </div>
 
 <!-- Include Font Awesome from CDN -->
@@ -638,134 +588,134 @@
 
 <!-- Swiper JS Init and Other Scripts -->
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Hero Swiper
-        const heroSwiper = new Swiper(".heroSwiper", {
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".heroSwiper .swiper-pagination",
-                clickable: true,
-            },
-            effect: 'fade',
-            fadeEffect: {
-                crossFade: true
-            },
-            speed: 1000,
-        });
+	document.addEventListener('DOMContentLoaded', function() {
+		// Hero Swiper
+		const heroSwiper = new Swiper(".heroSwiper", {
+			loop: true,
+			autoplay: {
+				delay: 5000,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: ".heroSwiper .swiper-pagination",
+				clickable: true,
+			},
+			effect: 'fade',
+			fadeEffect: {
+				crossFade: true
+			},
+			speed: 1000,
+		});
 
-        // Team Swiper
-        const teamSwiper = new Swiper(".teamSwiper", {
-            loop: true,
-            spaceBetween: 30,
-            pagination: {
-                el: ".teamSwiper .swiper-pagination",
-                clickable: true,
-                dynamicBullets: true,
-            },
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-            },
-            breakpoints: {
-                320: {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                },
-                576: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                },
-                992: {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                },
-                1200: {
-                    slidesPerView: 4,
-                    spaceBetween: 30,
-                }
-            }
-        });
+		// Team Swiper
+		const teamSwiper = new Swiper(".teamSwiper", {
+			loop: true,
+			spaceBetween: 30,
+			pagination: {
+				el: ".teamSwiper .swiper-pagination",
+				clickable: true,
+				dynamicBullets: true,
+			},
+			autoplay: {
+				delay: 4000,
+				disableOnInteraction: false,
+			},
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 20,
+				},
+				576: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 30,
+				},
+				1200: {
+					slidesPerView: 4,
+					spaceBetween: 30,
+				}
+			}
+		});
 
-        // Animate About Section on Scroll
-        const aboutImage = document.getElementById('aboutImage');
-        const aboutContent = document.getElementById('aboutContent');
+		// Animate About Section on Scroll
+		const aboutImage = document.getElementById('aboutImage');
+		const aboutContent = document.getElementById('aboutContent');
 
-        if (aboutImage && aboutContent) {
-            setTimeout(() => {
-                aboutImage.style.transition = 'all 1s ease';
-                aboutImage.style.opacity = '1';
-                aboutImage.style.transform = 'translateX(0)';
+		if (aboutImage && aboutContent) {
+			setTimeout(() => {
+				aboutImage.style.transition = 'all 1s ease';
+				aboutImage.style.opacity = '1';
+				aboutImage.style.transform = 'translateX(0)';
 
-                setTimeout(() => {
-                    aboutContent.style.transition = 'all 1s ease';
-                    aboutContent.style.opacity = '1';
-                    aboutContent.style.transform = 'translateX(0)';
-                }, 300);
-            }, 500);
-        }
+				setTimeout(() => {
+					aboutContent.style.transition = 'all 1s ease';
+					aboutContent.style.opacity = '1';
+					aboutContent.style.transform = 'translateX(0)';
+				}, 300);
+			}, 500);
+		}
 
-        // Animate stats counter on scroll
-        const statCounters = document.querySelectorAll('.stat-count');
-        let counted = false;
+		// Animate stats counter on scroll
+		const statCounters = document.querySelectorAll('.stat-count');
+		let counted = false;
 
-        function countStats() {
-            if (counted) return;
+		function countStats() {
+			if (counted) return;
 
-            const statsSection = document.querySelector('.stats-section');
-            const statsSectionTop = statsSection.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
+			const statsSection = document.querySelector('.stats-section');
+			const statsSectionTop = statsSection.getBoundingClientRect().top;
+			const windowHeight = window.innerHeight;
 
-            if (statsSectionTop < windowHeight - 100) {
-                statCounters.forEach(counter => {
-                    const target = +counter.getAttribute('data-count');
-                    const duration = 2000;
-                    const increment = target / (duration / 30); // update every 30ms
-                    let current = 0;
+			if (statsSectionTop < windowHeight - 100) {
+				statCounters.forEach(counter => {
+					const target = +counter.getAttribute('data-count');
+					const duration = 2000;
+					const increment = target / (duration / 30); // update every 30ms
+					let current = 0;
 
-                    counter.classList.add('counted');
+					counter.classList.add('counted');
 
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current > target) {
-                            current = target;
-                            clearInterval(timer);
-                        }
-                        counter.textContent = Math.round(current);
-                    }, 30);
-                });
+					const timer = setInterval(() => {
+						current += increment;
+						if (current > target) {
+							current = target;
+							clearInterval(timer);
+						}
+						counter.textContent = Math.round(current);
+					}, 30);
+				});
 
-                counted = true;
-            }
-        }
+				counted = true;
+			}
+		}
 
-        // Animate feature items on scroll
-        const featureItems = document.querySelectorAll('.feature-item');
+		// Animate feature items on scroll
+		const featureItems = document.querySelectorAll('.feature-item');
 
-        function animateFeatures() {
-            featureItems.forEach((item, index) => {
-                const itemTop = item.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
+		function animateFeatures() {
+			featureItems.forEach((item, index) => {
+				const itemTop = item.getBoundingClientRect().top;
+				const windowHeight = window.innerHeight;
 
-                if (itemTop < windowHeight - 100) {
-                    setTimeout(() => {
-                        item.classList.add('animated');
-                    }, index * 200); // Staggered animation
-                }
-            });
-        }
+				if (itemTop < windowHeight - 100) {
+					setTimeout(() => {
+						item.classList.add('animated');
+					}, index * 200); // Staggered animation
+				}
+			});
+		}
 
-        // Initial checks
-        countStats();
-        animateFeatures();
+		// Initial checks
+		countStats();
+		animateFeatures();
 
-        // Check on scroll
-        window.addEventListener('scroll', function() {
-            countStats();
-            animateFeatures();
-        });
-    });
+		// Check on scroll
+		window.addEventListener('scroll', function() {
+			countStats();
+			animateFeatures();
+		});
+	});
 </script>

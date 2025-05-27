@@ -96,13 +96,11 @@ namespace Ecorama.Controllers
             {
                 return NotFound();
             }
-
             var socialLink = await _context.SocialMediaLinks.FindAsync(id);
             if (socialLink == null)
             {
                 return NotFound();
             }
-
             return View(socialLink);
         }
 
@@ -114,22 +112,45 @@ namespace Ecorama.Controllers
             {
                 return NotFound();
             }
-
             if (ModelState.IsValid)
             {
                 try
                 {
-                    // تحديد اللون بناءً على اسم الشبكة الاجتماعية
-                    link.IconColor = link.Name switch
+                    // تحديد اللون والأيقونة بناءً على اسم الشبكة الاجتماعية
+                    switch (link.Name)
                     {
-                        "Facebook" => "#3b5998",
-                        "X" => "#000000",
-                        "Google" => "#dd4b39",
-                        "Instagram" => "#ac2bac",
-                        "LinkedIn" => "#0082ca",
-                        "GitHub" => "#333333",
-                        _ => "#333333"  // الافتراضي إذا لم يتطابق الاسم مع أي شبكة
-                    };
+                        case "Facebook":
+                            link.IconColor = "#3b5998";
+                            link.IconClass = "fab fa-facebook-f";
+                            break;
+                        case "X":
+                            link.IconColor = "#000000";
+                            link.IconClass = "fab fa-x-twitter";
+                            break;
+                        case "Google":
+                            link.IconColor = "#dd4b39";
+                            link.IconClass = "fab fa-google";
+                            break;
+                        case "Instagram":
+                            link.IconColor = "#ac2bac";
+                            link.IconClass = "fab fa-instagram";
+                            break;
+                        case "LinkedIn":
+                            link.IconColor = "#0082ca";
+                            link.IconClass = "fab fa-linkedin-in";
+                            break;
+                        case "GitHub":
+                            link.IconColor = "#333333";
+                            link.IconClass = "fab fa-github";
+                            break;
+                        case "YouTube":
+                            link.IconColor = "#FF0000";
+                            link.IconClass = "fab fa-youtube";
+                            break;
+                        default:
+                            link.IconColor = "#333333";
+                            break;
+                    }
 
                     _context.Update(link);
                     await _context.SaveChangesAsync();
@@ -149,7 +170,6 @@ namespace Ecorama.Controllers
             }
             return View(link);
         }
-
 
 
 

@@ -95,7 +95,9 @@ body {
 .form-floating label {
     position: absolute;
     top: 50%;
-    right: 15px;
+    right: auto;
+    left: 15px;
+    text-align: right;
     transform: translateY(-50%);
     transition: all 0.3s ease;
     pointer-events: none;
@@ -106,10 +108,11 @@ body {
 
 .form-control:focus ~ label,
 .form-control.has-value ~ label {
-    top: 0;
+    top: -12px;
     font-size: 14px;
-    color: var(--primary-color);
+    right: 15px; /* ??? ??? */
     background-color: var(--white);
+    padding: 0 5px;
 }
 
 .text-danger {

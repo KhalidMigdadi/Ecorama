@@ -1730,14 +1730,14 @@
 							</div>
 						</div>
 						<p>@workshop.Description</p>
-						<a href="@Url.Action("WorkshopsDetails","WorkShops")" style="color: #fff; background: #15a1cf" class="btn btnWorkShop">سجل الآن</a>
+						<a asp-action="WorkshopsDetails" asp-controller="WorkShops" asp-route-id="@workshop.Id" style="color: #fff; background: #15a1cf" class="btn btnWorkShop">سجل الآن</a>
 					</div>
 				</div>
 			}
 		</div>
 
 		<div class="view-all-btn">
-			<a href="@Url.Action("Workshops","WorkShops")">عرض جميع الورشات</a>
+			<a href="@Url.Action("Workshops","WorkShops")" asp->عرض جميع الورشات</a>
 		</div>
 	</div>
 </section>
@@ -1793,8 +1793,24 @@
 								}
 								else
 								{
-									<a asp-action="Register" asp-route-courseId="@course.Id" class="enroll-btn">اشترك الآن</a>
-								}
+									@if (registeredCourseIds.Contains(course.Id))
+									{
+										<a asp-controller="CoursesUser" asp-action="Lessons" asp-route-courseId="@course.Id" class="btn btn-lessons">
+											<i class="fas fa-play-circle icon"></i>
+											عرض الدروس
+										</a>
+										@if (!string.IsNullOrEmpty(course.PdfUrl))
+										{
+											<a href="@course.PdfUrl" target="_blank" class="btn btn-pdf">
+												<i class="fas fa-file-pdf icon"></i>
+												تحميل PDF
+											</a>
+										}
+									}
+									else
+									{
+										<a asp-controller="CoursesUser" asp-action="Register" asp-route-courseId="@course.Id" class="enroll-btn">اشترك الآن</a>
+									}		}
 
 							</div>
 						</div>

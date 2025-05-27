@@ -74,16 +74,50 @@ namespace Ecorama.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Announcement announcement)
+        public IActionResult Edit(Announcement announcement, IFormFile ImageFile)
         {
             if (ModelState.IsValid)
             {
-                _context.Announcements.Update(announcement);
+                var existing = _context.Announcements.Find(announcement.Id);
+                if (existing == null)
+                    return NotFound();
+
+                existing.Title = announcement.Title;
+                existing.Content = announcement.Content;
+
+                if (ImageFile != null && ImageFile.Length > 0)
+                {
+                    // حفظ الصورة الجديدة
+                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
+                    var uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(ImageFile.FileName);
+                    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        ImageFile.CopyTo(stream);
+                    }
+
+                    // حذف الصورة القديمة (اختياري)
+                    if (!string.IsNullOrEmpty(existing.ImageUrl))
+                    {
+                        var oldPath = Path.Combine(uploadsFolder, existing.ImageUrl);
+                        if (System.IO.File.Exists(oldPath))
+                        {
+                            System.IO.File.Delete(oldPath);
+                        }
+                    }
+
+                    // تحديث اسم الصورة
+                    existing.ImageUrl = uniqueFileName;
+                }
+
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(announcement);
         }
+
 
         [HttpPost]
         public IActionResult Delete(int id)

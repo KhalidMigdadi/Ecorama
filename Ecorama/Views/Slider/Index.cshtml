@@ -66,7 +66,7 @@
             var id = $(this).data('id');
             if (confirm("هل أنت متأكد أنك تريد حذف هذا العنصر؟")) {
                 $.ajax({
-                    url: '/Admin/SliderItems/Delete/' + id,
+                    url: '/Slider/Delete/' + id,
                     type: 'POST',
                     success: function () {
                         $('tr[data-id="' + id + '"]').remove(); // حذف السطر من الجدول

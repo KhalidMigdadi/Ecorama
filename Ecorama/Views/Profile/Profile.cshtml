@@ -9,9 +9,6 @@
     <div class="row mb-5" style="margin-top: 3rem;">
         <div class="col-md-12">
             <div class="card shadow border-0">
-
-
-
                 <div class="card shadow-sm p-4">
                     <div class="row">
                         <!-- الصورة -->
@@ -53,27 +50,33 @@
                                     <p class="mb-2">
                                         <i class="fa fa-phone me-2"></i>رقم الهاتف: @Model.PhoneNumber
                                     </p>
-                                    @* إذا كان عندك معلومات أخرى ممكن تضيفها هنا *@
                                 </div>
                             </div>
 
-                            <!-- زر تعديل -->
+                            <!-- أزرار التحكم -->
                             <div class="text-end mt-3">
-                                <a href="@Url.Action("Edit", "Profile")" class="btn btn-primary">
-                                    <i class="fa fa-edit me-2"></i>تعديل البيانات
-                                </a>
+                                <div class="btn-group" role="group">
+                                    <a href="@Url.Action("MyCourses", "CoursesUser")" class="btn btn-success me-2">
+                                        <i class="fa fa-book me-2"></i>كورساتي
+                                    </a>
+                                    <a href="@Url.Action("Edit", "Profile")" class="btn btn-primary me-2" style="margin-left: 10px;">
+                                        <i class="fa fa-edit me-2"></i>تعديل البيانات
+                                    </a>
+                                    <form asp-controller="Login" asp-action="Logout" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="fa fa-sign-out-alt me-2"></i>تسجيل الخروج
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
-
             </div>
         </div>
     </div>
 
+    <!-- باقي المحتوى كما هو -->
     <!-- Main Content -->
     <div class="row">
         <!-- Residence Information -->
@@ -186,6 +189,6 @@
 
 @section Scripts {
     <script>
-        // Add any custom scripts for the profile page here
+        // يمكن إضافة أي سكريبتات مخصصة هنا
     </script>
 }

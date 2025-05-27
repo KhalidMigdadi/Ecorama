@@ -122,11 +122,14 @@ namespace Ecorama.Controllers
         {
             var aboutUsList = await _context.AboutUs.ToListAsync();
             var teamMembersList = await _context.TeamMembers.ToListAsync();
+            var partners = _context.Partners.ToList();
+
 
             var viewModel = new TeamViewModel
             {
                 AboutUs = aboutUsList,
-                TeamMembers = teamMembersList
+                TeamMembers = teamMembersList,
+                Partners = partners
             };
 
             return View(viewModel);

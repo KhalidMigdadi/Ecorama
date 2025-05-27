@@ -4,57 +4,232 @@
 }
 
 @section Style {
-    <link href="~/css/registerLesons.css" rel="stylesheet" />
+    <style>
+        /* أنماط التصميم الجديد */
+        :root {
+            --primary-color: #063b5c;
+            --secondary-color: #15a1cf;
+            --light-bg: #f5f7fa;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --white: #ffffff;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--light-bg);
+            direction: rtl;
+        }
+
+        .registration-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .registration-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            width: 100%;
+            max-width: 500px;
+            transition: transform 0.3s ease;
+        }
+
+            .registration-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+            .card-header h2 {
+                margin: 0;
+                font-size: 1.8rem;
+                font-weight: 700;
+            }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+            .card-icon i {
+                font-size: 1.8rem;
+            }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #f8fafc;
+        }
+
+            .form-control:focus {
+                border-color: var(--secondary-color);
+                box-shadow: 0 0 0 3px rgba(21, 161, 207, 0.2);
+                outline: none;
+                background-color: var(--white);
+            }
+
+        .text-danger {
+            color: #e53e3e;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        .alert-message {
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #ebf8ff;
+            color: var(--primary-color);
+            border: 1px solid #bee3f8;
+        }
+
+        .btn-close {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--primary-color);
+            opacity: 0.7;
+        }
+
+            .btn-close:hover {
+                opacity: 1;
+            }
+
+        .course-info {
+            background-color: #f0f9ff;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+            .course-info h4 {
+                margin-top: 0;
+                color: var(--primary-color);
+            }
+
+            .course-info p {
+                margin-bottom: 0.5rem;
+                color: var(--text-light);
+            }
+
+        @@media (max-width: 576px) {
+            .registration-container
+
+        {
+            padding: 1rem;
+        }
+
+        .card-header {
+            padding: 1.5rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        }
+    </style>
 }
 
 <div class="registration-container">
     <div class="registration-card">
         <div class="card-header">
-            <h2>التسجيل في الكورس</h2>
             <div class="card-icon">
                 <i class="fas fa-graduation-cap"></i>
             </div>
+            <h2>التسجيل في الكورس</h2>
         </div>
 
-        @if (TempData["Message"] != null)
-        {
-            <div class="alert alert-info alert-dismissible fade show" role="alert">
-                @TempData["Message"]
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        }
+        <div class="card-body">
+           @*  @if (TempData["Message"] != null)
+            {
+                <div class="alert-message">
+                    <span>@TempData["Message"]</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            } *@
 
-        <form asp-action="Register" method="post" class="registration-form">
-            <input type="hidden" asp-for="CourseId" />
-            <input type="hidden" asp-for="UserId" />
 
-            <div class="form-floating mb-3">
-                <input asp-for="FullName" class="form-control" id="fullName" placeholder=" " />
-                <label asp-for="FullName" for="fullName">الاسم الكامل</label>
-                <span asp-validation-for="FullName" class="text-danger"></span>
-            </div>
+            <form asp-action="Register" method="post" class="registration-form">
+                <input type="hidden" asp-for="CourseId" />
+                <input type="hidden" asp-for="UserId" />
 
-            <div class="form-floating mb-3">
-                <input asp-for="Email" class="form-control" id="email" placeholder=" " />
-                <label asp-for="Email" for="email">البريد الإلكتروني</label>
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label class="form-label" asp-for="FullName">الاسم الكامل</label>
+                    <input asp-for="FullName" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
 
-            <div class="form-floating mb-3">
-                <input asp-for="PhoneNumber" class="form-control" id="phone" placeholder=" " />
-                <label asp-for="PhoneNumber" for="phone">رقم الهاتف</label>
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label class="form-label" asp-for="Email">البريد الإلكتروني</label>
+                    <input asp-for="Email" class="form-control" readonly />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
 
-            <div class="form-actions">
-                <button type="submit" class="btn btn-register">
-                    <i class="fas fa-check-circle"></i> تأكيد الاشتراك
-                </button>
-                <a asp-action="Index" class="btn btn-cancel">
-                    <i class="fas fa-times-circle"></i> إلغاء
-                </a>
-            </div>
-        </form>
+                <div class="form-group">
+                    <label class="form-label" asp-for="PhoneNumber">رقم الهاتف</label>
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-register">
+                        <i class="fas fa-check-circle"></i> تأكيد الاشتراك
+                    </button>
+                    <a asp-action="Index" class="btn btn-cancel">
+                        <i class="fas fa-times-circle"></i> إلغاء
+                    </a>
+                </div>
+            </form>
+       
+
+        </div>
     </div>
 </div>
 
@@ -62,26 +237,4 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-
-    <script>
-        // تنشيط أيقونات Font Awesome
-        document.addEventListener('DOMContentLoaded', function() {
-            // تحقق من تركيز الحقول عند التحميل
-            const inputs = document.querySelectorAll('.form-control');
-            inputs.forEach(input => {
-                if (input.value) {
-                    input.classList.add('has-value');
-                }
-
-                input.addEventListener('input', function() {
-                    if (this.value) {
-                        this.classList.add('has-value');
-                    } else {
-                        this.classList.remove('has-value');
-                    }
-                });
-            });
-        });
-    </script>
 }
-

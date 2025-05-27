@@ -1,52 +1,53 @@
 ﻿@model Ecorama.Models.SocialMediaLink
-
 @{
     ViewData["Title"] = "تعديل رابط شبكة اجتماعية";
     Layout = "~/Views/Shared/_Admin_Layout.cshtml";
-
 }
-
 <div class="container-fluid">
     <h2>تعديل رابط شبكة اجتماعية</h2>
     <hr />
-
     <div class="row">
         <div class="col-md-6">
             <form asp-action="EditSocial">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="Id" />
                 <input type="hidden" asp-for="CreatedAt" />
-
                 <div class="form-group mb-3">
                     <label asp-for="Name" class="control-label">اسم الشبكة الاجتماعية</label>
-                    <select asp-for="Name" class="form-control">
+                    <select asp-for="Name" class="form-control" id="socialMediaSelect">
+                        <option value="">-- اختر الشبكة الاجتماعية --</option>
                         <option value="Facebook">Facebook</option>
                         <option value="X">X</option>
                         <option value="Google">Google</option>
                         <option value="Instagram">Instagram</option>
                         <option value="LinkedIn">LinkedIn</option>
                         <option value="GitHub">GitHub</option>
+                        <option value="YouTube">YouTube</option>
                     </select>
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
-
                 <div class="form-group mb-3">
                     <label asp-for="IconClass" class="control-label">فئة الأيقونة</label>
-                    <input asp-for="IconClass" class="form-control" placeholder="مثال: fab fa-facebook-f" />
+                    <div class="input-group">
+                        <input asp-for="IconClass" class="form-control" id="iconClassInput" placeholder="مثال: fab fa-facebook-f" />
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i id="iconPreview" class="@Model.IconClass" style="font-size: 18px;"></i>
+                            </span>
+                        </div>
+                    </div>
                     <span asp-validation-for="IconClass" class="text-danger"></span>
+                    <small class="form-text text-muted">سيتم تحديث الأيقونة تلقائياً عند اختيار الشبكة الاجتماعية</small>
                 </div>
-
                 <div class="form-group mb-3">
                     <label asp-for="Url" class="control-label">الرابط</label>
                     <input asp-for="Url" class="form-control" placeholder="https://..." />
                     <span asp-validation-for="Url" class="text-danger"></span>
                 </div>
-
                 <div class="form-group form-check mb-3">
                     <input asp-for="IsActive" class="form-check-input" />
                     <label asp-for="IsActive" class="form-check-label">نشط</label>
                 </div>
-
                 <div class="form-group mb-3">
                     <input type="submit" value="حفظ" class="btn btn-primary" />
                     <a asp-action="Index" class="btn btn-secondary">عودة إلى القائمة</a>
@@ -60,4 +61,56 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+
+    <script>
+        // خريطة الشبكات الاجتماعية والأيقونات الخاصة بها
+        const socialMediaIcons = {
+            'Facebook': 'fab fa-facebook-f',
+            'X': 'fab fa-x-twitter',
+            'Google': 'fab fa-google',
+            'Instagram': 'fab fa-instagram',
+            'LinkedIn': 'fab fa-linkedin-in',
+            'GitHub': 'fab fa-github',
+            'YouTube': 'fab fa-youtube'
+        };
+
+        // الحصول على العناصر
+        const socialMediaSelect = document.getElementById('socialMediaSelect');
+        const iconClassInput = document.getElementById('iconClassInput');
+        const iconPreview = document.getElementById('iconPreview');
+
+        // دالة لتحديث الأيقونة
+        function updateIcon() {
+            const selectedSocial = socialMediaSelect.value;
+
+            if (selectedSocial && socialMediaIcons[selectedSocial]) {
+                const iconClass = socialMediaIcons[selectedSocial];
+                iconClassInput.value = iconClass;
+
+                // تحديث معاينة الأيقونة
+                iconPreview.className = iconClass;
+                iconPreview.style.display = 'inline-block';
+            } else {
+                iconPreview.style.display = 'none';
+            }
+        }
+
+        // إضافة مستمع الأحداث
+        socialMediaSelect.addEventListener('change', updateIcon);
+
+        // تحديث الأيقونة عند تحميل الصفحة (في حالة التعديل)
+        document.addEventListener('DOMContentLoaded', function() {
+            updateIcon();
+        });
+
+        // تحديث معاينة الأيقونة عند تغيير النص يدوياً
+        iconClassInput.addEventListener('input', function() {
+            if (this.value.trim()) {
+                iconPreview.className = this.value.trim();
+                iconPreview.style.display = 'inline-block';
+            } else {
+                iconPreview.style.display = 'none';
+            }
+        });
+    </script>
 }

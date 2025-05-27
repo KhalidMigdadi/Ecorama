@@ -15,8 +15,11 @@
         </div>
         <div class="form-side">
             <div class="logo">
-                <h1>إيكوراما</h1>
+                <a href="@Url.Action("Index","Home")" style="text-decoration: none; color: inherit;">
+                    <h1>إيكوراما</h1>
+                </a>
             </div>
+
             <h2>تسجيل الدخول</h2>
 
             @if (!ViewData.ModelState.IsValid)

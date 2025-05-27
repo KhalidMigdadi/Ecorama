@@ -1,58 +1,259 @@
 ﻿@model List<Ecorama.Models.CourseRegistration>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "كورساتي";
 }
 
 @section Style {
-    <link href="~/css/myCourses.css" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-color: #063b5c;
+            --secondary-color: #15a1cf;
+            --light-color: #f5f7fa;
+            --white: #ffffff;
+            --border-radius: 12px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
 
+        .courses-container {
+            padding: 6.5rem 0 3rem;
+            background-color: var(--light-color);
+            min-height: 100vh;
+        }
+
+        .courses-heading {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+            text-align: center;
+        }
+
+            .courses-heading:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100px;
+                height: 3px;
+                background: var(--secondary-color);
+            }
+
+        .no-courses {
+            text-align: center;
+            padding: 3rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+            .no-courses h4 {
+                color: var(--primary-color);
+                margin-bottom: 1rem;
+            }
+
+            .no-courses p {
+                color: var(--secondary-color);
+                font-size: 1.1rem;
+            }
+
+        .course-card {
+            border: none;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .course-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            }
+
+        .course-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 1.5rem;
+        }
+
+        .course-title {
+            font-weight: 700;
+            margin: 0;
+            font-size: 1.25rem;
+        }
+
+        .course-body {
+            padding: 1.5rem;
+            background: var(--white);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+        }
+
+        .course-description {
+            color: #555;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .course-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .btn-lessons {
+            background-color: var(--primary-color);
+            color: white;
+            flex: 1;
+            border-radius: var(--border-radius);
+            padding: 0.5rem;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-lessons:hover {
+                background-color: var(--secondary-color);
+                color: white;
+            }
+
+        .btn-pdf {
+            background-color: #e63946;
+            color: white;
+            flex: 1;
+            border-radius: var(--border-radius);
+            padding: 0.5rem;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-pdf:hover {
+                background-color: #c1121f;
+                color: white;
+            }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .btn-back {
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 0.5rem 1.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-back:hover {
+                background-color: var(--primary-color);
+                color: white;
+            }
+
+        .btn-courses {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 0.5rem 1.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-courses:hover {
+                background-color: var(--secondary-color);
+                color: white;
+            }
+
+        .icon {
+            margin-left: 5px;
+        }
+
+        @@media (max-width: 768px) {
+            .course-actions {
+                flex-direction: column;
+            }
+
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
 }
 
-<div class="container py-4" style="padding-top: 6.5rem !important;">
-    <h2 class="courses-heading">كورساتي</h2>
-
-    @if (Model.Count == 0)
-    {
-        <div class="no-courses">
-            <h4>لا توجد كورسات مسجلة حالياً</h4>
-            <p>قم بالتسجيل في كورس للبدء في التعلم</p>
+<div class="courses-container">
+    <div class="container">
+        <div class="navigation-buttons">
+            <a href="@Url.Action("Profile", "Profile")" class="btn btn-back">
+                <i class="fas fa-arrow-right icon"></i> العودة للملف الشخصي
+            </a>
+            <a href="@Url.Action("Index", "CoursesUser")" class="btn btn-courses">
+                <i class="fas fa-book icon"></i> تصفح الكورسات
+            </a>
         </div>
-    }
-    else
-    {
-        <div class="row">
-            @foreach (var reg in Model)
-            {
-                var course = reg.Course;
-                <div class="col-md-6 col-lg-4">
-                    <div class="course-card card">
-                        <div class="course-header">
-                            <h4 class="course-title">@course.Title</h4>
-                        </div>
-                        <div class="course-body">
-                            @if (!string.IsNullOrEmpty(course.ImageUrl))
-                            {
-                                <img src="@course.ImageUrl" class="course-image" alt="@course.Title" />
-                            }
-                            <p class="course-description">@course.Description</p>
-                            <div class="course-actions">
-                                <a asp-action="Lessons" asp-route-courseId="@course.Id" class="btn btn-lessons">
-                                    <i class="fas fa-play-circle icon"></i>
-                                    عرض الدروس
-                                </a>
-                                @if (!string.IsNullOrEmpty(course.PdfUrl))
+
+        <h2 class="courses-heading">كورساتي</h2>
+
+        @if (Model.Count == 0)
+        {
+            <div class="no-courses">
+                <h4>لا توجد كورسات مسجلة حالياً</h4>
+                <p>قم بالتسجيل في كورس للبدء في التعلم</p>
+            </div>
+        }
+        else
+        {
+            <div class="row">
+                @foreach (var reg in Model)
+                {
+                    var course = reg.Course;
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h4 class="course-title">@course.Title</h4>
+                            </div>
+                            <div class="course-body">
+                                @if (!string.IsNullOrEmpty(course.ImageUrl))
                                 {
-                                    <a href="@course.PdfUrl" target="_blank" class="btn btn-pdf">
-                                        <i class="fas fa-file-pdf icon"></i>
-                                        تحميل PDF
-                                    </a>
+                                    <img src="@course.ImageUrl" class="course-image" alt="@course.Title" />
                                 }
+                                <p class="course-description">@course.Description</p>
+                                <div class="course-actions">
+                                    <a asp-action="Lessons" asp-route-courseId="@course.Id" class="btn btn-lessons">
+                                        <i class="fas fa-play-circle icon"></i>
+                                        عرض الدروس
+                                    </a>
+                                    @if (!string.IsNullOrEmpty(course.PdfUrl))
+                                    {
+                                        <a href="@course.PdfUrl" target="_blank" class="btn btn-pdf">
+                                            <i class="fas fa-file-pdf icon"></i>
+                                            تحميل PDF
+                                        </a>
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            }
-        </div>
-    }
+                }
+            </div>
+        }
+    </div>
 </div>
-

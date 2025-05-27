@@ -11,6 +11,27 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="wwwroot\Controllers\AboutUsController.cs" />
+    <Compile Include="wwwroot\Controllers\AdminController.cs" />
+    <Compile Include="wwwroot\Controllers\AnnouncementController.cs" />
+    <Compile Include="wwwroot\Controllers\ContactController.cs" />
+    <Compile Include="wwwroot\Controllers\CourseLessonsController.cs" />
+    <Compile Include="wwwroot\Controllers\CoursesController.cs" />
+    <Compile Include="wwwroot\Controllers\CoursesUserController.cs" />
+    <Compile Include="wwwroot\Controllers\HomeController.cs" />
+    <Compile Include="wwwroot\Controllers\LoginController.cs" />
+    <Compile Include="wwwroot\Controllers\NewsController.cs" />
+    <Compile Include="wwwroot\Controllers\ProfileController.cs" />
+    <Compile Include="wwwroot\Controllers\SliderController.cs" />
+    <Compile Include="wwwroot\Controllers\SocialController.cs" />
+    <Compile Include="wwwroot\Controllers\WorkShopsController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="itext7" Version="9.2.0" />
+    <PackageReference Include="itext7.bouncy-castle-adapter" Version="9.2.0" />
+    <PackageReference Include="itext7.font-asian" Version="9.2.0" />
+    <PackageReference Include="itext7.pdfhtml" Version="6.2.0" />
     <PackageReference Include="iTextSharp" Version="5.5.13.3" />
     <PackageReference Include="MailKit" Version="4.12.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">

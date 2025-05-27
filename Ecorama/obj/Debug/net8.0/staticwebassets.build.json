@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+kUx7lLO+wvgDZItciTZpMyoQv+/zFVZGizIsxDv8ZA=",
+  "Hash": "uFVL7vSENlUgcXG/cIvL9ROdb1atp3aqO0lZguDGO7Y=",
   "Source": "Ecorama",
   "BasePath": "_content/Ecorama",
   "Mode": "Default",
@@ -38531,6 +38531,300 @@
       "OriginalItemSpec": "wwwroot\\Admin\\js\\sb-admin-2.js"
     },
     {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\AboutUsController.cs",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "Controllers/AboutUsController#[.{fingerprint}]?.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8awrbyaboo",
+      "Integrity": "MO/ynzc439VjG1VjCbSlzvhVnlcvaRQ1x2+FPTx7Zqk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Controllers\\AboutUsController.cs"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\AdminController.cs",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "Controllers/AdminController#[.{fingerprint}]?.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "cbd3tmdtdp",
+      "Integrity": "2DTqAxmzbf6rjFA0u4J+qkRgbGN5AekdfU8AC1WL3lE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Controllers\\AdminController.cs"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\AnnouncementController.cs",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "Controllers/AnnouncementController#[.{fingerprint}]?.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "nlfcqpqym5",
+      "Integrity": "+1dDrHXi6NQS5fNgD4sLDQ5hRngvjILiFLL7W0Cg02g=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Controllers\\AnnouncementController.cs"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\ContactController.cs",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "Controllers/ContactController#[.{fingerprint}]?.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "o79fbmouam",
+      "Integrity": "nCCqwrKZxxjFpHpjrkm7Sjk4KTtbT3nQFaFfN3CxcAg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Controllers\\ContactController.cs"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\CourseLessonsController.cs",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "Controllers/CourseLessonsController#[.{fingerprint}]?.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "tjgihojmc6",
+      "Integrity": "SeXrGCu1hPJ/MczoXE7kaw20x/drUeOjsgXwrQO+2E0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Controllers\\CourseLessonsController.cs"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\CoursesController.cs",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "Controllers/CoursesController#[.{fingerprint}]?.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "xingrv0jsu",
+      "Integrity": "541jnNd0GYfg3DhmJM0bhh9BQqRQUNoyl+lD+FNQpSo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Controllers\\CoursesController.cs"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\CoursesUserController.cs",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "Controllers/CoursesUserController#[.{fingerprint}]?.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "6wrj2noryq",
+      "Integrity": "Cq4lHrV5WcaFq8woagwzUvwOW5zLrW8aMqVI752QTBA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Controllers\\CoursesUserController.cs"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\HomeController.cs",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "Controllers/HomeController#[.{fingerprint}]?.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mrpv18a9cd",
+      "Integrity": "zsozOXa6u1qLKEzmPPqB0aYohG7qLgYDSAaolGlrlB0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Controllers\\HomeController.cs"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\LoginController.cs",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "Controllers/LoginController#[.{fingerprint}]?.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "jmkh7md759",
+      "Integrity": "VW5VHXSDVNjaEoYsZ+KtT1Kjt2Zs9ADDAEjGzv6FqAo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Controllers\\LoginController.cs"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\NewsController.cs",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "Controllers/NewsController#[.{fingerprint}]?.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "po76kak9jv",
+      "Integrity": "aeib1sFA2iJ2goYfL2Nzhdg1mK7LPBtIUJfVmvhG24I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Controllers\\NewsController.cs"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\ProfileController.cs",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "Controllers/ProfileController#[.{fingerprint}]?.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "7wnzwv4966",
+      "Integrity": "t9/RKvG0fnlZcUUCdutjDxI69LeXgHxa99L2JpGgBaM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Controllers\\ProfileController.cs"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\SliderController.cs",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "Controllers/SliderController#[.{fingerprint}]?.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "nyyyxohiy4",
+      "Integrity": "f5Y40RXOpaIoVaUDitmpcnQdenn/R+XyKyz/cznyn0k=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Controllers\\SliderController.cs"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\SocialController.cs",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "Controllers/SocialController#[.{fingerprint}]?.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8dnevxwepr",
+      "Integrity": "zJAick2qRg5gw4EE/7Gq00rlmXO0JhZTAA4oSjRc1vE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Controllers\\SocialController.cs"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\WorkShopsController.cs",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "Controllers/WorkShopsController#[.{fingerprint}]?.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3df03u35ul",
+      "Integrity": "x9hi8VMxnENDKjGCCxhQc8GnM8TnZPS/Nty0Wbrq/qU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Controllers\\WorkShopsController.cs"
+    },
+    {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\AddNewPartners.css",
       "SourceId": "Ecorama",
       "SourceType": "Discovered",
@@ -38755,8 +39049,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "mp1ijbnhdm",
-      "Integrity": "KogKruRq4bQHeelVFjd9kPKgdNwqxj4i10dXWCD2A8w=",
+      "Fingerprint": "1mlxr5mz41",
+      "Integrity": "qTrnTLSIoolJDmHRGveZ6CSHdt4ci/V+57VqbQk+9+k=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\registerLesons.css"
@@ -38867,153 +39161,6 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\Amiri-Bold.ttf",
-      "SourceId": "Ecorama",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
-      "BasePath": "_content/Ecorama",
-      "RelativePath": "fonts/Amiri-Bold#[.{fingerprint}]?.ttf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "7mfb594uw2",
-      "Integrity": "z8y3lCaOfVc9hX5tamf4nPigU+j/2F36DI7Buzb8SCc=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\fonts\\Amiri-Bold.ttf"
-    },
-    {
-      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\Amiri-BoldItalic.ttf",
-      "SourceId": "Ecorama",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
-      "BasePath": "_content/Ecorama",
-      "RelativePath": "fonts/Amiri-BoldItalic#[.{fingerprint}]?.ttf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "gro6iitmgg",
-      "Integrity": "JBMA4tyyxUGsNheHKWDZloPSYeT1JtxGkdByfnvvEws=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\fonts\\Amiri-BoldItalic.ttf"
-    },
-    {
-      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\Amiri-Italic.ttf",
-      "SourceId": "Ecorama",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
-      "BasePath": "_content/Ecorama",
-      "RelativePath": "fonts/Amiri-Italic#[.{fingerprint}]?.ttf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "1aaqrs9nrq",
-      "Integrity": "dw5NpE0EWcDd1khEg9R1uV8tCI3SfORyQnYkCB62jHA=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\fonts\\Amiri-Italic.ttf"
-    },
-    {
-      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\AmiriQuran.ttf",
-      "SourceId": "Ecorama",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
-      "BasePath": "_content/Ecorama",
-      "RelativePath": "fonts/AmiriQuran#[.{fingerprint}]?.ttf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "ih90h4ak3z",
-      "Integrity": "+u4+dmD6l8nPJD9+6I6TznRU0HCvoOAzxevi0gIhFp4=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\fonts\\AmiriQuran.ttf"
-    },
-    {
-      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\AmiriQuranColored.ttf",
-      "SourceId": "Ecorama",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
-      "BasePath": "_content/Ecorama",
-      "RelativePath": "fonts/AmiriQuranColored#[.{fingerprint}]?.ttf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "5gidqampbh",
-      "Integrity": "pQAtMMs4PGlJqEUq94udwEtHhPGPBD6xOsKOvTImt5Y=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\fonts\\AmiriQuranColored.ttf"
-    },
-    {
-      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\Amiri-Regular.ttf",
-      "SourceId": "Ecorama",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
-      "BasePath": "_content/Ecorama",
-      "RelativePath": "fonts/Amiri-Regular#[.{fingerprint}]?.ttf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "da6qksqcsy",
-      "Integrity": "qzkcQUfQVMSJdumDIq0O7+FCeqDgUCoSpMddgKcM/Nc=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\fonts\\Amiri-Regular.ttf"
-    },
-    {
-      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\NotoNaskhArabic-VariableFont_wght.ttf",
-      "SourceId": "Ecorama",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
-      "BasePath": "_content/Ecorama",
-      "RelativePath": "fonts/NotoNaskhArabic-VariableFont_wght#[.{fingerprint}]?.ttf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "8t7vnkm31c",
-      "Integrity": "tF+A3jEoeqnOE8c6r8sIxWDjwsPpHDTIFZ+ZBMM+mw0=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\fonts\\NotoNaskhArabic-VariableFont_wght.ttf"
-    },
-    {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\NotoSansArabic-VariableFont_wdth,wght.ttf",
       "SourceId": "Ecorama",
       "SourceType": "Discovered",
@@ -39033,6 +39180,111 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\fonts\\NotoSansArabic-VariableFont_wdth,wght.ttf"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\0f4be141-5e57-4c77-bcec-69e983501bc4.png",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/0f4be141-5e57-4c77-bcec-69e983501bc4#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "jcbclkfaw9",
+      "Integrity": "cznMGU/mVwFhQjgOSaQD83FE9i7oqxJIWhPmqXgTr6c=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\0f4be141-5e57-4c77-bcec-69e983501bc4.png"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\18de8254-3539-44f3-8038-e3d1ed1e9949.png",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/18de8254-3539-44f3-8038-e3d1ed1e9949#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8tfg2pghip",
+      "Integrity": "9MWNUcCWNDf5EsF7GmiIgss+M3OTulw+qPMuWr11T7M=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\18de8254-3539-44f3-8038-e3d1ed1e9949.png"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\230ddb75-1301-4839-84e9-c23e26bfa93c.png",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/230ddb75-1301-4839-84e9-c23e26bfa93c#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dnkm0pwyu5",
+      "Integrity": "92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\230ddb75-1301-4839-84e9-c23e26bfa93c.png"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\30ac8d9b-f97e-4fde-8085-1cbc1a608588.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/30ac8d9b-f97e-4fde-8085-1cbc1a608588#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "j2ysi8behm",
+      "Integrity": "hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\30ac8d9b-f97e-4fde-8085-1cbc1a608588.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\499f019a-80f5-404f-8a6a-75250f3cbf84.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/499f019a-80f5-404f-8a6a-75250f3cbf84#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "j2ysi8behm",
+      "Integrity": "hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\499f019a-80f5-404f-8a6a-75250f3cbf84.jpg"
     },
     {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\4fb38b43-5a12-43bd-a7ee-47d52447fd27.jpg",
@@ -39056,12 +39308,12 @@
       "OriginalItemSpec": "wwwroot\\images\\4fb38b43-5a12-43bd-a7ee-47d52447fd27.jpg"
     },
     {
-      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\5728593c-9711-400d-beec-69c07eb0a4da.jpg",
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\7cdd6eb7-9301-468f-8074-f00e5baa5e67.png",
       "SourceId": "Ecorama",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
       "BasePath": "_content/Ecorama",
-      "RelativePath": "images/5728593c-9711-400d-beec-69c07eb0a4da#[.{fingerprint}]?.jpg",
+      "RelativePath": "images/7cdd6eb7-9301-468f-8074-f00e5baa5e67#[.{fingerprint}]?.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -39070,11 +39322,74 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "gmck1lvzuy",
-      "Integrity": "GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4=",
+      "Fingerprint": "dnkm0pwyu5",
+      "Integrity": "92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\5728593c-9711-400d-beec-69c07eb0a4da.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\7cdd6eb7-9301-468f-8074-f00e5baa5e67.png"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\833745c4-c275-43a3-b302-c673ad4f76ce.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/833745c4-c275-43a3-b302-c673ad4f76ce#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "j2ysi8behm",
+      "Integrity": "hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\833745c4-c275-43a3-b302-c673ad4f76ce.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\9a90abe2-03d7-4751-8977-cd5f4578b72b.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/9a90abe2-03d7-4751-8977-cd5f4578b72b#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "j2ysi8behm",
+      "Integrity": "hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\9a90abe2-03d7-4751-8977-cd5f4578b72b.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\a55e6ed9-d58b-4659-b9ed-c50a67f75db0.png",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/a55e6ed9-d58b-4659-b9ed-c50a67f75db0#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dnkm0pwyu5",
+      "Integrity": "92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\a55e6ed9-d58b-4659-b9ed-c50a67f75db0.png"
     },
     {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\Course-3X1.jpg",
@@ -39096,6 +39411,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Course-3X1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\e4d9a8ff-9a5a-4913-8546-4b23f7b11cb1.png",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/e4d9a8ff-9a5a-4913-8546-4b23f7b11cb1#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dnkm0pwyu5",
+      "Integrity": "92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\e4d9a8ff-9a5a-4913-8546-4b23f7b11cb1.png"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\FlagofJordan.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/FlagofJordan#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "j2ysi8behm",
+      "Integrity": "hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\FlagofJordan.jpg"
     },
     {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\javascript.jpg",
@@ -39789,6 +40146,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\workshops\\323b4b12-7ecc-4598-9636-3aa4d8d71dc3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\workshops\\3adc284f-548d-49aa-8a52-1244030cab03.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/workshops/3adc284f-548d-49aa-8a52-1244030cab03#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "j2ysi8behm",
+      "Integrity": "hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\workshops\\3adc284f-548d-49aa-8a52-1244030cab03.jpg"
     },
     {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\workshops\\488159ca-6bdf-4069-a2ec-f369501ab8f3.jpg",
@@ -41303,6 +41681,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\images\\1d2bf711-4669-4e8c-b438-fe4bc9536b46.jpg"
     },
     {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\images\\56bc9699-a64c-4d86-8d52-49f600636824.jpg",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "uploads/images/56bc9699-a64c-4d86-8d52-49f600636824#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "j2ysi8behm",
+      "Integrity": "hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\images\\56bc9699-a64c-4d86-8d52-49f600636824.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\images\\5db3356e-5854-426f-907b-09773df51480.jpg",
       "SourceId": "Ecorama",
       "SourceType": "Discovered",
@@ -41574,6 +41973,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\partners\\baa53753-98a0-4b80-95e7-3614996615ba.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\pdfs\\1c35d6b5-18b3-42d1-a133-fbdecbff7aa4.pdf",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "uploads/pdfs/1c35d6b5-18b3-42d1-a133-fbdecbff7aa4#[.{fingerprint}]?.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "z2elzjw84i",
+      "Integrity": "dZZlV3F3xh+acE+5zlbE7h2JzTLVQKPV/0juPVW6Xq0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\pdfs\\1c35d6b5-18b3-42d1-a133-fbdecbff7aa4.pdf"
     },
     {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\pdfs\\306649bc-2873-4b7b-8bb1-b3a8f66e80ea.pdf",
@@ -191949,6 +192369,1154 @@
       ]
     },
     {
+      "Route": "Controllers/AboutUsController.8awrbyaboo.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\AboutUsController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9488"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MO/ynzc439VjG1VjCbSlzvhVnlcvaRQ1x2+FPTx7Zqk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 06:10:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8awrbyaboo"
+        },
+        {
+          "Name": "label",
+          "Value": "Controllers/AboutUsController.cs"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MO/ynzc439VjG1VjCbSlzvhVnlcvaRQ1x2+FPTx7Zqk="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/AboutUsController.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\AboutUsController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9488"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MO/ynzc439VjG1VjCbSlzvhVnlcvaRQ1x2+FPTx7Zqk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 06:10:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MO/ynzc439VjG1VjCbSlzvhVnlcvaRQ1x2+FPTx7Zqk="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/AdminController.cbd3tmdtdp.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\AdminController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "36073"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2DTqAxmzbf6rjFA0u4J+qkRgbGN5AekdfU8AC1WL3lE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 06:00:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "cbd3tmdtdp"
+        },
+        {
+          "Name": "label",
+          "Value": "Controllers/AdminController.cs"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2DTqAxmzbf6rjFA0u4J+qkRgbGN5AekdfU8AC1WL3lE="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/AdminController.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\AdminController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "36073"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2DTqAxmzbf6rjFA0u4J+qkRgbGN5AekdfU8AC1WL3lE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 06:00:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2DTqAxmzbf6rjFA0u4J+qkRgbGN5AekdfU8AC1WL3lE="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/AnnouncementController.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\AnnouncementController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4714"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+1dDrHXi6NQS5fNgD4sLDQ5hRngvjILiFLL7W0Cg02g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:52:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+1dDrHXi6NQS5fNgD4sLDQ5hRngvjILiFLL7W0Cg02g="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/AnnouncementController.nlfcqpqym5.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\AnnouncementController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4714"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+1dDrHXi6NQS5fNgD4sLDQ5hRngvjILiFLL7W0Cg02g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:52:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nlfcqpqym5"
+        },
+        {
+          "Name": "label",
+          "Value": "Controllers/AnnouncementController.cs"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+1dDrHXi6NQS5fNgD4sLDQ5hRngvjILiFLL7W0Cg02g="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/ContactController.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\ContactController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1007"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nCCqwrKZxxjFpHpjrkm7Sjk4KTtbT3nQFaFfN3CxcAg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 15 May 2025 08:46:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-nCCqwrKZxxjFpHpjrkm7Sjk4KTtbT3nQFaFfN3CxcAg="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/ContactController.o79fbmouam.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\ContactController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1007"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nCCqwrKZxxjFpHpjrkm7Sjk4KTtbT3nQFaFfN3CxcAg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 15 May 2025 08:46:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o79fbmouam"
+        },
+        {
+          "Name": "label",
+          "Value": "Controllers/ContactController.cs"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nCCqwrKZxxjFpHpjrkm7Sjk4KTtbT3nQFaFfN3CxcAg="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/CourseLessonsController.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\CourseLessonsController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4646"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SeXrGCu1hPJ/MczoXE7kaw20x/drUeOjsgXwrQO+2E0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 16:58:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SeXrGCu1hPJ/MczoXE7kaw20x/drUeOjsgXwrQO+2E0="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/CourseLessonsController.tjgihojmc6.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\CourseLessonsController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4646"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SeXrGCu1hPJ/MczoXE7kaw20x/drUeOjsgXwrQO+2E0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 16:58:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tjgihojmc6"
+        },
+        {
+          "Name": "label",
+          "Value": "Controllers/CourseLessonsController.cs"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SeXrGCu1hPJ/MczoXE7kaw20x/drUeOjsgXwrQO+2E0="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/CoursesController.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\CoursesController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7410"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"541jnNd0GYfg3DhmJM0bhh9BQqRQUNoyl+lD+FNQpSo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 08:19:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-541jnNd0GYfg3DhmJM0bhh9BQqRQUNoyl+lD+FNQpSo="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/CoursesController.xingrv0jsu.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\CoursesController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7410"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"541jnNd0GYfg3DhmJM0bhh9BQqRQUNoyl+lD+FNQpSo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 08:19:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xingrv0jsu"
+        },
+        {
+          "Name": "label",
+          "Value": "Controllers/CoursesController.cs"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-541jnNd0GYfg3DhmJM0bhh9BQqRQUNoyl+lD+FNQpSo="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/CoursesUserController.6wrj2noryq.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\CoursesUserController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4588"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Cq4lHrV5WcaFq8woagwzUvwOW5zLrW8aMqVI752QTBA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:31:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6wrj2noryq"
+        },
+        {
+          "Name": "label",
+          "Value": "Controllers/CoursesUserController.cs"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Cq4lHrV5WcaFq8woagwzUvwOW5zLrW8aMqVI752QTBA="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/CoursesUserController.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\CoursesUserController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4588"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Cq4lHrV5WcaFq8woagwzUvwOW5zLrW8aMqVI752QTBA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:31:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Cq4lHrV5WcaFq8woagwzUvwOW5zLrW8aMqVI752QTBA="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/HomeController.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\HomeController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4349"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zsozOXa6u1qLKEzmPPqB0aYohG7qLgYDSAaolGlrlB0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 04:33:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-zsozOXa6u1qLKEzmPPqB0aYohG7qLgYDSAaolGlrlB0="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/HomeController.mrpv18a9cd.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\HomeController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4349"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zsozOXa6u1qLKEzmPPqB0aYohG7qLgYDSAaolGlrlB0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 04:33:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mrpv18a9cd"
+        },
+        {
+          "Name": "label",
+          "Value": "Controllers/HomeController.cs"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-zsozOXa6u1qLKEzmPPqB0aYohG7qLgYDSAaolGlrlB0="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/LoginController.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\LoginController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21174"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VW5VHXSDVNjaEoYsZ+KtT1Kjt2Zs9ADDAEjGzv6FqAo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:33:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-VW5VHXSDVNjaEoYsZ+KtT1Kjt2Zs9ADDAEjGzv6FqAo="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/LoginController.jmkh7md759.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\LoginController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21174"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VW5VHXSDVNjaEoYsZ+KtT1Kjt2Zs9ADDAEjGzv6FqAo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:33:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jmkh7md759"
+        },
+        {
+          "Name": "label",
+          "Value": "Controllers/LoginController.cs"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-VW5VHXSDVNjaEoYsZ+KtT1Kjt2Zs9ADDAEjGzv6FqAo="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/NewsController.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\NewsController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2330"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aeib1sFA2iJ2goYfL2Nzhdg1mK7LPBtIUJfVmvhG24I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 08:38:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-aeib1sFA2iJ2goYfL2Nzhdg1mK7LPBtIUJfVmvhG24I="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/NewsController.po76kak9jv.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\NewsController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2330"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aeib1sFA2iJ2goYfL2Nzhdg1mK7LPBtIUJfVmvhG24I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 08:38:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "po76kak9jv"
+        },
+        {
+          "Name": "label",
+          "Value": "Controllers/NewsController.cs"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-aeib1sFA2iJ2goYfL2Nzhdg1mK7LPBtIUJfVmvhG24I="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/ProfileController.7wnzwv4966.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\ProfileController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11265"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"t9/RKvG0fnlZcUUCdutjDxI69LeXgHxa99L2JpGgBaM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 13:26:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7wnzwv4966"
+        },
+        {
+          "Name": "label",
+          "Value": "Controllers/ProfileController.cs"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-t9/RKvG0fnlZcUUCdutjDxI69LeXgHxa99L2JpGgBaM="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/ProfileController.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\ProfileController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11265"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"t9/RKvG0fnlZcUUCdutjDxI69LeXgHxa99L2JpGgBaM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 13:26:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-t9/RKvG0fnlZcUUCdutjDxI69LeXgHxa99L2JpGgBaM="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/SliderController.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\SliderController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7985"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"f5Y40RXOpaIoVaUDitmpcnQdenn/R+XyKyz/cznyn0k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 06:06:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-f5Y40RXOpaIoVaUDitmpcnQdenn/R+XyKyz/cznyn0k="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/SliderController.nyyyxohiy4.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\SliderController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7985"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"f5Y40RXOpaIoVaUDitmpcnQdenn/R+XyKyz/cznyn0k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 06:06:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nyyyxohiy4"
+        },
+        {
+          "Name": "label",
+          "Value": "Controllers/SliderController.cs"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-f5Y40RXOpaIoVaUDitmpcnQdenn/R+XyKyz/cznyn0k="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/SocialController.8dnevxwepr.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\SocialController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7826"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zJAick2qRg5gw4EE/7Gq00rlmXO0JhZTAA4oSjRc1vE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 06:20:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8dnevxwepr"
+        },
+        {
+          "Name": "label",
+          "Value": "Controllers/SocialController.cs"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-zJAick2qRg5gw4EE/7Gq00rlmXO0JhZTAA4oSjRc1vE="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/SocialController.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\SocialController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7826"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zJAick2qRg5gw4EE/7Gq00rlmXO0JhZTAA4oSjRc1vE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 06:20:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-zJAick2qRg5gw4EE/7Gq00rlmXO0JhZTAA4oSjRc1vE="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/WorkShopsController.3df03u35ul.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\WorkShopsController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "881"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x9hi8VMxnENDKjGCCxhQc8GnM8TnZPS/Nty0Wbrq/qU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 17:11:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3df03u35ul"
+        },
+        {
+          "Name": "label",
+          "Value": "Controllers/WorkShopsController.cs"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-x9hi8VMxnENDKjGCCxhQc8GnM8TnZPS/Nty0Wbrq/qU="
+        }
+      ]
+    },
+    {
+      "Route": "Controllers/WorkShopsController.cs",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\Controllers\\WorkShopsController.cs",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "881"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x9hi8VMxnENDKjGCCxhQc8GnM8TnZPS/Nty0Wbrq/qU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 17:11:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-x9hi8VMxnENDKjGCCxhQc8GnM8TnZPS/Nty0Wbrq/qU="
+        }
+      ]
+    },
+    {
       "Route": "css/AddNewPartners.css",
       "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\AddNewPartners.css",
       "Selectors": [],
@@ -192769,6 +194337,51 @@
       ]
     },
     {
+      "Route": "css/registerLesons.1mlxr5mz41.css",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\registerLesons.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4281"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qTrnTLSIoolJDmHRGveZ6CSHdt4ci/V+57VqbQk+9+k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:24:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1mlxr5mz41"
+        },
+        {
+          "Name": "label",
+          "Value": "css/registerLesons.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qTrnTLSIoolJDmHRGveZ6CSHdt4ci/V+57VqbQk+9+k="
+        }
+      ]
+    },
+    {
       "Route": "css/registerLesons.css",
       "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\registerLesons.css",
       "Selectors": [],
@@ -192779,7 +194392,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4217"
+          "Value": "4281"
         },
         {
           "Name": "Content-Type",
@@ -192787,11 +194400,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"KogKruRq4bQHeelVFjd9kPKgdNwqxj4i10dXWCD2A8w=\""
+          "Value": "\"qTrnTLSIoolJDmHRGveZ6CSHdt4ci/V+57VqbQk+9+k=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 21 May 2025 16:24:26 GMT"
+          "Value": "Tue, 27 May 2025 05:24:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -192801,52 +194414,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-KogKruRq4bQHeelVFjd9kPKgdNwqxj4i10dXWCD2A8w="
-        }
-      ]
-    },
-    {
-      "Route": "css/registerLesons.mp1ijbnhdm.css",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\registerLesons.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4217"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"KogKruRq4bQHeelVFjd9kPKgdNwqxj4i10dXWCD2A8w=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 21 May 2025 16:24:26 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "mp1ijbnhdm"
-        },
-        {
-          "Name": "label",
-          "Value": "css/registerLesons.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-KogKruRq4bQHeelVFjd9kPKgdNwqxj4i10dXWCD2A8w="
+          "Value": "sha256-qTrnTLSIoolJDmHRGveZ6CSHdt4ci/V+57VqbQk+9+k="
         }
       ]
     },
@@ -193425,580 +194993,6 @@
       ]
     },
     {
-      "Route": "fonts/Amiri-Bold.7mfb594uw2.ttf",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\Amiri-Bold.ttf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "413480"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/x-font-ttf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"z8y3lCaOfVc9hX5tamf4nPigU+j/2F36DI7Buzb8SCc=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 26 May 2025 12:48:46 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "7mfb594uw2"
-        },
-        {
-          "Name": "label",
-          "Value": "fonts/Amiri-Bold.ttf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-z8y3lCaOfVc9hX5tamf4nPigU+j/2F36DI7Buzb8SCc="
-        }
-      ]
-    },
-    {
-      "Route": "fonts/Amiri-Bold.ttf",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\Amiri-Bold.ttf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "413480"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/x-font-ttf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"z8y3lCaOfVc9hX5tamf4nPigU+j/2F36DI7Buzb8SCc=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 26 May 2025 12:48:46 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-z8y3lCaOfVc9hX5tamf4nPigU+j/2F36DI7Buzb8SCc="
-        }
-      ]
-    },
-    {
-      "Route": "fonts/Amiri-BoldItalic.gro6iitmgg.ttf",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\Amiri-BoldItalic.ttf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "409692"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/x-font-ttf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"JBMA4tyyxUGsNheHKWDZloPSYeT1JtxGkdByfnvvEws=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 26 May 2025 12:48:46 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "gro6iitmgg"
-        },
-        {
-          "Name": "label",
-          "Value": "fonts/Amiri-BoldItalic.ttf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-JBMA4tyyxUGsNheHKWDZloPSYeT1JtxGkdByfnvvEws="
-        }
-      ]
-    },
-    {
-      "Route": "fonts/Amiri-BoldItalic.ttf",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\Amiri-BoldItalic.ttf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "409692"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/x-font-ttf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"JBMA4tyyxUGsNheHKWDZloPSYeT1JtxGkdByfnvvEws=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 26 May 2025 12:48:46 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-JBMA4tyyxUGsNheHKWDZloPSYeT1JtxGkdByfnvvEws="
-        }
-      ]
-    },
-    {
-      "Route": "fonts/Amiri-Italic.1aaqrs9nrq.ttf",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\Amiri-Italic.ttf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "428532"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/x-font-ttf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"dw5NpE0EWcDd1khEg9R1uV8tCI3SfORyQnYkCB62jHA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 26 May 2025 12:48:46 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "1aaqrs9nrq"
-        },
-        {
-          "Name": "label",
-          "Value": "fonts/Amiri-Italic.ttf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-dw5NpE0EWcDd1khEg9R1uV8tCI3SfORyQnYkCB62jHA="
-        }
-      ]
-    },
-    {
-      "Route": "fonts/Amiri-Italic.ttf",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\Amiri-Italic.ttf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "428532"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/x-font-ttf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"dw5NpE0EWcDd1khEg9R1uV8tCI3SfORyQnYkCB62jHA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 26 May 2025 12:48:46 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-dw5NpE0EWcDd1khEg9R1uV8tCI3SfORyQnYkCB62jHA="
-        }
-      ]
-    },
-    {
-      "Route": "fonts/AmiriQuran.ih90h4ak3z.ttf",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\AmiriQuran.ttf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "133188"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/x-font-ttf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"+u4+dmD6l8nPJD9+6I6TznRU0HCvoOAzxevi0gIhFp4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 26 May 2025 12:48:46 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ih90h4ak3z"
-        },
-        {
-          "Name": "label",
-          "Value": "fonts/AmiriQuran.ttf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-+u4+dmD6l8nPJD9+6I6TznRU0HCvoOAzxevi0gIhFp4="
-        }
-      ]
-    },
-    {
-      "Route": "fonts/AmiriQuran.ttf",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\AmiriQuran.ttf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "133188"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/x-font-ttf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"+u4+dmD6l8nPJD9+6I6TznRU0HCvoOAzxevi0gIhFp4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 26 May 2025 12:48:46 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-+u4+dmD6l8nPJD9+6I6TznRU0HCvoOAzxevi0gIhFp4="
-        }
-      ]
-    },
-    {
-      "Route": "fonts/AmiriQuranColored.5gidqampbh.ttf",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\AmiriQuranColored.ttf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "154604"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/x-font-ttf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"pQAtMMs4PGlJqEUq94udwEtHhPGPBD6xOsKOvTImt5Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 26 May 2025 12:48:46 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "5gidqampbh"
-        },
-        {
-          "Name": "label",
-          "Value": "fonts/AmiriQuranColored.ttf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-pQAtMMs4PGlJqEUq94udwEtHhPGPBD6xOsKOvTImt5Y="
-        }
-      ]
-    },
-    {
-      "Route": "fonts/AmiriQuranColored.ttf",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\AmiriQuranColored.ttf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "154604"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/x-font-ttf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"pQAtMMs4PGlJqEUq94udwEtHhPGPBD6xOsKOvTImt5Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 26 May 2025 12:48:46 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-pQAtMMs4PGlJqEUq94udwEtHhPGPBD6xOsKOvTImt5Y="
-        }
-      ]
-    },
-    {
-      "Route": "fonts/Amiri-Regular.da6qksqcsy.ttf",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\Amiri-Regular.ttf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "431116"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/x-font-ttf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"qzkcQUfQVMSJdumDIq0O7+FCeqDgUCoSpMddgKcM/Nc=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 26 May 2025 12:48:46 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "da6qksqcsy"
-        },
-        {
-          "Name": "label",
-          "Value": "fonts/Amiri-Regular.ttf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-qzkcQUfQVMSJdumDIq0O7+FCeqDgUCoSpMddgKcM/Nc="
-        }
-      ]
-    },
-    {
-      "Route": "fonts/Amiri-Regular.ttf",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\Amiri-Regular.ttf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "431116"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/x-font-ttf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"qzkcQUfQVMSJdumDIq0O7+FCeqDgUCoSpMddgKcM/Nc=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 26 May 2025 12:48:46 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-qzkcQUfQVMSJdumDIq0O7+FCeqDgUCoSpMddgKcM/Nc="
-        }
-      ]
-    },
-    {
-      "Route": "fonts/NotoNaskhArabic-VariableFont_wght.8t7vnkm31c.ttf",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\NotoNaskhArabic-VariableFont_wght.ttf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "331396"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/x-font-ttf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"tF+A3jEoeqnOE8c6r8sIxWDjwsPpHDTIFZ+ZBMM+mw0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 26 May 2025 12:52:21 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "8t7vnkm31c"
-        },
-        {
-          "Name": "label",
-          "Value": "fonts/NotoNaskhArabic-VariableFont_wght.ttf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-tF+A3jEoeqnOE8c6r8sIxWDjwsPpHDTIFZ+ZBMM+mw0="
-        }
-      ]
-    },
-    {
-      "Route": "fonts/NotoNaskhArabic-VariableFont_wght.ttf",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\NotoNaskhArabic-VariableFont_wght.ttf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "331396"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/x-font-ttf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"tF+A3jEoeqnOE8c6r8sIxWDjwsPpHDTIFZ+ZBMM+mw0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 26 May 2025 12:52:21 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-tF+A3jEoeqnOE8c6r8sIxWDjwsPpHDTIFZ+ZBMM+mw0="
-        }
-      ]
-    },
-    {
       "Route": "fonts/NotoSansArabic-VariableFont_wdth,wght.lk6o5mtr8a.ttf",
       "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\fonts\\NotoSansArabic-VariableFont_wdth,wght.ttf",
       "Selectors": [],
@@ -194021,7 +195015,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 26 May 2025 12:52:21 GMT"
+          "Value": "Mon, 26 May 2025 19:49:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -194066,7 +195060,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 26 May 2025 12:52:21 GMT"
+          "Value": "Mon, 26 May 2025 19:49:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -194077,6 +195071,416 @@
         {
           "Name": "integrity",
           "Value": "sha256-u/se5cIPqVWYc+cD8C0bfSksP3EYdrwnwjdW/NaBdYc="
+        }
+      ]
+    },
+    {
+      "Route": "images/0f4be141-5e57-4c77-bcec-69e983501bc4.jcbclkfaw9.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\0f4be141-5e57-4c77-bcec-69e983501bc4.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "45852"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cznMGU/mVwFhQjgOSaQD83FE9i7oqxJIWhPmqXgTr6c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:57:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jcbclkfaw9"
+        },
+        {
+          "Name": "label",
+          "Value": "images/0f4be141-5e57-4c77-bcec-69e983501bc4.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-cznMGU/mVwFhQjgOSaQD83FE9i7oqxJIWhPmqXgTr6c="
+        }
+      ]
+    },
+    {
+      "Route": "images/0f4be141-5e57-4c77-bcec-69e983501bc4.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\0f4be141-5e57-4c77-bcec-69e983501bc4.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "45852"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cznMGU/mVwFhQjgOSaQD83FE9i7oqxJIWhPmqXgTr6c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:57:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-cznMGU/mVwFhQjgOSaQD83FE9i7oqxJIWhPmqXgTr6c="
+        }
+      ]
+    },
+    {
+      "Route": "images/18de8254-3539-44f3-8038-e3d1ed1e9949.8tfg2pghip.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\18de8254-3539-44f3-8038-e3d1ed1e9949.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "93249"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9MWNUcCWNDf5EsF7GmiIgss+M3OTulw+qPMuWr11T7M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:57:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8tfg2pghip"
+        },
+        {
+          "Name": "label",
+          "Value": "images/18de8254-3539-44f3-8038-e3d1ed1e9949.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9MWNUcCWNDf5EsF7GmiIgss+M3OTulw+qPMuWr11T7M="
+        }
+      ]
+    },
+    {
+      "Route": "images/18de8254-3539-44f3-8038-e3d1ed1e9949.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\18de8254-3539-44f3-8038-e3d1ed1e9949.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "93249"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9MWNUcCWNDf5EsF7GmiIgss+M3OTulw+qPMuWr11T7M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:57:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9MWNUcCWNDf5EsF7GmiIgss+M3OTulw+qPMuWr11T7M="
+        }
+      ]
+    },
+    {
+      "Route": "images/230ddb75-1301-4839-84e9-c23e26bfa93c.dnkm0pwyu5.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\230ddb75-1301-4839-84e9-c23e26bfa93c.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8506"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:53:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dnkm0pwyu5"
+        },
+        {
+          "Name": "label",
+          "Value": "images/230ddb75-1301-4839-84e9-c23e26bfa93c.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU="
+        }
+      ]
+    },
+    {
+      "Route": "images/230ddb75-1301-4839-84e9-c23e26bfa93c.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\230ddb75-1301-4839-84e9-c23e26bfa93c.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8506"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:53:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU="
+        }
+      ]
+    },
+    {
+      "Route": "images/30ac8d9b-f97e-4fde-8085-1cbc1a608588.j2ysi8behm.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\30ac8d9b-f97e-4fde-8085-1cbc1a608588.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 18:06:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j2ysi8behm"
+        },
+        {
+          "Name": "label",
+          "Value": "images/30ac8d9b-f97e-4fde-8085-1cbc1a608588.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
+        }
+      ]
+    },
+    {
+      "Route": "images/30ac8d9b-f97e-4fde-8085-1cbc1a608588.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\30ac8d9b-f97e-4fde-8085-1cbc1a608588.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 18:06:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
+        }
+      ]
+    },
+    {
+      "Route": "images/499f019a-80f5-404f-8a6a-75250f3cbf84.j2ysi8behm.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\499f019a-80f5-404f-8a6a-75250f3cbf84.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 18:06:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j2ysi8behm"
+        },
+        {
+          "Name": "label",
+          "Value": "images/499f019a-80f5-404f-8a6a-75250f3cbf84.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
+        }
+      ]
+    },
+    {
+      "Route": "images/499f019a-80f5-404f-8a6a-75250f3cbf84.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\499f019a-80f5-404f-8a6a-75250f3cbf84.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 18:06:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
         }
       ]
     },
@@ -194163,8 +195567,8 @@
       ]
     },
     {
-      "Route": "images/5728593c-9711-400d-beec-69c07eb0a4da.gmck1lvzuy.jpg",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\5728593c-9711-400d-beec-69c07eb0a4da.jpg",
+      "Route": "images/7cdd6eb7-9301-468f-8074-f00e5baa5e67.dnkm0pwyu5.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\7cdd6eb7-9301-468f-8074-f00e5baa5e67.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -194173,19 +195577,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "53794"
+          "Value": "8506"
         },
         {
           "Name": "Content-Type",
-          "Value": "image/jpeg"
+          "Value": "image/png"
         },
         {
           "Name": "ETag",
-          "Value": "\"GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4=\""
+          "Value": "\"92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 20:29:29 GMT"
+          "Value": "Tue, 27 May 2025 05:52:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -194195,21 +195599,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "gmck1lvzuy"
+          "Value": "dnkm0pwyu5"
         },
         {
           "Name": "label",
-          "Value": "images/5728593c-9711-400d-beec-69c07eb0a4da.jpg"
+          "Value": "images/7cdd6eb7-9301-468f-8074-f00e5baa5e67.png"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4="
+          "Value": "sha256-92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU="
         }
       ]
     },
     {
-      "Route": "images/5728593c-9711-400d-beec-69c07eb0a4da.jpg",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\5728593c-9711-400d-beec-69c07eb0a4da.jpg",
+      "Route": "images/7cdd6eb7-9301-468f-8074-f00e5baa5e67.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\7cdd6eb7-9301-468f-8074-f00e5baa5e67.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -194218,19 +195622,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "53794"
+          "Value": "8506"
         },
         {
           "Name": "Content-Type",
-          "Value": "image/jpeg"
+          "Value": "image/png"
         },
         {
           "Name": "ETag",
-          "Value": "\"GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4=\""
+          "Value": "\"92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 20:29:29 GMT"
+          "Value": "Tue, 27 May 2025 05:52:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -194240,7 +195644,253 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-GL5cBPWXlSnTaGSuTQu4oKziTaiXhyFEHsjJcCtLAW4="
+          "Value": "sha256-92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU="
+        }
+      ]
+    },
+    {
+      "Route": "images/833745c4-c275-43a3-b302-c673ad4f76ce.j2ysi8behm.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\833745c4-c275-43a3-b302-c673ad4f76ce.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:52:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j2ysi8behm"
+        },
+        {
+          "Name": "label",
+          "Value": "images/833745c4-c275-43a3-b302-c673ad4f76ce.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
+        }
+      ]
+    },
+    {
+      "Route": "images/833745c4-c275-43a3-b302-c673ad4f76ce.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\833745c4-c275-43a3-b302-c673ad4f76ce.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:52:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
+        }
+      ]
+    },
+    {
+      "Route": "images/9a90abe2-03d7-4751-8977-cd5f4578b72b.j2ysi8behm.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\9a90abe2-03d7-4751-8977-cd5f4578b72b.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:52:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j2ysi8behm"
+        },
+        {
+          "Name": "label",
+          "Value": "images/9a90abe2-03d7-4751-8977-cd5f4578b72b.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
+        }
+      ]
+    },
+    {
+      "Route": "images/9a90abe2-03d7-4751-8977-cd5f4578b72b.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\9a90abe2-03d7-4751-8977-cd5f4578b72b.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:52:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
+        }
+      ]
+    },
+    {
+      "Route": "images/a55e6ed9-d58b-4659-b9ed-c50a67f75db0.dnkm0pwyu5.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\a55e6ed9-d58b-4659-b9ed-c50a67f75db0.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8506"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:35:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dnkm0pwyu5"
+        },
+        {
+          "Name": "label",
+          "Value": "images/a55e6ed9-d58b-4659-b9ed-c50a67f75db0.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU="
+        }
+      ]
+    },
+    {
+      "Route": "images/a55e6ed9-d58b-4659-b9ed-c50a67f75db0.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\a55e6ed9-d58b-4659-b9ed-c50a67f75db0.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8506"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:35:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU="
         }
       ]
     },
@@ -194323,6 +195973,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-I0i0BcG8LqSScn6V4ChI580iq0FNJEH/OotJ8Dr7yos="
+        }
+      ]
+    },
+    {
+      "Route": "images/e4d9a8ff-9a5a-4913-8546-4b23f7b11cb1.dnkm0pwyu5.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\e4d9a8ff-9a5a-4913-8546-4b23f7b11cb1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8506"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:36:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dnkm0pwyu5"
+        },
+        {
+          "Name": "label",
+          "Value": "images/e4d9a8ff-9a5a-4913-8546-4b23f7b11cb1.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU="
+        }
+      ]
+    },
+    {
+      "Route": "images/e4d9a8ff-9a5a-4913-8546-4b23f7b11cb1.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\e4d9a8ff-9a5a-4913-8546-4b23f7b11cb1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8506"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:36:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU="
+        }
+      ]
+    },
+    {
+      "Route": "images/FlagofJordan.j2ysi8behm.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\FlagofJordan.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:33:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j2ysi8behm"
+        },
+        {
+          "Name": "label",
+          "Value": "images/FlagofJordan.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
+        }
+      ]
+    },
+    {
+      "Route": "images/FlagofJordan.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\FlagofJordan.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 05:33:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
         }
       ]
     },
@@ -197033,6 +198847,88 @@
       ]
     },
     {
+      "Route": "images/workshops/3adc284f-548d-49aa-8a52-1244030cab03.j2ysi8behm.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\workshops\\3adc284f-548d-49aa-8a52-1244030cab03.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 18:04:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j2ysi8behm"
+        },
+        {
+          "Name": "label",
+          "Value": "images/workshops/3adc284f-548d-49aa-8a52-1244030cab03.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
+        }
+      ]
+    },
+    {
+      "Route": "images/workshops/3adc284f-548d-49aa-8a52-1244030cab03.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\workshops\\3adc284f-548d-49aa-8a52-1244030cab03.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 18:04:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
+        }
+      ]
+    },
+    {
       "Route": "images/workshops/488159ca-6bdf-4069-a2ec-f369501ab8f3.jpg",
       "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\workshops\\488159ca-6bdf-4069-a2ec-f369501ab8f3.jpg",
       "Selectors": [],
@@ -197629,7 +199525,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 20:11:33 GMT"
+          "Value": "Mon, 26 May 2025 18:05:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -197674,7 +199570,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 22 May 2025 20:11:33 GMT"
+          "Value": "Mon, 26 May 2025 18:05:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -202937,6 +204833,88 @@
       ]
     },
     {
+      "Route": "uploads/images/56bc9699-a64c-4d86-8d52-49f600636824.j2ysi8behm.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\images\\56bc9699-a64c-4d86-8d52-49f600636824.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 18:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j2ysi8behm"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/images/56bc9699-a64c-4d86-8d52-49f600636824.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/images/56bc9699-a64c-4d86-8d52-49f600636824.jpg",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\images\\56bc9699-a64c-4d86-8d52-49f600636824.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "211163"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 18:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcLyR/P6ld7gMLKiasiF/g/Vx5CwcmzrWt9A4reWMoo="
+        }
+      ]
+    },
+    {
       "Route": "uploads/images/5db3356e-5854-426f-907b-09773df51480.e5rwadq6s1.jpg",
       "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\images\\5db3356e-5854-426f-907b-09773df51480.jpg",
       "Selectors": [],
@@ -203999,6 +205977,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-dDm5gIFeLXuzqswUAPXix/GNERLF24trh/bdEruXf24="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/pdfs/1c35d6b5-18b3-42d1-a133-fbdecbff7aa4.pdf",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\pdfs\\1c35d6b5-18b3-42d1-a133-fbdecbff7aa4.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "76105"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dZZlV3F3xh+acE+5zlbE7h2JzTLVQKPV/0juPVW6Xq0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 18:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-dZZlV3F3xh+acE+5zlbE7h2JzTLVQKPV/0juPVW6Xq0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/pdfs/1c35d6b5-18b3-42d1-a133-fbdecbff7aa4.z2elzjw84i.pdf",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\pdfs\\1c35d6b5-18b3-42d1-a133-fbdecbff7aa4.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "76105"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dZZlV3F3xh+acE+5zlbE7h2JzTLVQKPV/0juPVW6Xq0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 18:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "z2elzjw84i"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/pdfs/1c35d6b5-18b3-42d1-a133-fbdecbff7aa4.pdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-dZZlV3F3xh+acE+5zlbE7h2JzTLVQKPV/0juPVW6Xq0="
         }
       ]
     },

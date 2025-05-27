@@ -12,6 +12,12 @@
 
 @section Style {
 	<link href="~/css/course.css" rel="stylesheet" />
+	
+	<style>
+		.course-card {
+			transition: all 0.3s ease;
+		}
+	</style>
 }
 
 
@@ -122,29 +128,7 @@
 				});
 			});
 
-			// دالة تصفية الكورسات حسب الفئة
-			function filterCourses(category) {
-				courseCards.forEach((card, index) => {
-					const cardCategory = card.querySelector('.course-tag').textContent;
-
-					// تطبيق تأثير الرسوم المتحركة
-					card.style.opacity = '0';
-					card.style.transform = 'translateY(30px)';
-
-					setTimeout(() => {
-						// إظهار جميع الكورسات أو تصفية حسب الفئة
-						if (category === 'الكل' || cardCategory === category) {
-							card.style.display = 'block';
-							setTimeout(() => {
-								card.style.opacity = '1';
-								card.style.transform = 'translateY(0)';
-							}, 50);
-						} else {
-							card.style.display = 'none';
-						}
-					}, 100);
-				});
-			}
+	
 
 			// تحسين تفاعلات شريط البحث
 			const searchInput = document.querySelector('.search-bar input');
@@ -191,77 +175,86 @@
 			});
 
 			// دالة تنفيذ البحث
-			function performSearch() {
-				const query = searchInput.value.trim().toLowerCase();
+					function performSearch() {
+			const query = searchInput.value.trim().toLowerCase();
+			let hasResults = false;
 
-				// إعادة تعيين الفئة النشطة إلى 'الكل' أثناء البحث
-				if (query) {
-					categories.forEach(cat => cat.classList.remove('active'));
-					categories[0].classList.add('active'); // 'الكل' هي الفئة الأولى
+			courseCards.forEach(card => {
+				const cardTitle = card.querySelector('.course-title').textContent.toLowerCase();
+				const cardDescription = card.querySelector('.course-info p').textContent.toLowerCase();
+
+				if (query === '' || cardTitle.includes(query) || cardDescription.includes(query)) {
+					card.style.display = 'block';
+					hasResults = true;
+				} else {
+					card.style.display = 'none';
 				}
+			});
 
-				// تصفية الكورسات حسب الاستعلام
-				let hasResults = false;
+			// عرض رسالة إذا لم توجد نتائج
+			const noResults = document.querySelector('.no-results') || createNoResultsMessage();
+			noResults.style.display = hasResults || query === '' ? 'none' : 'block';
+		}
 
-				courseCards.forEach((card, index) => {
-					const cardTitle = card.querySelector('.course-title').textContent.toLowerCase();
-					const cardCategory = card.querySelector('.course-tag').textContent.toLowerCase();
+		function createNoResultsMessage() {
+			const message = document.createElement('div');
+			message.className = 'no-results';
+			message.textContent = 'لا توجد نتائج مطابقة للبحث';
+			message.style.textAlign = 'center';
+			message.style.padding = '20px';
+			message.style.color = '#666';
+			message.style.display = 'none';
 
-					// تطبيق تأثير الرسوم المتحركة
-					card.style.opacity = '0';
-					card.style.transform = 'translateY(30px)';
+			const coursesGrid = document.querySelector('.courses-grid');
+			coursesGrid.parentNode.insertBefore(message, coursesGrid.nextSibling);
 
-					setTimeout(() => {
-						// التحقق إذا كان النص موجود في العنوان أو الفئة
-						if (!query || cardTitle.includes(query) || cardCategory.includes(query)) {
-							card.style.display = 'block';
-							hasResults = true;
-
-							setTimeout(() => {
-								card.style.opacity = '1';
-								card.style.transform = 'translateY(0)';
-							}, 50);
-						} else {
-							card.style.display = 'none';
-						}
-					}, index * 50);
-				});
-
-				// عرض رسالة إذا لم تكن هناك نتائج (يمكن إضافة عنصر في HTML للرسالة)
-				const noResultsMessage = document.querySelector('.no-results-message') || createNoResultsMessage();
-
-				setTimeout(() => {
-					let visibleCount = 0;
-					courseCards.forEach(card => {
-						if (card.style.display !== 'none') {
-							visibleCount++;
-						}
-					});
-
-					if (query && visibleCount === 0) {
-						noResultsMessage.style.display = 'block';
-						noResultsMessage.textContent = `لا توجد نتائج مطابقة لـ "${query}"`;
-					} else {
-						noResultsMessage.style.display = 'none';
-					}
-				}, courseCards.length * 50 + 100);
-			}
-
-			// إنشاء عنصر لعرض رسالة عدم وجود نتائج
-			function createNoResultsMessage() {
-				const message = document.createElement('div');
-				message.className = 'no-results-message';
-				message.style.textAlign = 'center';
-				message.style.padding = '2rem';
-				message.style.color = '#666';
-				message.style.fontWeight = 'bold';
-				message.style.display = 'none';
-
-				const coursesGrid = document.querySelector('.courses-grid');
-				coursesGrid.parentNode.insertBefore(message, coursesGrid.nextSibling);
-
-				return message;
-			}
+			return message;
+		}
 		});
+
+
+
+		document.addEventListener('DOMContentLoaded', function() {
+    // البحث عن العناصر المطلوبة
+    const searchInput = document.querySelector('.search-bar input');
+    const searchButton = document.querySelector('.search-bar button');
+    const courseCards = document.querySelectorAll('.course-card');
+    
+    // دالة تنفيذ البحث
+    function performSearch() {
+        const query = searchInput.value.trim().toLowerCase();
+        
+        courseCards.forEach(card => {
+            const cardTitle = card.querySelector('.course-title').textContent.toLowerCase();
+            const cardDescription = card.querySelector('.course-info p').textContent.toLowerCase();
+            
+            // التحقق من وجود النص في العنوان أو الوصف
+            if (query === '' || cardTitle.includes(query) || cardDescription.includes(query)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+    
+    // إضافة معالج حدث لزر البحث
+    searchButton.addEventListener('click', performSearch);
+    
+    // إضافة معالج حدث للضغط على مفتاح Enter
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            performSearch();
+        }
+    });
+    
+    // (اختياري) البحث أثناء الكتابة مع تأخير
+    let searchTimeout;
+    searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(performSearch, 300);
+    });
+});
+
+
 	</script>
 }

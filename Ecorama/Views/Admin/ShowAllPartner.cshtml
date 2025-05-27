@@ -1,60 +1,253 @@
 ﻿@model IEnumerable<Ecorama.Models.Partner>
 
 @{
+    ViewData["Title"] = "إدارة الشركاء";
     Layout = "~/Views/Shared/_Admin_Layout.cshtml";
 }
 
-@section Style {
-    <link href="~/css/ShowAllPartners.css" rel="stylesheet" asp-append-version="true" />
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h3 class="mb-0">
+                        <i class="fas fa-handshake me-2"></i>
+                        إدارة الشركاء
+                    </h3>
+                    <a asp-action="AddNewPartner" asp-controller="Admin" class="btn btn-light">
+                        <i class="fas fa-plus me-1"></i>
+                        إضافة شريك جديد
+                    </a>
+                </div>
+                <div class="card-body">
+                    @if (TempData["MSG_3"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show">
+                            <i class="fas fa-check-circle me-2"></i>
+                            @TempData["MSG_3"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    @if (Model != null && Model.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle" id="partnersTable">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th width="80">الصورة</th>
+                                        <th>اسم الشريك</th>
+                                        <th>الموقع الإلكتروني</th>
+                                        <th width="180" class="text-center">الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                                {
+                                                    <img src="@item.ImageUrl" alt="@item.Name"
+                                                         class="img-thumbnail partner-logo" style="width: 60px; height: 60px; object-fit: contain; background: #f8f9fa;">
+                                                }
+                                                else
+                                                {
+                                                    <div class="bg-light d-flex align-items-center justify-content-center"
+                                                         style="width: 60px; height: 60px; border-radius: 0.375rem;">
+                                                        <i class="fas fa-building text-muted"></i>
+                                                    </div>
+                                                }
+                                            </td>
+                                            <td>
+                                                <strong class="text-dark">@Html.DisplayFor(modelItem => item.Name)</strong>
+                                            </td>
+                                            <td>
+                                                @if (!string.IsNullOrEmpty(item.WebsiteUrl))
+                                                {
+                                                    <a href="@item.WebsiteUrl" target="_blank" class="text-primary text-decoration-none">
+                                                        <i class="fas fa-external-link-alt me-1"></i>
+                                                        @{
+                                                            var displayUrl = item.WebsiteUrl.Length > 30 ?
+                                                            item.WebsiteUrl.Substring(0, 30) + "..." :
+                                                            item.WebsiteUrl;
+                                                        }
+                                                        @displayUrl
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">غير محدد</span>
+                                                }
+                                            </td>
+                                           
+                                            <td class="text-center">
+                                                <div class="btn-group" role="group">
+                                                    <a asp-action="UpdatePartner" asp-controller="Admin" asp-route-Id="@item.Id"
+                                                       class="btn btn-sm btn-outline-warning" title="تعديل">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                    <button type="button" class="btn btn-sm btn-outline-danger"
+                                                            onclick="confirmDelete(@item.Id, '@item.Name')" title="حذف">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="fas fa-handshake fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">لا يوجد شركاء حالياً</h5>
+                            <p class="text-muted">ابدأ بإضافة شريك جديد لعرضه في الموقع</p>
+                            <a asp-action="AddNewPartner" asp-controller="Admin" class="btn btn-primary">
+                                <i class="fas fa-plus me-1"></i>
+                                إضافة أول شريك
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="deleteModalLabel">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    تأكيد الحذف
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-2">هل أنت متأكد من رغبتك في حذف الشريك:</p>
+                <strong id="partnerNameToDelete" class="text-danger"></strong>
+                <p class="mt-2 text-muted small">لا يمكن التراجع عن هذا الإجراء.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                <form id="deleteForm" method="post" style="display: inline;">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash me-1"></i>
+                        حذف نهائياً
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function confirmDelete(partnerId, partnerName) {
+            // Set partner name in modal
+            document.getElementById('partnerNameToDelete').textContent = partnerName;
+
+            // Set form action
+            const deleteForm = document.getElementById('deleteForm');
+            deleteForm.action = '@Url.Action("DeletePartner", "Admin")/' + partnerId;
+
+            // Show modal
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+            deleteModal.show();
+        }
+
+        // Initialize DataTable if available
+        document.addEventListener('DOMContentLoaded', function() {
+            const table = document.getElementById('partnersTable');
+            if (table && typeof $.fn.DataTable !== 'undefined') {
+                $(table).DataTable({
+                    language: {
+                        url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/ar.json'
+                    },
+                    pageLength: 10,
+                    responsive: true,
+                    order: [[3, 'desc']] // Sort by date created descending
+                });
+            }
+        });
+    </script>
+
+    <style>
+        .partner-logo {
+            transition: transform 0.2s ease;
+        }
+
+            .partner-logo:hover {
+                transform: scale(1.1);
+            }
+
+        .btn-group .btn {
+            border-radius: 0.375rem;
+            margin: 0 1px;
+        }
+
+        .table th {
+            border-top: none;
+            font-weight: 600;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .fade.show {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @@keyframes fadeIn {
+            from
+
+        {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        }
+
+        .card {
+            border-radius: 1rem;
+        }
+
+        .card-header {
+            border-radius: 1rem 1rem 0 0 !important;
+        }
+
+        .btn-light:hover {
+            background-color: #ffffff;
+            color: #0d6efd;
+        }
+
+        .text-primary:hover {
+            text-decoration: underline !important;
+        }
+
+        .modal-content {
+            border-radius: 1rem;
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .modal-header {
+            border-radius: 1rem 1rem 0 0;
+        }
+    </style>
 }
 
-<div class="container">
-    <h1>جدول الشركاء</h1>
-
-    @if (TempData["MSG_3"] != null)
-    {
-        <div class="alert alert-success">@TempData["MSG_3"]</div>
-    }
-
-    <a asp-action="AddNewPartner" asp-controller="Admin" class="add-btn">إضافة شريك جديد</a>
-
-    <table>
-        <thead>
-            <tr>
-                <th>الصورة</th>
-                <th>اسم الشريك</th>
-                <th>الموقع الإلكتروني</th>
-                <th>الإجراءات</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model != null)
-            {
-                
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        <div class="img-container">
-                            <img src="@(!string.IsNullOrEmpty(item.ImageUrl) ? item.ImageUrl : "/images/default.png")" alt="@item.Name" />
-                        </div>
-                    </td>
-                    <td>@item.Name</td>
-                    <td><a href="@item.WebsiteUrl" target="_blank">@item.WebsiteUrl</a></td>
-                    <td class="actions">
-                        <a asp-action="UpdatePartner" asp-controller="Admin" asp-route-Id="@item.Id" class="btn btn-edit">تعديل</a>
-
-                        <form asp-action="DeletePartner" asp-controller="Admin" asp-route-id="@item.Id"
-                              method="post" onsubmit="return confirm('هل أنت متأكد من رغبتك في حذف هذا الشريك؟');"
-                              style="display:inline;">
-                            <button type="submit" class="btn btn-delete">حذف</button>
-                        </form>
-                    </td>
-                </tr>
-            }
-            }
-          
-{
-        </tbody>
-    </table>
-</div>
+@section Style {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+}

@@ -188,7 +188,7 @@
 
 
 	/* Dropdown List Styling */
-	
+
 
 	/* Hamburger Menu (Mobile) */
 	@@media (max-width: 768px) {
@@ -403,7 +403,174 @@
 	.dropdown-toggle:after {
 		display: none !important;
 	}
+	/* إضافة padding-top للـ containerHeader */
+	/* .containerHeader {
+		padding-top: 30px;
+	} */
 
+	/* تنسيق عنصر الترجمة */
+	#google_translate_element {
+		display: inline-block;
+		margin-left: 15px;
+	}
+
+	/* إخفاء البانر المزعج من Google Translate */
+	.goog-te-banner-frame.skiptranslate {
+		display: none !important;
+	}
+
+	body {
+		top: 0px !important;
+	}
+
+	/* تنسيق قائمة الترجمة */
+	.goog-te-gadget {
+		font-size: 0 !important;
+	}
+
+		.goog-te-gadget .goog-te-combo {
+			background: #3498db;
+			border: none;
+			color: white;
+			padding: 8px 15px;
+			border-radius: 20px;
+			font-size: 14px;
+			cursor: pointer;
+			outline: none;
+			font-family: inherit;
+			min-width: 100px;
+			text-align: center;
+			margin: 0 !important;
+		}
+
+			.goog-te-gadget .goog-te-combo:hover {
+				background: #2980b9;
+			}
+
+			/* تنسيق خيارات القائمة */
+			.goog-te-gadget .goog-te-combo option {
+				background: white;
+				color: #333;
+				padding: 5px;
+			}
+
+				.goog-te-gadget .goog-te-combo option:first-child {
+					display: none; /* إخفاء "اختر لغة" */
+				}
+
+	/* إخفاء الشعار والروابط من Google */
+	.goog-logo-link {
+		display: none !important;
+	}
+
+	.goog-te-gadget > span > a {
+		display: none !important;
+	}
+
+	/* تحسين موضع عنصر الترجمة في الـ navbar */
+	.auth-buttons {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+	}
+
+	/* تنسيق responsive للترجمة */
+	@@media (max-width: 768px) {
+		#google_translate_element {
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+
+		.goog-te-gadget .goog-te-combo {
+			min-width: 80px;
+			padding: 6px 10px;
+			font-size: 12px;
+		}
+	}
+
+	/* تنسيقات عامة لجميع الأزرار */
+	.auth-buttons-desktop a,
+	.auth-buttons-mobile a,
+	.mobile-auth-btn {
+		padding: 8px 20px;
+		border-radius: 5px;
+		text-decoration: none;
+		font-weight: 500;
+		transition: all 0.3s ease;
+	}
+
+	/* تنسيقات خاصة بزر التسجيل */
+	.signup-btn {
+		background-color: #063b5c;
+		color: #fff !important;
+	}
+
+		.signup-btn:hover {
+			background-color: #15a1cf;
+		}
+
+	/* تنسيقات صورة البروفايل */
+	.profile-image {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		object-fit: cover;
+		border: 2px solid #063b5c;
+	}
+
+	/* للشاشات الكبيرة - إظهار auth-buttons-desktop وإخفاء النسخة المدمجة */
+	.auth-buttons-desktop {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.auth-buttons-mobile {
+		display: none;
+	}
+
+	/* للشاشات الصغيرة */
+	@@media (max-width: 768px) {
+		.auth-buttons-desktop {
+			display: none;
+		}
+
+		.auth-buttons-mobile {
+			display: block;
+			padding: 10px 0;
+			text-align: center;
+		}
+
+		.nav-linkss {
+			display: none;
+			flex-direction: column;
+			width: 100%;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			background: #fff;
+			padding: 1rem;
+			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		}
+
+			.nav-linkss.active {
+				display: flex;
+			}
+
+		.auth-buttons-mobile .signup-btn,
+		.mobile-auth-btn {
+			display: inline-block;
+			margin-top: 10px;
+			width: 100%;
+			text-align: center;
+		}
+
+		.profile-image-link {
+			display: flex;
+			justify-content: center;
+			margin-top: 10px;
+		}
+	}
 </style>
 
 
@@ -424,8 +591,6 @@
 					<li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
 					<li><a href="@Url.Action("Index","CoursesUser")">الكورسات</a></li>
 					<li><a href="@Url.Action("Workshops","WorkShops")">الورشات</a></li>
-
-
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">
 							الأخبار والإعلانات
@@ -435,12 +600,33 @@
 							<li><a class="dropdown-item" href="@Url.Action("News", "News")">الأخبار</a></li>
 						</ul>
 					</li>
-
-					@* <li><a href="#">الشركاء</a></li> *@
 					<li><a href="@Url.Action("AboutUs","Home")">من نحن</a></li>
 					<li><a href="@Url.Action("Index","Contact")">تواصل معنا</a></li>
+
+					<!-- نسخة الهاتف المحمول -->
+					<li class="auth-buttons-mobile">
+						@if (Context.Session.GetString("UserEmail") != null)
+						{
+							if (!string.IsNullOrEmpty(profileImagePath))
+							{
+								<a href="@Url.Action("Profile", "Profile")" class="profile-image-link">
+									<img src="@profileImagePath" alt="صورة الملف الشخصي" class="profile-image" />
+								</a>
+							}
+							else
+							{
+								<a href="@Url.Action("Profile", "Profile")" class="signup-btn mobile-auth-btn">الملف الشخصي</a>
+							}
+						}
+						else
+						{
+							<a href="@Url.Action("Login", "Login")" class="signup-btn mobile-auth-btn">تسجيل دخول</a>
+						}
+					</li>
 				</ul>
-				<div class="auth-buttons">
+
+				<!-- نسخة سطح المكتب -->
+				<div class="auth-buttons-desktop">
 					@if (Context.Session.GetString("UserEmail") != null)
 					{
 						if (!string.IsNullOrEmpty(profileImagePath))
@@ -458,8 +644,16 @@
 					{
 						<a href="@Url.Action("Login", "Login")" class="signup-btn">تسجيل دخول</a>
 					}
-				</div>
 
+					<!-- إضافة عنصر الترجمة داخل auth-buttons -->
+					@* <div class="translate-container">
+			<div id="google_translate_element"></div>
+		</div> *@
+
+
+
+
+				</div>
 
 				<div class="hamburger">
 					<span></span>
@@ -469,6 +663,8 @@
 			</nav>
 		</div>
 	</header>
+
+
 
 	<main role="main" class="pb-3">
 		@RenderBody()
@@ -553,7 +749,85 @@
 				navLinks.classList.toggle("active");
 			});
 		});
+
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement(
+				{
+					pageLanguage: 'ar',
+					includedLanguages: 'en',
+					layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+					autoDisplay: false
+				},
+				'google_translate_element'
+			);
+
+			// فورس الصفحة تكون عربي عند التحميل
+			setTimeout(function() {
+				// إعادة تعيين اللغة للعربية
+				var translateFrame = document.querySelector('.goog-te-menu-frame');
+				if (translateFrame) {
+					var originalLink = translateFrame.contentDocument.querySelector('a[onclick*="ar"]');
+					if (originalLink) {
+						originalLink.click();
+					}
+				}
+
+				// إزالة أي كوكيز ترجمة محفوظة
+				document.cookie = "googletrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+				var select = document.querySelector('.goog-te-combo');
+				if (select) {
+					// تعيين القيمة الافتراضية للعربية
+					select.value = '';
+
+					for (var i = 0; i < select.options.length; i++) {
+						var option = select.options[i];
+						if (option.value === '') {
+							option.text = 'العربية';
+							option.selected = true;
+						} else if (option.value === 'en') {
+							option.text = 'English';
+						}
+					}
+				}
+			}, 1000);
+		}
+
+
+
+		// 		function setNavbarPaddingBasedOnLanguage() {
+		// 	const navbar = document.querySelector('.navbar');
+		// 	const currentLang = document.cookie.match(/googtrans=\/ar\/(\w+)/);
+
+		// 	if (currentLang && currentLang[1] === 'en') {
+		// 		navbar.style.paddingTop = '30px';
+		// 	} else {
+		// 		navbar.style.paddingTop = '0px';
+		// 	}
+		// }
+
+		// نادِ الوظيفة بعد التأخير للتأكد من تحميل الترجمة
+		setTimeout(() => {
+			setNavbarPaddingBasedOnLanguage();
+
+			// راقب التغييرات في لغة الترجمة بشكل مستمر
+			const observer = new MutationObserver(setNavbarPaddingBasedOnLanguage);
+			const translateElement = document.getElementById('google_translate_element');
+			if (translateElement) {
+				observer.observe(translateElement, {
+					childList: true,
+					subtree: true
+				});
+			}
+		}, 1500);
+
+
+
+
 	</script>
+
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 	@await RenderSectionAsync("Scripts", required: false)
 </body>

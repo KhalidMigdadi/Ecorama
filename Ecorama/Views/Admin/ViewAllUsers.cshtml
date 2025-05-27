@@ -5,6 +5,7 @@
 
 @section Style {
 	<style>
+
 		body {
 			font-family: 'Cairo', sans-serif;
 			background-color: #f8f9fc;
@@ -221,21 +222,40 @@
 				<i class="fas fa-users me-1"></i> إجمالي المستخدمين: <span class="fw-bold">@Model.Count()</span>
 			</div>
 			<!-- زر تحميل جميع المستخدمين -->
-			<form asp-action="ExportAllUsersToPdf" method="post" class="d-inline">
+			@* <form asp-action="ExportAllUsersToPdf" method="post" class="d-inline">
 				<button type="submit" class="btn btn-success btn-sm">
 					<i class="fas fa-file-pdf me-1"></i> تحميل PDF لجميع المستخدمين
 				</button>
-			</form>
+			</form> *@
 		</div>
 	</div>
 
 	<!-- Users Card -->
 	<div class="card shadow">
-		<div class="card-header d-flex justify-content-between align-items-center">
+		<div class="card-header d-flex justify-content-between align-items-center flex-wrap">
 			<h5 class="m-0 font-weight-bold">قائمة المستخدمين</h5>
-			<div class="search-container">
-				<i class="fas fa-search"></i>
-				<input type="text" id="searchInput" class="form-control" placeholder="بحث عن مستخدم..." aria-label="بحث">
+			<div class="d-flex gap-3 align-items-center flex-wrap">
+				<!-- فلتر الألوية -->
+				<div class="filter-container">
+					<i class="fas fa-map-marker-alt"></i>
+					<select id="districtFilter" class="form-select" style="min-width: 200px;">
+						<option value="">جميع الألوية</option>
+						<option value="قصبة إربد">قصبة إربد</option>
+						<option value="الكورة">الكورة</option>
+						<option value="بني كنانة">بني كنانة</option>
+						<option value="الرمثا">الرمثا</option>
+						<option value="الطيبة">الطيبة</option>
+						<option value="الوسطية">الوسطية</option>
+						<option value="بني عبيد">بني عبيد</option>
+						<option value="المزار الشمالي">المزار الشمالي</option>
+						<option value="الأغوار الشمالية">الأغوار الشمالية</option>
+					</select>
+				</div>
+				<!-- البحث العام -->
+				<div class="search-container">
+					<i class="fas fa-search"></i>
+					<input type="text" id="searchInput" class="form-control" placeholder="بحث عن مستخدم..." aria-label="بحث">
+				</div>
 			</div>
 		</div>
 		<div class="card-body">
@@ -247,9 +267,10 @@
 							<th>@Html.DisplayNameFor(model => model.LastName)</th>
 							<th>@Html.DisplayNameFor(model => model.Email)</th>
 							<th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+							<th>اللواء</th>
 							<th>@Html.DisplayNameFor(model => model.CreatedAt)</th>
 							<th>@Html.DisplayNameFor(model => model.IsActive)</th>
-							<th>خيارات</th>
+							<th>Option</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -260,6 +281,16 @@
 								<td>@Html.DisplayFor(modelItem => item.LastName)</td>
 								<td>@Html.DisplayFor(modelItem => item.Email)</td>
 								<td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+								<td>
+									@if (item.Residences != null && item.Residences.Any())
+									{
+										@string.Join(", ", item.Residences.Select(r => r.District).Distinct())
+									}
+									else
+									{
+										<span class="text-muted">غير محدد</span>
+									}
+								</td>
 								<td>@(item.CreatedAt?.ToString("yyyy-MM-dd"))</td>
 								<td>
 									<span class="badge @(item.IsActive ? "bg-success" : "bg-danger")">
@@ -273,11 +304,11 @@
 										</button>
 
 										<!-- زر تحميل PDF للمستخدم الواحد -->
-										<form asp-action="ExportUserToPdf" method="post" asp-route-id="@item.Id" class="d-inline">
+										@* <form asp-action="ExportUserToPdf" method="post" asp-route-id="@item.Id" class="d-inline">
 											<button type="submit" class="btn btn-sm btn-outline-primary" title="تحميل تفاصيل المستخدم كـ PDF">
 												<i class="fas fa-file-pdf"></i> PDF
 											</button>
-										</form>
+										</form> *@
 
 
 										<form asp-action="ToggleActivation" method="post" asp-route-id="@item.Id">
@@ -510,11 +541,11 @@
 				</div>
 				<div class="modal-footer">
 					<!-- زر تحميل PDF من داخل المودال -->
-					<form asp-action="ExportUserToPdf" method="post" asp-route-id="@item.Id" class="d-inline me-2">
+				@* 	<form asp-action="ExportUserToPdf" method="post" asp-route-id="@item.Id" class="d-inline me-2">
 						<button type="submit" class="btn btn-primary rounded-pill px-4">
 							<i class="fas fa-file-pdf me-1"></i> تحميل PDF
 						</button>
-					</form>
+					</form> *@
 
 					<button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">
 						<i class="fas fa-times me-1"></i> إغلاق
@@ -530,6 +561,42 @@
 	<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
 
+	<style>
+		.filter-container {
+			position: relative;
+			display: flex;
+			align-items: center;
+		}
+
+			.filter-container i {
+				position: absolute;
+				left: 10px;
+				z-index: 5;
+				color: #6c757d;
+			}
+
+			.filter-container .form-select {
+				padding-left: 35px;
+			}
+
+		.search-container {
+			position: relative;
+			display: flex;
+			align-items: center;
+		}
+
+			.search-container i {
+				position: absolute;
+				left: 10px;
+				z-index: 5;
+				color: #6c757d;
+			}
+
+			.search-container .form-control {
+				padding-left: 35px;
+			}
+	</style>
+
 	<script>
 		$(document).ready(function() {
 			// تهيئة DataTable مع خيارات محسّنة
@@ -537,9 +604,9 @@
 				"language": {
 					"url": "//cdn.datatables.net/plug-ins/1.11.5/i18n/ar.json"
 				},
-				"order": [[4, "desc"]],  // ترتيب حسب تاريخ الإنشاء
+				"order": [[5, "desc"]],  // ترتيب حسب تاريخ الإنشاء (تم تغيير الفهرس من 4 إلى 5)
 				"columnDefs": [
-					{ "orderable": false, "targets": [6] }  // عمود الخيارات غير قابل للترتيب
+					{ "orderable": false, "targets": [7] }  // عمود الخيارات غير قابل للترتيب (تم تغيير الفهرس من 6 إلى 7)
 				],
 				"dom": '<"top"fl>rt<"bottom"ip>',
 				"responsive": true,
@@ -556,6 +623,29 @@
 				table.search(this.value).draw();
 			});
 
+			// فلتر الألوية
+			$('#districtFilter').on('change', function() {
+				var selectedDistrict = this.value;
+				if (selectedDistrict === '') {
+					// إظهار جميع الصفوف
+					table.column(4).search('').draw();
+				} else {
+					// البحث في عمود اللواء (العمود رقم 4)
+					table.column(4).search(selectedDistrict).draw();
+				}
+
+				// تحديث عداد المستخدمين
+				updateUserCount();
+			});
+
+			// دالة تحديث عداد المستخدمين
+			function updateUserCount() {
+				setTimeout(function() {
+					var visibleRows = table.rows({ search: 'applied' }).count();
+					$('.user-count span').text(visibleRows);
+				}, 100);
+			}
+
 			// تأثيرات إضافية
 			$('.detail-btn').hover(
 				function() { $(this).addClass('shadow-sm'); },
@@ -569,13 +659,16 @@
 					$(e.target).find('i').removeClass('fa-beat-fade');
 				}, 1000);
 			});
+
+			// تحديث العداد عند البحث أيضاً
+			$('#searchInput').on('keyup', function() {
+				updateUserCount();
+			});
 		});
 
-				// تأثير تحميل للأزرار
+		// تأثير تحميل للأزرار
 		$('form[asp-action="ExportUserToPdf"], form[asp-action="ExportAllUsersToPdf"]').on('submit', function() {
 			// كود إضافة تأثير التحميل
 		});
-
-
 	</script>
 }

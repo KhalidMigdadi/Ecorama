@@ -44,14 +44,24 @@ namespace Ecorama.Controllers
             if (userId == null)
                 return RedirectToAction("Login", "Login");
 
+            // جلب بيانات المستخدم من قاعدة البيانات
+            var user = _context.Users.FirstOrDefault(u => u.Id == userId.Value);
+            if (user == null)
+                return NotFound("المستخدم غير موجود.");
+
+            // تجهيز نموذج التسجيل مع تعبئة البيانات
             var registration = new CourseRegistration
             {
                 CourseId = courseId,
-                UserId = userId.Value
+                UserId = user.Id,
+                FullName = $"{user.FirstName} {user.MiddleName} {user.LastName}".Trim(),
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber
             };
 
             return View(registration);
         }
+
 
 
         [HttpPost]

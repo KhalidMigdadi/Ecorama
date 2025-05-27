@@ -351,7 +351,7 @@ namespace Ecorama.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Clear(); // حذف كل بيانات الجلسة
-            return RedirectToAction("Login");
+            return RedirectToAction("Index","Home");
         }
 
         #endregion
@@ -491,7 +491,7 @@ namespace Ecorama.Controllers
             await _context.SaveChangesAsync();
 
             TempData["PasswordSuccess"] = "تم تحديث كلمة المرور بنجاح!";
-            return RedirectToAction("LoginUserMen");
+            return RedirectToAction("Login");
         }
 
         // استبدال دالة SendEmail بهذه الدالة المُحدّثة
