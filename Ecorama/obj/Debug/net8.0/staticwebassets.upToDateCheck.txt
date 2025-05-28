@@ -1830,20 +1830,6 @@ wwwroot\Admin\js\demo\chart-pie-demo.js
 wwwroot\Admin\js\demo\datatables-demo.js
 wwwroot\Admin\js\demo\sb-admin-2.min.js
 wwwroot\Admin\js\sb-admin-2.js
-wwwroot\Controllers\AboutUsController.cs
-wwwroot\Controllers\AdminController.cs
-wwwroot\Controllers\AnnouncementController.cs
-wwwroot\Controllers\ContactController.cs
-wwwroot\Controllers\CourseLessonsController.cs
-wwwroot\Controllers\CoursesController.cs
-wwwroot\Controllers\CoursesUserController.cs
-wwwroot\Controllers\HomeController.cs
-wwwroot\Controllers\LoginController.cs
-wwwroot\Controllers\NewsController.cs
-wwwroot\Controllers\ProfileController.cs
-wwwroot\Controllers\SliderController.cs
-wwwroot\Controllers\SocialController.cs
-wwwroot\Controllers\WorkShopsController.cs
 wwwroot\css\AddNewPartners.css
 wwwroot\css\advertisements.css
 wwwroot\css\course.css
@@ -1863,12 +1849,14 @@ wwwroot\favicon.ico
 wwwroot\fonts\NotoSansArabic-VariableFont_wdth,wght.ttf
 wwwroot\images\0f4be141-5e57-4c77-bcec-69e983501bc4.png
 wwwroot\images\18de8254-3539-44f3-8038-e3d1ed1e9949.png
+wwwroot\images\19cd4281-3e15-462b-8827-7a3559380e06.jpg
 wwwroot\images\230ddb75-1301-4839-84e9-c23e26bfa93c.png
 wwwroot\images\30ac8d9b-f97e-4fde-8085-1cbc1a608588.jpg
 wwwroot\images\499f019a-80f5-404f-8a6a-75250f3cbf84.jpg
 wwwroot\images\4fb38b43-5a12-43bd-a7ee-47d52447fd27.jpg
 wwwroot\images\7cdd6eb7-9301-468f-8074-f00e5baa5e67.png
-wwwroot\images\833745c4-c275-43a3-b302-c673ad4f76ce.jpg
+wwwroot\images\87067a4a-7b78-4a51-91bf-a72bcf82cdad.jpg
+wwwroot\images\957f8026-3d28-41fc-91b4-80a20bcb6598.png
 wwwroot\images\9a90abe2-03d7-4751-8977-cd5f4578b72b.jpg
 wwwroot\images\a55e6ed9-d58b-4659-b9ed-c50a67f75db0.png
 wwwroot\images\Course-3X1.jpg
@@ -1909,8 +1897,16 @@ wwwroot\images\WebDevelop.jpg
 wwwroot\images\workshops\323b4b12-7ecc-4598-9636-3aa4d8d71dc3.jpg
 wwwroot\images\workshops\3adc284f-548d-49aa-8a52-1244030cab03.jpg
 wwwroot\images\workshops\488159ca-6bdf-4069-a2ec-f369501ab8f3.jpg
+wwwroot\images\workshops\69266126-3ef3-4def-9d97-f2853460bad3.jpg
+wwwroot\images\workshops\6faeb753-27de-4af4-8649-81a492a10681.png
+wwwroot\images\workshops\866235b1-b561-4a4c-9ea8-13ded9518bfb.png
+wwwroot\images\workshops\91d1311d-26e4-45a6-a7bf-d68995f23bd5.png
+wwwroot\images\workshops\b4507b59-e7f3-443a-a48b-cda44b8bfa52.png
 wwwroot\images\workshops\b8e13c4c-3327-41b2-81ae-bd399ccd5e0f.jpg
 wwwroot\images\workshops\d746c1b2-9abd-4667-abd1-c0c4d2b81a45.png
+wwwroot\images\workshops\e1401a8a-6301-4d7c-bec5-2e50c7c8fe1c.jpg
+wwwroot\images\workshops\e34b5762-1eb4-4fde-aa94-971a6356dbe0.jpg
+wwwroot\images\workshops\f022a1f7-df2e-4dea-8e1b-69720e1b9726.png
 wwwroot\img\news\1746627164255.jpg
 wwwroot\img\news\179054_10_1648145898.jpg
 wwwroot\img\news\24.jpg
@@ -1918,7 +1914,12 @@ wwwroot\img\news\file-10-4.jpeg
 wwwroot\img\news\FlagofJordan.jpg
 wwwroot\img\news\himg_4572.jpg
 wwwroot\img\news\images.jpg
+wwwroot\img\news\Screenshot 2024-12-10 191258.png
+wwwroot\img\news\Screenshot 2024-12-10 191611.png
 wwwroot\img\news\Screenshot 2024-12-10 191931.png
+wwwroot\img\workshops\FlagofJordan.jpg
+wwwroot\img\workshops\Screenshot 2024-12-10 191611.png
+wwwroot\img\workshops\Screenshot 2024-12-10 192129.png
 wwwroot\js\AddNewPartnersJs.js
 wwwroot\js\course.js
 wwwroot\js\site.js
@@ -1979,26 +1980,35 @@ wwwroot\lib\jquery-validation\LICENSE.md
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\uploads\images\11464559-7409-4d1e-aa45-a5da35c29931.jpg
 wwwroot\uploads\images\1d2bf711-4669-4e8c-b438-fe4bc9536b46.jpg
 wwwroot\uploads\images\56bc9699-a64c-4d86-8d52-49f600636824.jpg
 wwwroot\uploads\images\5db3356e-5854-426f-907b-09773df51480.jpg
 wwwroot\uploads\images\7074a0c9-8a56-4d3c-8610-90b3b1425154.jpg
 wwwroot\uploads\images\9096ba52-9c3f-4954-8b82-e00959644c7d.jpg
+wwwroot\uploads\images\960542b7-e500-4183-aa1b-ca447e00fa70.png
 wwwroot\uploads\images\a0430300-6030-4e18-8c2e-dd9be530ec9f.png
 wwwroot\uploads\images\a255f683-e9e1-4c9b-bec2-c30bfecd7ae8.jpg
 wwwroot\uploads\images\cb5069a0-2f80-45dc-9fbb-9dfd7cb9ba5e.jpg
+wwwroot\uploads\images\d9da141c-8fe9-4c0d-8da0-240eb3613862.jpg
 wwwroot\uploads\lesson-images\3040f541-50ba-4b7b-a445-13aced04247d.png
+wwwroot\uploads\lesson-images\31176442-78be-4daa-8d78-fb76d3a401c3.png
+wwwroot\uploads\lesson-images\333fcd58-abdf-4345-9eba-f0e82f7058f9.jpg
 wwwroot\uploads\lesson-images\ab38ce46-9e04-4ca2-be42-59768f043e90.jpg
+wwwroot\uploads\partners\1771b738-1526-4b42-82b0-5126d513b719.jpg
 wwwroot\uploads\partners\3529ab8d-1777-4142-a9e7-123eb474981e.png
 wwwroot\uploads\partners\3cb316b8-d7fc-46b4-a04b-868ed6a9c3ab.png
 wwwroot\uploads\partners\6718932f-11b3-4ff8-b8f2-f1766f2398bc.jpg
 wwwroot\uploads\partners\8e91ca71-561f-400e-8b32-3620f260b15a.jpg
 wwwroot\uploads\partners\baa53753-98a0-4b80-95e7-3614996615ba.jpg
+wwwroot\uploads\pdfs\1a2acaf5-af7f-4543-ac7e-9fecbfce2f37.pdf
 wwwroot\uploads\pdfs\1c35d6b5-18b3-42d1-a133-fbdecbff7aa4.pdf
 wwwroot\uploads\pdfs\306649bc-2873-4b7b-8bb1-b3a8f66e80ea.pdf
+wwwroot\uploads\pdfs\4ff141f7-850b-4377-ad69-a0f86d1f8c37.pdf
 wwwroot\uploads\pdfs\8e3becb9-b28d-4d17-867b-32d0c0395f43.pdf
 wwwroot\uploads\pdfs\906c54cf-f2ba-4b02-a266-c09226948270.pdf
 wwwroot\uploads\pdfs\90c80ce5-5ae0-43cd-b390-635482de153c.pdf
 wwwroot\uploads\pdfs\91af772b-1fc2-4d7a-8078-8a3d0555f5bb.pdf
+wwwroot\uploads\pdfs\bb76bd98-e972-4a5f-b6b0-99a786e13a38.pdf
 wwwroot\uploads\pdfs\cb4672bb-fad1-4577-9cbf-658b70bdb7ad.pdf
 wwwroot\uploads\pdfs\eef09d53-c9e7-450a-b728-5b0e1a2241e8.pdf

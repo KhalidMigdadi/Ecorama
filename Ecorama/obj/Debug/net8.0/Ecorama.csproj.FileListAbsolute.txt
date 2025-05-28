@@ -601,3 +601,17 @@ C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\itext.fo
 C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\itext.bouncy-castle-adapter.dll
 C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\itext.html2pdf.dll
+C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\EPPlus.dll
+C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\EPPlus.Interfaces.dll
+C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
+C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\ClosedXML.dll
+C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\ClosedXML.Parser.dll
+C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\DocumentFormat.OpenXml.dll
+C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\DocumentFormat.OpenXml.Framework.dll
+C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\ExcelNumberFormat.dll
+C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\RBush.dll
+C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\SixLabors.Fonts.dll
+C:\Users\Orange\Desktop\New folder (3)\Ecorama\Ecorama\bin\Debug\net8.0\System.IO.Packaging.dll

@@ -1,4 +1,5 @@
-﻿using Ecorama.Models;
+﻿using ClosedXML.Excel;
+using Ecorama.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -199,6 +200,59 @@ namespace Ecorama.Controllers
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction(nameof(Index));
+        }
+
+
+
+
+
+
+        public async Task<IActionResult> ExportCoursesToExcel()
+        {
+            var courses = await _context.Courses
+                .OrderByDescending(c => c.CreatedAt)
+                .ToListAsync();
+
+            using var workbook = new XLWorkbook();
+            var worksheet = workbook.Worksheets.Add("Courses");
+
+            // رؤوس الأعمدة
+            worksheet.Cell(1, 1).Value = "العنوان";
+            worksheet.Cell(1, 2).Value = "الوصف";
+            worksheet.Cell(1, 3).Value = "رابط PDF";
+            worksheet.Cell(1, 4).Value = "تاريخ الإضافة";
+            worksheet.Cell(1, 5).Value = "تاريخ الدورة";
+            worksheet.Cell(1, 6).Value = "الحالة";
+
+            // تنسيق الرؤوس
+            var headerRange = worksheet.Range("A1:F1");
+            headerRange.Style.Font.Bold = true;
+            headerRange.Style.Fill.BackgroundColor = XLColor.LightGray;
+            headerRange.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+            int row = 2;
+            foreach (var course in courses)
+            {
+                worksheet.Cell(row, 1).Value = course.Title ?? "-";
+                worksheet.Cell(row, 2).Value = course.Description ?? "-";
+                worksheet.Cell(row, 3).Value = course.PdfUrl ?? "-";
+                worksheet.Cell(row, 4).Value = course.CreatedAt?.ToString("yyyy-MM-dd HH:mm") ?? "-";
+                worksheet.Cell(row, 5).Value = course.Date?.ToString("yyyy-MM-dd") ?? "-";
+                worksheet.Cell(row, 6).Value = course.IsActive ? "نشط" : "غير نشط";
+
+                row++;
+            }
+
+            // جعل الأعمدة تأخذ حجم المحتوى
+            worksheet.Columns().AdjustToContents();
+
+            using var stream = new MemoryStream();
+            workbook.SaveAs(stream);
+            stream.Position = 0;
+
+            return File(stream.ToArray(),
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "Courses.xlsx");
         }
 
 

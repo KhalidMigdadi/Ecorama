@@ -1,45 +1,48 @@
 ﻿@model List<Ecorama.Models.CourseLesson>
 @{
-    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
-    var courseId = ViewBag.CourseId;
-    var title = ViewBag.CourseTitle;
+	Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+	var courseId = ViewBag.CourseId;
+	var title = ViewBag.CourseTitle;
 }
 
 <h2>الدروس داخل الكورس: @title</h2>
 <a class="btn btn-primary mb-3" asp-action="Create" asp-route-courseId="@courseId">+ إضافة درس جديد</a>
 
 <table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>العنوان</th>
-            <th>فيديو يوتيوب</th>
-            <th>صورة</th>
-            <th>تحكم</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Title</td>
-                <td>
-                    @if (!string.IsNullOrEmpty(item.YoutubeLink))
-                    {
-                        <a href="@item.YoutubeLink" target="_blank">مشاهدة الفيديو</a>
-                    }
-                </td>
-                <td>
-                    @if (!string.IsNullOrEmpty(item.ImageUrl))
-                    {
-                        <img src="@item.ImageUrl" width="80" />
-                    }
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">تعديل</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">حذف</a>
-                </td>
-            </tr>
-        }
-    </tbody>
+	<thead>
+		<tr>
+			<th>العنوان</th>
+			<th>فيديو يوتيوب</th>
+			<th>صورة</th>
+			<th>تحكم</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Title</td>
+				<td>
+					@if (!string.IsNullOrEmpty(item.YoutubeLink))
+					{
+						<a href="@item.YoutubeLink" target="_blank">مشاهدة الفيديو</a>
+					}
+				</td>
+				<td>
+					@if (!string.IsNullOrEmpty(item.ImageUrl))
+					{
+						<img src="@item.ImageUrl" width="80" />
+					}
+				</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">تعديل</a>
+					@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+					{
+						<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">حذف</a>
+					}
+				</td>
+			</tr>
+		}
+	</tbody>
 </table>
 <a asp-controller="Courses" asp-action="Index" class="btn btn-secondary">العودة للكورسات</a>

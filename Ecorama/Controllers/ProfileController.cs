@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 
 namespace Ecorama.Controllers
 {
@@ -284,9 +285,44 @@ namespace Ecorama.Controllers
 
 
 
-
         }
 
+        public async Task<IActionResult> registerationWorkshops()
+        {
+            // جيب الـ UserId من الـ Claims
+            var userId = HttpContext.Session.GetInt32("UserId");
+
+            var userRegistrations = await _context.WorkshopRegistrations
+                .Include(wr => wr.Workshop)
+                .Where(wr => wr.UserId == userId)
+                .OrderByDescending(wr => wr.RegisteredAt)
+                .ToListAsync();
+
+            return View(userRegistrations);
+        }
+
+        // إلغاء التسجيل من ورشة
+        //[HttpPost]
+        //public async Task<IActionResult> Unregister(int registrationId)
+        //{
+        //    var userId = HttpContext.Session.GetInt32("UserId");
+
+        //    var registration = await _context.WorkshopRegistrations
+        //        .FirstOrDefaultAsync(wr => wr.Id == registrationId && wr.UserId == userId);
+
+        //    if (registration != null)
+        //    {
+        //        _context.WorkshopRegistrations.Remove(registration);
+        //        await _context.SaveChangesAsync();
+        //        TempData["Success"] = "تم إلغاء التسجيل بنجاح";
+        //    }
+        //    else
+        //    {
+        //        TempData["Error"] = "حدث خطأ في إلغاء التسجيل";
+        //    }
+
+        //    return RedirectToAction("registerationWorkshops");
+        //}
 
 
     }

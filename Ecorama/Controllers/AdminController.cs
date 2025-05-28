@@ -8,6 +8,8 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
 using System.Text;
+using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Drawing.Diagrams;
 
 
 
@@ -57,7 +59,7 @@ namespace Ecorama.Controllers
             var allWorkShops = _context.Workshops.Select(w => new Ecorama.Models.Workshop
             {
                 Title = w.Title,
-                Date = w.Date,
+                StartDate = w.StartDate,
                 SeatsAvailable = w.SeatsAvailable
 
             }).Take(4).ToList();
@@ -103,310 +105,99 @@ namespace Ecorama.Controllers
             return View(users);
         }
 
-        [HttpPost]
-        public IActionResult ExportAllUsersToPdf()
+
+        public async Task<IActionResult> ExportUsersToExcel()
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
-            if (adminId == null)
+            var users = await (from u in _context.Users.Where(u => u.Role == "User")
+                               join r in _context.Residences on u.Id equals r.UserId into res
+                               from r in res.DefaultIfEmpty()
+                               join e in _context.Educations on u.Id equals e.UserId into edu
+                               from e in edu.DefaultIfEmpty()
+                               join l in _context.Languages on u.Id equals l.UserId into lang
+                               from l in lang.DefaultIfEmpty()
+                               select new UserExportViewModel
+                               {
+                                   Id = u.Id,
+                                   FirstName = u.FirstName,
+                                   MiddleName = u.MiddleName,
+                                   LastName = u.LastName,
+                                   Gender = u.Gender,
+                                   Birthdate = u.Birthdate.ToDateTime(TimeOnly.MinValue),
+                                   NationalId = u.NationalId,
+                                   Email = u.Email,
+                                   PhoneNumber = u.PhoneNumber,
+                                   Governorate = r != null ? r.Governorate : null,
+                                   District = r != null ? r.District : null,
+                                   Village = r != null ? r.Village : null,
+                                   EducationLevel = e != null ? e.EducationLevel : null,
+                                   ProgramType = e != null ? e.ProgramType : null,
+                                   LanguageName = l != null ? l.LanguageName : null,
+                                   CustomLanguageName = l != null ? l.CustomLanguageName : null,
+                                   ProficiencyLevel = l != null ? l.ProficiencyLevel : null
+                               }).ToListAsync();
+
+            using (var workbook = new XLWorkbook())
             {
-                return RedirectToAction("Login", "Login");
-            }
+                var worksheet = workbook.Worksheets.Add("Users");
 
-            var users = _context.Users
-                .Include(u => u.Residences)
-                .Include(u => u.Educations)
-                .Include(u => u.Languages)
-                .ToList();
-
-            return GenerateUsersPdf(users, "جميع_المستخدمين");
-        }
-
-        [HttpPost]
-        public IActionResult ExportUserToPdf(int id)
-        {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
-            if (adminId == null)
-            {
-                return RedirectToAction("Login", "Login");
-            }
-
-            var user = _context.Users
-                .Include(u => u.Residences)
-                .Include(u => u.Educations)
-                .Include(u => u.Languages)
-                .FirstOrDefault(u => u.Id == id);
-
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return GenerateUsersPdf(new List<User> { user }, $"تفاصيل_المستخدم_{user.FirstName}_{user.LastName}");
-        }
-
-        private FileResult GenerateUsersPdf(List<User> users, string fileName)
-        {
-            using (var stream = new MemoryStream())
-            {
-                // إنشاء مستند PDF
-                var document = new Document(PageSize.A4, 20, 20, 30, 30);
-                var writer = PdfWriter.GetInstance(document, stream);
-
-                // تعيين اتجاه الكتابة من اليمين لليسار
-                writer.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
-                document.Open();
-
-                // إعداد الخط العربي مع مسارات متعددة
-                BaseFont arabicFont = null;
-                string[] fontPaths = {
-                Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "fonts", "NotoSansArabic-Regular.ttf"),
-                Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "fonts", "arial.ttf"),
-                Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arial.ttf"),
-                Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "tahoma.ttf"),
-                Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "calibri.ttf")
-            };
-
-                foreach (string fontPath in fontPaths)
+                // العناوين
+                var headers = new[]
                 {
-                    try
-                    {
-                        if (System.IO.File.Exists(fontPath))
-                        {
-                            arabicFont = BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-                            break;
-                        }
-                    }
-                    catch
-                    {
-                        continue;
-                    }
+            "Id", "First Name", "Middle Name", "Last Name", "Gender", "Birthdate", "National ID",
+            "Email", "Phone", "Governorate", "District", "Village", "Education Level", "Program Type",
+            "Language Name", "Custom Language", "Proficiency"
+        };
+
+                for (int i = 0; i < headers.Length; i++)
+                {
+                    worksheet.Cell(1, i + 1).Value = headers[i];
+                    worksheet.Cell(1, i + 1).Style.Font.Bold = true;
+                    worksheet.Cell(1, i + 1).Style.Fill.BackgroundColor = XLColor.LightGray;
+                    worksheet.Cell(1, i + 1).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                    worksheet.Column(i + 1).AdjustToContents();
                 }
 
-                // في حالة عدم العثور على خط مناسب، استخدم خط افتراضي
-                if (arabicFont == null)
+                // البيانات
+
+                for (int i = 0; i < users.Count; i++)
                 {
-                    try
-                    {
-                        arabicFont = BaseFont.CreateFont(BaseFont.HELVETICA, "Cp1256", BaseFont.NOT_EMBEDDED);
-                    }
-                    catch
-                    {
-                        arabicFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-                    }
+                    var user = users[i];
+                    worksheet.Cell(i + 2, 1).Value = user.Id;
+                    worksheet.Cell(i + 2, 2).Value = user.FirstName;
+                    worksheet.Cell(i + 2, 3).Value = user.MiddleName;
+                    worksheet.Cell(i + 2, 4).Value = user.LastName;
+                    worksheet.Cell(i + 2, 5).Value = user.Gender;
+                    worksheet.Cell(i + 2, 6).Value = user.Birthdate.ToString("yyyy-MM-dd");
+                    worksheet.Cell(i + 2, 7).Value = user.NationalId;
+                    worksheet.Cell(i + 2, 8).Value = user.Email;
+                    worksheet.Cell(i + 2, 9).Value = user.PhoneNumber;
+                    worksheet.Cell(i + 2, 10).Value = user.Governorate;
+                    worksheet.Cell(i + 2, 11).Value = user.District;
+                    worksheet.Cell(i + 2, 12).Value = user.Village;
+                    worksheet.Cell(i + 2, 13).Value = user.EducationLevel;
+                    worksheet.Cell(i + 2, 14).Value = user.ProgramType;
+                    worksheet.Cell(i + 2, 15).Value = user.LanguageName;
+                    worksheet.Cell(i + 2, 16).Value = user.CustomLanguageName;
+                    worksheet.Cell(i + 2, 17).Value = user.ProficiencyLevel;
                 }
 
-                var titleFont = new iTextSharp.text.Font(arabicFont, 18, iTextSharp.text.Font.BOLD);
-                var headerFont = new iTextSharp.text.Font(arabicFont, 12, iTextSharp.text.Font.BOLD);
-                var normalFont = new iTextSharp.text.Font(arabicFont, 10, iTextSharp.text.Font.NORMAL);
-
-                // عنوان المستند مع معالجة النص العربي
-                var title = new Paragraph(ReverseArabicText("ريرقت تانايب نيمدختسملا"), titleFont)
+                for (int i = 0; i < headers.Length; i++)
                 {
-                    Alignment = Element.ALIGN_CENTER,
-                    SpacingAfter = 20
-                };
-                document.Add(title);
-
-                // معلومات التقرير
-                var reportInfo = new Paragraph(ReverseArabicText($"تاريخ التقرير: {DateTime.Now:yyyy-MM-dd HH:mm}"), normalFont)
-                {
-                    Alignment = Element.ALIGN_RIGHT,
-                    SpacingAfter = 10
-                };
-                document.Add(reportInfo);
-
-                var userCount = new Paragraph(ReverseArabicText($"عدد المستخدمين: {users.Count}"), normalFont)
-                {
-                    Alignment = Element.ALIGN_RIGHT,
-                    SpacingAfter = 20
-                };
-                document.Add(userCount);
-
-                // إضافة بيانات كل مستخدم
-                foreach (var user in users)
-                {
-                    AddUserToPdf(document, user, headerFont, normalFont);
-                    if (users.Count > 1 && user != users.Last())
-                    {
-                        document.NewPage();
-                    }
+                    worksheet.Column(i + 1).AdjustToContents();
                 }
 
-                document.Close();
-                return File(stream.ToArray(), "application/pdf", $"{fileName}_{DateTime.Now:yyyyMMdd}.pdf");
-            }
-        }
 
-        // دالة لمعالجة النصوص العربية
-        private string ReverseArabicText(string text)
-        {
-            if (string.IsNullOrEmpty(text))
-                return text;
-
-            // إذا كان النص يحتوي على أرقام أو أحرف إنجليزية مع العربية
-            var words = text.Split(' ');
-            var reversedWords = new List<string>();
-
-            foreach (var word in words)
-            {
-                if (ContainsArabic(word) && !ContainsEnglishOrNumbers(word))
+                // تصدير الملف
+                using (var stream = new MemoryStream())
                 {
-                    // عكس الكلمات العربية فقط
-                    reversedWords.Insert(0, word);
-                }
-                else
-                {
-                    // الاحتفاظ بالأرقام والإنجليزية في مكانها
-                    reversedWords.Add(word);
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+                    return File(content,
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "UsersExport.xlsx");
                 }
             }
-
-            return string.Join(" ", reversedWords);
         }
-
-        private bool ContainsArabic(string text)
-        {
-            return text.Any(c => c >= 0x0600 && c <= 0x06FF);
-        }
-
-        private bool ContainsEnglishOrNumbers(string text)
-        {
-            return text.Any(c => (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9'));
-        }
-
-        private void AddUserToPdf(Document document, User user, iTextSharp.text.Font headerFont, iTextSharp.text.Font normalFont)
-        {
-            // معلومات المستخدم الأساسية
-            var userHeader = new Paragraph(ReverseArabicText($"بيانات المستخدم: {user.FirstName} {user.LastName}"), headerFont)
-            {
-                Alignment = Element.ALIGN_RIGHT,
-                SpacingAfter = 10
-            };
-            document.Add(userHeader);
-
-            // جدول المعلومات الأساسية
-            var basicInfoTable = new PdfPTable(2) { WidthPercentage = 100 };
-            basicInfoTable.SetWidths(new float[] { 1, 2 });
-            basicInfoTable.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
-
-            AddTableRow(basicInfoTable, "الاسم الكامل", $"{user.FirstName} {user.MiddleName} {user.LastName}", headerFont, normalFont);
-            AddTableRow(basicInfoTable, "الجنس", user.Gender ?? "", headerFont, normalFont);
-            AddTableRow(basicInfoTable, "تاريخ الميلاد", user.Birthdate.ToString("yyyy-MM-dd") ?? "", headerFont, normalFont);
-            AddTableRow(basicInfoTable, "الرقم الوطني", user.NationalId ?? "", headerFont, normalFont);
-            AddTableRow(basicInfoTable, "البريد الإلكتروني", user.Email ?? "", headerFont, normalFont);
-            AddTableRow(basicInfoTable, "رقم الهاتف", user.PhoneNumber ?? "", headerFont, normalFont);
-            AddTableRow(basicInfoTable, "الدور", user.Role ?? "", headerFont, normalFont);
-            AddTableRow(basicInfoTable, "تاريخ الإنشاء", user.CreatedAt?.ToString("yyyy-MM-dd HH:mm") ?? "", headerFont, normalFont);
-            AddTableRow(basicInfoTable, "الحالة", user.IsActive ? "مفعّل" : "معطّل", headerFont, normalFont);
-
-            document.Add(basicInfoTable);
-            document.Add(new Paragraph(" ", normalFont) { SpacingAfter = 10 });
-
-            // معلومات السكن
-            if (user.Residences != null && user.Residences.Any())
-            {
-                var residenceHeader = new Paragraph(ReverseArabicText("معلومات السكن"), headerFont)
-                {
-                    Alignment = Element.ALIGN_RIGHT,
-                    SpacingAfter = 5
-                };
-                document.Add(residenceHeader);
-
-                var residenceTable = new PdfPTable(4) { WidthPercentage = 100 };
-                residenceTable.SetWidths(new float[] { 1, 1, 1, 1 });
-                residenceTable.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
-
-                // عناوين الأعمدة
-                residenceTable.AddCell(new PdfPCell(new Phrase(ReverseArabicText("المحافظة"), headerFont)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                residenceTable.AddCell(new PdfPCell(new Phrase(ReverseArabicText("اللواء"), headerFont)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                residenceTable.AddCell(new PdfPCell(new Phrase(ReverseArabicText("القرية/البلدة"), headerFont)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                residenceTable.AddCell(new PdfPCell(new Phrase(ReverseArabicText("نوع البلدة"), headerFont)) { HorizontalAlignment = Element.ALIGN_CENTER });
-
-                foreach (var residence in user.Residences)
-                {
-                    residenceTable.AddCell(new PdfPCell(new Phrase(ReverseArabicText(residence.Governorate ?? ""), normalFont)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                    residenceTable.AddCell(new PdfPCell(new Phrase(ReverseArabicText(residence.District ?? ""), normalFont)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                    residenceTable.AddCell(new PdfPCell(new Phrase(ReverseArabicText(residence.Village ?? ""), normalFont)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                    residenceTable.AddCell(new PdfPCell(new Phrase(ReverseArabicText(residence.IsCustomVillage == true ? "مدخلة يدوياً" : "قائمة النظام"), normalFont)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                }
-
-                document.Add(residenceTable);
-                document.Add(new Paragraph(" ", normalFont) { SpacingAfter = 10 });
-            }
-
-            // المعلومات التعليمية
-            if (user.Educations != null && user.Educations.Any())
-            {
-                var educationHeader = new Paragraph(ReverseArabicText("المعلومات التعليمية"), headerFont)
-                {
-                    Alignment = Element.ALIGN_RIGHT,
-                    SpacingAfter = 5
-                };
-                document.Add(educationHeader);
-
-                var educationTable = new PdfPTable(2) { WidthPercentage = 100 };
-                educationTable.SetWidths(new float[] { 1, 1 });
-                educationTable.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
-
-                // عناوين الأعمدة
-                educationTable.AddCell(new PdfPCell(new Phrase(ReverseArabicText("المستوى التعليمي"), headerFont)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                educationTable.AddCell(new PdfPCell(new Phrase(ReverseArabicText("نوع البرنامج"), headerFont)) { HorizontalAlignment = Element.ALIGN_CENTER });
-
-                foreach (var education in user.Educations)
-                {
-                    educationTable.AddCell(new PdfPCell(new Phrase(ReverseArabicText(education.EducationLevel ?? ""), normalFont)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                    educationTable.AddCell(new PdfPCell(new Phrase(ReverseArabicText(education.ProgramType ?? ""), normalFont)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                }
-
-                document.Add(educationTable);
-                document.Add(new Paragraph(" ", normalFont) { SpacingAfter = 10 });
-            }
-
-            // معلومات اللغات
-            if (user.Languages != null && user.Languages.Any())
-            {
-                var languageHeader = new Paragraph(ReverseArabicText("اللغات"), headerFont)
-                {
-                    Alignment = Element.ALIGN_RIGHT,
-                    SpacingAfter = 5
-                };
-                document.Add(languageHeader);
-
-                var languageTable = new PdfPTable(2) { WidthPercentage = 100 };
-                languageTable.SetWidths(new float[] { 1, 1 });
-                languageTable.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
-
-                // عناوين الأعمدة
-                languageTable.AddCell(new PdfPCell(new Phrase(ReverseArabicText("اللغة"), headerFont)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                languageTable.AddCell(new PdfPCell(new Phrase(ReverseArabicText("مستوى الإتقان"), headerFont)) { HorizontalAlignment = Element.ALIGN_CENTER });
-
-                foreach (var language in user.Languages)
-                {
-                    string langName = string.IsNullOrEmpty(language.CustomLanguageName)
-                        ? language.LanguageName ?? ""
-                        : $"{language.LanguageName} - {language.CustomLanguageName}";
-
-                    languageTable.AddCell(new PdfPCell(new Phrase(ReverseArabicText(langName), normalFont)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                    languageTable.AddCell(new PdfPCell(new Phrase(ReverseArabicText(language.ProficiencyLevel ?? ""), normalFont)) { HorizontalAlignment = Element.ALIGN_CENTER });
-                }
-
-                document.Add(languageTable);
-            }
-        }
-
-        private void AddTableRow(PdfPTable table, string label, string value, iTextSharp.text.Font headerFont, iTextSharp.text.Font normalFont)
-        {
-            table.AddCell(new PdfPCell(new Phrase(ReverseArabicText(label), headerFont))
-            {
-                HorizontalAlignment = Element.ALIGN_RIGHT,
-                BackgroundColor = BaseColor.LIGHT_GRAY
-            });
-            table.AddCell(new PdfPCell(new Phrase(ReverseArabicText(value), normalFont))
-            {
-                HorizontalAlignment = Element.ALIGN_RIGHT
-            });
-        }
-
 
 
 
@@ -449,12 +240,91 @@ namespace Ecorama.Controllers
             var allWorkShops = _context.Workshops.ToList();
 
             var latestWorkshops = allWorkShops
-                .Where(w => w.Date != null)
-                .OrderByDescending(w => w.Date);
+                .Where(w => w.StartDate != null)
+                .OrderByDescending(w => w.StartDate);
 
 
             return View(latestWorkshops);
         }
+
+
+
+
+
+        public IActionResult ExportWorkshopsToExcel()
+        {
+            var workshops = _context.Workshops.ToList();
+
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Workshops");
+
+                // رؤوس الأعمدة بعد التعديل
+                worksheet.Cell(1, 1).Value = "العنوان | Title";
+                worksheet.Cell(1, 2).Value = "الوصف | Description";
+                worksheet.Cell(1, 3).Value = "تاريخ البدء | Start Date";
+                worksheet.Cell(1, 4).Value = "تاريخ الانتهاء | End Date";
+                worksheet.Cell(1, 5).Value = "المنظمة | Organization";
+                worksheet.Cell(1, 6).Value = "الرابط | Website URL";
+                worksheet.Cell(1, 7).Value = "الحالة | IsActive";
+
+                // تنسيق رؤوس الأعمدة
+                var headerRange = worksheet.Range("A1:G1");
+                headerRange.Style.Font.Bold = true;
+                headerRange.Style.Fill.BackgroundColor = XLColor.LightSteelBlue;
+                headerRange.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                headerRange.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+                headerRange.Style.Border.InsideBorder = XLBorderStyleValues.Thin;
+
+                // تعبئة البيانات
+                for (int i = 0; i < workshops.Count; i++)
+                {
+                    var row = i + 2;
+                    var ws = workshops[i];
+
+                    worksheet.Cell(row, 1).Value = ws.Title ?? "";
+                    worksheet.Cell(row, 2).Value = ws.Description ?? "";
+                    worksheet.Cell(row, 3).Value = ws.StartDate?.ToString("yyyy-MM-dd") ?? "";
+                    worksheet.Cell(row, 4).Value = ws.EndDate?.ToString("yyyy-MM-dd") ?? "";
+                    worksheet.Cell(row, 5).Value = ws.Organization ?? "";
+                    worksheet.Cell(row, 6).Value = ws.WebSiteUrl ?? "";
+                    worksheet.Cell(row, 7).Value = ws.IsActive ? "فعّالة | Active" : "غير فعّالة | Inactive";
+
+                    // تنسيق لكل صف
+                    for (int col = 1; col <= 7; col++)
+                    {
+                        worksheet.Cell(row, col).Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+                        worksheet.Cell(row, col).Style.Alignment.WrapText = true;
+                        worksheet.Cell(row, col).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                    }
+                }
+
+                // Auto fit لكل الأعمدة
+                worksheet.Columns().AdjustToContents();
+
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+                    return File(content,
+                                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                "Workshops_Styled.xlsx");
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         [HttpPost]
@@ -518,13 +388,17 @@ namespace Ecorama.Controllers
                 {
                     Title = model.Title,
                     Description = model.Description,
-                    Date = DateOnly.FromDateTime(model.Date),
+                    Organization = model.Organsization,
+                    StartDate = DateOnly.FromDateTime(model.StartDate),
+                    EndDate = DateOnly.FromDateTime(model.EndDate),
                     WebSiteUrl = model.WebSiteUrl,
                     IsActive = model.IsActive,
                     Duration = model.Duration,
                     SeatsAvailable = model.SeatsAvailable,
                     ImageUrl = imagePath
                 };
+
+                workshop.IsActive = true;
 
                 _context.Workshops.Add(workshop);
                 _context.SaveChanges();
@@ -553,6 +427,9 @@ namespace Ecorama.Controllers
                 return RedirectToAction("Login", "Login");
             }
 
+
+
+
             var workshop = _context.Workshops.FirstOrDefault(w => w.Id == id);
             if (workshop == null)
             {
@@ -577,14 +454,17 @@ namespace Ecorama.Controllers
             }
 
             var currentWorkshop = _context.Workshops.Find(id);
+            if (currentWorkshop == null)
+            {
+                return NotFound();
+            }
+
             return View(currentWorkshop);
         }
 
 
-
-
         [HttpPost]
-        public IActionResult EditWorkShop(Workshop workshop)
+        public async Task<IActionResult> EditWorkShop(Workshop workshop, IFormFile? ImageFile, string OldImageUrl)
         {
             int? adminId = HttpContext.Session.GetInt32("AdminId");
 
@@ -594,13 +474,39 @@ namespace Ecorama.Controllers
             }
 
             if (!ModelState.IsValid)
-                return View("EditWorkShop");
+                return View("EditWorkShop", workshop);
+
+            if (ImageFile != null && ImageFile.Length > 0)
+            {
+                var fileName = Path.GetFileName(ImageFile.FileName);
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "workshops");
+                Directory.CreateDirectory(uploadsFolder); // تأكد من وجود المجلد
+
+                var filePath = Path.Combine(uploadsFolder, fileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await ImageFile.CopyToAsync(stream);
+                }
+
+                // تحديث الصورة الجديدة
+                workshop.ImageUrl = "/img/workshops/" + fileName;
+            }
+            else
+            {
+                // الاحتفاظ بالصورة القديمة
+                workshop.ImageUrl = OldImageUrl;
+            }
+
+
 
             _context.Workshops.Update(workshop);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return RedirectToAction("seeAllWorkShop");
         }
+
+
+
 
 
 
@@ -885,6 +791,64 @@ namespace Ecorama.Controllers
 
         }
 
+        public IActionResult ExportContactMessagesToExcel()
+        {
+            var messages = _context.ContactUs.ToList();
+
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Contact Messages");
+
+                // ===== عناوين الأعمدة =====
+                var headers = new[] { "#", "Full Name", "Email", "Subject", "Message", "Received At" };
+                for (int i = 0; i < headers.Length; i++)
+                {
+                    var cell = worksheet.Cell(1, i + 1);
+                    cell.Value = headers[i];
+                    cell.Style.Font.Bold = true;
+                    cell.Style.Fill.BackgroundColor = XLColor.LightGray;
+                    cell.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                    cell.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                    cell.Style.Font.FontColor = XLColor.DarkBlue;
+                    cell.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+                }
+
+                // ===== البيانات =====
+                for (int i = 0; i < messages.Count; i++)
+                {
+                    var msg = messages[i];
+
+                    worksheet.Cell(i + 2, 1).Value = i + 1;
+                    worksheet.Cell(i + 2, 2).Value = msg.FullName;
+                    worksheet.Cell(i + 2, 3).Value = msg.Email;
+                    worksheet.Cell(i + 2, 4).Value = string.IsNullOrEmpty(msg.Subject) ? "-" : msg.Subject;
+                    worksheet.Cell(i + 2, 5).Value = msg.Message;
+                    worksheet.Cell(i + 2, 6).Value = msg.CreatedAt?.ToString("yyyy-MM-dd HH:mm") ?? "-";
+
+                    // تنسيق الخلايا
+                    for (int col = 1; col <= 6; col++)
+                    {
+                        var cell = worksheet.Cell(i + 2, col);
+                        cell.Style.Alignment.Vertical = XLAlignmentVerticalValues.Top;
+                        cell.Style.Alignment.WrapText = true; // لف النص داخل الخلية
+                        cell.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+                    }
+                }
+
+                // ===== جعل الأعمدة تلائم المحتوى =====
+                worksheet.Columns().AdjustToContents();
+
+                // تصدير الملف
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+                    return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ContactMessages.xlsx");
+                }
+            }
+        }
+
+
 
 
 
@@ -901,6 +865,64 @@ namespace Ecorama.Controllers
             var news = _context.News.ToList();
             return View(news);
         }
+
+
+        public IActionResult ExportNewsToExcel()
+        {
+            var newsList = _context.News.ToList();
+
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("News");
+
+                // ===== عناوين الأعمدة =====
+                var headers = new[] { "#", "Title", "Content", "Created At", "Status" };
+                for (int i = 0; i < headers.Length; i++)
+                {
+                    var cell = worksheet.Cell(1, i + 1);
+                    cell.Value = headers[i];
+                    cell.Style.Font.Bold = true;
+                    cell.Style.Fill.BackgroundColor = XLColor.LightGray;
+                    cell.Style.Font.FontColor = XLColor.DarkBlue;
+                    cell.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                    cell.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                    cell.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+                }
+
+                // ===== البيانات =====
+                for (int i = 0; i < newsList.Count; i++)
+                {
+                    var news = newsList[i];
+
+                    worksheet.Cell(i + 2, 1).Value = i + 1;
+                    worksheet.Cell(i + 2, 2).Value = news.Title;
+                    worksheet.Cell(i + 2, 3).Value = news.Content;
+                    worksheet.Cell(i + 2, 4).Value = news.CreatedAt?.ToString("yyyy/MM/dd") ?? "-";
+                    worksheet.Cell(i + 2, 5).Value = news.IsActive ? "نشط" : "غير نشط";
+
+                    // تنسيق الخلايا
+                    for (int col = 1; col <= 5; col++)
+                    {
+                        var cell = worksheet.Cell(i + 2, col);
+                        cell.Style.Alignment.WrapText = true;
+                        cell.Style.Alignment.Vertical = XLAlignmentVerticalValues.Top;
+                        cell.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+                    }
+                }
+
+                // ===== جعل الأعمدة تلائم المحتوى =====
+                worksheet.Columns().AdjustToContents();
+
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+                    return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "News.xlsx");
+                }
+            }
+        }
+
+
 
         public IActionResult DetalisNews(int id)
         {
@@ -1042,10 +1064,43 @@ namespace Ecorama.Controllers
 
 
 
+ 
+
+
+
+         public async Task<IActionResult> WorkshopRegistrationsUsers()
+        {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            if (adminId == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
+            try
+            {
+                var registrations = await _context.WorkshopRegistrations
+                    .Include(w => w.Workshop)
+                    .Include(w => w.User)
+                    .OrderByDescending(w => w.RegisteredAt)
+                    .ToListAsync();
+
+                ViewBag.TotalCount = registrations.Count;
+                ViewBag.TodayCount = registrations.Count(x => x.RegisteredAt?.Date == DateTime.Today);
+                ViewBag.ThisWeekCount = registrations.Count(x => x.RegisteredAt >= DateTime.Today.AddDays(-7));
+                ViewBag.ThisMonthCount = registrations.Count(x => x.RegisteredAt >= DateTime.Today.AddDays(-30));
+
+                return View(registrations);
+            }
+            catch (Exception ex)
+            {
+                // Log the error
+                TempData["Error"] = "حدث خطأ في تحميل البيانات";
+                return View(new List<WorkshopRegistration>());
+            }
+        }
+
     }
-
-
-
 
 }
 

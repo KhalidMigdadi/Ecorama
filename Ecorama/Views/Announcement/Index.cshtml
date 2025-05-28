@@ -1,40 +1,318 @@
 ﻿@model IEnumerable<Ecorama.Models.Announcement>
-@{
-    ViewData["Title"] = "All Announcements";
-    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
 
+@{
+	ViewData["Title"] = "إدارة الإعلانات";
+	Layout = "~/Views/Shared/_Admin_Layout.cshtml";
 }
 
-<h2>Announcements</h2>
+<div class="container-fluid py-4">
+	<div class="row">
+		<div class="col-12">
+			<div class="card shadow-lg border-0">
+				<div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+					<h3 class="mb-0">
+						<i class="fas fa-bullhorn me-2"></i>
+						إدارة الإعلانات
+					</h3>
+					<div class="d-flex gap-2">
+						<a asp-action="Create" class="btn btn-light">
+							<i class="fas fa-plus me-1"></i>
+							إضافة إعلان جديد
+						</a>
+						<a asp-action="ExportAnnouncementsToExcel" class="btn btn-outline-light">
+							<i class="fas fa-file-excel me-1"></i>
+							تصدير Excel
+						</a>
+					</div>
+				</div>
+				<div class="card-body">
+					@if (TempData["Success"] != null)
+					{
+						<div class="alert alert-success alert-dismissible fade-show">
+							<i class="fas fa-check-circle me-2"></i>
+							@TempData["Success"]
+							<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+						</div>
+					}
 
-<a class="btn btn-success mb-3" href="@Url.Action("Create")">Add New Announcement</a>
+					@if (Model.Any())
+					{
+						<!-- Search Bar -->
+						<div class="mb-3">
+							<input type="text" id="searchInput" class="form-control" placeholder="البحث في الإعلانات بالعنوان أو المحتوى..." style="max-width: 400px;">
+						</div>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Content</th>
-            <th>Image URL</th>
-            <th>Created At</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var ann in Model)
-        {
-            <tr>
-                <td>@ann.Title</td>
-                <td>@ann.Content</td>
-                <td><img src="~/images/@ann.ImageUrl" width="100" /></td>
-                <td>@ann.CreatedAt?.ToString("g")</td>
-                <td>
-                    <a class="btn btn-warning btn-sm" href="@Url.Action("Edit", new { id = ann.Id })">Edit</a>
-                    <form asp-action="Delete" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="@ann.Id" />
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?');">Delete</button>
-                    </form>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+						<div class="table-responsive">
+							<table class="table table-hover align-middle" id="announcementsTable">
+								<thead class="table-dark">
+									<tr>
+										<th width="80">الصورة</th>
+										<th>العنوان</th>
+										<th>المحتوى</th>
+										<th width="120">تاريخ الإنشاء</th>
+										<th width="180" class="text-center">الإجراءات</th>
+									</tr>
+								</thead>
+								<tbody>
+									@foreach (var ann in Model)
+									{
+										<tr>
+											<td>
+												@if (!string.IsNullOrEmpty(ann.ImageUrl))
+												{
+													<img src="~/images/@ann.ImageUrl" alt="@ann.Title"
+														 class="img-thumbnail" style="width: 60px; height: 60px; object-fit: cover;">
+												}
+												else
+												{
+													<div class="bg-light d-flex align-items-center justify-content-center"
+														 style="width: 60px; height: 60px; border-radius: 0.375rem;">
+														<i class="fas fa-image text-muted"></i>
+													</div>
+												}
+											</td>
+											<td>
+												<strong class="d-block">@Html.DisplayFor(modelItem => ann.Title)</strong>
+											</td>
+											<td>
+												<span class="text-muted">
+													@{
+														var shortContent = ann.Content?.Length > 80 ?
+														ann.Content.Substring(0, 80) + "..." :
+														ann.Content;
+													}
+													@shortContent
+												</span>
+											</td>
+											<td>
+												<small class="text-muted">
+													@ann.CreatedAt?.ToString("dd/MM/yyyy")
+												</small>
+											</td>
+											<td class="text-center">
+												<div class="btn-group" role="group">
+													<a asp-action="Edit" asp-route-id="@ann.Id"
+													   class="btn btn-sm btn-outline-warning" title="تعديل">
+														<i class="fas fa-edit"></i>
+													</a>
+													@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+													{
+														<button type="button" class="btn btn-sm btn-outline-danger delete-announcement-btn"
+																data-id="@ann.Id" title="حذف">
+															<i class="fas fa-trash"></i>
+														</button>
+													}
+												</div>
+											</td>
+										</tr>
+									}
+								</tbody>
+							</table>
+						</div>
+
+						<div class="mt-3">
+							<div class="alert alert-info">
+								<i class="fas fa-info-circle me-2"></i>
+								<span id="tableInfo">
+									عدد الإعلانات المعروضة: <strong>@Model.Count()</strong>
+								</span>
+							</div>
+						</div>
+					}
+					else
+					{
+						<div class="text-center py-5">
+							<i class="fas fa-bullhorn fa-3x text-muted mb-3"></i>
+							<h5 class="text-muted">لا توجد إعلانات حالياً</h5>
+							<p class="text-muted">ابدأ بإضافة إعلان جديد لموقعك</p>
+							<a asp-action="Create" class="btn btn-primary">
+								<i class="fas fa-plus me-1"></i>
+								إضافة أول إعلان
+							</a>
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Hidden form for delete operations -->
+<form id="deleteAnnouncementForm" method="post" action="@Url.Action("Delete")" style="display: none;">
+	<input type="hidden" name="id" id="deleteAnnouncementId" />
+</form>
+
+@section Scripts {
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			// Initialize search functionality
+			const searchInput = document.getElementById('searchInput');
+			if (searchInput) {
+				searchInput.addEventListener('input', function() {
+					const searchTerm = this.value.toLowerCase().trim();
+					const rows = document.querySelectorAll('#announcementsTable tbody tr');
+
+					let visibleCount = 0;
+					rows.forEach(row => {
+						const title = row.cells[1].textContent.toLowerCase();
+						const content = row.cells[2].textContent.toLowerCase();
+						const isVisible = title.includes(searchTerm) || content.includes(searchTerm);
+						row.style.display = isVisible ? '' : 'none';
+						if (isVisible) visibleCount++;
+					});
+
+					// Update table info based on visible rows
+					updateTableInfo(visibleCount);
+				});
+			}
+
+			// Handle delete button clicks
+			document.querySelectorAll('.delete-announcement-btn').forEach(button => {
+				button.addEventListener('click', function() {
+					const announcementId = this.getAttribute('data-id');
+
+					Swal.fire({
+						title: 'هل أنت متأكد؟',
+						text: "لا يمكنك التراجع بعد الحذف!",
+						icon: 'warning',
+						showCancelButton: true,
+						confirmButtonColor: '#d33',
+						cancelButtonColor: '#6c757d',
+						confirmButtonText: 'نعم، احذف',
+						cancelButtonText: 'إلغاء',
+						customClass: {
+							popup: 'swal-rtl'
+						}
+					}).then((result) => {
+						if (result.isConfirmed) {
+							document.getElementById('deleteAnnouncementId').value = announcementId;
+							document.getElementById('deleteAnnouncementForm').submit();
+						}
+					});
+				});
+			});
+		});
+
+		function updateTableInfo(visibleCount) {
+			const infoElement = document.getElementById('tableInfo');
+			if (infoElement) {
+				infoElement.innerHTML = `عدد الإعلانات المعروضة: <strong>${visibleCount}</strong>`;
+			}
+		}
+
+		function showToast(message, type) {
+			// Create toast element
+			const toast = document.createElement('div');
+			toast.className = `alert alert-${type === 'success' ? 'success' : 'danger'} position-fixed`;
+			toast.style.cssText = 'top: 20px; right: 20px; z-index: 1060; min-width: 300px;';
+			toast.innerHTML = `
+				<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'} me-2"></i>
+				${message}
+			`;
+
+			document.body.appendChild(toast);
+
+			// Remove toast after 3 seconds
+			setTimeout(() => {
+				toast.remove();
+			}, 3000);
+		}
+	</script>
+
+	<style>
+		/* Search input styling */
+		#searchInput {
+			border: 1px solid #ced4da;
+			border-radius: 0.5rem;
+			padding: 0.75rem 1rem;
+			font-size: 0.95rem;
+			transition: all 0.3s ease;
+			background-color: #f8f9fa;
+		}
+
+			#searchInput:focus {
+				border-color: #0d6efd;
+				box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+				background-color: #fff;
+				outline: 0;
+			}
+
+			#searchInput::placeholder {
+				color: #6c757d;
+				font-style: italic;
+			}
+
+		.btn-group .btn {
+			border-radius: 0.375rem;
+			margin: 0 1px;
+		}
+
+		.table th {
+			border-top: none;
+			font-weight: 600;
+		}
+
+		.table tbody tr:hover {
+			background-color: #f8f9fa;
+		}
+
+		.fade-show {
+			animation: fadeIn 0.5s ease-in;
+		}
+
+		@@keyframes fadeIn {
+			from {
+				opacity: 0;
+				transform: translateY(-10px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.img-thumbnail {
+			border: 1px solid #dee2e6;
+			border-radius: 0.375rem;
+		}
+
+		.card-header {
+			border-bottom: 1px solid rgba(255,255,255,0.125);
+		}
+
+		.alert-info {
+			background-color: #e7f3ff;
+			border-color: #b3d9ff;
+			color: #004085;
+		}
+
+		/* RTL support for SweetAlert */
+		.swal-rtl {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			direction: rtl;
+			text-align: right;
+		}
+
+		/* Responsive improvements */
+		@@media (max-width: 768px) {
+			.card-header .d-flex {
+				flex-direction: column;
+				gap: 1rem;
+			}
+
+			.btn-group {
+				flex-direction: column;
+			}
+
+				.btn-group .btn {
+					margin: 1px 0;
+				}
+		}
+	</style>
+}
+
+@section Style {
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+}

@@ -646,9 +646,9 @@
 					}
 
 					<!-- إضافة عنصر الترجمة داخل auth-buttons -->
-					@* <div class="translate-container">
+					<div class="translate-container">
 			<div id="google_translate_element"></div>
-		</div> *@
+		</div>
 
 
 
@@ -795,16 +795,16 @@
 
 
 
-		// 		function setNavbarPaddingBasedOnLanguage() {
-		// 	const navbar = document.querySelector('.navbar');
-		// 	const currentLang = document.cookie.match(/googtrans=\/ar\/(\w+)/);
+				function setNavbarPaddingBasedOnLanguage() {
+			const navbar = document.querySelector('.navbar');
+			const currentLang = document.cookie.match(/googtrans=\/ar\/(\w+)/);
 
-		// 	if (currentLang && currentLang[1] === 'en') {
-		// 		navbar.style.paddingTop = '30px';
-		// 	} else {
-		// 		navbar.style.paddingTop = '0px';
-		// 	}
-		// }
+			if (currentLang && currentLang[1] === 'en') {
+				navbar.style.paddingTop = '30px';
+			} else {
+				navbar.style.paddingTop = '0px';
+			}
+		}
 
 		// نادِ الوظيفة بعد التأخير للتأكد من تحميل الترجمة
 		setTimeout(() => {

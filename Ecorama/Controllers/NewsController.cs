@@ -1,6 +1,10 @@
-﻿using Ecorama.Models;
+﻿using ClosedXML.Excel;
+using Ecorama.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
+using System.Linq;
+
 
 namespace Ecorama.Controllers
 {
@@ -81,6 +85,11 @@ namespace Ecorama.Controllers
 
             return View(announcement);
         }
+
+
+
+     
+
     }
 }
 

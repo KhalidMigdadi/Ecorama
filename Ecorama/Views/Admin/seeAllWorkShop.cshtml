@@ -18,6 +18,10 @@
 						<i class="fas fa-plus me-1"></i>
 						Add New Workshop
 					</a>
+					<a asp-action="ExportWorkshopsToExcel" class="btn btn-success">
+						<i class="fas fa-file-excel me-1"></i> تصدير إلى Excel
+					</a>
+
 				</div>
 				<div class="card-body">
 					@if (TempData["Success"] != null)
@@ -38,9 +42,15 @@
 										<th width="60">الصورة</th>
 										<th>Title</th>
 										<th>Description</th>
-										<th width="120">Date</th>
+										<th>Organization</th>
+										<th width="120">Start Date</th>
+										<th width="120">End Date</th>
 										<th width="150">WebSiteUrl</th>
-										<th width="80">IsActive</th>
+										@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+										{
+											<th width="80">IsActive</th>
+										}
+
 										<th width="150" class="text-center">Options</th>
 									</tr>
 								</thead>
@@ -76,8 +86,22 @@
 												</span>
 											</td>
 											<td>
+												<span class="text-muted">
+													@{
+														var shortDesc1 = item.Description?.Length > 60 ?
+														item.Organization.Substring(0, 60) + "..." :
+														item.Organization;
+													}
+													@shortDesc1
+												</span>
+											</td>
+											<td>
 												<small class="text-muted">
-													@item.Date?.ToString("yyyy-MM-dd")
+													@item.StartDate?.ToString("yyyy-MM-dd")
+												</small>
+											</td><td>
+												<small class="text-muted">
+													@item.EndDate?.ToString("yyyy-MM-dd")
 												</small>
 											</td>
 											<td>
@@ -92,14 +116,17 @@
 											</td>
 
 
-											<td>
-												<form asp-action="ToggleWorkshopStatus" asp-route-id="@item.Id" method="post" class="d-inline">
-													<select name="isActive" class="form-select form-select-sm status-dropdown" onchange="this.form.submit()">
-														<option value="true" selected="@(item.IsActive ? "selected" : null)">فعّالة</option>
-														<option value="false" selected="@(!item.IsActive ? "selected" : null)">غير فعّالة</option>
-													</select>
-												</form>
-											</td>
+											@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+											{
+												<td>
+													<form asp-action="ToggleWorkshopStatus" asp-route-id="@item.Id" method="post" class="d-inline">
+														<select name="isActive" class="form-select form-select-sm status-dropdown" onchange="this.form.submit()">
+															<option value="true" selected="@(item.IsActive ? "selected" : null)">فعّالة</option>
+															<option value="false" selected="@(!item.IsActive ? "selected" : null)">غير فعّالة</option>
+														</select>
+													</form>
+												</td>
+											}
 
 
 
@@ -110,11 +137,15 @@
 													   class="btn btn-sm btn-outline-warning" title="Edit">
 														<i class="fas fa-edit"></i>
 													</a>
-													<a asp-action="DeleteWorkShop" asp-route-id="@item.Id"
-													   class="btn btn-sm btn-outline-danger" title="Delete"
-													   onclick="return confirm('هل أنت متأكد من الحذف؟')">
-														<i class="fas fa-trash"></i>
-													</a>
+													@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+													{
+														<form asp-action="DeleteWorkshop" asp-route-id="@item.Id" method="post" onsubmit="return confirm('هل أنت متأكد من الحذف؟')" style="display:inline;">
+															<button type="submit" class="btn btn-sm btn-outline-danger" title="Delete">
+																<i class="fas fa-trash"></i>
+															</button>
+														</form>
+													}
+
 												</div>
 											</td>
 										</tr>
@@ -237,36 +268,34 @@
 			font-size: 0.9em;
 		}
 
-		  .status-dropdown {
-        width: 120px;
-        padding: 0.25rem 0.5rem;
-        border-radius: 4px;
-        border: 1px solid #ced4da;
-        background-color: #f8f9fa;
-        transition: all 0.3s ease;
-        cursor: pointer;
-    }
-    
-    .status-dropdown:hover {
-        border-color: #86b7fe;
-        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
-    }
-    
-    .status-dropdown:focus {
-        border-color: #86b7fe;
-        outline: 0;
-        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-    }
-    
-    .status-dropdown option[value="true"] {
-        color: #198754; /* لون الخيار الفعّال */
-    }
-    
-    .status-dropdown option[value="false"] {
-        color: #dc3545; /* لون الخيار غير الفعّال */
-    }
+		.status-dropdown {
+			width: 120px;
+			padding: 0.25rem 0.5rem;
+			border-radius: 4px;
+			border: 1px solid #ced4da;
+			background-color: #f8f9fa;
+			transition: all 0.3s ease;
+			cursor: pointer;
+		}
 
+			.status-dropdown:hover {
+				border-color: #86b7fe;
+				box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
+			}
 
+			.status-dropdown:focus {
+				border-color: #86b7fe;
+				outline: 0;
+				box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+			}
+
+			.status-dropdown option[value="true"] {
+				color: #198754; /* لون الخيار الفعّال */
+			}
+
+			.status-dropdown option[value="false"] {
+				color: #dc3545; /* لون الخيار غير الفعّال */
+			}
 
 	</style>
 }

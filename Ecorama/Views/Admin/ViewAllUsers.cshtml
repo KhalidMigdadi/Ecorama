@@ -230,6 +230,16 @@
 		</div>
 	</div>
 
+	<form asp-action="ExportAllUsersToExcel" method="post" class="d-inline">
+		<button type="submit" class="btn btn-primary btn-sm">
+			<i class="fas fa-file-excel me-1"></i> تحميل Excel لجميع المستخدمين
+		</button>
+	</form>
+
+	<a class="btn btn-success" href="@Url.Action("ExportUsersToExcel", "Admin")">تصدير Excel لجميع المستخدمين</a>
+
+
+
 	<!-- Users Card -->
 	<div class="card shadow">
 		<div class="card-header d-flex justify-content-between align-items-center flex-wrap">
@@ -311,12 +321,16 @@
 										</form> *@
 
 
-										<form asp-action="ToggleActivation" method="post" asp-route-id="@item.Id">
-											<button type="submit" class="btn btn-sm btn-toggle-active @(item.IsActive ? "btn-outline-danger" : "btn-outline-success")">
-												<i class="fas fa-@(item.IsActive ? "ban" : "check")"></i>
-												@(item.IsActive ? "تعطيل" : "تفعيل")
-											</button>
-										</form>
+										@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+										{
+											<form asp-action="ToggleActivation" method="post" asp-route-id="@item.Id">
+												<button type="submit" class="btn btn-sm btn-toggle-active @(item.IsActive ? "btn-outline-danger" : "btn-outline-success")">
+													<i class="fas fa-@(item.IsActive ? "ban" : "check")"></i>
+													@(item.IsActive ? "تعطيل" : "تفعيل")
+												</button>
+											</form>
+										}
+										
 									</div>
 								</td>
 							</tr>

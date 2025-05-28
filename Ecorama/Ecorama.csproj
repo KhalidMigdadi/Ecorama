@@ -11,23 +11,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="wwwroot\Controllers\AboutUsController.cs" />
-    <Compile Include="wwwroot\Controllers\AdminController.cs" />
-    <Compile Include="wwwroot\Controllers\AnnouncementController.cs" />
-    <Compile Include="wwwroot\Controllers\ContactController.cs" />
-    <Compile Include="wwwroot\Controllers\CourseLessonsController.cs" />
-    <Compile Include="wwwroot\Controllers\CoursesController.cs" />
-    <Compile Include="wwwroot\Controllers\CoursesUserController.cs" />
-    <Compile Include="wwwroot\Controllers\HomeController.cs" />
-    <Compile Include="wwwroot\Controllers\LoginController.cs" />
-    <Compile Include="wwwroot\Controllers\NewsController.cs" />
-    <Compile Include="wwwroot\Controllers\ProfileController.cs" />
-    <Compile Include="wwwroot\Controllers\SliderController.cs" />
-    <Compile Include="wwwroot\Controllers\SocialController.cs" />
-    <Compile Include="wwwroot\Controllers\WorkShopsController.cs" />
+    <Content Include="Controllers\AboutUsController.cs" />
+    <Content Include="Controllers\AdminController.cs" />
+    <Content Include="Controllers\AnnouncementController.cs" />
+    <Content Include="Controllers\ContactController.cs" />
+    <Content Include="Controllers\CourseLessonsController.cs" />
+    <Content Include="Controllers\CoursesController.cs" />
+    <Content Include="Controllers\CoursesUserController.cs" />
+    <Content Include="Controllers\HomeController.cs" />
+    <Content Include="Controllers\LoginController.cs" />
+    <Content Include="Controllers\NewsController.cs" />
+    <Content Include="Controllers\ProfileController.cs" />
+    <Content Include="Controllers\SliderController.cs" />
+    <Content Include="Controllers\SocialController.cs" />
+    <Content Include="Controllers\WorkShopsController.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.105.0" />
+    <PackageReference Include="EPPlus" Version="8.0.0" />
     <PackageReference Include="itext7" Version="9.2.0" />
     <PackageReference Include="itext7.bouncy-castle-adapter" Version="9.2.0" />
     <PackageReference Include="itext7.font-asian" Version="9.2.0" />

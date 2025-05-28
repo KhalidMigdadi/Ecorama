@@ -1,58 +1,295 @@
 ﻿@model IEnumerable<Ecorama.Models.Course>
+
 @{
-    ViewData["Title"] = "إدارة الكورسات";
-    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+	ViewData["Title"] = "إدارة الكورسات";
+	Layout = "~/Views/Shared/_Admin_Layout.cshtml";
 }
 
-<h2>جميع الكورسات</h2>
-<a class="btn btn-success mb-3" asp-action="Create">+ إضافة كورس جديد</a>
+<div class="container-fluid py-4">
+	<div class="row">
+		<div class="col-12">
+			<div class="card shadow-lg border-0">
+				<div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+					<h3 class="mb-0">
+						<i class="fas fa-graduation-cap me-2"></i>
+						جميع الكورسات
+					</h3>
+					<div class="d-flex gap-2">
+						<a asp-action="Create" class="btn btn-light">
+							<i class="fas fa-plus me-1"></i>
+							إضافة كورس جديد
+						</a>
+						<a asp-action="ExportCoursesToExcel" class="btn btn-success">
+							<i class="fas fa-file-excel me-1"></i> تصدير إلى Excel
+						</a>
+					</div>
+				</div>
+				<div class="card-body">
+					@if (TempData["Success"] != null)
+					{
+						<div class="alert alert-success alert-dismissible fade-show">
+							<i class="fas fa-check-circle me-2"></i>
+							@TempData["Success"]
+							<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+						</div>
+					}
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>العنوان</th>
-            <th>الصورة</th>
-            <th>PDF</th>
-             <th>تاريخ الكورس</th>
-            <th>تاريخ الإنشاء</th>
-            <th>التحكم</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var course in Model)
-        {
-            <tr>
-                <td>@course.Title</td>
-                <td><img src="@course.ImageUrl" width="100" /></td>
-                <td>
-                    @if (!string.IsNullOrEmpty(course.PdfUrl))
-                    {
-                        <a href="@course.PdfUrl" target="_blank">تحميل PDF</a>
-                    }
-                </td>
-                <td>
-                @if(course.Date.HasValue)
-                {
-                    @course.Date.Value.ToString("yyyy/MM/dd")
-                }
-                else
-                {
-                    <text>-</text>
-                }
-            </td>
+					@if (Model.Any())
+					{
+						<div class="table-responsive">
+							<table class="table table-hover align-middle" id="coursesTable">
+								<thead class="table-dark">
+									<tr>
+										<th width="60">الصورة</th>
+										<th>العنوان</th>
+										<th width="100">PDF</th>
+										<th width="120">تاريخ الكورس</th>
+										<th width="120">تاريخ الإنشاء</th>
+										@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+										{
+											<th width="80">الحالة</th>
+										}
+										<th width="200" class="text-center">التحكم</th>
+									</tr>
+								</thead>
+								<tbody>
+									@foreach (var course in Model)
+									{
+										<tr>
+											<td>
+												@if (!string.IsNullOrEmpty(course.ImageUrl))
+												{
+													<img src="@course.ImageUrl" alt="@course.Title"
+														 class="img-thumbnail" style="width: 50px; height: 50px; object-fit: cover;">
+												}
+												else
+												{
+													<div class="bg-light d-flex align-items-center justify-content-center"
+														 style="width: 50px; height: 50px; border-radius: 0.375rem;">
+														<i class="fas fa-graduation-cap text-muted"></i>
+													</div>
+												}
+											</td>
+											<td>
+												<strong>@Html.DisplayFor(modelItem => course.Title)</strong>
+											</td>
+											<td>
+												@if (!string.IsNullOrEmpty(course.PdfUrl))
+												{
+													<a href="@course.PdfUrl" target="_blank" class="btn btn-sm btn-outline-primary" title="تحميل PDF">
+														<i class="fas fa-file-pdf"></i>
+													</a>
+												}
+												else
+												{
+													<span class="text-muted">-</span>
+												}
+											</td>
+											<td>
+												<small class="text-muted">
+													@if (course.Date.HasValue)
+													{
+														@course.Date.Value.ToString("yyyy-MM-dd")
+													}
+													else
+													{
+														<text>-</text>
+													}
+												</small>
+											</td>
+											<td>
+												<small class="text-muted">
+													@course.CreatedAt?.ToString("yyyy-MM-dd")
+												</small>
+											</td>
 
+											@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+											{
+												<td>
+													<form asp-action="ToggleActivation" asp-route-id="@course.Id" method="post" class="d-inline">
+														<select name="isActive" class="form-select form-select-sm status-dropdown" onchange="this.form.submit()">
+															<option value="true" selected="@(course.IsActive ? "selected" : null)">فعّال</option>
+															<option value="false" selected="@(!course.IsActive ? "selected" : null)">غير فعّال</option>
+														</select>
+													</form>
+												</td>
+											}
 
-                <td>@course.CreatedAt?.ToString("yyyy/MM/dd")</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@course.Id" class="btn btn-sm btn-warning">تعديل</a>
-                    @* <a asp-action="Delete" asp-route-id="@course.Id" class="btn btn-sm btn-danger">حذف</a> *@
-                    <a asp-action="ToggleActivation" asp-route-id="@course.Id" class="btn btn-sm @(course.IsActive ? "btn-outline-danger" : "btn-outline-success")">
-                        @(course.IsActive ? "إلغاء التفعيل" : "تفعيل")
-                    </a>
+											<td class="text-center">
+												<div class="btn-group" role="group">
+													<a asp-action="Edit" asp-route-id="@course.Id"
+													   class="btn btn-sm btn-outline-warning" title="تعديل">
+														<i class="fas fa-edit"></i>
+													</a>
+													<a asp-controller="CourseLessons" asp-action="Index" asp-route-courseId="@course.Id"
+													   class="btn btn-sm btn-outline-info" title="الدروس">
+														<i class="fas fa-book"></i>
+													</a>
+													@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+													{
+														<form asp-action="Delete" asp-route-id="@course.Id" method="post" onsubmit="return confirm('هل أنت متأكد من الحذف؟')" style="display:inline;">
+															<button type="submit" class="btn btn-sm btn-outline-danger" title="حذف">
+																<i class="fas fa-trash"></i>
+															</button>
+														</form>
+													}
+												</div>
+											</td>
+										</tr>
+									}
+								</tbody>
+							</table>
+						</div>
 
-                    <a asp-controller="CourseLessons" asp-action="Index" asp-route-courseId="@course.Id" class="btn btn-sm btn-info">الدروس</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+						<div class="mt-3">
+							<div class="alert alert-info">
+								<i class="fas fa-info-circle me-2"></i>
+								إجمالي الكورسات: <strong>@Model.Count()</strong>
+							</div>
+						</div>
+					}
+					else
+					{
+						<div class="text-center py-5">
+							<i class="fas fa-graduation-cap fa-3x text-muted mb-3"></i>
+							<h5 class="text-muted">لا توجد كورسات متاحة حالياً</h5>
+							<p class="text-muted">ابدأ بإضافة كورس جديد</p>
+							<a asp-action="Create" class="btn btn-primary">
+								<i class="fas fa-plus me-1"></i>
+								إضافة أول كورس
+							</a>
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			// Initialize search functionality
+			if (document.getElementById('coursesTable')) {
+				// Add search functionality
+				const searchInput = document.createElement('input');
+				searchInput.type = 'text';
+				searchInput.placeholder = 'البحث عن اسم الكورس...';
+				searchInput.className = 'form-control mb-3';
+				searchInput.style.maxWidth = '300px';
+
+				const tableContainer = document.querySelector('.table-responsive');
+				tableContainer.parentNode.insertBefore(searchInput, tableContainer);
+
+				searchInput.addEventListener('input', function() {
+					const searchTerm = this.value.toLowerCase();
+					const rows = document.querySelectorAll('#coursesTable tbody tr');
+
+					rows.forEach(row => {
+						const text = row.textContent.toLowerCase();
+						row.style.display = text.includes(searchTerm) ? '' : 'none';
+					});
+				});
+			}
+		});
+
+		function showToast(message, type) {
+			// Create toast element
+			const toast = document.createElement('div');
+			toast.className = `alert alert-${type === 'success' ? 'success' : 'danger'} position-fixed`;
+			toast.style.cssText = 'top: 20px; right: 20px; z-index: 1060; min-width: 300px;';
+			toast.innerHTML = `
+				<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'} me-2"></i>
+				${message}
+			`;
+
+			document.body.appendChild(toast);
+
+			// Remove toast after 3 seconds
+			setTimeout(() => {
+				toast.remove();
+			}, 3000);
+		}
+	</script>
+
+	<style>
+		#coursesTable tr:hover {
+			background-color: #f8f9fa;
+		}
+
+		.btn-group .btn {
+			border-radius: 0.375rem;
+			margin: 0 1px;
+		}
+
+		.table th {
+			border-top: none;
+			font-weight: 600;
+		}
+
+		.fade-show {
+			animation: fadeIn 0.5s ease-in;
+		}
+
+		@@keyframes fadeIn {
+			from {
+				opacity: 0;
+				transform: translateY(-10px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.badge {
+			font-size: 0.75em;
+		}
+
+		.img-thumbnail {
+			border: 1px solid #dee2e6;
+		}
+
+		.text-muted {
+			font-size: 0.9em;
+		}
+
+		.status-dropdown {
+			width: 120px;
+			padding: 0.25rem 0.5rem;
+			border-radius: 4px;
+			border: 1px solid #ced4da;
+			background-color: #f8f9fa;
+			transition: all 0.3s ease;
+			cursor: pointer;
+		}
+
+			.status-dropdown:hover {
+				border-color: #86b7fe;
+				box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
+			}
+
+			.status-dropdown:focus {
+				border-color: #86b7fe;
+				outline: 0;
+				box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+			}
+
+			.status-dropdown option[value="true"] {
+				color: #198754; /* لون الخيار الفعّال */
+			}
+
+			.status-dropdown option[value="false"] {
+				color: #dc3545; /* لون الخيار غير الفعّال */
+			}
+
+		.gap-2 {
+			gap: 0.5rem !important;
+		}
+	</style>
+}
+
+@section Style {
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+}

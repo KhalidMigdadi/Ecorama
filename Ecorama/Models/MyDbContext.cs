@@ -112,7 +112,6 @@ public partial class MyDbContext : DbContext
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
             entity.Property(e => e.ImageUrl).HasMaxLength(255);
-            entity.Property(e => e.IsActive).HasDefaultValue(true);
             entity.Property(e => e.PdfUrl).HasMaxLength(255);
             entity.Property(e => e.Title).HasMaxLength(200);
         });

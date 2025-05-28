@@ -1,77 +1,348 @@
 ﻿@model IEnumerable<Ecorama.Models.News>
 
 @{
+    ViewData["Title"] = "إدارة الأخبار";
     Layout = "~/Views/Shared/_Admin_Layout.cshtml";
-    ViewData["Title"] = "الأخبار";
 }
 
-<div class="container my-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <a asp-action="CreateNews" class="btn btn-success">
-            <i class="bi bi-plus-circle"></i> إضافة خبر جديد
-        </a>
-        <h2 class="text-primary">إدارة الأخبار</h2>
-
-    </div>
-    <br />
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        @foreach (var item in Model)
-        {
-            <div class="col">
-                <div class="card h-100 shadow-sm border-0">
-                    <img src="/img/news/@item.ImageUrl" class="card-img-top" alt="@item.Title" style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5  class="card-title">@item.Title</h5>
-                        <p class="card-text text-muted" style="white-space: pre-line;">
-                            @((item.Content.Length > 100) ? item.Content.Substring(0, 100) + "..." : item.Content)
-                        </p>
-                        <p class="mb-1">
-                            <strong>تاريخ النشر:</strong>
-                            @(item.CreatedAt.HasValue ? item.CreatedAt.Value.ToString("yyyy/MM/dd") : "غير متوفر")
-                        </p>
-                        <span class="badge @(item.IsActive ? "bg-success" : "bg-danger")">
-                            @(item.IsActive ? "نشط" : "غير نشط")
-                        </span>
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h3 class="mb-0">
+                        <i class="fas fa-newspaper me-2"></i>
+                        إدارة الأخبار
+                    </h3>
+                    <div class="d-flex gap-2">
+                        <a asp-action="CreateNews" class="btn btn-light">
+                            <i class="fas fa-plus me-1"></i>
+                            إضافة خبر جديد
+                        </a>
+                        <a asp-action="ExportNewsToExcel" class="btn btn-outline-light">
+                            <i class="fas fa-file-excel me-1"></i>
+                            تصدير Excel
+                        </a>
                     </div>
-                    <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between">
-                        <a asp-action="EditNews" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">تعديل</a>
-                        <a asp-action="DetalisNews" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info">تفاصيل</a>
+                </div>
+                <div class="card-body">
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade-show">
+                            <i class="fas fa-check-circle me-2"></i>
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
 
-                        <form method="post" action="@Url.Action("DeleteNews", "Admin")" class="delete-news-form">
-                            <input type="hidden" name="id" value="@item.Id" />
-                            <button type="submit" class="btn btn-sm btn-outline-danger">حذف</button>
-                        </form>
-                    </div>
+                    @if (Model.Any())
+                    {
+                        <!-- Search Bar -->
+                        <div class="mb-3">
+                            <input type="text" id="searchInput" class="form-control" placeholder="البحث في الأخبار بالعنوان أو المحتوى..." style="max-width: 400px;">
+                        </div>
 
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle" id="newsTable">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th width="80">الصورة</th>
+                                        <th>العنوان</th>
+                                        <th>المحتوى</th>
+                                        <th width="100">الحالة</th>
+                                        <th width="120">تاريخ النشر</th>
+                                        <th width="180" class="text-center">الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                                {
+                                                    <img src="/img/news/@item.ImageUrl" alt="@item.Title"
+                                                         class="img-thumbnail" style="width: 60px; height: 60px; object-fit: cover;">
+                                                }
+                                                else
+                                                {
+                                                    <div class="bg-light d-flex align-items-center justify-content-center"
+                                                         style="width: 60px; height: 60px; border-radius: 0.375rem;">
+                                                        <i class="fas fa-image text-muted"></i>
+                                                    </div>
+                                                }
+                                            </td>
+                                            <td>
+                                                <strong class="d-block">@Html.DisplayFor(modelItem => item.Title)</strong>
+                                            </td>
+                                            <td>
+                                                <span class="text-muted">
+                                                    @{
+                                                        var shortContent = item.Content?.Length > 80 ?
+                                                        item.Content.Substring(0, 80) + "..." :
+                                                        item.Content;
+                                                    }
+                                                    @shortContent
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span class="badge @(item.IsActive ? "bg-success" : "bg-danger")">
+                                                    @(item.IsActive ? "نشط" : "غير نشط")
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <small class="text-muted">
+                                                    @(item.CreatedAt.HasValue ? item.CreatedAt.Value.ToString("dd/MM/yyyy") : "غير متوفر")
+                                                </small>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="btn-group" role="group">
+                                                    <a asp-action="DetalisNews" asp-route-id="@item.Id"
+                                                       class="btn btn-sm btn-outline-info" title="عرض التفاصيل">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                    <a asp-action="EditNews" asp-route-id="@item.Id"
+                                                       class="btn btn-sm btn-outline-warning" title="تعديل">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                    @if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+                                                    {
+                                                        <button type="button" class="btn btn-sm btn-outline-danger delete-news-btn"
+                                                                data-id="@item.Id" title="حذف">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    }
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-3">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                عدد الأخبار المعروضة: <strong>@Model.Count()</strong>
+                                | الأخبار النشطة: <strong>@Model.Count(n => n.IsActive)</strong>
+                                | الأخبار غير النشطة: <strong>@Model.Count(n => !n.IsActive)</strong>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="fas fa-newspaper fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">لا توجد أخبار حالياً</h5>
+                            <p class="text-muted">ابدأ بإضافة خبر جديد لموقعك</p>
+                            <a asp-action="CreateNews" class="btn btn-primary">
+                                <i class="fas fa-plus me-1"></i>
+                                إضافة أول خبر
+                            </a>
+                        </div>
+                    }
                 </div>
             </div>
-        }
+        </div>
     </div>
 </div>
 
+<!-- Hidden form for delete operations -->
+<form id="deleteNewsForm" method="post" action="@Url.Action("DeleteNews", "Admin")" style="display: none;">
+    <input type="hidden" name="id" id="deleteNewsId" />
+</form>
+
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script>
-        document.querySelectorAll(".delete-news-form").forEach(form => {
-            form.addEventListener("submit", function (e) {
-                e.preventDefault(); // امنع الإرسال مؤقتاً
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize search functionality
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase().trim();
+                    const rows = document.querySelectorAll('#newsTable tbody tr');
 
-                Swal.fire({
-                    title: 'هل أنت متأكد؟',
-                    text: "لا يمكنك التراجع بعد الحذف!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#d33',
-                    cancelButtonColor: '#6c757d',
-                    confirmButtonText: 'نعم، احذف',
-                    cancelButtonText: 'إلغاء'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        form.submit(); // نفّذ الإرسال إذا وافق
-                    }
+                    rows.forEach(row => {
+                        const title = row.cells[1].textContent.toLowerCase();
+                        const content = row.cells[2].textContent.toLowerCase();
+                        const isVisible = title.includes(searchTerm) || content.includes(searchTerm);
+                        row.style.display = isVisible ? '' : 'none';
+                    });
+
+                    // Update table info based on visible rows
+                    updateTableInfo();
+                });
+            }
+
+            // Handle delete button clicks
+            document.querySelectorAll('.delete-news-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const newsId = this.getAttribute('data-id');
+
+                    Swal.fire({
+                        title: 'هل أنت متأكد؟',
+                        text: "لا يمكنك التراجع بعد الحذف!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#6c757d',
+                        confirmButtonText: 'نعم، احذف',
+                        cancelButtonText: 'إلغاء',
+                        customClass: {
+                            popup: 'swal-rtl'
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            document.getElementById('deleteNewsId').value = newsId;
+                            document.getElementById('deleteNewsForm').submit();
+                        }
+                    });
                 });
             });
         });
+
+        function updateTableInfo() {
+            const visibleRows = document.querySelectorAll('#newsTable tbody tr[style=""], #newsTable tbody tr:not([style])');
+            const totalVisible = visibleRows.length;
+            const activeVisible = Array.from(visibleRows).filter(row =>
+                row.querySelector('.badge.bg-success')).length;
+            const inactiveVisible = totalVisible - activeVisible;
+
+            const infoAlert = document.querySelector('.alert-info');
+            if (infoAlert) {
+                infoAlert.innerHTML = `
+                    <i class="fas fa-info-circle me-2"></i>
+                    عدد الأخبار المعروضة: <strong>${totalVisible}</strong>
+                    | الأخبار النشطة: <strong>${activeVisible}</strong>
+                    | الأخبار غير النشطة: <strong>${inactiveVisible}</strong>
+                `;
+            }
+        }
+
+        function showToast(message, type) {
+            // Create toast element
+            const toast = document.createElement('div');
+            toast.className = `alert alert-${type === 'success' ? 'success' : 'danger'} position-fixed`;
+            toast.style.cssText = 'top: 20px; right: 20px; z-index: 1060; min-width: 300px;';
+            toast.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'} me-2"></i>
+                ${message}
+            `;
+
+            document.body.appendChild(toast);
+
+            // Remove toast after 3 seconds
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
     </script>
+
+    <style>
+        /* Search input styling */
+        #searchInput {
+            border: 1px solid #ced4da;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+        }
+
+            #searchInput:focus {
+                border-color: #0d6efd;
+                box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+                background-color: #fff;
+                outline: 0;
+            }
+
+            #searchInput::placeholder {
+                color: #6c757d;
+                font-style: italic;
+            }
+
+        .btn-group .btn {
+            border-radius: 0.375rem;
+            margin: 0 1px;
+        }
+
+        .table th {
+            border-top: none;
+            font-weight: 600;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .fade-show {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @@keyframes fadeIn {
+            from
+
+        {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        }
+
+        .img-thumbnail {
+            border: 1px solid #dee2e6;
+            border-radius: 0.375rem;
+        }
+
+        .badge {
+            font-size: 0.75em;
+            font-weight: 500;
+        }
+
+        .card-header {
+            border-bottom: 1px solid rgba(255,255,255,0.125);
+        }
+
+        .alert-info {
+            background-color: #e7f3ff;
+            border-color: #b3d9ff;
+            color: #004085;
+        }
+
+        /* RTL support for SweetAlert */
+        .swal-rtl {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl;
+            text-align: right;
+        }
+
+        /* Responsive improvements */
+        @@media (max-width: 768px) {
+            .card-header .d-flex
+
+        {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn-group {
+            flex-direction: column;
+        }
+
+            .btn-group .btn {
+                margin: 1px 0;
+            }
+
+        }
+    </style>
+}
+
+@section Style {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 }

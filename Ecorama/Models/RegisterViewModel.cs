@@ -32,8 +32,7 @@ namespace Ecorama.Models
         public string ConfirmPassword { get; set; }
 
         [Required(ErrorMessage = "رقم الهاتف مطلوب")]
-        [Phone(ErrorMessage = "رقم الهاتف غير صحيح")]
-        [Display(Name = "رقم الهاتف")]
+        [RegularExpression(@"^(07[7-9]|079)\d{7}$", ErrorMessage = "يرجى إدخال رقم هاتف أردني صحيح")]
         public string PhoneNumber { get; set; }
 
         [Required(ErrorMessage = "الجنس مطلوب")]
@@ -69,6 +68,9 @@ namespace Ecorama.Models
         [Required(ErrorMessage = "نوع البرنامج مطلوب")]
         [Display(Name = "نوع البرنامج")]
         public string ProgramType { get; set; }
+
+        public string Nationality { get; set; }
+
 
         public List<LanguageViewModel> Languages { get; set; } = new List<LanguageViewModel>();
 

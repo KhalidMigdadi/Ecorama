@@ -20,14 +20,14 @@
 				</a>
 			</div>
 			<h2>إنشاء حساب جديد</h2>
-			@if (TempData["SuccessMessage"] != null)
+			@* @if (TempData["SuccessMessage"] != null)
 			{
 				<div class="alert alert-success alert-dismissible fade show" role="alert">
 					@TempData["SuccessMessage"]
 					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 				</div>
 
-			}
+			} *@
 
 			@if (!ViewData.ModelState.IsValid)
 			{
@@ -80,9 +80,10 @@
 				<!-- رقم الهاتف -->
 				<div class="form-group">
 					<label asp-for="PhoneNumber">رقم الهاتف</label>
-					<input asp-for="PhoneNumber" placeholder="أدخل رقم الهاتف" required>
-					<span asp-validation-for="PhoneNumber" class="field-validation-error"></span>
+					<input asp-for="PhoneNumber" placeholder="أدخل رقم الهاتف" required class="form-control" />
+					<span asp-validation-for="PhoneNumber" class="text-danger"></span>
 				</div>
+
 
 				<div class="row">
 					<!-- الجنس -->
@@ -104,12 +105,23 @@
 					</div>
 				</div>
 
-				<!-- الرقم الوطني -->
 				<div class="form-group">
-					<label asp-for="NationalId">الرقم الوطني/ ASC</label>
-					<input asp-for="NationalId" placeholder="أدخل الرقم الوطني" required>
+					<label asp-for="Nationality">الجنسية</label>
+					<select asp-for="Nationality" id="Nationality" class="form-control" required onchange="handleNationalityChange()">
+						<option value="" selected disabled>اختر الجنسية</option>
+						<option value="أردني">أردني</option>
+						<option value="سوري">سوري</option>
+					</select>
+					<span asp-validation-for="Nationality" class="field-validation-error"></span>
+				</div>
+
+				<div class="form-group">
+					<label asp-for="NationalId">الرقم الوطني / رقم المفوضية</label>
+					<input asp-for="NationalId" id="NationalId" class="form-control" placeholder="أدخل الرقم" disabled>
 					<span asp-validation-for="NationalId" class="field-validation-error"></span>
 				</div>
+
+
 
 				<!-- مكان السكن - فقط محافظة إربد -->
 				<div class="form-group">
@@ -191,6 +203,11 @@
 </div>
 
 @section Scripts {
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+
 	<script>
 		let languageCounter = 1;
 
@@ -331,6 +348,50 @@
 				event.preventDefault();
 			}
 		});
+
+		document.addEventListener("DOMContentLoaded", () => {
+			const nationalitySelect = document.getElementById('Nationality');
+			const nationalIdInput = document.getElementById('NationalId');
+
+			// دالة لمنع إدخال غير الأرقام عند الجنسية "أردني"
+			nationalIdInput.addEventListener('keypress', function(event) {
+				if (nationalitySelect.value === "أردني") {
+					const charCode = event.which || event.keyCode;
+					if (charCode < 48 || charCode > 57) {  // إذا الحرف مش رقم
+						event.preventDefault();
+					}
+				}
+			});
+
+			function handleNationalityChange() {
+				const nationality = nationalitySelect.value;
+
+				if (nationality === "أردني") {
+					nationalIdInput.disabled = false;
+					nationalIdInput.value = "";
+					nationalIdInput.setAttribute("pattern", "\\d+");
+					nationalIdInput.setAttribute("title", "يرجى إدخال أرقام فقط");
+				}
+				else if (nationality === "سوري") {
+					nationalIdInput.disabled = false;
+					nationalIdInput.value = "";
+					nationalIdInput.removeAttribute("pattern");
+					nationalIdInput.removeAttribute("title");
+				}
+				else {
+					nationalIdInput.disabled = true;
+					nationalIdInput.value = "";
+					nationalIdInput.removeAttribute("pattern");
+					nationalIdInput.removeAttribute("title");
+				}
+			}
+
+			nationalitySelect.addEventListener('change', handleNationalityChange);
+
+			// تفعيل الحالة الافتراضية عند تحميل الصفحة
+			handleNationalityChange();
+		});
+
 	</script>
 
 	@{

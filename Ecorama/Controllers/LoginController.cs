@@ -77,6 +77,9 @@ namespace Ecorama.Controllers
                     return View(model);
                 }
 
+                var passwordHasher = new PasswordHasher<User>();
+
+
                 // إنشاء كائن المستخدم الجديد
                 var user = new User
                 {
@@ -93,6 +96,9 @@ namespace Ecorama.Controllers
                     Role = "User",
                     IsActive = true
                 };
+
+                user.PasswordHash = passwordHasher.HashPassword(user, model.Password);
+
 
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
@@ -232,58 +238,58 @@ namespace Ecorama.Controllers
 
         #region Admin Registration
 
-        public IActionResult RegisterAdmin()
-        {
-            return View();
-        }
+        //public IActionResult RegisterAdmin()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> RegisterAdmin(AdminRegisterViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                // التحقق من صحة رمز التفويض
-                if (model.AuthorizationCode != _adminAuthCode)
-                {
-                    ModelState.AddModelError("AuthorizationCode", "رمز التفويض غير صحيح");
-                    return View(model);
-                }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> RegisterAdmin(AdminRegisterViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        // التحقق من صحة رمز التفويض
+        //        if (model.AuthorizationCode != _adminAuthCode)
+        //        {
+        //            ModelState.AddModelError("AuthorizationCode", "رمز التفويض غير صحيح");
+        //            return View(model);
+        //        }
 
-                // التحقق من عدم وجود مستخدم بنفس البريد الإلكتروني
-                var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
-                if (existingUser != null)
-                {
-                    ModelState.AddModelError("Email", "هذا البريد الإلكتروني مسجل مسبقاً");
-                    return View(model);
-                }
+        //        // التحقق من عدم وجود مستخدم بنفس البريد الإلكتروني
+        //        var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
+        //        if (existingUser != null)
+        //        {
+        //            ModelState.AddModelError("Email", "هذا البريد الإلكتروني مسجل مسبقاً");
+        //            return View(model);
+        //        }
 
-                // إنشاء كائن المستخدم المشرف الجديد
-                var admin = new User
-                {
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    Email = model.Email,
-                    PasswordHash = model.Password, // في الإنتاج يجب استخدام تشفير لكلمة المرور
-                    CreatedAt = DateTime.Now,
-                    Role = "Admin", // تعيين دور المستخدم كمشرف
-                    IsActive = true,
-                    // قيم افتراضية للحقول الإلزامية في جدول Users
-                    Gender = "غير محدد",
-                    Birthdate = DateOnly.FromDateTime(DateTime.Now),
-                    NationalId = $"ADMIN-{Guid.NewGuid().ToString().Substring(0, 8)}",
-                    PhoneNumber = "000000000"
-                };
+        //        // إنشاء كائن المستخدم المشرف الجديد
+        //        var admin = new User
+        //        {
+        //            FirstName = model.FirstName,
+        //            LastName = model.LastName,
+        //            Email = model.Email,
+        //            PasswordHash = model.Password, // في الإنتاج يجب استخدام تشفير لكلمة المرور
+        //            CreatedAt = DateTime.Now,
+        //            Role = "Admin", // تعيين دور المستخدم كمشرف
+        //            IsActive = true,
+        //            // قيم افتراضية للحقول الإلزامية في جدول Users
+        //            Gender = "غير محدد",
+        //            Birthdate = DateOnly.FromDateTime(DateTime.Now),
+        //            NationalId = $"ADMIN-{Guid.NewGuid().ToString().Substring(0, 8)}",
+        //            PhoneNumber = "000000000"
+        //        };
 
-                _context.Users.Add(admin);
-                await _context.SaveChangesAsync();
+        //        _context.Users.Add(admin);
+        //        await _context.SaveChangesAsync();
 
-                TempData["SuccessMessage"] = "تم إنشاء حساب المشرف بنجاح.";
-                return RedirectToAction(nameof(Login));
-            }
+        //        TempData["SuccessMessage"] = "تم إنشاء حساب المشرف بنجاح.";
+        //        return RedirectToAction(nameof(Login));
+        //    }
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
         #endregion
 
@@ -305,13 +311,27 @@ namespace Ecorama.Controllers
             var user = await _context.Users
                 .FirstOrDefaultAsync(u => u.Email == model.Email && u.IsActive);
 
-            if (user == null || user.PasswordHash != model.Password) // يجب استخدام تشفير في الإنتاج
+            if (user == null) 
             {
                 ModelState.AddModelError("", "البريد أو كلمة المرور غير صحيحة");
                 return View(model);
             }
 
-            if (user.Role == "Admin")
+            // إنشاء PasswordHasher
+            var passwordHasher = new PasswordHasher<User>();
+
+            // تحقق من كلمة المرور
+            var result = passwordHasher.VerifyHashedPassword(user, user.PasswordHash, model.Password);
+            if (result == PasswordVerificationResult.Failed)
+            {
+                ModelState.AddModelError("", "البريد أو كلمة المرور غير صحيحة");
+                return View(model);
+            }
+
+
+
+
+            if (user.Email == "Ecorama@gmail.com" && user.PasswordHash == "Ecorama123")
             {
                 HttpContext.Session.SetInt32("AdminId", user.Id);
 
@@ -340,7 +360,7 @@ namespace Ecorama.Controllers
             }
 
             // توجيه المستخدم بناءً على دوره
-            if (user.Role == "Admin")
+            if (user.Email == "Ecorama@gmail.com" && user.PasswordHash == "Ecorama123")
             {
                 return RedirectToAction("Index", "Admin");
             }

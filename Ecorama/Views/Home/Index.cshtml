@@ -1715,7 +1715,7 @@
 				<div class="workshop-card">
 					<div class="workshop-image">
 						<img src="@workshop.ImageUrl" alt="ورشة عمل">
-						<div class="workshop-date">@workshop.Date?.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("ar-AE"))</div>
+						<div class="workshop-date">@workshop.StartDate?.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("ar-AE"))</div>
 					</div>
 					<div class="workshop-content">
 						<h3>@workshop.Title</h3>

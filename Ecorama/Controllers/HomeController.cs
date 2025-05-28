@@ -29,7 +29,7 @@ namespace Ecorama.Controllers
 
             var latestWorkshops = _context.Workshops
                .Where(w => w.IsActive)
-               .OrderBy(w => w.Date)
+               .OrderBy(w => w.StartDate)
                .Take(3)
                .ToList();
 

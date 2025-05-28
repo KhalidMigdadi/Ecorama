@@ -43,7 +43,7 @@
 
 
 		@foreach (var workshop in Model)
-				{
+		{
 			<div class="workshop-card">
 				<div class="card-image">
 					<img src="@workshop.ImageUrl" alt="ورشة تصميم المواقع الإلكترونية">
@@ -51,10 +51,11 @@
 				</div>
 				<div class="card-content">
 					<h3 class="card-title">@workshop.Title</h3>
+					<p class="card-org"><strong>المنظمة:</strong> @workshop.Organization</p>
 					<div class="card-meta">
 						<span><i class="fas fa-calendar-alt"></i> @workshop.Duration ساعات</span>
 
-						<span><i class="fas fa-users"></i> @workshop.SeatsAvailable مقعد</span>
+						@* <span><i class="fas fa-users"></i> @workshop.SeatsAvailable مقعد</span> *@
 					</div>
 					<p class="card-desc">@workshop.Description</p>
 					<div class="card-footer">
@@ -63,7 +64,7 @@
 					</div>
 				</div>
 			</div>
-				}
+		}
 
 
 

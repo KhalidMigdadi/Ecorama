@@ -1,62 +1,145 @@
 ﻿@model Ecorama.Models.Workshop
 
 @{
-    ViewData["Title"] = "تفاصيل الورشة";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "تفاصيل الورشة";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+
+
 }
 
 @section Style {
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="~/css/workshopDetails.css" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet" />
+
+	<link href="~/css/workshopDetails.css" rel="stylesheet" />
 }
 
 <div class="details-container">
-    <div class="details-header">
-        <h1>@Model.Title</h1>
-        <span class="tag">الورشة</span>
-    </div>
+	<div class="details-header">
+		<h1>@Model.Title</h1>
+		<span class="tag">الورشة</span>
+	</div>
 
-    <div class="details-content">
-        <div class="image-box">
-            <img src="@Model.ImageUrl" alt="صورة الورشة">
-        </div>
+	@if (TempData["SuccessMessage"] != null)
+	{
+		<div class="alert alert-success">@TempData["SuccessMessage"]</div>
+	}
 
-        <div class="info-box">
-            <p class="description">
-                @Model.Description
-            </p>
+	@if (TempData["ErrorMessage"] != null)
+	{
+		<div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+	}
 
-            <ul class="workshop-info">
-                <li>
-                    <i class="fas fa-calendar-day"></i>
-                    التاريخ: @(Model.Date.HasValue ? Model.Date.Value.ToString("dd MMMM yyyy", System.Globalization.CultureInfo.InvariantCulture) : "غير متوفر")
-                </li>
-                @if (Model.Duration.HasValue)
-                {
-                    <li><i class="fas fa-clock"></i> المدة: @Model.Duration أيام</li>
-                }
-                @if (Model.SeatsAvailable.HasValue)
+
+
+	<div class="details-content">
+		<div class="image-box">
+			<img src="@Model.ImageUrl" alt="صورة الورشة">
+		</div>
+
+		<div class="info-box">
+			<p class="description">
+				@Model.Description
+			</p>
+
+			<ul class="workshop-info">
+				<li>
+					<i class="fas fa-calendar-day"></i>
+					تاريخ البدء: @(Model.StartDate.HasValue ? Model.StartDate.Value.ToString("dd MMMM yyyy", System.Globalization.CultureInfo.InvariantCulture) : "غير متوفر")
+				</li>
+
+				@if (Model.EndDate.HasValue)
+				{
+					<li>
+						<i class="fas fa-calendar-day"></i>
+						تاريخ الانتهاء: @Model.EndDate.Value.ToString("dd MMMM yyyy", System.Globalization.CultureInfo.InvariantCulture)
+					</li>
+				}
+
+				@if (Model.Duration.HasValue)
+				{
+					<li><i class="fas fa-clock"></i> المدة: @Model.Duration ساعات</li>
+				}
+
+				@*  @if (Model.SeatsAvailable.HasValue)
                 {
                     <li><i class="fas fa-users"></i> المقاعد المتاحة: @Model.SeatsAvailable</li>
-                }
-               @*  @if (Model.Price.HasValue)
+                } *@
+
+				@if (!string.IsNullOrEmpty(Model.Organization))
+				{
+					<li><i class="fas fa-building"></i> المنظمة: @Model.Organization</li>
+				}
+
+				@*  @if (Model.Price.HasValue)
                 {
                     <li><i class="fas fa-tag"></i> السعر: <strong>@Model.Price ريال</strong></li>
                 } *@
-            </ul>
+			</ul>
 
-            @if (!string.IsNullOrEmpty(Model.WebSiteUrl))
-            {
-                <a href="@Model.WebSiteUrl" class="external-link" target="_blank">
-                    <i class="fas fa-link"></i> زيارة الموقع الرسمي للورشة
-                </a>
-            }
+			@if (!string.IsNullOrEmpty(Model.WebSiteUrl))
+			{
+				<a href="@Model.WebSiteUrl" class="external-link" target="_blank">
+					<i class="fas fa-link"></i> زيارة الموقع الرسمي للورشة
+				</a>
+			}
+			<div class="action-buttons">
+				<form asp-action="RegisterForWorkshop" method="post" onsubmit="return confirmRegister(event)" class="register-form">
+					<input type="hidden" name="workshopId" value="@Model.Id" />
+					<button type="submit" class="btn-register">
+						<span class="btn-icon">📝</span>
+						سجل الآن
+					</button>
+				</form>
 
-            <div class="action-buttons">
-                <a href="@Model.WebSiteUrl" class="btn-register">سجل الآن</a>
-                <a asp-action="Workshops" class="btn-back">العودة للورشات</a>
-            </div>
-        </div>
-    </div>
+				<a asp-action="Workshops" class="btn-back">
+					<span class="btn-icon">↩️</span>
+					العودة للورشات
+				</a>
+			</div>
+		</div>
+	</div>
 </div>
+
+
+
+@section Scripts {
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<script>
+
+		  var isLoggedIn = @((Context.Session.GetInt32("UserId") != null).ToString().ToLower());
+
+		function confirmRegister(event) {
+			event.preventDefault();
+
+			if (!isLoggedIn) {
+				Swal.fire({
+					icon: 'warning',
+					title: 'يجب عليك تسجيل الدخول',
+					text: 'يجب عليك تسجيل الدخول أولاً لتتمكن من التسجيل في الورشة.',
+					confirmButtonText: 'حسنًا'
+				});
+				return false;
+			}
+
+			Swal.fire({
+				title: 'هل أنت متأكد من التسجيل في الورشة؟',
+				icon: 'question',
+				showCancelButton: true,
+				confirmButtonText: 'نعم، سجلني',
+				cancelButtonText: 'إلغاء'
+			}).then((result) => {
+				if (result.isConfirmed) {
+					event.target.submit();
+				}
+			});
+
+			return false;
+		}
+
+	</script>
+
+
+}

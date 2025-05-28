@@ -30,7 +30,7 @@
                         </div>
                     }
 
-                    <form asp-action="EditWorkShop" method="post" id="editWorkshopForm">
+                    <form asp-action="EditWorkShop" method="post" enctype="multipart/form-data" id="editWorkshopForm">
                         <input asp-for="Id" type="hidden" />
 
                         <div class="row">
@@ -48,12 +48,12 @@
 
                                 <!-- Date Field -->
                                 <div class="mb-4">
-                                    <label asp-for="Date" class="form-label fw-bold">
+                                    <label asp-for="StartDate" class="form-label fw-bold">
                                         <i class="fas fa-calendar me-2 text-primary"></i>
                                         Workshop Date <span class="text-danger">*</span>
                                     </label>
-                                    <input asp-for="Date" type="date" class="form-control form-control-lg" />
-                                    <span asp-validation-for="Date" class="text-danger small"></span>
+                                    <input asp-for="StartDate" type="date" class="form-control form-control-lg" />
+                                    <span asp-validation-for="StartDate" class="text-danger small"></span>
                                 </div>
 
                                 <!-- Website URL Field -->
@@ -75,14 +75,15 @@
                             <div class="col-md-6">
                                 <!-- Image URL Field -->
                                 <div class="mb-4">
-                                    <label asp-for="ImageUrl" class="form-label fw-bold">
+                                    <label class="form-label fw-bold">
                                         <i class="fas fa-image me-2 text-primary"></i>
-                                        Image URL
+                                        اختر صورة جديدة (اختياري)
                                     </label>
-                                    <input asp-for="ImageUrl" class="form-control"
-                                           placeholder="https://example.com/image.jpg" id="imageUrlInput" />
-                                    <span asp-validation-for="ImageUrl" class="text-danger small"></span>
+                                    <input type="file" name="ImageFile" class="form-control" id="imageInput" />
+                                    <input type="hidden" name="OldImageUrl" value="@Model.ImageUrl" />
+
                                 </div>
+
 
                                 <!-- Image Preview -->
                                 <div class="mb-4">
@@ -90,6 +91,13 @@
                                         <i class="fas fa-eye me-2 text-success"></i>
                                         Image Preview
                                     </label>
+                                    @{
+                                        if (Model == null)
+                                        {
+                                            <div class="text-danger">Model is null</div>
+                                        }
+                                    }
+
                                     <div class="image-preview-container">
                                         @if (!string.IsNullOrEmpty(Model.ImageUrl))
                                         {
@@ -134,6 +142,68 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- IsActive -->
+                                <div class="mb-4">
+                                    <label asp-for="IsActive" class="form-label fw-bold">
+                                        <i class="fas fa-toggle-on me-2 text-primary"></i>
+                                        Is Active?
+                                    </label>
+                                    <select asp-for="IsActive" class="form-select">
+                                        <option value="true">Yes</option>
+                                        <option value="false">No</option>
+                                    </select>
+                                </div>
+
+                                <!-- Duration -->
+                                <div class="mb-4">
+                                    <label asp-for="Duration" class="form-label fw-bold">
+                                        <i class="fas fa-hourglass-start me-2 text-primary"></i>
+                                        Duration (in hours)
+                                    </label>
+                                    <input asp-for="Duration" class="form-control" type="number" min="1" placeholder="Enter duration..." />
+                                </div>
+
+                                <!-- SeatsAvailable -->
+                               @*  <div class="mb-4">
+                                    <label asp-for="SeatsAvailable" class="form-label fw-bold">
+                                        <i class="fas fa-chair me-2 text-primary"></i>
+                                        Seats Available
+                                    </label>
+                                    <input asp-for="SeatsAvailable" class="form-control" type="number" min="1" placeholder="Enter number of seats..." />
+                                </div> *@
+                            </div>
+
+                            <div class="col-md-6">
+                                <!-- StartDate -->
+                                <div class="mb-4">
+                                    <label asp-for="StartDate" class="form-label fw-bold">
+                                        <i class="fas fa-calendar-alt me-2 text-primary"></i>
+                                        Start Date
+                                    </label>
+                                    <input asp-for="StartDate" type="date" class="form-control" />
+                                </div>
+                                <!-- EndDate -->
+                                <div class="mb-4">
+                                    <label asp-for="EndDate" class="form-label fw-bold">
+                                        <i class="fas fa-calendar-alt me-2 text-primary"></i>
+                                        End Date
+                                    </label>
+                                    <input asp-for="EndDate" type="date" class="form-control" />
+                                </div>
+
+                                <!-- Organization -->
+                                <div class="mb-4">
+                                    <label asp-for="Organization" class="form-label fw-bold">
+                                        <i class="fas fa-building me-2 text-primary"></i>
+                                        Organization Name
+                                    </label>
+                                    <input asp-for="Organization" class="form-control" placeholder="Enter organization name..." />
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Action Buttons -->
                         <div class="row mt-4">
                             <div class="col-12">
@@ -156,6 +226,9 @@
                                 </div>
                             </div>
                         </div>
+
+                       
+
                     </form>
                 </div>
             </div>
@@ -280,6 +353,31 @@
                 }
             });
         });
+
+        // Image file preview functionality
+const fileInput = document.querySelector('input[name="ImageFile"]');
+if (fileInput) {
+    fileInput.addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                if (previewImg) {
+                    previewImg.src = e.target.result;
+                    previewImg.style.display = "block";
+                }
+
+                if (noImagePlaceholder) {
+                    noImagePlaceholder.style.display = "none";
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+}
+
+
+
     </script>
 
     @{

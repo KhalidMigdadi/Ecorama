@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ecorama.Models;
 
@@ -16,6 +17,8 @@ public partial class User
     public string Gender { get; set; } = null!;
 
     public DateOnly Birthdate { get; set; }
+
+
 
     public string NationalId { get; set; } = null!;
 

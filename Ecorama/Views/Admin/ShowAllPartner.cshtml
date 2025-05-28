@@ -87,10 +87,13 @@
                                                        class="btn btn-sm btn-outline-warning" title="تعديل">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <button type="button" class="btn btn-sm btn-outline-danger"
-                                                            onclick="confirmDelete(@item.Id, '@item.Name')" title="حذف">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
+                                                    @if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+                                                    {
+                                                        <button type="button" class="btn btn-sm btn-outline-danger"
+                                                                onclick="confirmDelete(@item.Id, '@item.Name')" title="حذف">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    }
                                                 </div>
                                             </td>
                                         </tr>
