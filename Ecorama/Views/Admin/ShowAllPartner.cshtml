@@ -87,7 +87,7 @@
                                                        class="btn btn-sm btn-outline-warning" title="تعديل">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    @if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+                                                    @if (Context.Session.GetString("UserEmail") == "superecorama@gmail.com")
                                                     {
                                                         <button type="button" class="btn btn-sm btn-outline-danger"
                                                                 onclick="confirmDelete(@item.Id, '@item.Name')" title="حذف">

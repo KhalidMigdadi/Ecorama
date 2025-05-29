@@ -321,7 +321,7 @@
 										</form> *@
 
 
-										@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+										@if (Context.Session.GetString("UserEmail") == "superecorama@gmail.com")
 										{
 											<form asp-action="ToggleActivation" method="post" asp-route-id="@item.Id">
 												<button type="submit" class="btn btn-sm btn-toggle-active @(item.IsActive ? "btn-outline-danger" : "btn-outline-success")">

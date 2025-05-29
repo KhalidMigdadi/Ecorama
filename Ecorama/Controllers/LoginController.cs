@@ -238,58 +238,58 @@ namespace Ecorama.Controllers
 
         #region Admin Registration
 
-        public IActionResult RegisterAdmin()
-        {
-            return View();
-        }
+        //public IActionResult RegisterAdmin()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> RegisterAdmin(AdminRegisterViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                // التحقق من صحة رمز التفويض
-                if (model.AuthorizationCode != _adminAuthCode)
-                {
-                    ModelState.AddModelError("AuthorizationCode", "رمز التفويض غير صحيح");
-                    return View(model);
-                }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> RegisterAdmin(AdminRegisterViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        // التحقق من صحة رمز التفويض
+        //        if (model.AuthorizationCode != _adminAuthCode)
+        //        {
+        //            ModelState.AddModelError("AuthorizationCode", "رمز التفويض غير صحيح");
+        //            return View(model);
+        //        }
 
-                // التحقق من عدم وجود مستخدم بنفس البريد الإلكتروني
-                var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
-                if (existingUser != null)
-                {
-                    ModelState.AddModelError("Email", "هذا البريد الإلكتروني مسجل مسبقاً");
-                    return View(model);
-                }
+        //        // التحقق من عدم وجود مستخدم بنفس البريد الإلكتروني
+        //        var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
+        //        if (existingUser != null)
+        //        {
+        //            ModelState.AddModelError("Email", "هذا البريد الإلكتروني مسجل مسبقاً");
+        //            return View(model);
+        //        }
 
-                // إنشاء كائن المستخدم المشرف الجديد
-                var admin = new User
-                {
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    Email = model.Email,
-                    PasswordHash = model.Password, // في الإنتاج يجب استخدام تشفير لكلمة المرور
-                    CreatedAt = DateTime.Now,
-                    Role = "Admin", // تعيين دور المستخدم كمشرف
-                    IsActive = true,
-                    // قيم افتراضية للحقول الإلزامية في جدول Users
-                    Gender = "غير محدد",
-                    Birthdate = DateOnly.FromDateTime(DateTime.Now),
-                    NationalId = $"ADMIN-{Guid.NewGuid().ToString().Substring(0, 8)}",
-                    PhoneNumber = "000000000"
-                };
+        //        // إنشاء كائن المستخدم المشرف الجديد
+        //        var admin = new User
+        //        {
+        //            FirstName = model.FirstName,
+        //            LastName = model.LastName,
+        //            Email = model.Email,
+        //            PasswordHash = model.Password, // في الإنتاج يجب استخدام تشفير لكلمة المرور
+        //            CreatedAt = DateTime.Now,
+        //            Role = "Admin", // تعيين دور المستخدم كمشرف
+        //            IsActive = true,
+        //            // قيم افتراضية للحقول الإلزامية في جدول Users
+        //            Gender = "غير محدد",
+        //            Birthdate = DateOnly.FromDateTime(DateTime.Now),
+        //            NationalId = $"ADMIN-{Guid.NewGuid().ToString().Substring(0, 8)}",
+        //            PhoneNumber = "000000000"
+        //        };
 
-                _context.Users.Add(admin);
-                await _context.SaveChangesAsync();
+        //        _context.Users.Add(admin);
+        //        await _context.SaveChangesAsync();
 
-                TempData["SuccessMessage"] = "تم إنشاء حساب المشرف بنجاح.";
-                return RedirectToAction(nameof(Login));
-            }
+        //        TempData["SuccessMessage"] = "تم إنشاء حساب المشرف بنجاح.";
+        //        return RedirectToAction(nameof(Login));
+        //    }
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
         #endregion
 
@@ -307,66 +307,84 @@ namespace Ecorama.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            // البحث عن المستخدم بالبريد الإلكتروني
+            // تحقق خاص للأدمن الافتراضي
+            if (model.Email.ToLower() == "ecorama@gmail.com" && model.Password == "Ecorama@123")
+            {
+                // إنشاء بيانات افتراضية للأدمن
+                HttpContext.Session.SetInt32("AdminId", 0); 
+                HttpContext.Session.SetString("UserName", "Ecorama Admin");
+                HttpContext.Session.SetString("UserEmail", model.Email);
+                HttpContext.Session.SetString("UserRole", "Admin");
+
+                return RedirectToAction("Index", "Admin");
+            }
+
+
+            if (model.Email.ToLower() == "ecorama1@gmail.com" && model.Password == "Ecorama@123")
+            {
+                // إنشاء بيانات افتراضية للأدمن
+                HttpContext.Session.SetInt32("AdminId", 0);
+                HttpContext.Session.SetString("UserName", "Ecorama Admin");
+                HttpContext.Session.SetString("UserEmail", model.Email);
+                HttpContext.Session.SetString("UserRole", "Admin");
+
+                return RedirectToAction("Index", "Admin");
+            }
+
+
+            if (model.Email.ToLower() == "superecorama@gmail.com" && model.Password == "Ecorama@123")
+            {
+                // إنشاء بيانات افتراضية للأدمن
+                HttpContext.Session.SetInt32("AdminId", 0);
+                HttpContext.Session.SetString("UserName", "Ecorama Admin");
+                HttpContext.Session.SetString("UserEmail", model.Email);
+                HttpContext.Session.SetString("UserRole", "Admin");
+
+                return RedirectToAction("Index", "Admin");
+            }
+
+            // تابع التحقق من قاعدة البيانات للمستخدمين الآخرين
             var user = await _context.Users
                 .FirstOrDefaultAsync(u => u.Email == model.Email && u.IsActive);
 
-            if (user == null) 
+            if (user == null)
             {
                 ModelState.AddModelError("", "البريد أو كلمة المرور غير صحيحة");
                 return View(model);
             }
 
-            // إنشاء PasswordHasher
-            //var passwordHasher = new PasswordHasher<User>();
+            var passwordHasher = new PasswordHasher<User>();
+            var result = passwordHasher.VerifyHashedPassword(user, user.PasswordHash, model.Password);
 
-            //// تحقق من كلمة المرور
-            //var result = passwordHasher.VerifyHashedPassword(user, user.PasswordHash, model.Password);
-            //if (result == PasswordVerificationResult.Failed)
-            //{
-            //    ModelState.AddModelError("", "البريد أو كلمة المرور غير صحيحة");
-            //    return View(model);
-            //}
-
-
-
-
-            if (user.Role == "Admin" )
+            if (result == PasswordVerificationResult.Failed)
             {
-                HttpContext.Session.SetInt32("AdminId", user.Id);
-
-            }
-            else
-            {
-                // تخزين البيانات في الجلسة
-                HttpContext.Session.SetInt32("UserId", user.Id);
-                HttpContext.Session.SetString("UserName", user.FirstName + " " + user.LastName);
-                HttpContext.Session.SetString("UserEmail", user.Email);
-                HttpContext.Session.SetString("FirstName", user.FirstName);
-                HttpContext.Session.SetString("MiddleName", user.MiddleName);
-                HttpContext.Session.SetString("LastName", user.LastName);
-                HttpContext.Session.SetString("NationalityId", user.NationalId);
-                HttpContext.Session.SetString("Birthday", user.Birthdate.ToString());
-                HttpContext.Session.SetString("UserRole", user.Role);
-                HttpContext.Session.SetString("Gender", user.Gender);
-                HttpContext.Session.SetString("PhoneNumber", user.PhoneNumber);
+                ModelState.AddModelError("", "البريد أو كلمة المرور غير صحيحة");
+                return View(model);
             }
 
-
+            // تخزين الجلسة للمستخدم الحقيقي
+            HttpContext.Session.SetInt32("UserId", user.Id);
+            HttpContext.Session.SetString("UserName", user.FirstName + " " + user.LastName);
+            HttpContext.Session.SetString("UserEmail", user.Email);
+            HttpContext.Session.SetString("FirstName", user.FirstName);
+            HttpContext.Session.SetString("MiddleName", user.MiddleName);
+            HttpContext.Session.SetString("LastName", user.LastName);
+            HttpContext.Session.SetString("NationalityId", user.NationalId);
+            HttpContext.Session.SetString("Birthday", user.Birthdate.ToString());
+            HttpContext.Session.SetString("UserRole", user.Role);
+            HttpContext.Session.SetString("Gender", user.Gender);
+            HttpContext.Session.SetString("PhoneNumber", user.PhoneNumber);
 
             if (!string.IsNullOrEmpty(user.ProfileImagePath))
             {
                 HttpContext.Session.SetString("ProfileImagePath", user.ProfileImagePath);
             }
 
-            // توجيه المستخدم بناءً على دوره
-            if (user.Role == "Admin")
-            {
-                return RedirectToAction("Index", "Admin");
-            }
+          
 
             return RedirectToAction("Index", "Home");
         }
+
 
         public IActionResult Logout()
         {

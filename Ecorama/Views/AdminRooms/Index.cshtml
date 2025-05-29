@@ -94,15 +94,18 @@
                                                            class="btn btn-sm btn-outline-warning" title="تعديل">
                                                             <i class="fas fa-edit"></i>
                                                         </a>
-                                                        <a asp-action="ToggleStatus" asp-route-id="@item.RoomId"
-                                                           class="btn btn-sm btn-outline-@(item.IsActive == true ? "secondary" : "success")"
-                                                           title="@(item.IsActive == true ? "تعطيل" : "تفعيل")">
-                                                            <i class="fas fa-@(item.IsActive == true ? "pause" : "play")"></i>
-                                                        </a>
-                                                        <button type="button" class="btn btn-sm btn-outline-danger"
-                                                                onclick="confirmDelete(@item.RoomId)" title="حذف">
-                                                            <i class="fas fa-trash"></i>
-                                                        </button>
+                                                        @if (Context.Session.GetString("UserEmail") == "superecorama@gmail.com")
+                                                       {
+                                                            <a asp-action="ToggleStatus" asp-route-id="@item.RoomId"
+                                                               class="btn btn-sm btn-outline-@(item.IsActive == true ? "secondary" : "success")"
+                                                               title="@(item.IsActive == true ? "تعطيل" : "تفعيل")">
+                                                                <i class="fas fa-@(item.IsActive == true ? "pause" : "play")"></i>
+                                                            </a>
+                                                            <button type="button" class="btn btn-sm btn-outline-danger"
+                                                                    onclick="confirmDelete(@item.RoomId)" title="حذف">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                       }
                                                     </div>
                                                     <div class="btn-group" role="group">
                                                         <a asp-action="AddAvailability" asp-route-roomId="@item.RoomId"

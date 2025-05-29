@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\controllers\\adminroomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\controllers\\adminroomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\adminrooms\\viewavailability.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\adminrooms\\viewavailability.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\roomsuser\\book.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\roomsuser\\book.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\adminrooms\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\adminrooms\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\models\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\models\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\adminrooms\\editroom.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\adminrooms\\editroom.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\adminrooms\\bookingslist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\adminrooms\\bookingslist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\adminrooms\\addroom.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -23,8 +27,80 @@
       "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\adminrooms\\addavailability.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\admin\\workshopregistrationsusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\admin\\workshopregistrationsusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\admin\\viewallusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\admin\\viewallusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\admin\\updatepartner.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\admin\\updatepartner.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\admin\\showallpartner.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\admin\\showallpartner.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\admin\\seeallworkshop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\admin\\seeallworkshop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\admin\\news.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\admin\\news.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\admin\\editworkshop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\admin\\editworkshop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\admin\\editnews.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\admin\\editnews.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\admin\\detalisnews.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\admin\\detalisnews.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\admin\\createnews.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\admin\\createnews.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\admin\\contactmassages.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\admin\\contactmassages.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\admin\\addnewworkshop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\admin\\addnewworkshop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\admin\\addnewpartner.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\admin\\addnewpartner.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\login\\registeradmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\login\\registeradmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\controllers\\adminroomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\controllers\\adminroomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\roomsuser\\book.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\views\\roomsuser\\book.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\models\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|solutionrelative:ecorama\\models\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D3A392B8-857A-409A-B932-8A81CDFB3464}|Ecorama\\Ecorama.csproj|c:\\users\\orange\\desktop\\new folder (3)\\ecorama\\ecorama\\views\\shared\\_admin_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -42,7 +118,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,33 +134,280 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ViewAvailability.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\AdminRooms\\ViewAvailability.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\AdminRooms\\ViewAvailability.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\AdminRooms\\ViewAvailability.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\AdminRooms\\ViewAvailability.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAC8AAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:17:47.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EditRoom.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\AdminRooms\\EditRoom.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\AdminRooms\\EditRoom.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\AdminRooms\\EditRoom.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\AdminRooms\\EditRoom.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:17:31.956Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "BookingsList.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\AdminRooms\\BookingsList.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\AdminRooms\\BookingsList.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\AdminRooms\\BookingsList.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\AdminRooms\\BookingsList.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACEAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:16:57.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WorkshopRegistrationsUsers.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\WorkshopRegistrationsUsers.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\Admin\\WorkshopRegistrationsUsers.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\WorkshopRegistrationsUsers.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\Admin\\WorkshopRegistrationsUsers.cshtml",
+              "ViewState": "AgIAAAUBAAAAAAAAAAAAALUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:16:26.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ViewAllUsers.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\ViewAllUsers.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\Admin\\ViewAllUsers.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\ViewAllUsers.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\Admin\\ViewAllUsers.cshtml",
+              "ViewState": "AgIAADICAAAAAAAAAAAQwNQBAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:16:00.424Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UpdatePartner.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\UpdatePartner.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\Admin\\UpdatePartner.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\UpdatePartner.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\Admin\\UpdatePartner.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:15:52.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ShowAllPartner.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\ShowAllPartner.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\Admin\\ShowAllPartner.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\ShowAllPartner.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\Admin\\ShowAllPartner.cshtml",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:15:43.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "News.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\News.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\Admin\\News.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\News.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\Admin\\News.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAGwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:15:15.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAOoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:15:05.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "EditWorkShop.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\EditWorkShop.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\Admin\\EditWorkShop.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\EditWorkShop.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\Admin\\EditWorkShop.cshtml",
+              "ViewState": "AgIAAAgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:14:55.77Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "EditNews.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\EditNews.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\Admin\\EditNews.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\EditNews.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\Admin\\EditNews.cshtml",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:14:52.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DetalisNews.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\DetalisNews.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\Admin\\DetalisNews.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\DetalisNews.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\Admin\\DetalisNews.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:14:48.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CreateNews.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\CreateNews.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\Admin\\CreateNews.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\CreateNews.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\Admin\\CreateNews.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:14:43.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ContactMassages.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\ContactMassages.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\Admin\\ContactMassages.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\ContactMassages.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\Admin\\ContactMassages.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:14:41.356Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "addNewWorkShop.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\addNewWorkShop.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\Admin\\addNewWorkShop.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\addNewWorkShop.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\Admin\\addNewWorkShop.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:14:35.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AddNewPartner.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\AddNewPartner.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\Admin\\AddNewPartner.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\AddNewPartner.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\Admin\\AddNewPartner.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:14:29.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\AdminRooms\\Index.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\AdminRooms\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\AdminRooms\\Index.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\AdminRooms\\Index.cshtml",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAAAGAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:09:27.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "RegisterAdmin.cshtml",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Login\\RegisterAdmin.cshtml",
+              "RelativeDocumentMoniker": "Ecorama\\Views\\Login\\RegisterAdmin.cshtml",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Login\\RegisterAdmin.cshtml",
+              "RelativeToolTip": "Ecorama\\Views\\Login\\RegisterAdmin.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAcwE8AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T22:00:44.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "Ecorama\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "Ecorama\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAADMBAAAAAAAAAAAkwFMBAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T22:00:07.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "AddRoom.cshtml",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\AdminRooms\\AddRoom.cshtml",
               "RelativeDocumentMoniker": "Ecorama\\Views\\AdminRooms\\AddRoom.cshtml",
               "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\AdminRooms\\AddRoom.cshtml",
               "RelativeToolTip": "Ecorama\\Views\\AdminRooms\\AddRoom.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAwAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-29T20:58:39.734Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AddAvailability.cshtml",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\AdminRooms\\AddAvailability.cshtml",
               "RelativeDocumentMoniker": "Ecorama\\Views\\AdminRooms\\AddAvailability.cshtml",
               "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\AdminRooms\\AddAvailability.cshtml",
               "RelativeToolTip": "Ecorama\\Views\\AdminRooms\\AddAvailability.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-29T20:50:52.514Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 24,
               "Title": "Room.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Models\\Room.cs",
               "RelativeDocumentMoniker": "Ecorama\\Models\\Room.cs",
@@ -92,38 +415,37 @@
               "RelativeToolTip": "Ecorama\\Models\\Room.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAnwBcAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T20:47:43.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T20:47:43.15Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 22,
               "Title": "AdminRoomsController.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Controllers\\AdminRoomsController.cs",
               "RelativeDocumentMoniker": "Ecorama\\Controllers\\AdminRoomsController.cs",
               "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Controllers\\AdminRoomsController.cs",
               "RelativeToolTip": "Ecorama\\Controllers\\AdminRoomsController.cs",
-              "ViewState": "AgIAAMIBAAAAAAAAAAAuwM8BAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAMIBAAAAAAAAAAAuwNsBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-29T20:47:02.258Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "seeAllWorkShop.cshtml",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\seeAllWorkShop.cshtml",
               "RelativeDocumentMoniker": "Ecorama\\Views\\Admin\\seeAllWorkShop.cshtml",
               "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Admin\\seeAllWorkShop.cshtml",
               "RelativeToolTip": "Ecorama\\Views\\Admin\\seeAllWorkShop.cshtml",
-              "ViewState": "AgIAAA8BAAAAAAAAAAAUwDABAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-29T20:40:37.381Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 25,
               "Title": "_Admin_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Shared\\_Admin_Layout.cshtml",
               "RelativeDocumentMoniker": "Ecorama\\Views\\Shared\\_Admin_Layout.cshtml",
@@ -131,12 +453,11 @@
               "RelativeToolTip": "Ecorama\\Views\\Shared\\_Admin_Layout.cshtml",
               "ViewState": "AgIAAEsAAAAAAAAAAAAAAF0AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-29T20:39:57.999Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T20:39:57.999Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 23,
               "Title": "Book.cshtml",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\RoomsUser\\Book.cshtml",
               "RelativeDocumentMoniker": "Ecorama\\Views\\RoomsUser\\Book.cshtml",
@@ -144,12 +465,11 @@
               "RelativeToolTip": "Ecorama\\Views\\RoomsUser\\Book.cshtml",
               "ViewState": "AgIAAAABAAAAAAAAAAAUwN4BAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-29T19:18:11.219Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T19:18:11.219Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 26,
               "Title": "RoomsUserController.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Controllers\\RoomsUserController.cs",
               "RelativeDocumentMoniker": "Ecorama\\Controllers\\RoomsUserController.cs",
@@ -157,8 +477,7 @@
               "RelativeToolTip": "Ecorama\\Controllers\\RoomsUserController.cs",
               "ViewState": "AgIAAGsAAAAAAAAAAAAUwIMAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T19:15:12.131Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T19:15:12.131Z"
             }
           ]
         }

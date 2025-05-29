@@ -46,7 +46,7 @@
 										<th width="120">Start Date</th>
 										<th width="120">End Date</th>
 										<th width="150">WebSiteUrl</th>
-										@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+										@if (Context.Session.GetString("UserEmail") == "superecorama@gmail.com")
 										{
 											<th width="80">IsActive</th>
 										}
@@ -116,7 +116,7 @@
 											</td>
 
 
-											@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+											@if (Context.Session.GetString("UserEmail") == "superecorama@gmail.com")
 											{
 												<td>
 													<form asp-action="ToggleWorkshopStatus" asp-route-id="@item.Id" method="post" class="d-inline">
@@ -137,7 +137,7 @@
 													   class="btn btn-sm btn-outline-warning" title="Edit">
 														<i class="fas fa-edit"></i>
 													</a>
-													@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+													@if (Context.Session.GetString("UserEmail") == "superecorama@gmail.com")
 													{
 														<form asp-action="DeleteWorkshop" asp-route-id="@item.Id" method="post" onsubmit="return confirm('هل أنت متأكد من الحذف؟')" style="display:inline;">
 															<button type="submit" class="btn btn-sm btn-outline-danger" title="Delete">
