@@ -41,6 +41,12 @@ public partial class MyDbContext : DbContext
 
     public virtual DbSet<Residence> Residences { get; set; }
 
+    public virtual DbSet<Room> Rooms { get; set; }
+
+    public virtual DbSet<RoomAvailability> RoomAvailabilities { get; set; }
+
+    public virtual DbSet<RoomBooking> RoomBookings { get; set; }
+
     public virtual DbSet<SliderItem> SliderItems { get; set; }
 
     public virtual DbSet<SocialMediaLink> SocialMediaLinks { get; set; }
@@ -242,6 +248,52 @@ public partial class MyDbContext : DbContext
                 .HasConstraintName("FK_Residences_Village");
         });
 
+        modelBuilder.Entity<Room>(entity =>
+        {
+            entity.HasKey(e => e.RoomId).HasName("PK__Rooms__32863939D26FF8BA");
+
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
+            entity.Property(e => e.Name).HasMaxLength(100);
+            entity.Property(e => e.Type).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<RoomAvailability>(entity =>
+        {
+            entity.HasKey(e => e.AvailabilityId).HasName("PK__RoomAvai__DA3979B1F085734A");
+
+            entity.ToTable("RoomAvailability");
+
+            entity.HasOne(d => d.Room).WithMany(p => p.RoomAvailabilities)
+                .HasForeignKey(d => d.RoomId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_RoomAvailability_Rooms");
+        });
+
+        modelBuilder.Entity<RoomBooking>(entity =>
+        {
+            entity.HasKey(e => e.BookingId).HasName("PK__RoomBook__73951AEDC6EBDEC9");
+
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasDefaultValue("Pending");
+
+            entity.HasOne(d => d.Room).WithMany(p => p.RoomBookings)
+                .HasForeignKey(d => d.RoomId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_RoomBookings_Rooms");
+
+            entity.HasOne(d => d.User).WithMany(p => p.RoomBookings)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_RoomBookings_Users");
+        });
+
         modelBuilder.Entity<SliderItem>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__SliderIt__3214EC07BD532269");
@@ -377,6 +429,9 @@ public partial class MyDbContext : DbContext
             entity.HasKey(e => e.Id).HasName("PK__Workshop__3214EC0753531171");
 
             entity.Property(e => e.IsActive).HasDefaultValue(true);
+            entity.Property(e => e.Organization)
+                .HasMaxLength(200)
+                .HasColumnName("organization");
             entity.Property(e => e.Title).HasMaxLength(200);
         });
 

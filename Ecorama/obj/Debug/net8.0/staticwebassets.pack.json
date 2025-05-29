@@ -7381,6 +7381,14 @@
       "PackagePath": "staticwebassets\\css\\registerLesons.css"
     },
     {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\rooms.css",
+      "PackagePath": "staticwebassets\\css\\rooms.css"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\roomsBook.css",
+      "PackagePath": "staticwebassets\\css\\roomsBook.css"
+    },
+    {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -8059,6 +8067,26 @@
     {
       "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\pdfs\\eef09d53-c9e7-450a-b728-5b0e1a2241e8.pdf",
       "PackagePath": "staticwebassets\\uploads\\pdfs\\eef09d53-c9e7-450a-b728-5b0e1a2241e8.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\rooms\\21486b73-8804-4f88-bb48-3e0bb2b9db46.jpg",
+      "PackagePath": "staticwebassets\\uploads\\rooms\\21486b73-8804-4f88-bb48-3e0bb2b9db46.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\rooms\\341e212d-c845-4b30-b827-fb07c67a8b74.jpg",
+      "PackagePath": "staticwebassets\\uploads\\rooms\\341e212d-c845-4b30-b827-fb07c67a8b74.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\rooms\\462b4c39-869b-4c9b-ac0f-39317ce6a54d.jpg",
+      "PackagePath": "staticwebassets\\uploads\\rooms\\462b4c39-869b-4c9b-ac0f-39317ce6a54d.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\rooms\\7ab5f895-b3bc-4272-9054-b6fffd847635.jpg",
+      "PackagePath": "staticwebassets\\uploads\\rooms\\7ab5f895-b3bc-4272-9054-b6fffd847635.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\uploads\\rooms\\cb29836b-2902-4eb2-afb0-4f3b7ef52735.jpg",
+      "PackagePath": "staticwebassets\\uploads\\rooms\\cb29836b-2902-4eb2-afb0-4f3b7ef52735.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Ecorama.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

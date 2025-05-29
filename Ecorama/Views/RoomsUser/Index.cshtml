@@ -1,0 +1,49 @@
+﻿@model List<Room>
+@{
+    ViewData["Title"] = "الغرف";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Style {
+    <link href="~/css/rooms.css" rel="stylesheet"/>
+}
+
+
+ <section class="headRooms">
+        <h1 class="fade-in">الغرف المتاحة</h1>
+        <p class="fade-in">استعرض مجموعتنا المتنوعة من الغرف المجهزة بأحدث التقنيات لتلبية احتياجاتك المختلفة</p>
+    </section>
+
+    <div class="container">
+        <!-- Search Bar Component -->
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="ابحث عن غرفة..." id="searchRooms">
+                <button class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+   
+
+        <div class="rooms-grid">
+
+            @foreach (var room in Model)
+            {
+                <div class="col-md-8 mb-4">
+                    <div class="card shadow-sm border-0">
+                        <img src="@room.ImageUrl" class="card-img-top" style="height: 200px; object-fit: cover;" />
+                        <div class="card-body">
+                            <h5 class="card-title">@room.Name</h5>
+                            <p class="card-text text-muted">@room.Description?.Substring(0, Math.Min(100, room.Description.Length))...</p>
+                            <a asp-action="Book" asp-route-id="@room.RoomId" class="btn btn-primary">احجز الآن</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="loading-spinner"></div>
+    </div>
+
+

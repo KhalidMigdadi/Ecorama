@@ -1,0 +1,43 @@
+﻿@model RoomAvailability
+@{
+    ViewData["Title"] = "إضافة توافر";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+    int roomId = ViewBag.RoomId;
+    string roomName = ViewBag.RoomName;
+    var currentDate = DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd");
+}
+
+<div class="container mt-5 text-end" dir="rtl">
+    <h2 class="mb-4">إضافة توافر لغرفة: <span class="text-primary">@roomName</span></h2>
+
+    <form asp-action="AddAvailability" method="post">
+        <input type="hidden" asp-for="RoomId" value="@roomId" />
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="AvailableFromDate" class="form-label">تاريخ البداية</label>
+                <input asp-for="AvailableFromDate" type="date" min="@currentDate" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="AvailableToDate" class="form-label">تاريخ النهاية</label>
+                <input asp-for="AvailableToDate" type="date" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="AvailableFromTime" class="form-label">من الساعة</label>
+                <input asp-for="AvailableFromTime" type="time" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="AvailableToTime" class="form-label">إلى الساعة</label>
+                <input asp-for="AvailableToTime" type="time" class="form-control" />
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-success px-4">إضافة</button>
+            <a asp-action="Index" class="btn btn-secondary">رجوع إلى قائمة الغرف</a>
+        </div>
+    </form>
+</div>

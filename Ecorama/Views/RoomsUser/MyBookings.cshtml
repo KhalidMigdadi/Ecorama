@@ -1,0 +1,415 @@
+﻿@model List<RoomBooking>
+@{
+	ViewData["Title"] = "حجوزاتي";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Style {
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+	<style>
+
+		* {
+			font-family: 'Cairo', sans-serif;
+		}
+
+		body {
+			background-color: #f8f9fa;
+			color: #2c3e50;
+		}
+
+		.main-container {
+			background: white;
+			border-radius: 20px;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+			overflow: hidden;
+			margin-top: 2rem;
+		}
+
+		.header-section {
+			background: #34495e;
+			color: white;
+			padding: 2rem;
+			position: relative;
+		}
+
+			.header-section::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.8" fill="rgba(255,255,255,0.05)"/><circle cx="20" cy="80" r="0.6" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+				opacity: 0.3;
+			}
+
+		.header-content {
+			position: relative;
+			z-index: 2;
+		}
+
+		.page-title {
+			font-size: 2.5rem;
+			font-weight: 700;
+			margin: 0;
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+		}
+
+		.title-icon {
+			background: rgba(255,255,255,0.2);
+			padding: 0.8rem;
+			border-radius: 15px;
+			backdrop-filter: blur(10px);
+		}
+
+		.content-section {
+			padding: 2rem;
+		}
+
+		.empty-state {
+			text-align: center;
+			padding: 4rem 2rem;
+			color: #7f8c8d;
+		}
+
+		.empty-icon {
+			font-size: 4rem;
+			color: #bdc3c7;
+			margin-bottom: 1rem;
+		}
+
+		.empty-message {
+			font-size: 1.2rem;
+			font-weight: 600;
+		}
+
+		.bookings-table {
+			background: white;
+			border-radius: 15px;
+			overflow: hidden;
+			box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+		}
+
+		.table {
+			margin: 0;
+		}
+
+			.table thead th {
+				background: #2c3e50;
+				color: white;
+				border: none;
+				padding: 1.2rem 1rem;
+				font-weight: 600;
+				font-size: 0.95rem;
+				position: relative;
+			}
+
+				.table thead th:first-child {
+					border-top-right-radius: 15px;
+				}
+
+				.table thead th:last-child {
+					border-top-left-radius: 15px;
+				}
+
+			.table tbody td {
+				padding: 1rem;
+				vertical-align: middle;
+				border-bottom: 1px solid #ecf0f1;
+				font-weight: 500;
+			}
+
+			.table tbody tr {
+				transition: all 0.3s ease;
+			}
+
+				.table tbody tr:hover {
+					background-color: #f8f9fa;
+					transform: translateY(-2px);
+					box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+				}
+
+				.table tbody tr:last-child td {
+					border-bottom: none;
+				}
+
+		.status-badge {
+			padding: 0.5rem 1rem;
+			border-radius: 25px;
+			font-weight: 600;
+			font-size: 0.85rem;
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			min-width: 100px;
+			justify-content: center;
+		}
+
+		.status-approved {
+			background: #d4edda;
+			color: #155724;
+			border: 2px solid #c3e6cb;
+		}
+
+		.status-rejected {
+			background: #f8d7da;
+			color: #721c24;
+			border: 2px solid #f5c6cb;
+		}
+
+		.status-pending {
+			background: #fff3cd;
+			color: #856404;
+			border: 2px solid #ffeaa7;
+		}
+
+		.room-name {
+			font-weight: 600;
+			color: #2c3e50;
+		}
+
+		.date-info {
+			color: #34495e;
+			font-weight: 500;
+		}
+
+		.time-info {
+			background: #ecf0f1;
+			padding: 0.3rem 0.8rem;
+			border-radius: 20px;
+			font-size: 0.9rem;
+			color: #2c3e50;
+			display: inline-block;
+		}
+
+		.guest-count {
+			background: #3498db;
+			color: white;
+			padding: 0.3rem 0.8rem;
+			border-radius: 20px;
+			font-size: 0.9rem;
+			display: inline-flex;
+			align-items: center;
+			gap: 0.3rem;
+		}
+
+		@@media (max-width: 768px) {
+			.main-container {
+				margin: 1rem;
+				border-radius: 15px;
+			}
+
+			.page-title {
+				font-size: 1.8rem;
+			}
+
+			.content-section {
+				padding: 1rem;
+			}
+
+			.table-responsive {
+				border-radius: 15px;
+			}
+		}
+
+		.fade-in {
+			animation: fadeIn 0.6s ease-in;
+		}
+
+		@@keyframes fadeIn {
+			from {
+				opacity: 0;
+				transform: translateY(20px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	</style>
+}
+
+
+<div class="container">
+	<div class="main-container fade-in" style="padding: 8rem 3rem;>
+		<div class="header-section">
+			<div class="header-content">
+				<h2 class="page-title">
+					<div class="title-icon">
+						<i class="fas fa-calendar-check"></i>
+					</div>
+					قائمة الحجوزات الخاصة بي
+				</h2>
+			</div>
+		</div>
+
+		<div class="content-section">
+
+			@if (!Model.Any())
+			{
+				<!-- حالة عدم وجود حجوزات -->
+				<div class="empty-state" id="emptyState">
+					<div class="empty-icon">
+						<i class="fas fa-calendar-times"></i>
+					</div>
+					<div class="empty-message">لا توجد حجوزات حتى الآن</div>
+					<p class="text-muted mt-2">يمكنك إنشاء حجز جديد من خلال الصفحة الرئيسية</p>
+				</div>
+			}
+			else
+			{
+				<!-- جدول الحجوزات -->
+				<div class="bookings-table" id="bookingsTable">
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th><i class="fas fa-door-open me-2"></i>الغرفة</th>
+									<th><i class="fas fa-calendar me-2"></i>التاريخ</th>
+									<th><i class="fas fa-clock me-2"></i>من الساعة</th>
+									<th><i class="fas fa-clock me-2"></i>إلى الساعة</th>
+									<th><i class="fas fa-users me-2"></i>عدد الضيوف</th>
+									<th><i class="fas fa-info-circle me-2"></i>الحالة</th>
+								</tr>
+							</thead>
+							<tbody id="bookingsBody">
+								@foreach (var b in Model)
+								{
+									<tr>
+										<td class="room-name">@b.Room?.Name</td>
+										<td class="date-info">@b.BookingDate?.ToString("yyyy-MM-dd")</td>
+										<td><span class="time-info">@b.BookingFrom</span></td>
+										<td><span class="time-info">@b.BookingTo</span></td>
+										<td><span class="guest-count"><i class="fas fa-user"></i> @b.NumberOfGuests</span></td>
+										<td>
+											@if (b.Status == "Approved")
+											{
+												<span class="status-badge status-approved">
+													<i class="fas fa-check-circle"></i>
+													مقبول
+												</span>
+											}
+											else if (b.Status == "Rejected")
+											{
+												<span class="status-badge status-rejected">
+													<i class="fas fa-times-circle"></i>
+													مرفوض
+												</span>
+											}
+											else
+											{
+												<span class="status-badge status-pending">
+													<i class="fas fa-clock"></i>
+													قيد المراجعة
+												</span>
+											}
+										</td>
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+</div>
+
+
+@section Scripts {
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+	<script>
+		// JavaScript لمحاكاة logic الـ ASP.NET
+		document.addEventListener('DOMContentLoaded', function() {
+			// محاكاة البيانات - في التطبيق الحقيقي ستأتي من Model
+			const bookings = [
+				{
+					Room: { Name: "قاعة الاجتماعات الكبرى" },
+					BookingDate: "2024-06-15",
+					BookingFrom: "09:00",
+					BookingTo: "12:00",
+					NumberOfGuests: 15,
+					Status: "Approved"
+				},
+				{
+					Room: { Name: "قاعة العرض الصغيرة" },
+					BookingDate: "2024-06-18",
+					BookingFrom: "14:00",
+					BookingTo: "16:00",
+					NumberOfGuests: 8,
+					Status: "Pending"
+				},
+				{
+					Room: { Name: "غرفة التدريب" },
+					BookingDate: "2024-06-12",
+					BookingFrom: "10:00",
+					BookingTo: "18:00",
+					NumberOfGuests: 25,
+					Status: "Rejected"
+				}
+			];
+
+			// للاختبار: إزالة جميع البيانات لإظهار حالة عدم وجود حجوزات
+			// bookings.length = 0;
+
+			function renderBookings() {
+				const emptyState = document.getElementById('emptyState');
+				const bookingsTable = document.getElementById('bookingsTable');
+				const bookingsBody = document.getElementById('bookingsBody');
+
+				if (bookings.length === 0) {
+					emptyState.style.display = 'block';
+					bookingsTable.style.display = 'none';
+				} else {
+					emptyState.style.display = 'none';
+					bookingsTable.style.display = 'block';
+
+					// مسح المحتوى الحالي
+					bookingsBody.innerHTML = '';
+
+					// إضافة كل حجز
+					bookings.forEach(booking => {
+						const row = document.createElement('tr');
+						row.innerHTML = `
+							<td class="room-name">${booking.Room?.Name || 'غير محدد'}</td>
+							<td class="date-info">${booking.BookingDate}</td>
+							<td><span class="time-info">${booking.BookingFrom}</span></td>
+							<td><span class="time-info">${booking.BookingTo}</span></td>
+							<td><span class="guest-count"><i class="fas fa-user"></i> ${booking.NumberOfGuests}</span></td>
+							<td>${getStatusBadge(booking.Status)}</td>
+						`;
+						bookingsBody.appendChild(row);
+					});
+				}
+			}
+
+			function getStatusBadge(status) {
+				switch (status) {
+					case "Approved":
+						return `<span class="status-badge status-approved">
+									<i class="fas fa-check-circle"></i>
+									مقبول
+								</span>`;
+					case "Rejected":
+						return `<span class="status-badge status-rejected">
+									<i class="fas fa-times-circle"></i>
+									مرفوض
+								</span>`;
+					default:
+						return `<span class="status-badge status-pending">
+									<i class="fas fa-clock"></i>
+									قيد المراجعة
+								</span>`;
+				}
+			}
+
+			// تطبيق التصميم
+			renderBookings();
+		});
+	</script>
+}

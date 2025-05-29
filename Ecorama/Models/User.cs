@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace Ecorama.Models;
 
@@ -17,8 +16,6 @@ public partial class User
     public string Gender { get; set; } = null!;
 
     public DateOnly Birthdate { get; set; }
-
-
 
     public string NationalId { get; set; } = null!;
 
@@ -43,6 +40,8 @@ public partial class User
     public virtual ICollection<Language> Languages { get; set; } = new List<Language>();
 
     public virtual ICollection<Residence> Residences { get; set; } = new List<Residence>();
+
+    public virtual ICollection<RoomBooking> RoomBookings { get; set; } = new List<RoomBooking>();
 
     public virtual ICollection<TrainingProgramRegistration> TrainingProgramRegistrations { get; set; } = new List<TrainingProgramRegistration>();
 

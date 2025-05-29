@@ -1,0 +1,288 @@
+/* Room Booking Page Styles */
+.booking-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.booking-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.booking-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+    .booking-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        border-radius: 2px;
+    }
+
+.room-name {
+    color: #667eea;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styling */
+.booking-form {
+    padding: 1rem 0;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.8rem;
+    display: block;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+    .form-label::before {
+        content: '';
+        position: absolute;
+        right: -15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        background: #667eea;
+        border-radius: 50%;
+    }
+
+.form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 15px;
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+    .form-control:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        background: white;
+        transform: translateY(-2px);
+    }
+
+    .form-control:hover {
+        border-color: #764ba2;
+        transform: translateY(-1px);
+    }
+
+/* Time inputs styling */
+input[type="time"] {
+    position: relative;
+    background: linear-gradient(45deg, #f8f9fa, #ffffff);
+}
+
+input[type="number"] {
+    background: linear-gradient(45deg, #f8f9fa, #ffffff);
+}
+
+/* Textarea specific styling */
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+}
+
+/* Success Alert Styling */
+.alert-success {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-weight: 500;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 16px rgba(40, 167, 69, 0.3);
+    animation: slideInFromTop 0.5s ease-out;
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button Styling */
+.booking-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(102, 126, 234, 0.1);
+}
+
+.btn-success {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    border: none;
+    border-radius: 15px;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 16px rgba(40, 167, 69, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+    .btn-success::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    .btn-success:hover::before {
+        left: 100%;
+    }
+
+    .btn-success:hover {
+        background: linear-gradient(45deg, #20c997, #28a745);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 24px rgba(40, 167, 69, 0.4);
+    }
+
+.btn-secondary {
+    background: linear-gradient(45deg, #6c757d, #495057);
+    border: none;
+    border-radius: 15px;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 16px rgba(108, 117, 125, 0.3);
+    color: white;
+}
+
+    .btn-secondary:hover {
+        background: linear-gradient(45deg, #495057, #343a40);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 24px rgba(108, 117, 125, 0.4);
+        color: white;
+    }
+
+/* Flatpickr Custom Styling */
+.flatpickr-calendar {
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border: none;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.flatpickr-day.selected {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-color: #667eea;
+}
+
+.flatpickr-day:hover {
+    background: rgba(102, 126, 234, 0.1);
+    border-color: #667eea;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .booking-card {
+        margin: 1rem;
+        padding: 2rem 1.5rem;
+        border-radius: 15px;
+    }
+
+    .booking-title {
+        font-size: 2rem;
+    }
+
+    .booking-buttons {
+        flex-direction: column-reverse;
+    }
+
+    .btn-success,
+    .btn-secondary {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+}
+
+/* Loading Animation for Form Submission */
+.btn-success:active {
+    transform: scale(0.98);
+}
+
+/* Form Field Focus Animations */
+.form-group {
+    position: relative;
+}
+
+    .form-group::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        transition: width 0.3s ease;
+    }
+
+    .form-group:focus-within::after {
+        width: 100%;
+    }
+
+/* Custom Scrollbar */
+.booking-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.booking-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.booking-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 4px;
+}
+
+    .booking-container::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(45deg, #764ba2, #667eea);
+    }

@@ -52,6 +52,30 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRVc1xNYW5hZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/AdminRooms/AddAvailability.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Sb29tc1xBZGRBdmFpbGFiaWxpdHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/AdminRooms/AddRoom.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Sb29tc1xBZGRSb29tLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/AdminRooms/BookingsList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Sb29tc1xCb29raW5nc0xpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/AdminRooms/EditRoom.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Sb29tc1xFZGl0Um9vbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/AdminRooms/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Sb29tc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/AdminRooms/ViewAvailability.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Sb29tc1xWaWV3QXZhaWxhYmlsaXR5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Admin/AddNewPartner.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkTmV3UGFydG5lci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -238,6 +262,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Profile/registerationWorkshops.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxyZWdpc3RlcmF0aW9uV29ya3Nob3BzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/RoomsUser/Book.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNVc2VyXEJvb2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/RoomsUser/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNVc2VyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/RoomsUser/MyBookings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNVc2VyXE15Qm9va2luZ3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Shared/Components/SocialLinks/Default.cshtml]

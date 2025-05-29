@@ -1841,6 +1841,8 @@ wwwroot\css\NEWs.css
 wwwroot\css\newsdetails.css
 wwwroot\css\register.css
 wwwroot\css\registerLesons.css
+wwwroot\css\rooms.css
+wwwroot\css\roomsBook.css
 wwwroot\css\ShowAllPartners.css
 wwwroot\css\site.css
 wwwroot\css\workshop.css
@@ -2012,3 +2014,8 @@ wwwroot\uploads\pdfs\91af772b-1fc2-4d7a-8078-8a3d0555f5bb.pdf
 wwwroot\uploads\pdfs\bb76bd98-e972-4a5f-b6b0-99a786e13a38.pdf
 wwwroot\uploads\pdfs\cb4672bb-fad1-4577-9cbf-658b70bdb7ad.pdf
 wwwroot\uploads\pdfs\eef09d53-c9e7-450a-b728-5b0e1a2241e8.pdf
+wwwroot\uploads\rooms\21486b73-8804-4f88-bb48-3e0bb2b9db46.jpg
+wwwroot\uploads\rooms\341e212d-c845-4b30-b827-fb07c67a8b74.jpg
+wwwroot\uploads\rooms\462b4c39-869b-4c9b-ac0f-39317ce6a54d.jpg
+wwwroot\uploads\rooms\7ab5f895-b3bc-4272-9054-b6fffd847635.jpg
+wwwroot\uploads\rooms\cb29836b-2902-4eb2-afb0-4f3b7ef52735.jpg

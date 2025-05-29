@@ -1,0 +1,479 @@
+﻿@model Room
+@{
+	ViewData["Title"] = "حجز الغرفة";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	var currentDate = DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd");
+}
+@section Styles {
+	<link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet" />
+	<style>
+		/* Room Booking Page Styles */
+		.booking-container {
+			background: #ddd;
+			min-height: 100vh;
+			padding: 2rem 0;
+		}
+
+		.booking-card {
+			background: rgba(255, 255, 255, 0.95);
+			backdrop-filter: blur(10px);
+			border-radius: 20px;
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+			padding: 3rem;
+			margin: 5rem auto;
+			max-width: 600px;
+			border: 1px solid rgba(255, 255, 255, 0.2);
+		}
+
+		.booking-title {
+			font-size: 2.5rem;
+			font-weight: 700;
+			color: #2c3e50;
+			text-align: center;
+			margin-bottom: 2rem;
+			position: relative;
+		}
+
+			.booking-title::after {
+				content: '';
+				position: absolute;
+				bottom: -20px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 100%;
+				height: 4px;
+				background: linear-gradient(45deg, #667eea, #764ba2);
+				border-radius: 2px;
+			}
+
+		.room-name {
+			color: #667eea;
+			font-weight: 600;
+			text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.booking-form {
+			padding: 1rem 0;
+		}
+
+		.form-group {
+			margin-bottom: 1.5rem;
+			position: relative;
+		}
+
+		.form-label {
+			font-weight: 600;
+			color: #2c3e50;
+			margin-bottom: 0.8rem;
+			display: block;
+			font-size: 1.1rem;
+			position: relative;
+		}
+
+			.form-label::before {
+				content: '';
+				position: absolute;
+				right: -15px;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 8px;
+				height: 8px;
+				background: #667eea;
+				border-radius: 50%;
+			}
+
+		.form-control {
+			border: 2px solid #e9ecef;
+			border-radius: 15px;
+			padding: 1rem 1.2rem;
+			font-size: 1rem;
+			transition: all 0.3s ease;
+			background: rgba(255, 255, 255, 0.9);
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+		}
+
+			.form-control:focus {
+				border-color: #667eea;
+				box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+				background: white;
+				transform: translateY(-2px);
+			}
+
+			.form-control:hover {
+				border-color: #764ba2;
+				transform: translateY(-1px);
+			}
+
+		input[type="time"], input[type="number"] {
+			background: linear-gradient(45deg, #f8f9fa, #ffffff);
+		}
+
+		textarea.form-control {
+			resize: vertical;
+			min-height: 120px;
+			background: linear-gradient(135deg, #f8f9fa, #ffffff);
+		}
+
+		.alert-success {
+			background: linear-gradient(45deg, #28a745, #20c997);
+			border: none;
+			border-radius: 15px;
+			color: white;
+			font-weight: 500;
+			padding: 1rem 1.5rem;
+			margin-bottom: 2rem;
+			box-shadow: 0 8px 16px rgba(40, 167, 69, 0.3);
+			animation: slideInFromTop 0.5s ease-out;
+		}
+
+		@@keyframes slideInFromTop {
+			from {
+				opacity: 0;
+				transform: translateY(-20px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.booking-buttons {
+			display: flex;
+			justify-content: flex-end;
+			gap: 1rem;
+			margin-top: 2rem;
+			padding-top: 2rem;
+			border-top: 2px solid rgba(102, 126, 234, 0.1);
+		}
+
+		.btn-success {
+			background: linear-gradient(45deg, #28a745, #20c997);
+			border: none;
+			border-radius: 15px;
+			padding: 1rem 2rem;
+			font-weight: 600;
+			font-size: 1.1rem;
+			transition: all 0.3s ease;
+			box-shadow: 0 8px 16px rgba(40, 167, 69, 0.3);
+			position: relative;
+			overflow: hidden;
+		}
+
+			.btn-success::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: -100%;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+				transition: left 0.5s;
+			}
+
+			.btn-success:hover::before {
+				left: 100%;
+			}
+
+			.btn-success:hover {
+				background: linear-gradient(45deg, #20c997, #28a745);
+				transform: translateY(-3px);
+				box-shadow: 0 12px 24px rgba(40, 167, 69, 0.4);
+			}
+
+		.btn-secondary {
+			background: linear-gradient(45deg, #6c757d, #495057);
+			border: none;
+			border-radius: 15px;
+			padding: 1rem 2rem;
+			font-weight: 600;
+			font-size: 1.1rem;
+			transition: all 0.3s ease;
+			box-shadow: 0 8px 16px rgba(108, 117, 125, 0.3);
+			color: white;
+		}
+
+			.btn-secondary:hover {
+				background: linear-gradient(45deg, #495057, #343a40);
+				transform: translateY(-3px);
+				box-shadow: 0 12px 24px rgba(108, 117, 125, 0.4);
+				color: white;
+			}
+
+		.flatpickr-calendar {
+			border-radius: 15px;
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+			border: none;
+			background: rgba(255, 255, 255, 0.95);
+			backdrop-filter: blur(10px);
+		}
+
+		.flatpickr-day.selected {
+			background: linear-gradient(45deg, #667eea, #764ba2);
+			border-color: #667eea;
+		}
+
+		.flatpickr-day:hover {
+			background: rgba(102, 126, 234, 0.1);
+			border-color: #667eea;
+		}
+
+		.form-group::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 0;
+			height: 2px;
+			transition: width 0.3s ease;
+		}
+
+		.form-group:focus-within::after {
+			width: 100%;
+		}
+
+		@@media (max-width: 768px) {
+			.booking-card {
+				margin: 1rem;
+				padding: 2rem 1.5rem;
+				border-radius: 15px;
+			}
+
+			.booking-title {
+				font-size: 2rem;
+			}
+
+			.booking-buttons {
+				flex-direction: column-reverse;
+			}
+
+			.btn-success,
+			.btn-secondary {
+				width: 100%;
+				margin: 0.5rem 0;
+			}
+		}
+	</style>
+}
+
+<div class="booking-container">
+	<div class="container">
+		<div class="booking-card text-end" dir="rtl">
+			<h2 class="booking-title">حجز غرفة: <span class="room-name">@Model.Name</span></h2>
+
+			@if (TempData["MSG"] != null)
+			{
+				<div class="alert alert-success">@TempData["MSG"]</div>
+			}
+
+			@if (TempData["Error12"] != null)
+			{
+				<div class="alert alert-danger">@TempData["Error12"]</div>
+			}
+
+			<form method="post" asp-action="Book" class="booking-form">
+				<input type="hidden" name="RoomId" value="@Model.RoomId" />
+
+				<div class="form-group">
+					<label class="form-label">تاريخ الحجز</label>
+					<input type="text" id="BookingDate" name="BookingDate" class="form-control" placeholder="اختر التاريخ" required min="@currentDate" />
+				</div>
+				<div class="form-group">
+					<label class="form-label">من الساعة</label>
+					<select name="BookingFrom" id="BookingFrom" class="form-control" required></select>
+				</div>
+
+				<div class="form-group">
+					<label class="form-label">إلى الساعة</label>
+					<select name="BookingTo" id="BookingTo" class="form-control" required></select>
+				</div>
+
+				<div class="form-group">
+					<label class="form-label">عدد الضيوف</label>
+					<input type="number" name="NumberOfGuests" class="form-control" min="1" max="@Model.Capacity" required />
+				</div>
+
+				<div class="form-group">
+					<label class="form-label">ملاحظات</label>
+					<textarea name="Notes" class="form-control" placeholder="اختياري..."></textarea>
+				</div>
+
+				<div class="booking-buttons">
+					<button type="submit" class="btn btn-success">إرسال الحجز</button>
+					<a asp-action="Index" class="btn btn-secondary">رجوع</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const bookedTimeSlots = @Html.Raw(ViewBag.BookedTimeSlots);
+			const availableFrom = new Date("@ViewBag.AvailableFrom");
+			const availableTo = new Date("@ViewBag.AvailableTo");
+			const roomId = @Model.RoomId; // إضافة roomId
+
+			// احسب كل الأيام المتاحة
+			let enabledDates = [];
+			for (let d = new Date(availableFrom); d <= availableTo; d.setDate(d.getDate() + 1)) {
+				const iso = d.toISOString().split('T')[0];
+				enabledDates.push(iso);
+			}
+
+			flatpickr("#BookingDate", {
+				dateFormat: "Y-m-d",
+				enable: enabledDates,
+				onChange: function (selectedDates, dateStr) {
+					updateTimeOptions(dateStr, roomId); // تمرير roomId
+				}
+			});
+
+			function updateTimeOptions(dateStr, roomId) {
+				// الحصول على توفر الغرفة والحجوزات لهذا التاريخ
+				getRoomAvailability(roomId, dateStr).then(data => {
+					let availableTimes = [];
+
+					if (data.availability && data.availability.length > 0) {
+						// توليد الأوقات بناءً على توفر الغرفة
+						data.availability.forEach(avail => {
+							const roomTimes = generateTimes(avail.availableFromTime, avail.availableToTime, 30);
+							availableTimes = availableTimes.concat(roomTimes);
+						});
+
+						// إزالة التكرارات وترتيب الأوقات
+						availableTimes = [...new Set(availableTimes)].sort();
+					}
+
+					// إزالة الأوقات المحجوزة
+					const blockedSlots = data.bookedSlots || [];
+					availableTimes = getAvailableTimes(availableTimes, blockedSlots);
+
+					// تحديث قائمة "من الساعة"
+					updateFromSelect(availableTimes, blockedSlots);
+				}).catch(error => {
+					console.error('خطأ في تحديث الأوقات:', error);
+					// في حالة الخطأ، اعرض رسالة للمستخدم
+					const fromSelect = document.getElementById("BookingFrom");
+					fromSelect.innerHTML = '<option value="">خطأ في تحميل الأوقات</option>';
+				});
+			}
+
+			// دالة للحصول على توفر الغرفة من الخادم
+			async function getRoomAvailability(roomId, dateStr) {
+				try {
+					const response = await fetch(`/api/GetRoomAvailability?roomId=${roomId}&date=${dateStr}`);
+					if (response.ok) {
+						const data = await response.json();
+						console.log('البيانات المستلمة:', data); // للتشخيص
+						return data;
+					}
+					console.error('فشل في الحصول على البيانات:', response.status);
+					return { availability: [], bookedSlots: [] };
+				} catch (error) {
+					console.error('خطأ في الحصول على توفر الغرفة:', error);
+					return { availability: [], bookedSlots: [] };
+				}
+			}
+
+			function getAvailableTimes(allTimes, blockedSlots) {
+				return allTimes.filter(time => {
+					const timeMinutes = timeToMinutes(time);
+					// تحقق إذا كان هذا الوقت يقع داخل أي فترة محجوزة
+					return !blockedSlots.some(slot => {
+						const fromMinutes = timeToMinutes(slot.From || slot.from);
+						const toMinutes = timeToMinutes(slot.To || slot.to);
+						return timeMinutes >= fromMinutes && timeMinutes < toMinutes;
+					});
+				});
+			}
+
+			function updateFromSelect(availableTimes, blockedSlots) {
+				const fromSelect = document.getElementById("BookingFrom");
+				const toSelect = document.getElementById("BookingTo");
+
+				fromSelect.innerHTML = '<option value="">اختر وقت البداية</option>';
+				toSelect.innerHTML = '<option value="">اختر وقت النهاية</option>';
+
+				if (availableTimes.length === 0) {
+					fromSelect.innerHTML = '<option value="">لا توجد أوقات متاحة</option>';
+					return;
+				}
+
+				availableTimes.forEach(time => {
+					let option = new Option(time, time);
+					fromSelect.add(option);
+				});
+
+				// إزالة المستمعين القدامى لتجنب التكرار
+				const newFromSelect = fromSelect.cloneNode(true);
+				fromSelect.parentNode.replaceChild(newFromSelect, fromSelect);
+
+				// عند تغيير وقت البداية، حدث أوقات النهاية
+				newFromSelect.addEventListener('change', function() {
+					updateToSelect(this.value, availableTimes, blockedSlots);
+				});
+			}
+
+			function updateToSelect(fromTime, availableTimes, blockedSlots) {
+				const toSelect = document.getElementById("BookingTo");
+				toSelect.innerHTML = '<option value="">اختر وقت النهاية</option>';
+
+				if (!fromTime) return;
+
+				const fromMinutes = timeToMinutes(fromTime);
+
+				// ابحث عن أقرب حجز بعد وقت البداية
+				let maxAllowedTime = timeToMinutes("23:59"); // الحد الأقصى العام
+
+				blockedSlots.forEach(slot => {
+					const slotFromMinutes = timeToMinutes(slot.From || slot.from);
+					if (slotFromMinutes > fromMinutes && slotFromMinutes < maxAllowedTime) {
+						maxAllowedTime = slotFromMinutes;
+					}
+				});
+
+				// أضف الأوقات المتاحة بعد وقت البداية وقبل أقرب حجز
+				availableTimes.forEach(time => {
+					const timeMinutes = timeToMinutes(time);
+					if (timeMinutes > fromMinutes && timeMinutes <= maxAllowedTime) {
+						let option = new Option(time, time);
+						toSelect.add(option);
+					}
+				});
+			}
+
+			function timeToMinutes(timeStr) {
+				if (!timeStr) return 0;
+				const [hours, minutes] = timeStr.split(':').map(Number);
+				return (hours || 0) * 60 + (minutes || 0);
+			}
+
+			function generateTimes(start, end, stepMinutes) {
+				let result = [];
+
+				if (!start || !end) {
+					console.warn('أوقات البداية أو النهاية غير محددة:', start, end);
+					return result;
+				}
+
+				let [startH, startM] = start.split(':').map(Number);
+				let [endH, endM] = end.split(':').map(Number);
+
+				let current = new Date(0, 0, 0, startH, startM);
+				let endTime = new Date(0, 0, 0, endH, endM);
+
+				while (current < endTime) {
+					let h = String(current.getHours()).padStart(2, '0');
+					let m = String(current.getMinutes()).padStart(2, '0');
+					result.push(`${h}:${m}`);
+					current.setMinutes(current.getMinutes() + stepMinutes);
+				}
+
+				return result;
+			}
+		});
+	</script>
+}
