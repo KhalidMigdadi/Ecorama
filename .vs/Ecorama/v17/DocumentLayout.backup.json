@@ -88,7 +88,7 @@
               "RelativeDocumentMoniker": "Ecorama\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Ecorama\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAHMCAAAAAAAAAAAlwI0CAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAHMCAAAAAAAAAAAlwIsCAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-01T12:17:47.219Z",
               "EditorCaption": ""
@@ -103,8 +103,7 @@
               "RelativeToolTip": "Ecorama\\Views\\Home\\Error404.cshtml",
               "ViewState": "AgIAAAYBAAAAAAAAAAAEwBMBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-01T12:15:05.677Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T12:15:05.677Z"
             },
             {
               "$type": "Document",
@@ -116,8 +115,7 @@
               "RelativeToolTip": "Ecorama\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAI8AAAAAAAAAAAAgwJwAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T12:14:07.819Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T12:14:07.819Z"
             },
             {
               "$type": "Document",
@@ -129,8 +127,7 @@
               "RelativeToolTip": "Ecorama\\Views\\RoomsUser\\Book.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-01T12:01:08.409Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T12:01:08.409Z"
             },
             {
               "$type": "Document",
@@ -142,8 +139,7 @@
               "RelativeToolTip": "Ecorama\\Views\\RoomsUser\\Index.cshtml",
               "ViewState": "AgIAABIAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-01T11:51:55.138Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T11:51:55.138Z"
             },
             {
               "$type": "Document",
@@ -155,8 +151,7 @@
               "RelativeToolTip": "Ecorama\\Controllers\\RoomsUserController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T11:51:47.453Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T11:51:47.453Z"
             },
             {
               "$type": "Document",
@@ -168,8 +163,7 @@
               "RelativeToolTip": "Ecorama\\Views\\Admin\\AllAdmins.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-01T11:31:56.858Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T11:31:56.858Z"
             },
             {
               "$type": "Document",
@@ -181,8 +175,7 @@
               "RelativeToolTip": "Ecorama\\Controllers\\AdminController.cs",
               "ViewState": "AgIAAMwAAAAAAAAAAAA9wOEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T11:29:41.59Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T11:29:41.59Z"
             },
             {
               "$type": "Document",
@@ -194,8 +187,7 @@
               "RelativeToolTip": "Ecorama\\Views\\Shared\\_Admin_Layout.cshtml",
               "ViewState": "AgIAAFQAAAAAAAAAAAAAAGQAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-01T11:29:14.002Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T11:29:14.002Z"
             },
             {
               "$type": "Document",
@@ -207,8 +199,7 @@
               "RelativeToolTip": "Ecorama\\Models\\MyDbContext.cs",
               "ViewState": "AgIAADoAAAAAAAAAAAAMwEYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T11:24:30.58Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T11:24:30.58Z"
             },
             {
               "$type": "Document",
@@ -220,8 +211,7 @@
               "RelativeToolTip": "Ecorama\\Models\\AdminRegisterViewModel.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAqwB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T11:26:32.021Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T11:26:32.021Z"
             },
             {
               "$type": "Document",
@@ -233,8 +223,7 @@
               "RelativeToolTip": "Ecorama\\Views\\Admin\\AddNewPartner.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-01T11:15:59.544Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T11:15:59.544Z"
             },
             {
               "$type": "Document",
@@ -246,8 +235,7 @@
               "RelativeToolTip": "Ecorama\\Views\\Login\\RegisterAdmin.cshtml",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAD4AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-01T11:15:52.411Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T11:15:52.411Z"
             },
             {
               "$type": "Document",
@@ -259,8 +247,7 @@
               "RelativeToolTip": "Ecorama\\Controllers\\LoginController.cs",
               "ViewState": "AgIAADQBAAAAAAAAAAAYwEgBAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T11:15:06.6Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T11:15:06.6Z"
             }
           ]
         }
