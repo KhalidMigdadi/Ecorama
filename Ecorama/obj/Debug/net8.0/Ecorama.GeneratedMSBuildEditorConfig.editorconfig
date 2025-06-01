@@ -84,6 +84,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cYWRkTmV3V29ya1Nob3AuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Admin/AllAdmins.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWxsQWRtaW5zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Admin/ContactMassages.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ29udGFjdE1hc3NhZ2VzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -202,6 +206,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Home/AboutUs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dFVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Home/Error404.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvcjQwNC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Orange/Desktop/New folder (3)/Ecorama/Ecorama/Views/Home/Index.cshtml]

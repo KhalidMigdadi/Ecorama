@@ -1100,6 +1100,51 @@ namespace Ecorama.Controllers
             }
         }
 
+
+
+
+        // GET: يعرض كل المشرفين
+        public IActionResult AllAdmins()
+        {
+            var admins = _context.Users.Where(u => u.Role == "Admin").ToList();
+            return View(admins);
+        }
+
+        // POST: لتعطيل المشرف (تغيير IsActive إلى false)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeactivateAdmin(int id)
+        {
+            var admin = await _context.Users.FindAsync(id);
+            if (admin == null || admin.Role != "Admin")
+            {
+                return NotFound();
+            }
+
+            admin.IsActive = false;
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(AllAdmins));
+        }
+
+        // POST: لتفعيل المشرف (تغيير IsActive إلى true) — اختياري إذا تريد زر تفعيل أيضاً
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ActivateAdmin(int id)
+        {
+            var admin = await _context.Users.FindAsync(id);
+            if (admin == null || admin.Role != "Admin")
+            {
+                return NotFound();
+            }
+
+            admin.IsActive = true;
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(AllAdmins));
+        }
+
+
     }
 
 }

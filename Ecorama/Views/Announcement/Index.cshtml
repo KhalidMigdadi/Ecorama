@@ -95,7 +95,7 @@
 													   class="btn btn-sm btn-outline-warning" title="تعديل">
 														<i class="fas fa-edit"></i>
 													</a>
-													@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+													@if (Context.Session.GetString("UserRole") == "SuperAdmin")
 													{
 														<button type="button" class="btn btn-sm btn-outline-danger delete-announcement-btn"
 																data-id="@ann.Id" title="حذف">

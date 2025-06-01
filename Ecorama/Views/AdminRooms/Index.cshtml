@@ -94,8 +94,8 @@
                                                            class="btn btn-sm btn-outline-warning" title="تعديل">
                                                             <i class="fas fa-edit"></i>
                                                         </a>
-                                                        @if (Context.Session.GetString("UserEmail") == "superecorama@gmail.com")
-                                                       {
+                                                        @if (Context.Session.GetString("UserRole") == "SuperAdmin")
+                                                        {
                                                             <a asp-action="ToggleStatus" asp-route-id="@item.RoomId"
                                                                class="btn btn-sm btn-outline-@(item.IsActive == true ? "secondary" : "success")"
                                                                title="@(item.IsActive == true ? "تعطيل" : "تفعيل")">

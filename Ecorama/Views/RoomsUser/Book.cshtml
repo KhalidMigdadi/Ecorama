@@ -3,6 +3,8 @@
 	ViewData["Title"] = "حجز الغرفة";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 	var currentDate = DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd");
+	// const today = new Date().toISOString().split('T')[0];
+
 }
 @section Styles {
 	<link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet" />
@@ -276,7 +278,7 @@
 
 				<div class="form-group">
 					<label class="form-label">تاريخ الحجز</label>
-					<input type="text" id="BookingDate" name="BookingDate" class="form-control" placeholder="اختر التاريخ" required min="@currentDate" />
+					<input type="text" id="BookingDate" name="BookingDate" class="form-control" placeholder="اختر التاريخ" required />
 				</div>
 				<div class="form-group">
 					<label class="form-label">من الساعة</label>
@@ -314,60 +316,55 @@
 			const bookedTimeSlots = @Html.Raw(ViewBag.BookedTimeSlots);
 			const availableFrom = new Date("@ViewBag.AvailableFrom");
 			const availableTo = new Date("@ViewBag.AvailableTo");
-			const roomId = @Model.RoomId; // إضافة roomId
+			const roomId = @Model.RoomId;
 
-			// احسب كل الأيام المتاحة
+			// احسب كل الأيام المتاحة من availableFrom إلى availableTo
 			let enabledDates = [];
 			for (let d = new Date(availableFrom); d <= availableTo; d.setDate(d.getDate() + 1)) {
 				const iso = d.toISOString().split('T')[0];
 				enabledDates.push(iso);
 			}
 
+			// فلتر الأيام المتاحة بحيث تبدأ من تاريخ اليوم فقط
+			const today = new Date().toISOString().split('T')[0];
+			enabledDates = enabledDates.filter(date => date >= today);
+
+			// تهيئة Flatpickr لتحديد التاريخ
 			flatpickr("#BookingDate", {
 				dateFormat: "Y-m-d",
 				enable: enabledDates,
 				onChange: function (selectedDates, dateStr) {
-					updateTimeOptions(dateStr, roomId); // تمرير roomId
+					updateTimeOptions(dateStr, roomId);
 				}
 			});
 
 			function updateTimeOptions(dateStr, roomId) {
-				// الحصول على توفر الغرفة والحجوزات لهذا التاريخ
 				getRoomAvailability(roomId, dateStr).then(data => {
 					let availableTimes = [];
 
 					if (data.availability && data.availability.length > 0) {
-						// توليد الأوقات بناءً على توفر الغرفة
 						data.availability.forEach(avail => {
 							const roomTimes = generateTimes(avail.availableFromTime, avail.availableToTime, 30);
 							availableTimes = availableTimes.concat(roomTimes);
 						});
-
-						// إزالة التكرارات وترتيب الأوقات
 						availableTimes = [...new Set(availableTimes)].sort();
 					}
 
-					// إزالة الأوقات المحجوزة
 					const blockedSlots = data.bookedSlots || [];
 					availableTimes = getAvailableTimes(availableTimes, blockedSlots);
-
-					// تحديث قائمة "من الساعة"
 					updateFromSelect(availableTimes, blockedSlots);
 				}).catch(error => {
 					console.error('خطأ في تحديث الأوقات:', error);
-					// في حالة الخطأ، اعرض رسالة للمستخدم
 					const fromSelect = document.getElementById("BookingFrom");
 					fromSelect.innerHTML = '<option value="">خطأ في تحميل الأوقات</option>';
 				});
 			}
 
-			// دالة للحصول على توفر الغرفة من الخادم
 			async function getRoomAvailability(roomId, dateStr) {
 				try {
 					const response = await fetch(`/api/GetRoomAvailability?roomId=${roomId}&date=${dateStr}`);
 					if (response.ok) {
 						const data = await response.json();
-						console.log('البيانات المستلمة:', data); // للتشخيص
 						return data;
 					}
 					console.error('فشل في الحصول على البيانات:', response.status);
@@ -381,7 +378,6 @@
 			function getAvailableTimes(allTimes, blockedSlots) {
 				return allTimes.filter(time => {
 					const timeMinutes = timeToMinutes(time);
-					// تحقق إذا كان هذا الوقت يقع داخل أي فترة محجوزة
 					return !blockedSlots.some(slot => {
 						const fromMinutes = timeToMinutes(slot.From || slot.from);
 						const toMinutes = timeToMinutes(slot.To || slot.to);
@@ -407,12 +403,10 @@
 					fromSelect.add(option);
 				});
 
-				// إزالة المستمعين القدامى لتجنب التكرار
 				const newFromSelect = fromSelect.cloneNode(true);
 				fromSelect.parentNode.replaceChild(newFromSelect, fromSelect);
 
-				// عند تغيير وقت البداية، حدث أوقات النهاية
-				newFromSelect.addEventListener('change', function() {
+				newFromSelect.addEventListener('change', function () {
 					updateToSelect(this.value, availableTimes, blockedSlots);
 				});
 			}
@@ -424,9 +418,7 @@
 				if (!fromTime) return;
 
 				const fromMinutes = timeToMinutes(fromTime);
-
-				// ابحث عن أقرب حجز بعد وقت البداية
-				let maxAllowedTime = timeToMinutes("23:59"); // الحد الأقصى العام
+				let maxAllowedTime = timeToMinutes("23:59");
 
 				blockedSlots.forEach(slot => {
 					const slotFromMinutes = timeToMinutes(slot.From || slot.from);
@@ -435,7 +427,6 @@
 					}
 				});
 
-				// أضف الأوقات المتاحة بعد وقت البداية وقبل أقرب حجز
 				availableTimes.forEach(time => {
 					const timeMinutes = timeToMinutes(time);
 					if (timeMinutes > fromMinutes && timeMinutes <= maxAllowedTime) {
@@ -476,4 +467,5 @@
 			}
 		});
 	</script>
+
 }

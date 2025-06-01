@@ -154,7 +154,10 @@ namespace Ecorama.Controllers
 
 
 
-
+        public IActionResult Error404()
+        {
+            return View();
+        }
 
 
 

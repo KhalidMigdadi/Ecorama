@@ -22192,13 +22192,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Ecorama.uenc5ll40f.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-hurpcirru81rvpm8Yy0ldDiCpv7r2dVbIsFlISR\u002BSn8="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2256"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022hurpcirru81rvpm8Yy0ldDiCpv7r2dVbIsFlISR\u002BSn8=\u0022"},{"Name":"Last-Modified","Value":"Mon, 12 May 2025 04:59:53 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2256"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022hurpcirru81rvpm8Yy0ldDiCpv7r2dVbIsFlISR\u002BSn8=\u0022"},{"Name":"Last-Modified","Value":"Sun, 01 Jun 2025 09:42:20 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Ecorama/Ecorama.uenc5ll40f.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Ecorama.uenc5ll40f.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"uenc5ll40f"},{"Name":"integrity","Value":"sha256-hurpcirru81rvpm8Yy0ldDiCpv7r2dVbIsFlISR\u002BSn8="},{"Name":"label","Value":"_content/Ecorama/Ecorama.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2256"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022hurpcirru81rvpm8Yy0ldDiCpv7r2dVbIsFlISR\u002BSn8=\u0022"},{"Name":"Last-Modified","Value":"Mon, 12 May 2025 04:59:53 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2256"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022hurpcirru81rvpm8Yy0ldDiCpv7r2dVbIsFlISR\u002BSn8=\u0022"},{"Name":"Last-Modified","Value":"Sun, 01 Jun 2025 09:42:20 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Ecorama/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>
@@ -22391,6 +22391,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"8506"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u002292l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU=\u0022"},{"Name":"Last-Modified","Value":"Tue, 27 May 2025 05:36:25 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Ecorama/images/Ecorama Logo.g9tnxf93v5.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Ecorama Logo.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"g9tnxf93v5"},{"Name":"integrity","Value":"sha256-HF\u002BsTyD9YI3T/mOfK/vC75LqcLkSEKe5LHMkRT5fLYk="},{"Name":"label","Value":"_content/Ecorama/images/Ecorama Logo.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"365780"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022HF\u002BsTyD9YI3T/mOfK/vC75LqcLkSEKe5LHMkRT5fLYk=\u0022"},{"Name":"Last-Modified","Value":"Sat, 31 May 2025 15:52:49 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Ecorama/images/Ecorama Logo.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Ecorama Logo.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-HF\u002BsTyD9YI3T/mOfK/vC75LqcLkSEKe5LHMkRT5fLYk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"365780"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022HF\u002BsTyD9YI3T/mOfK/vC75LqcLkSEKe5LHMkRT5fLYk=\u0022"},{"Name":"Last-Modified","Value":"Sat, 31 May 2025 15:52:49 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Ecorama/images/FlagofJordan.j2ysi8behm.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\FlagofJordan.jpg'))</AssetFile>

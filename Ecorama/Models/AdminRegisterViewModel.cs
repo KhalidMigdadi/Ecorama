@@ -29,9 +29,6 @@ namespace Ecorama.Models
         [Compare("Password", ErrorMessage = "كلمة المرور وتأكيدها غير متطابقين")]
         public string ConfirmPassword { get; set; }
 
-        // حقل اضافي للرمز السري للتسجيل كمشرف
-        [Required(ErrorMessage = "رمز التفويض مطلوب")]
-        [Display(Name = "رمز التفويض")]
-        public string AuthorizationCode { get; set; }
+
     }
 }

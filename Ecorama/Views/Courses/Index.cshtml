@@ -45,7 +45,7 @@
 										<th width="100">PDF</th>
 										<th width="120">تاريخ الكورس</th>
 										<th width="120">تاريخ الإنشاء</th>
-										@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+										@if (Context.Session.GetString("UserRole") == "SuperAdmin")
 										{
 											<th width="80">الحالة</th>
 										}
@@ -103,7 +103,7 @@
 												</small>
 											</td>
 
-											@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+											@if (Context.Session.GetString("UserRole") == "SuperAdmin")
 											{
 												<td>
 													<form asp-action="ToggleActivation" asp-route-id="@course.Id" method="post" class="d-inline">
@@ -125,7 +125,7 @@
 													   class="btn btn-sm btn-outline-info" title="الدروس">
 														<i class="fas fa-book"></i>
 													</a>
-													@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+													@if (Context.Session.GetString("UserRole") == "SuperAdmin")
 													{
 														<form asp-action="Delete" asp-route-id="@course.Id" method="post" onsubmit="return confirm('هل أنت متأكد من الحذف؟')" style="display:inline;">
 															<button type="submit" class="btn btn-sm btn-outline-danger" title="حذف">

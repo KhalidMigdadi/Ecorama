@@ -36,7 +36,13 @@
                         <img src="@room.ImageUrl" class="card-img-top" style="height: 200px; object-fit: cover;" />
                         <div class="card-body">
                             <h5 class="card-title">@room.Name</h5>
-                            <p class="card-text text-muted">@room.Description?.Substring(0, Math.Min(100, room.Description.Length))...</p>
+                        <div style="display: flex; align-items: center;">
+                            <p style="margin: 0;">سعة الغرفة:</p>
+                            <h5 class="card-title" style="margin: 0 5px;">@room.Capacity</h5>
+                            <span>@(room.Capacity <= 10 ? "أشخاص" : "شخص")</span>
+                        </div>
+
+                        <p class="card-text text-muted">@room.Description?.Substring(0, Math.Min(100, room.Description.Length))...</p>
                             <a asp-action="Book" asp-route-id="@room.RoomId" class="btn btn-primary">احجز الآن</a>
                         </div>
                     </div>

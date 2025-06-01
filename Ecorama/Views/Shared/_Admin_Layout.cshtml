@@ -84,7 +84,7 @@
 			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index","Admin")">
 
 				<div class="sidebar-brand-text mx-3">Ecorama</div>
-			</a>			
+			</a>
 			<a href="@Url.Action("Index","Admin")">Dashboard</a>
 			<a href="@Url.Action("ViewAllUsers", "Admin")">Users</a>
 			<a href="@Url.Action("seeAllWorkShop","Admin")">WorkShops</a>
@@ -93,8 +93,14 @@
 			<a href="@Url.Action("Index","Announcement")">Announcement</a>
 			<a href="@Url.Action("ShowAllPartner","Admin")">Partner</a>
 			<a href="@Url.Action("Index","Courses")">Courses</a>
-			<a href="@Url.Action("Index", "AdminRooms")">Rooms</a> 
+			<a href="@Url.Action("Index", "AdminRooms")">Rooms</a>
 			<a href="@Url.Action("BookingsList", "AdminRooms")">Booking Rooms</a>
+			@if (Context.Session.GetString("UserRole") == "SuperAdmin")
+			{
+				<a href="@Url.Action("RegisterAdmin", "Login")">Add Admins</a>
+				<a href="@Url.Action("AllAdmins", "Admin")">Show All Admins</a>
+
+			}
 			<div class="dropdown">
 				<a class="dropdown-toggle d-block px-3 py-2 text-white" href="#" data-bs-toggle="collapse" data-bs-target="#workshopsMenu" aria-expanded="false">
 					Manage Home Page
@@ -129,7 +135,6 @@
 
 	</div>
 	<!-- End of Footer -->
-
 	<!-- Bootstrap core JavaScript-->
 
 	<script src="~/Admin/css/vendor/jquery/jquery.min.js"></script>

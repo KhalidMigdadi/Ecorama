@@ -1863,6 +1863,7 @@ wwwroot\images\9a90abe2-03d7-4751-8977-cd5f4578b72b.jpg
 wwwroot\images\a55e6ed9-d58b-4659-b9ed-c50a67f75db0.png
 wwwroot\images\Course-3X1.jpg
 wwwroot\images\e4d9a8ff-9a5a-4913-8546-4b23f7b11cb1.png
+wwwroot\images\Ecorama Logo.png
 wwwroot\images\FlagofJordan.jpg
 wwwroot\images\javascript.jpg
 wwwroot\images\Orange_Is_Here.png

@@ -1,0 +1,61 @@
+﻿@model List<User>
+
+@{
+    ViewData["Title"] = "قائمة المشرفين";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+
+}
+
+<h2>قائمة المشرفين</h2>
+
+@if(Context.Session.GetString("UserRole") == "SuperAdmin")
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>الاسم الأول</th>
+                <th>الاسم الأخير</th>
+                <th>البريد الإلكتروني</th>
+                <th>الدور</th>
+                <th>الحالة</th>
+                <th>الإجراءات</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var admin in Model)
+            {
+                <tr>
+                    <td>@admin.FirstName</td>
+                    <td>@admin.LastName</td>
+                    <td>@admin.Email</td>
+                    <td>@admin.Role</td>
+                    <td>
+                        @if (admin.IsActive)
+                        {
+                            <span class="text-success">نشط</span>
+                        }
+                        else
+                        {
+                            <span class="text-danger">معطل</span>
+                        }
+                    </td>
+                    <td>
+                        @if (admin.IsActive)
+                        {
+                            <form asp-action="DeactivateAdmin" asp-route-id="@admin.Id" method="post" style="display:inline;">
+                                <button type="submit" class="btn btn-danger btn-sm">تعطيل</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form asp-action="ActivateAdmin" asp-route-id="@admin.Id" method="post" style="display:inline;">
+                                <button type="submit" class="btn btn-success btn-sm">تفعيل</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}

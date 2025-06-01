@@ -39,7 +39,7 @@
                                         <th width="60">الصورة</th>
                                         <th>العنوان</th>
                                         <th>الوصف</th>
-                                        @if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+                                        @if (Context.Session.GetString("UserRole") == "SuperAdmin")
                                         {
                                             <th width="100" class="text-center">الحالة</th>
                                         }
@@ -84,7 +84,7 @@
                                                     @shortDesc
                                                 </span>
                                             </td>
-                                            @if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+                                            @if (Context.Session.GetString("UserRole") == "SuperAdmin")
                                             {
                                                 <td class="text-center">
                                                     <div class="form-check form-switch d-flex justify-content-center">
@@ -104,7 +104,7 @@
                                                        class="btn btn-sm btn-outline-warning" title="تعديل">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    @if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+                                                    @if (Context.Session.GetString("UserRole") == "SuperAdmin")
                                                     {
                                                         <button class="btn btn-sm btn-outline-danger delete-btn"
                                                                 data-id="@item.Id" title="حذف">

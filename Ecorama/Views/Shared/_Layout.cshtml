@@ -1,9 +1,12 @@
-﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>@ViewData["Title"] - Ecorama</title>
+	
+
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/Ecorama.styles.css" asp-append-version="true" />
@@ -62,6 +65,7 @@
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 0 20px;
+		padding-top: 20px !important;
 	}
 
 	.containerFooter {
@@ -405,8 +409,8 @@
 	}
 	/* إضافة padding-top للـ containerHeader */
 	/* .containerHeader {
-			padding-top: 30px;
-		} */
+							padding-top: 30px;
+						} */
 
 	/* تنسيق عنصر الترجمة */
 	#google_translate_element {
@@ -586,7 +590,7 @@
 	<header>
 		<div class="containerHeader">
 			<nav class="navbar">
-				<a href="#" class="logo"><i class="fas fa-graduation-cap"></i>إيكوراما</a>
+				<a href="#" class="logo"></i><img src="~/images/Ecorama Logo.png" alt="Logo" style="width: 60px;" /></a>
 				<ul class="nav-linkss">
 					<li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
 					<li><a href="@Url.Action("Index","CoursesUser")">الكورسات</a></li>
@@ -647,10 +651,9 @@
 					}
 
 					<!-- إضافة عنصر الترجمة داخل auth-buttons -->
-					@* 		<div class="translate-container">
-			<div id="google_translate_element"></div>
-		</div>
- *@
+					<div id="google_translate_element" class="p-2"></div>
+
+
 
 
 
@@ -742,94 +745,74 @@
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="~/js/site.js" asp-append-version="true"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			const hamburger = document.querySelector(".hamburger");
-			const navLinks = document.querySelector(".nav-linkss");
 
+
+
+	<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		// زر الهامبرجر لقائمة التنقل
+		const hamburger = document.querySelector(".hamburger");
+		const navLinks = document.querySelector(".nav-linkss");
+
+		if (hamburger && navLinks) {
 			hamburger.addEventListener("click", function () {
 				navLinks.classList.toggle("active");
 			});
-		});
+		}
 
-		// function googleTranslateElementInit() {
-		// 	new google.translate.TranslateElement(
-		// 		{
-		// 			pageLanguage: 'ar',
-		// 			includedLanguages: 'en',
-		// 			layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-		// 			autoDisplay: false
-		// 		},
-		// 		'google_translate_element'
-		// 	);
+		// دالة لفحص اللغة الحالية وضبط padding-top للـ navbar
+		function setNavbarPadding() {
+			const navbar = document.querySelector('.navbar');
+			// قراءة كوكي جوجل الترجمة لمعرفة اللغة الحالية
+			const googTransCookie = document.cookie.split('; ').find(row => row.startsWith('googtrans='));
+			let currentLang = null;
+			if (googTransCookie) {
+				// قيمة الكوكي تكون شكلها: "/ar/en" مثلاً
+				const value = googTransCookie.split('=')[1];
+				const parts = value.split('/');
+				currentLang = parts[2]; // اللغة الهدف
+			}
 
-		// 	فورس الصفحة تكون عربي عند التحميل
-		// 	setTimeout(function() {
-		// 		إعادة تعيين اللغة للعربية
-		// 		var translateFrame = document.querySelector('.goog-te-menu-frame');
-		// 		if (translateFrame) {
-		// 			var originalLink = translateFrame.contentDocument.querySelector('a[onclick*="ar"]');
-		// 			if (originalLink) {
-		// 				originalLink.click();
-		// 			}
-		// 		}
+			if (currentLang === 'en') {
+				navbar.style.paddingTop = '30px';
+			} else {
+				navbar.style.paddingTop = '0';
+			}
+		}
 
-		// 		إزالة أي كوكيز ترجمة محفوظة
-		// 		document.cookie = "googletrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+		// نفذها أول مرة بعد تحميل الصفحة
+		setNavbarPadding();
 
-		// 		var select = document.querySelector('.goog-te-combo');
-		// 		if (select) {
-		// 			تعيين القيمة الافتراضية للعربية
-		// 			select.value = '';
-
-		// 			for (var i = 0; i < select.options.length; i++) {
-		// 				var option = select.options[i];
-		// 				if (option.value === '') {
-		// 					option.text = 'العربية';
-		// 					option.selected = true;
-		// 				} else if (option.value === 'en') {
-		// 					option.text = 'English';
-		// 				}
-		// 			}
-		// 		}
-		// 	}, 1000);
-		// }
+		// راقب تغييرات الترجمة (لو المستخدم غير اللغة)
+		const translateElement = document.getElementById('google_translate_element');
+		if (translateElement) {
+			const observer = new MutationObserver(function() {
+				setNavbarPadding();
+			});
+			observer.observe(translateElement, { childList: true, subtree: true });
+		}
+	});
 
 
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement(
+			{
+				pageLanguage: 'ar',
+				includedLanguages: 'en',
+				layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+			},
+			'google_translate_element'
+		);
+	}
+</script>
 
-		// 		function setNavbarPaddingBasedOnLanguage() {
-		// 	const navbar = document.querySelector('.navbar');
-		// 	const currentLang = document.cookie.match(/googtrans=\/ar\/(\w+)/);
 
-		// 	if (currentLang && currentLang[1] === 'en') {
-		// 		navbar.style.paddingTop = '30px';
-		// 	} else {
-		// 		navbar.style.paddingTop = '0px';
-		// 	}
-		// }
 
-		// نادِ الوظيفة بعد التأخير للتأكد من تحميل الترجمة
-	
-		
-		// setTimeout(() => {
-		// 	setNavbarPaddingBasedOnLanguage();
-
-		// 	const observer = new MutationObserver(setNavbarPaddingBasedOnLanguage);
-		// 	const translateElement = document.getElementById('google_translate_element');
-		// 	if (translateElement) {
-		// 		observer.observe(translateElement, {
-		// 			childList: true,
-		// 			subtree: true
-		// 		});
-		// 	}
-		// }, 1500);
+	<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
 
 
-	</script>
-
-	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
 	@await RenderSectionAsync("Scripts", required: false)

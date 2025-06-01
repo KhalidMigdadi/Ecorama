@@ -178,7 +178,7 @@
 															onclick="contactUser('@item.Email', '@item.PhoneNumber')" title="التواصل">
 														<i class="fas fa-envelope"></i>
 													</button>
-													@if (Context.Session.GetString("UserEmail") == "superecorama@gmail.com")
+													@if (Context.Session.GetString("UserRole") == "SuperAdmin")
 													{
 														<button type="button" class="btn btn-sm btn-outline-danger"
 																onclick="deleteRegistration(@item.Id)" title="حذف">

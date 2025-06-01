@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+XQuPKjyIo51HELLad7rHEw6adadkCvE7GyKMVBRqlM=",
+  "Hash": "ec0UG5I7egQIeVaZMJNx/8HERk2B4HgS05ioBtJrrnA=",
   "Source": "Ecorama",
   "BasePath": "_content/Ecorama",
   "Mode": "Default",
@@ -39222,6 +39222,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\e4d9a8ff-9a5a-4913-8546-4b23f7b11cb1.png"
+    },
+    {
+      "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\Ecorama Logo.png",
+      "SourceId": "Ecorama",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\",
+      "BasePath": "_content/Ecorama",
+      "RelativePath": "images/Ecorama Logo#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "g9tnxf93v5",
+      "Integrity": "HF+sTyD9YI3T/mOfK/vC75LqcLkSEKe5LHMkRT5fLYk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Ecorama Logo.png"
     },
     {
       "Identity": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\FlagofJordan.jpg",
@@ -194142,7 +194163,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 04:59:53 GMT"
+          "Value": "Sun, 01 Jun 2025 09:42:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -194179,7 +194200,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 04:59:53 GMT"
+          "Value": "Sun, 01 Jun 2025 09:42:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -194216,7 +194237,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 04:59:53 GMT"
+          "Value": "Sun, 01 Jun 2025 09:42:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -194261,7 +194282,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 04:59:53 GMT"
+          "Value": "Sun, 01 Jun 2025 09:42:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -195592,6 +195613,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-92l9fBmkME6wj0RGlDIuM1HOADTfQ7mwXVTWWtW1JjU="
+        }
+      ]
+    },
+    {
+      "Route": "images/Ecorama Logo.g9tnxf93v5.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\Ecorama Logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "365780"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HF+sTyD9YI3T/mOfK/vC75LqcLkSEKe5LHMkRT5fLYk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 31 May 2025 15:52:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g9tnxf93v5"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Ecorama Logo.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HF+sTyD9YI3T/mOfK/vC75LqcLkSEKe5LHMkRT5fLYk="
+        }
+      ]
+    },
+    {
+      "Route": "images/Ecorama Logo.png",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\images\\Ecorama Logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "365780"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HF+sTyD9YI3T/mOfK/vC75LqcLkSEKe5LHMkRT5fLYk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 31 May 2025 15:52:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-HF+sTyD9YI3T/mOfK/vC75LqcLkSEKe5LHMkRT5fLYk="
         }
       ]
     },

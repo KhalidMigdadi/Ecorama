@@ -230,11 +230,6 @@
 		</div>
 	</div>
 
-	<form asp-action="ExportAllUsersToExcel" method="post" class="d-inline">
-		<button type="submit" class="btn btn-primary btn-sm">
-			<i class="fas fa-file-excel me-1"></i> تحميل Excel لجميع المستخدمين
-		</button>
-	</form>
 
 	<a class="btn btn-success" href="@Url.Action("ExportUsersToExcel", "Admin")">تصدير Excel لجميع المستخدمين</a>
 
@@ -321,7 +316,7 @@
 										</form> *@
 
 
-										@if (Context.Session.GetString("UserEmail") == "superecorama@gmail.com")
+										@if (Context.Session.GetString("UserRole") == "SuperAdmin")
 										{
 											<form asp-action="ToggleActivation" method="post" asp-route-id="@item.Id">
 												<button type="submit" class="btn btn-sm btn-toggle-active @(item.IsActive ? "btn-outline-danger" : "btn-outline-success")">

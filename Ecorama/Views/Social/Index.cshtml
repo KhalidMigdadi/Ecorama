@@ -23,7 +23,7 @@
 							<th>الشبكة الاجتماعية</th>
 							<th>الأيقونة</th>
 							<th>الرابط</th>
-							@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+							@if (Context.Session.GetString("UserRole") == "SuperAdmin")
 							{
 
 								<th>الحالة</th>
@@ -52,7 +52,7 @@
 										@(item.Url.Length > 30 ? item.Url.Substring(0, 30) + "..." : item.Url)
 									</a>
 								</td>
-								@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+								@if (Context.Session.GetString("UserRole") == "SuperAdmin")
 								{
 									<td>
 										<form asp-action="ToggleActive" method="post" style="display: inline;">
@@ -69,7 +69,7 @@
 										<a asp-action="EditSocial" asp-route-id="@item.Id" class="btn btn-sm btn-info">
 											<i class="fas fa-edit"></i> تعديل
 										</a>
-										@if (Context.Session.GetString("UserEmail") == "EcoramaSuperAdmin@gmail.com")
+										@if (Context.Session.GetString("UserRole") == "SuperAdmin")
 										{
 											<a asp-action="DeleteSocial" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
 												<i class="fas fa-trash"></i> حذف

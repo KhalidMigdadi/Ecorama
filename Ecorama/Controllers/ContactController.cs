@@ -27,7 +27,7 @@ namespace Ecorama.Controllers
                 _context.ContactUs.Add(contact);
                 await _context.SaveChangesAsync();
 
-                TempData["SuccessMessage"] = "تم إرسال رسالتك بنجاح! سنتواصل معك قريبًا.";
+                TempData["SuccessMessage1212"] = "تم إرسال رسالتك بنجاح! سنتواصل معك قريبًا.";
                 return RedirectToAction("Index");
             }
 

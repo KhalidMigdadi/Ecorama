@@ -25,7 +25,7 @@
 					<th>إلى التاريخ</th>
 					<th>من الساعة</th>
 					<th>إلى الساعة</th>
-					@if (Context.Session.GetString("UserEmail") == "superecorama@gmail.com")
+					@if (Context.Session.GetString("UserRole") == "SuperAdmin")
 					{
 
 						<th>الإجراءات</th>
@@ -40,7 +40,7 @@
 						<td>@item.AvailableToDate</td>
 						<td>@item.AvailableFromTime</td>
 						<td>@item.AvailableToTime</td>
-						@if (Context.Session.GetString("UserEmail") == "superecorama@gmail.com")
+						@if (Context.Session.GetString("UserRole") == "SuperAdmin")
 						{
 							<td>
 								<a asp-action="DeleteAvailability" asp-route-id="@item.AvailabilityId" asp-route-roomId="@roomId"
