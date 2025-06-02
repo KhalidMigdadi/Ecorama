@@ -1106,7 +1106,7 @@ namespace Ecorama.Controllers
         // GET: يعرض كل المشرفين
         public IActionResult AllAdmins()
         {
-            var admins = _context.Users.Where(u => u.Role == "Admin").ToList();
+            var admins = _context.Users.Where(u => u.Role == "Partner").ToList();
             return View(admins);
         }
 
@@ -1116,7 +1116,7 @@ namespace Ecorama.Controllers
         public async Task<IActionResult> DeactivateAdmin(int id)
         {
             var admin = await _context.Users.FindAsync(id);
-            if (admin == null || admin.Role != "Admin")
+            if (admin == null || admin.Role != "Partner")
             {
                 return NotFound();
             }
@@ -1133,7 +1133,7 @@ namespace Ecorama.Controllers
         public async Task<IActionResult> ActivateAdmin(int id)
         {
             var admin = await _context.Users.FindAsync(id);
-            if (admin == null || admin.Role != "Admin")
+            if (admin == null || admin.Role != "Partner")
             {
                 return NotFound();
             }

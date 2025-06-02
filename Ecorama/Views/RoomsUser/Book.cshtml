@@ -1,57 +1,43 @@
 ﻿@model Room
 @{
 	ViewData["Title"] = "حجز الغرفة";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+	Layout = "~/Views/Shared/_Admin_Layout.cshtml";
 	var currentDate = DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd");
-	// const today = new Date().toISOString().split('T')[0];
-
 }
-@section Styles {
+
+@section Style {
 	<link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet" />
 	<style>
-		/* Room Booking Page Styles */
+		/* Room Booking Page Styles - Light Design */
 		.booking-container {
-			background: #ddd;
+			background: #f8f9fa;
 			min-height: 100vh;
 			padding: 2rem 0;
 		}
 
 		.booking-card {
-			background: rgba(255, 255, 255, 0.95);
-			backdrop-filter: blur(10px);
-			border-radius: 20px;
-			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-			padding: 3rem;
-			margin: 5rem auto;
+			background: white;
+			border-radius: 12px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+			padding: 2.5rem;
+			margin: 3rem auto;
 			max-width: 600px;
-			border: 1px solid rgba(255, 255, 255, 0.2);
+			border: 1px solid #e9ecef;
 		}
 
 		.booking-title {
-			font-size: 2.5rem;
-			font-weight: 700;
+			font-size: 2rem;
+			font-weight: 600;
 			color: #2c3e50;
 			text-align: center;
 			margin-bottom: 2rem;
-			position: relative;
+			padding-bottom: 1rem;
+			border-bottom: 2px solid #007bff;
 		}
 
-			.booking-title::after {
-				content: '';
-				position: absolute;
-				bottom: -20px;
-				left: 50%;
-				transform: translateX(-50%);
-				width: 100%;
-				height: 4px;
-				background: linear-gradient(45deg, #667eea, #764ba2);
-				border-radius: 2px;
-			}
-
 		.room-name {
-			color: #667eea;
-			font-weight: 600;
-			text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			color: #007bff;
+			font-weight: 700;
 		}
 
 		.booking-form {
@@ -60,84 +46,120 @@
 
 		.form-group {
 			margin-bottom: 1.5rem;
-			position: relative;
 		}
 
 		.form-label {
-			font-weight: 600;
-			color: #2c3e50;
-			margin-bottom: 0.8rem;
+			font-weight: 500;
+			color: #495057;
+			margin-bottom: 0.5rem;
 			display: block;
-			font-size: 1.1rem;
-			position: relative;
+			font-size: 1rem;
 		}
 
-			.form-label::before {
-				content: '';
-				position: absolute;
-				right: -15px;
-				top: 50%;
-				transform: translateY(-50%);
-				width: 8px;
-				height: 8px;
-				background: #667eea;
-				border-radius: 50%;
-			}
-
 		.form-control {
-			border: 2px solid #e9ecef;
-			border-radius: 15px;
-			padding: 1rem 1.2rem;
+			border: 1px solid #ced4da;
+			border-radius: 8px;
+			padding: 0.75rem 1rem;
 			font-size: 1rem;
-			transition: all 0.3s ease;
-			background: rgba(255, 255, 255, 0.9);
-			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+			transition: all 0.2s ease;
+			background: white;
 		}
 
 			.form-control:focus {
-				border-color: #667eea;
-				box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
-				background: white;
-				transform: translateY(-2px);
+				border-color: #007bff;
+				box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.15);
+				outline: 0;
 			}
 
 			.form-control:hover {
-				border-color: #764ba2;
-				transform: translateY(-1px);
+				border-color: #80bdff;
 			}
-
-		input[type="time"], input[type="number"] {
-			background: linear-gradient(45deg, #f8f9fa, #ffffff);
-		}
 
 		textarea.form-control {
 			resize: vertical;
-			min-height: 120px;
-			background: linear-gradient(135deg, #f8f9fa, #ffffff);
+			min-height: 100px;
+		}
+
+		/* Booking Type Selection */
+		.booking-type-group {
+			margin-bottom: 2rem;
+			padding: 1rem;
+			background: #f8f9fa;
+			border-radius: 8px;
+			border: 1px solid #e9ecef;
+		}
+
+		.booking-type-label {
+			font-weight: 600;
+			color: #495057;
+			margin-bottom: 1rem;
+			display: block;
+		}
+
+		.radio-group {
+			display: flex;
+			gap: 2rem;
+		}
+
+		.radio-option {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+
+			.radio-option input[type="radio"] {
+				width: 18px;
+				height: 18px;
+				accent-color: #007bff;
+			}
+
+			.radio-option label {
+				font-weight: 500;
+				color: #495057;
+				cursor: pointer;
+				margin: 0;
+			}
+
+		/* Time Selection */
+		.time-selection {
+			display: flex;
+			gap: 1rem;
+		}
+
+			.time-selection .form-group {
+				flex: 1;
+				margin-bottom: 0;
+			}
+
+		.full-day-info {
+			background: #e7f3ff;
+			border: 1px solid #b3d9ff;
+			border-radius: 8px;
+			padding: 1rem;
+			margin-top: 1rem;
+			color: #0066cc;
+			font-weight: 500;
+			text-align: center;
 		}
 
 		.alert-success {
-			background: linear-gradient(45deg, #28a745, #20c997);
-			border: none;
-			border-radius: 15px;
-			color: white;
+			background: #d4edda;
+			border: 1px solid #c3e6cb;
+			border-radius: 8px;
+			color: #155724;
 			font-weight: 500;
-			padding: 1rem 1.5rem;
-			margin-bottom: 2rem;
-			box-shadow: 0 8px 16px rgba(40, 167, 69, 0.3);
-			animation: slideInFromTop 0.5s ease-out;
+			padding: 1rem;
+			margin-bottom: 1.5rem;
 		}
 
-		@@keyframes slideInFromTop {
-			from {
-				opacity: 0;
-				transform: translateY(-20px);
-			}
-
-			to {
-				opacity: 1;
-				transform: translateY(0);
-			}
+		.alert-danger {
+			background: #f8d7da;
+			border: 1px solid #f5c6cb;
+			border-radius: 8px;
+			color: #721c24;
+			font-weight: 500;
+			padding: 1rem;
+			margin-bottom: 1.5rem;
 		}
 
 		.booking-buttons {
@@ -145,105 +167,85 @@
 			justify-content: flex-end;
 			gap: 1rem;
 			margin-top: 2rem;
-			padding-top: 2rem;
-			border-top: 2px solid rgba(102, 126, 234, 0.1);
+			padding-top: 1.5rem;
+			border-top: 1px solid #e9ecef;
 		}
 
 		.btn-success {
-			background: linear-gradient(45deg, #28a745, #20c997);
-			border: none;
-			border-radius: 15px;
-			padding: 1rem 2rem;
+			background: #28a745;
+			border: 1px solid #28a745;
+			border-radius: 8px;
+			padding: 0.75rem 2rem;
 			font-weight: 600;
-			font-size: 1.1rem;
-			transition: all 0.3s ease;
-			box-shadow: 0 8px 16px rgba(40, 167, 69, 0.3);
-			position: relative;
-			overflow: hidden;
+			font-size: 1rem;
+			transition: all 0.2s ease;
+			color: white;
 		}
 
-			.btn-success::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: -100%;
-				width: 100%;
-				height: 100%;
-				background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-				transition: left 0.5s;
-			}
-
-			.btn-success:hover::before {
-				left: 100%;
-			}
-
 			.btn-success:hover {
-				background: linear-gradient(45deg, #20c997, #28a745);
-				transform: translateY(-3px);
-				box-shadow: 0 12px 24px rgba(40, 167, 69, 0.4);
+				background: #218838;
+				border-color: #1e7e34;
+				transform: translateY(-1px);
 			}
 
 		.btn-secondary {
-			background: linear-gradient(45deg, #6c757d, #495057);
-			border: none;
-			border-radius: 15px;
-			padding: 1rem 2rem;
+			background: #6c757d;
+			border: 1px solid #6c757d;
+			border-radius: 8px;
+			padding: 0.75rem 2rem;
 			font-weight: 600;
-			font-size: 1.1rem;
-			transition: all 0.3s ease;
-			box-shadow: 0 8px 16px rgba(108, 117, 125, 0.3);
+			font-size: 1rem;
+			transition: all 0.2s ease;
 			color: white;
 		}
 
 			.btn-secondary:hover {
-				background: linear-gradient(45deg, #495057, #343a40);
-				transform: translateY(-3px);
-				box-shadow: 0 12px 24px rgba(108, 117, 125, 0.4);
+				background: #5a6268;
+				border-color: #545b62;
+				transform: translateY(-1px);
 				color: white;
 			}
 
 		.flatpickr-calendar {
-			border-radius: 15px;
-			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-			border: none;
-			background: rgba(255, 255, 255, 0.95);
-			backdrop-filter: blur(10px);
+			border-radius: 8px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+			border: 1px solid #e9ecef;
 		}
 
 		.flatpickr-day.selected {
-			background: linear-gradient(45deg, #667eea, #764ba2);
-			border-color: #667eea;
+			background: #007bff;
+			border-color: #007bff;
 		}
 
 		.flatpickr-day:hover {
-			background: rgba(102, 126, 234, 0.1);
-			border-color: #667eea;
-		}
-
-		.form-group::after {
-			content: '';
-			position: absolute;
-			bottom: 0;
-			right: 0;
-			width: 0;
-			height: 2px;
-			transition: width 0.3s ease;
-		}
-
-		.form-group:focus-within::after {
-			width: 100%;
+			background: #e7f3ff;
+			border-color: #007bff;
 		}
 
 		@@media (max-width: 768px) {
 			.booking-card {
 				margin: 1rem;
-				padding: 2rem 1.5rem;
-				border-radius: 15px;
+				padding: 1.5rem;
+				border-radius: 8px;
 			}
 
 			.booking-title {
-				font-size: 2rem;
+				font-size: 1.5rem;
 			}
+
+			.radio-group {
+				flex-direction: column;
+				gap: 1rem;
+			}
+
+			.time-selection {
+				flex-direction: column;
+				gap: 0;
+			}
+
+				.time-selection .form-group {
+					margin-bottom: 1.5rem;
+				}
 
 			.booking-buttons {
 				flex-direction: column-reverse;
@@ -254,6 +256,11 @@
 				width: 100%;
 				margin: 0.5rem 0;
 			}
+		}
+
+		/* Hidden class for time fields */
+		.hidden {
+			display: none;
 		}
 	</style>
 }
@@ -275,19 +282,44 @@
 
 			<form method="post" asp-action="Book" class="booking-form">
 				<input type="hidden" name="RoomId" value="@Model.RoomId" />
+				<input type="hidden" name="BookingType" id="BookingTypeInput" value="timeSlot" />
 
 				<div class="form-group">
 					<label class="form-label">تاريخ الحجز</label>
 					<input type="text" id="BookingDate" name="BookingDate" class="form-control" placeholder="اختر التاريخ" required />
 				</div>
-				<div class="form-group">
-					<label class="form-label">من الساعة</label>
-					<select name="BookingFrom" id="BookingFrom" class="form-control" required></select>
+
+				<!-- Booking Type Selection -->
+				<div class="booking-type-group">
+					<label class="booking-type-label">نوع الحجز</label>
+					<div class="radio-group">
+						<div class="radio-option">
+							<input type="radio" id="timeSlot" name="BookingType" value="timeSlot" checked />
+							<label for="timeSlot">حجز بالساعة</label>
+						</div>
+						<div class="radio-option">
+							<input type="radio" id="fullDay" name="BookingType" value="fullDay" />
+							<label for="fullDay">حجز اليوم كامل</label>
+						</div>
+					</div>
 				</div>
 
-				<div class="form-group">
-					<label class="form-label">إلى الساعة</label>
-					<select name="BookingTo" id="BookingTo" class="form-control" required></select>
+				<!-- Time Selection (Initially visible) -->
+				<div id="timeSelectionContainer" class="time-selection">
+					<div class="form-group">
+						<label class="form-label">من الساعة</label>
+						<select name="BookingFrom" id="BookingFrom" class="form-control" required></select>
+					</div>
+
+					<div class="form-group">
+						<label class="form-label">إلى الساعة</label>
+						<select name="BookingTo" id="BookingTo" class="form-control" required></select>
+					</div>
+				</div>
+
+				<!-- Full Day Info (Initially hidden) -->
+				<div id="fullDayInfo" class="full-day-info hidden">
+					<p>سيتم حجز الغرفة طوال اليوم </p>
 				</div>
 
 				<div class="form-group">
@@ -312,29 +344,103 @@
 @section Scripts {
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 	<script>
-		document.addEventListener("DOMContentLoaded", function () {
+				document.addEventListener("DOMContentLoaded", function () {
 			const bookedTimeSlots = @Html.Raw(ViewBag.BookedTimeSlots);
 			const availableFrom = new Date("@ViewBag.AvailableFrom");
 			const availableTo = new Date("@ViewBag.AvailableTo");
 			const roomId = @Model.RoomId;
 
-			// احسب كل الأيام المتاحة من availableFrom إلى availableTo
+			// عناصر النموذج
+			const timeSlotRadio = document.getElementById('timeSlot');
+			const fullDayRadio = document.getElementById('fullDay');
+			const timeSelectionContainer = document.getElementById('timeSelectionContainer');
+			const fullDayInfo = document.getElementById('fullDayInfo');
+			const bookingFromSelect = document.getElementById('BookingFrom');
+			const bookingToSelect = document.getElementById('BookingTo');
+			const form = document.querySelector('form');
+			const bookingTypeInput = document.getElementById('BookingTypeInput');
+
+			// عند تغيير نوع الحجز
+					async function handleBookingTypeChange() {
+			const bookingTypeInput = document.getElementById('BookingTypeInput');
+			removeHiddenTimeInputs();
+
+			if (fullDayRadio.checked) {
+				bookingTypeInput.value = 'fullDay';
+				timeSelectionContainer.classList.add('hidden');
+				fullDayInfo.classList.remove('hidden');
+
+				bookingFromSelect.removeAttribute('required');
+				bookingToSelect.removeAttribute('required');
+
+				const dateStr = document.getElementById("BookingDate").value;
+				if (!dateStr) return; // تأكد من اختيار تاريخ
+
+				const data = await getRoomAvailability(roomId, dateStr);
+				if (data.availability && data.availability.length > 0) {
+					const fromTime = data.availability[0].availableFromTime;
+					const toTime = data.availability[0].availableToTime;
+					createHiddenTimeInputs(fromTime, toTime);
+				} else {
+					console.warn("لا يوجد توفر في هذا اليوم");
+				}
+			} else {
+				bookingTypeInput.value = 'timeSlot';
+				timeSelectionContainer.classList.remove('hidden');
+				fullDayInfo.classList.add('hidden');
+
+				bookingFromSelect.setAttribute('required', '');
+				bookingToSelect.setAttribute('required', '');
+
+				bookingFromSelect.value = '';
+				bookingToSelect.value = '';
+			}
+		}
+
+
+			// إنشاء حقول مخفية
+			function createHiddenTimeInputs(fromTime, toTime) {
+				const hiddenFrom = document.createElement('input');
+				hiddenFrom.type = 'hidden';
+				hiddenFrom.name = 'BookingFrom';
+				hiddenFrom.value = fromTime;
+				hiddenFrom.className = 'hidden-time-input';
+
+				const hiddenTo = document.createElement('input');
+				hiddenTo.type = 'hidden';
+				hiddenTo.name = 'BookingTo';
+				hiddenTo.value = toTime;
+				hiddenTo.className = 'hidden-time-input';
+
+				form.appendChild(hiddenFrom);
+				form.appendChild(hiddenTo);
+			}
+
+			function removeHiddenTimeInputs() {
+				const hiddenInputs = form.querySelectorAll('.hidden-time-input');
+				hiddenInputs.forEach(input => input.remove());
+			}
+
+			// Event Listeners
+			timeSlotRadio.addEventListener('change', handleBookingTypeChange);
+			fullDayRadio.addEventListener('change', handleBookingTypeChange);
+
+			// تهيئة التواريخ المتاحة
 			let enabledDates = [];
 			for (let d = new Date(availableFrom); d <= availableTo; d.setDate(d.getDate() + 1)) {
 				const iso = d.toISOString().split('T')[0];
 				enabledDates.push(iso);
 			}
-
-			// فلتر الأيام المتاحة بحيث تبدأ من تاريخ اليوم فقط
 			const today = new Date().toISOString().split('T')[0];
 			enabledDates = enabledDates.filter(date => date >= today);
 
-			// تهيئة Flatpickr لتحديد التاريخ
 			flatpickr("#BookingDate", {
 				dateFormat: "Y-m-d",
 				enable: enabledDates,
 				onChange: function (selectedDates, dateStr) {
-					updateTimeOptions(dateStr, roomId);
+					if (timeSlotRadio.checked) {
+						updateTimeOptions(dateStr, roomId);
+					}
 				}
 			});
 
@@ -355,18 +461,14 @@
 					updateFromSelect(availableTimes, blockedSlots);
 				}).catch(error => {
 					console.error('خطأ في تحديث الأوقات:', error);
-					const fromSelect = document.getElementById("BookingFrom");
-					fromSelect.innerHTML = '<option value="">خطأ في تحميل الأوقات</option>';
+					bookingFromSelect.innerHTML = '<option value="">خطأ في تحميل الأوقات</option>';
 				});
 			}
 
 			async function getRoomAvailability(roomId, dateStr) {
 				try {
 					const response = await fetch(`/api/GetRoomAvailability?roomId=${roomId}&date=${dateStr}`);
-					if (response.ok) {
-						const data = await response.json();
-						return data;
-					}
+					if (response.ok) return await response.json();
 					console.error('فشل في الحصول على البيانات:', response.status);
 					return { availability: [], bookedSlots: [] };
 				} catch (error) {
@@ -387,34 +489,26 @@
 			}
 
 			function updateFromSelect(availableTimes, blockedSlots) {
-				const fromSelect = document.getElementById("BookingFrom");
-				const toSelect = document.getElementById("BookingTo");
-
-				fromSelect.innerHTML = '<option value="">اختر وقت البداية</option>';
-				toSelect.innerHTML = '<option value="">اختر وقت النهاية</option>';
+				bookingFromSelect.innerHTML = '<option value="">اختر وقت البداية</option>';
+				bookingToSelect.innerHTML = '<option value="">اختر وقت النهاية</option>';
 
 				if (availableTimes.length === 0) {
-					fromSelect.innerHTML = '<option value="">لا توجد أوقات متاحة</option>';
+					bookingFromSelect.innerHTML = '<option value="">لا توجد أوقات متاحة</option>';
 					return;
 				}
 
 				availableTimes.forEach(time => {
 					let option = new Option(time, time);
-					fromSelect.add(option);
+					bookingFromSelect.add(option);
 				});
 
-				const newFromSelect = fromSelect.cloneNode(true);
-				fromSelect.parentNode.replaceChild(newFromSelect, fromSelect);
-
-				newFromSelect.addEventListener('change', function () {
+				bookingFromSelect.addEventListener('change', function () {
 					updateToSelect(this.value, availableTimes, blockedSlots);
 				});
 			}
 
 			function updateToSelect(fromTime, availableTimes, blockedSlots) {
-				const toSelect = document.getElementById("BookingTo");
-				toSelect.innerHTML = '<option value="">اختر وقت النهاية</option>';
-
+				bookingToSelect.innerHTML = '<option value="">اختر وقت النهاية</option>';
 				if (!fromTime) return;
 
 				const fromMinutes = timeToMinutes(fromTime);
@@ -430,8 +524,7 @@
 				availableTimes.forEach(time => {
 					const timeMinutes = timeToMinutes(time);
 					if (timeMinutes > fromMinutes && timeMinutes <= maxAllowedTime) {
-						let option = new Option(time, time);
-						toSelect.add(option);
+						bookingToSelect.add(new Option(time, time));
 					}
 				});
 			}
@@ -444,11 +537,7 @@
 
 			function generateTimes(start, end, stepMinutes) {
 				let result = [];
-
-				if (!start || !end) {
-					console.warn('أوقات البداية أو النهاية غير محددة:', start, end);
-					return result;
-				}
+				if (!start || !end) return result;
 
 				let [startH, startM] = start.split(':').map(Number);
 				let [endH, endM] = end.split(':').map(Number);
@@ -462,10 +551,29 @@
 					result.push(`${h}:${m}`);
 					current.setMinutes(current.getMinutes() + stepMinutes);
 				}
-
 				return result;
 			}
-		});
-	</script>
 
+			// عند إرسال النموذج
+			form.addEventListener('submit', function (e) {
+				removeHiddenTimeInputs();
+
+				if (fullDayRadio.checked) {
+					const minFromTime = bookingFromSelect.options[0]?.value;
+					const maxToTime = bookingToSelect.options[bookingToSelect.options.length - 1]?.value;
+
+					if (minFromTime && maxToTime) {
+						createHiddenTimeInputs(minFromTime, maxToTime);
+					}
+
+					bookingFromSelect.removeAttribute('required');
+					bookingToSelect.removeAttribute('required');
+				}
+			});
+
+			// تهيئة عند التحميل
+			handleBookingTypeChange();
+		});
+
+	</script>
 }

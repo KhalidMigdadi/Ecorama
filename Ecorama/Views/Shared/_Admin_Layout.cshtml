@@ -86,32 +86,54 @@
 				<div class="sidebar-brand-text mx-3">Ecorama</div>
 			</a>
 			<a href="@Url.Action("Index","Admin")">Dashboard</a>
-			<a href="@Url.Action("ViewAllUsers", "Admin")">Users</a>
+			@if (Context.Session.GetString("UserRole") == "SuperAdmin")
+			{
+				<a href="@Url.Action("ViewAllUsers", "Admin")">Users</a>
+
+			}
+
 			<a href="@Url.Action("seeAllWorkShop","Admin")">WorkShops</a>
 			<a href="@Url.Action("WorkshopRegistrationsUsers","Admin")">Registered WorkShops</a>
 			<a href="@Url.Action("News","Admin")">News</a>
 			<a href="@Url.Action("Index","Announcement")">Announcement</a>
-			<a href="@Url.Action("ShowAllPartner","Admin")">Partner</a>
-			<a href="@Url.Action("Index","Courses")">Courses</a>
-			<a href="@Url.Action("Index", "AdminRooms")">Rooms</a>
-			<a href="@Url.Action("BookingsList", "AdminRooms")">Booking Rooms</a>
+
 			@if (Context.Session.GetString("UserRole") == "SuperAdmin")
 			{
+				<a href="@Url.Action("ShowAllPartner","Admin")">Partner</a>
+			}
+
+
+
+			<a href="@Url.Action("Index","Courses")">Courses</a>
+
+			@if (Context.Session.GetString("UserRole") == "Partner")
+			{
+				<a href="@Url.Action("Index", "RoomsUser")">Rooms</a>
+
+			}
+
+
+			@if (Context.Session.GetString("UserRole") == "SuperAdmin")
+			{
+				<a href="@Url.Action("Index", "AdminRooms")">Rooms</a>
+
+				<a href="@Url.Action("BookingsList", "AdminRooms")">Booking Rooms</a>
+
 				<a href="@Url.Action("RegisterAdmin", "Login")">Add Admins</a>
 				<a href="@Url.Action("AllAdmins", "Admin")">Show All Admins</a>
 
-			}
-			<div class="dropdown">
-				<a class="dropdown-toggle d-block px-3 py-2 text-white" href="#" data-bs-toggle="collapse" data-bs-target="#workshopsMenu" aria-expanded="false">
-					Manage Home Page
-				</a>
-				<div class="collapse" id="workshopsMenu">
-					<a href="@Url.Action("Index", "Slider")" class="d-block px-4 py-1 text-white">Sider</a>
-					<a href="@Url.Action("Manage", "AboutUs")" class="d-block px-4 py-1 text-white">AboutUs</a>
-					<a href="@Url.Action("ContactMassages", "Admin")" class="d-block px-4 py-1 text-white">Contact Massages</a>
-					<a href="@Url.Action("Index", "Social")" class="d-block px-4 py-1 text-white">SocialMedia</a>
+				<div class="dropdown">
+					<a class="dropdown-toggle d-block px-3 py-2 text-white" href="#" data-bs-toggle="collapse" data-bs-target="#workshopsMenu" aria-expanded="false">
+						Manage Home Page
+					</a>
+					<div class="collapse" id="workshopsMenu">
+						<a href="@Url.Action("Index", "Slider")" class="d-block px-4 py-1 text-white">Sider</a>
+						<a href="@Url.Action("Manage", "AboutUs")" class="d-block px-4 py-1 text-white">AboutUs</a>
+						<a href="@Url.Action("ContactMassages", "Admin")" class="d-block px-4 py-1 text-white">Contact Massages</a>
+						<a href="@Url.Action("Index", "Social")" class="d-block px-4 py-1 text-white">SocialMedia</a>
+					</div>
 				</div>
-			</div>
+			}
 			<a href="@Url.Action("Logout","Login")">Logout</a>
 		</div>
 		<!-- End of Sidebar -->

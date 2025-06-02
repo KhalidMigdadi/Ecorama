@@ -24,8 +24,8 @@ namespace Ecorama.Controllers
 
         public IActionResult Book(int id)
         {
-            int? userId = HttpContext.Session.GetInt32("UserId");
-            if (userId == null)
+            int? AdminId = HttpContext.Session.GetInt32("AdminId");
+            if (AdminId == null)
                 return RedirectToAction("Login", "Login");
 
             var room = _context.Rooms.FirstOrDefault(r => r.RoomId == id);
@@ -42,11 +42,11 @@ namespace Ecorama.Controllers
             ViewBag.AvailableFrom = minDate;
             ViewBag.AvailableTo = maxDate;
 
-            // ✅ Get booked dates (Approved AND Pending) - تم التحديث هنا
+            // Get booked dates (Approved AND Pending)
             ViewBag.BookedTimeSlots = JsonConvert.SerializeObject(
                     _context.RoomBookings
                         .Where(b => b.RoomId == id &&
-                                   (b.Status == "Approved" || b.Status == "Pending")) // شمل الحجوزات المعلقة أيضاً
+                                   (b.Status == "Approved" || b.Status == "Pending"))
                         .Select(b => new {
                             Date = b.BookingDate.Value.ToString("yyyy-MM-dd"),
                             From = b.BookingFrom.Value.ToString("HH:mm"),
@@ -57,13 +57,10 @@ namespace Ecorama.Controllers
             return View("Book", room);
         }
 
-
-
-
         [HttpPost]
-        public IActionResult Book(RoomBooking booking)
+        public IActionResult Book(RoomBooking booking, string BookingType)
         {
-            int? userId = HttpContext.Session.GetInt32("UserId");
+            int? userId = HttpContext.Session.GetInt32("AdminId");
             if (userId == null)
                 return RedirectToAction("Login", "Login");
 
@@ -81,28 +78,86 @@ namespace Ecorama.Controllers
                 return RedirectToAction("Book", new { id = booking.RoomId });
             }
 
-            if (!booking.BookingFrom.HasValue || !booking.BookingTo.HasValue)
-            {
-                TempData["Error12"] = "يرجى اختيار أوقات صالحة.";
-                return RedirectToAction("Book", new { id = booking.RoomId });
-            }
-
             var bookingDateOnly = booking.BookingDate.Value;
-            var bookingFrom = booking.BookingFrom.Value;
-            var bookingTo = booking.BookingTo.Value;
 
-            // التحقق من منطقية الأوقات
-            if (bookingFrom >= bookingTo)
+            // معالجة حجز اليوم الكامل
+            if (BookingType == "fullDay")
             {
-                TempData["Error12"] = "وقت البداية يجب أن يكون قبل وقت النهاية.";
-                return RedirectToAction("Book", new { id = booking.RoomId });
+                booking.BookingFrom = new TimeOnly(8, 0);  // 8:00 AM
+                booking.BookingTo = new TimeOnly(22, 0);   // 10:00 PM
+
+                // التحقق من وجود أي حجوزات في نفس اليوم للحجز الكامل
+                bool hasConflictingBookings = _context.RoomBookings.Any(b =>
+                    b.RoomId == booking.RoomId &&
+                    b.BookingDate.Value == bookingDateOnly &&
+                    (b.Status == "Approved" || b.Status == "Pending")
+                );
+
+                if (hasConflictingBookings)
+                {
+                    TempData["Error12"] = "لا يمكن حجز اليوم كاملاً، توجد حجوزات أخرى في نفس اليوم.";
+                    return RedirectToAction("Book", new { id = booking.RoomId });
+                }
             }
-
-            // التحقق من أن الحجز لا يقل عن 30 دقيقة
-            if (bookingTo.ToTimeSpan() - bookingFrom.ToTimeSpan() < TimeSpan.FromMinutes(30))
+            else
             {
-                TempData["Error12"] = "مدة الحجز يجب أن تكون 30 دقيقة على الأقل.";
-                return RedirectToAction("Book", new { id = booking.RoomId });
+                // التحقق من الأوقات للحجز بالساعة
+                if (!booking.BookingFrom.HasValue || !booking.BookingTo.HasValue)
+                {
+                    TempData["Error12"] = "يرجى اختيار أوقات صالحة.";
+                    return RedirectToAction("Book", new { id = booking.RoomId });
+                }
+
+                var bookingFrom = booking.BookingFrom.Value;
+                var bookingTo = booking.BookingTo.Value;
+
+                // التحقق من منطقية الأوقات
+                if (bookingFrom >= bookingTo)
+                {
+                    TempData["Error12"] = "وقت البداية يجب أن يكون قبل وقت النهاية.";
+                    return RedirectToAction("Book", new { id = booking.RoomId });
+                }
+
+                // التحقق من أن الحجز لا يقل عن 30 دقيقة
+                if (bookingTo.ToTimeSpan() - bookingFrom.ToTimeSpan() < TimeSpan.FromMinutes(30))
+                {
+                    TempData["Error12"] = "مدة الحجز يجب أن تكون 30 دقيقة على الأقل.";
+                    return RedirectToAction("Book", new { id = booking.RoomId });
+                }
+
+                // التحقق من عدم وجود حجز يوم كامل في نفس التاريخ
+                bool hasFullDayBooking = _context.RoomBookings.Any(b =>
+                    b.RoomId == booking.RoomId &&
+                    b.BookingDate.Value == bookingDateOnly &&
+                    (b.Status == "Approved" || b.Status == "Pending") &&
+                    b.BookingFrom.Value.Hour == 8 && b.BookingFrom.Value.Minute == 0 &&
+                    b.BookingTo.Value.Hour == 22 && b.BookingTo.Value.Minute == 0
+                );
+
+                if (hasFullDayBooking)
+                {
+                    TempData["Error12"] = "لا يمكن الحجز، الغرفة محجوزة لليوم كامل في هذا التاريخ.";
+                    return RedirectToAction("Book", new { id = booking.RoomId });
+                }
+
+                // التحقق المحسن من التداخل في الأوقات
+                bool isConflicting = _context.RoomBookings.Any(b =>
+                    b.RoomId == booking.RoomId &&
+                    b.BookingDate.Value == bookingDateOnly &&
+                    (b.Status == "Approved" || b.Status == "Pending") &&
+                    (
+                        // حالات التداخل:
+                        (bookingFrom < b.BookingTo && bookingTo > b.BookingFrom) ||
+                        (bookingFrom <= b.BookingFrom && bookingTo >= b.BookingTo) ||
+                        (bookingFrom >= b.BookingFrom && bookingTo <= b.BookingTo)
+                    )
+                );
+
+                if (isConflicting)
+                {
+                    TempData["Error12"] = "الوقت المحدد يتداخل مع حجز موجود. يرجى اختيار أوقات أخرى.";
+                    return RedirectToAction("Book", new { id = booking.RoomId });
+                }
             }
 
             // التحقق من التاريخ المتاح
@@ -118,28 +173,6 @@ namespace Ecorama.Controllers
                 return RedirectToAction("Book", new { id = booking.RoomId });
             }
 
-            // التحقق المحسن من التداخل في الأوقات
-            bool isConflicting = _context.RoomBookings.Any(b =>
-                b.RoomId == booking.RoomId &&
-                b.BookingDate.Value == bookingDateOnly &&
-                (b.Status == "Approved" || b.Status == "Pending") &&
-                (
-                    // حالات التداخل:
-                    // 1. الحجز الجديد يبدأ قبل انتهاء حجز موجود وينتهي بعد بداية حجز موجود
-                    (bookingFrom < b.BookingTo && bookingTo > b.BookingFrom) ||
-                    // 2. الحجز الجديد يحتوي بالكامل على حجز موجود
-                    (bookingFrom <= b.BookingFrom && bookingTo >= b.BookingTo) ||
-                    // 3. الحجز الجديد محتوى بالكامل داخل حجز موجود
-                    (bookingFrom >= b.BookingFrom && bookingTo <= b.BookingTo)
-                )
-            );
-
-            if (isConflicting)
-            {
-                TempData["Error12"] = "الوقت المحدد يتداخل مع حجز موجود. يرجى اختيار أوقات أخرى.";
-                return RedirectToAction("Book", new { id = booking.RoomId });
-            }
-
             // التحقق من عدد الضيوف
             if (booking.NumberOfGuests <= 0 || booking.NumberOfGuests > room.Capacity)
             {
@@ -152,11 +185,22 @@ namespace Ecorama.Controllers
             booking.Status = "Pending";
             booking.CreatedAt = DateTime.Now;
 
+            // إضافة ملاحظة للحجز الكامل
+            if (BookingType == "fullDay")
+            {
+                booking.Notes = booking.Notes + (string.IsNullOrEmpty(booking.Notes) ? "" : " - ") + "حجز يوم كامل";
+            }
+
             try
             {
                 _context.RoomBookings.Add(booking);
                 _context.SaveChanges();
-                TempData["MSG"] = "تم إرسال طلب الحجز بنجاح، يرجى انتظار الموافقة.";
+
+                string successMessage = BookingType == "fullDay"
+                    ? "تم إرسال طلب حجز اليوم الكامل بنجاح، يرجى انتظار الموافقة."
+                    : "تم إرسال طلب الحجز بنجاح، يرجى انتظار الموافقة.";
+
+                TempData["MSG"] = successMessage;
             }
             catch (Exception ex)
             {

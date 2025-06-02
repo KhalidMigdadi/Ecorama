@@ -1,55 +1,313 @@
-﻿@model List<Room>
+﻿@model IEnumerable<Room>
+
 @{
-    ViewData["Title"] = "الغرف";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "إدارة الغرف";
+	Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<div class="container-fluid py-4">
+	<div class="row">
+		<div class="col-12">
+			<div class="card shadow-lg border-0">
+				<div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+					<h3 class="mb-0">
+						<i class="fas fa-door-open me-2"></i>
+						الغرف المتاحه
+					</h3>
+					
+				</div>
+				<div class="card-body">
+					@if (TempData["Success"] != null)
+					{
+						<div class="alert alert-success alert-dismissible fade-show">
+							<i class="fas fa-check-circle me-2"></i>
+							@TempData["Success"]
+							<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+						</div>
+					}
+
+					@if (Model.Any())
+					{
+						<!-- Search Bar -->
+						<div class="mb-3">
+							<input type="text" id="searchInput" class="form-control" placeholder="البحث في الغرف بالاسم أو الوصف..." style="max-width: 400px;">
+						</div>
+
+						<div class="table-responsive">
+							<table class="table table-hover align-middle" id="roomsTable">
+								<thead class="table-dark">
+									<tr>
+										<th width="80">الصورة</th>
+										<th>اسم الغرفة</th>
+										<th>السعة</th>
+										<th>الوصف</th>
+										<th width="180" class="text-center">الإجراءات</th>
+									</tr>
+								</thead>
+								<tbody>
+									@foreach (var room in Model)
+									{
+										<tr>
+											<td>
+												@if (!string.IsNullOrEmpty(room.ImageUrl))
+												{
+													<img src="@room.ImageUrl" alt="@room.Name"
+														 class="img-thumbnail" style="width: 60px; height: 60px; object-fit: cover;">
+												}
+												else
+												{
+													<div class="bg-light d-flex align-items-center justify-content-center"
+														 style="width: 60px; height: 60px; border-radius: 0.375rem;">
+														<i class="fas fa-door-open text-muted"></i>
+													</div>
+												}
+											</td>
+											<td>
+												<strong class="d-block">@Html.DisplayFor(modelItem => room.Name)</strong>
+											</td>
+											<td>
+												<span class="badge bg-info text-light">
+													@room.Capacity @(room.Capacity <= 10 ? "أشخاص" : "شخص")
+												</span>
+											</td>
+											<td>
+												<span class="text-muted">
+													@{
+														var shortDescription = room.Description?.Length > 80 ?
+														room.Description.Substring(0, 80) + "..." :
+														room.Description;
+													}
+													@shortDescription
+												</span>
+											</td>
+											
+											<td class="text-center">
+												<div class="btn-group" role="group">
+													
+													<a asp-action="Book" asp-route-id="@room.RoomId" class="btn btn-primary">احجز الآن</a>
+												</div>
+											</td>
+										</tr>
+									}
+								</tbody>
+							</table>
+						</div>
+
+						<div class="mt-3">
+							<div class="alert alert-info">
+								<i class="fas fa-info-circle me-2"></i>
+								<span id="tableInfo">
+									عدد الغرف المعروضة: <strong>@Model.Count()</strong>
+								</span>
+							</div>
+						</div>
+					}
+					else
+					{
+						<div class="text-center py-5">
+							<i class="fas fa-door-open fa-3x text-muted mb-3"></i>
+							<h5 class="text-muted">لا توجد غرف حالياً</h5>
+							<p class="text-muted">ابدأ بإضافة غرفة جديدة لموقعك</p>
+							<a asp-action="Create" class="btn btn-primary">
+								<i class="fas fa-plus me-1"></i>
+								إضافة أول غرفة
+							</a>
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Hidden form for delete operations -->
+<form id="deleteRoomForm" method="post" action="@Url.Action("Delete")" style="display: none;">
+	<input type="hidden" name="id" id="deleteRoomId" />
+</form>
+
+@section Scripts {
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			// Initialize search functionality
+			const searchInput = document.getElementById('searchInput');
+			if (searchInput) {
+				searchInput.addEventListener('input', function() {
+					const searchTerm = this.value.toLowerCase().trim();
+					const rows = document.querySelectorAll('#roomsTable tbody tr');
+
+					let visibleCount = 0;
+					rows.forEach(row => {
+						const name = row.cells[1].textContent.toLowerCase();
+						const description = row.cells[3].textContent.toLowerCase();
+						const isVisible = name.includes(searchTerm) || description.includes(searchTerm);
+						row.style.display = isVisible ? '' : 'none';
+						if (isVisible) visibleCount++;
+					});
+
+					// Update table info based on visible rows
+					updateTableInfo(visibleCount);
+				});
+			}
+
+			// Handle delete button clicks
+			document.querySelectorAll('.delete-room-btn').forEach(button => {
+				button.addEventListener('click', function() {
+					const roomId = this.getAttribute('data-id');
+
+					Swal.fire({
+						title: 'هل أنت متأكد؟',
+						text: "لا يمكنك التراجع بعد الحذف!",
+						icon: 'warning',
+						showCancelButton: true,
+						confirmButtonColor: '#d33',
+						cancelButtonColor: '#6c757d',
+						confirmButtonText: 'نعم، احذف',
+						cancelButtonText: 'إلغاء',
+						customClass: {
+							popup: 'swal-rtl'
+						}
+					}).then((result) => {
+						if (result.isConfirmed) {
+							document.getElementById('deleteRoomId').value = roomId;
+							document.getElementById('deleteRoomForm').submit();
+						}
+					});
+				});
+			});
+		});
+
+		function updateTableInfo(visibleCount) {
+			const infoElement = document.getElementById('tableInfo');
+			if (infoElement) {
+				infoElement.innerHTML = `عدد الغرف المعروضة: <strong>${visibleCount}</strong>`;
+			}
+		}
+
+		function showToast(message, type) {
+			// Create toast element
+			const toast = document.createElement('div');
+			toast.className = `alert alert-${type === 'success' ? 'success' : 'danger'} position-fixed`;
+			toast.style.cssText = 'top: 20px; right: 20px; z-index: 1060; min-width: 300px;';
+			toast.innerHTML = `
+				<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'} me-2"></i>
+				${message}
+			`;
+
+			document.body.appendChild(toast);
+
+			// Remove toast after 3 seconds
+			setTimeout(() => {
+				toast.remove();
+			}, 3000);
+		}
+	</script>
+
+	<style>
+		/* Search input styling */
+		#searchInput {
+			border: 1px solid #ced4da;
+			border-radius: 0.5rem;
+			padding: 0.75rem 1rem;
+			font-size: 0.95rem;
+			transition: all 0.3s ease;
+			background-color: #f8f9fa;
+		}
+
+			#searchInput:focus {
+				border-color: #0d6efd;
+				box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+				background-color: #fff;
+				outline: 0;
+			}
+
+			#searchInput::placeholder {
+				color: #6c757d;
+				font-style: italic;
+			}
+
+		.btn-group .btn {
+			border-radius: 0.375rem;
+			margin: 0 1px;
+		}
+
+		.table th {
+			border-top: none;
+			font-weight: 600;
+		}
+
+		.table tbody tr:hover {
+			background-color: #f8f9fa;
+		}
+
+		.fade-show {
+			animation: fadeIn 0.5s ease-in;
+		}
+
+		@@keyframes fadeIn {
+			from
+
+		{
+			opacity: 0;
+			transform: translateY(-10px);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		}
+
+		.img-thumbnail {
+			border: 1px solid #dee2e6;
+			border-radius: 0.375rem;
+		}
+
+		.card-header {
+			border-bottom: 1px solid rgba(255,255,255,0.125);
+		}
+
+		.alert-info {
+			background-color: #e7f3ff;
+			border-color: #b3d9ff;
+			color: #004085;
+		}
+
+		/* Badge styling for capacity */
+		.badge {
+			font-size: 0.85em;
+			padding: 0.5em 0.75em;
+		}
+
+		/* RTL support for SweetAlert */
+		.swal-rtl {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			direction: rtl;
+			text-align: right;
+		}
+
+		/* Responsive improvements */
+		@@media (max-width: 768px) {
+			.card-header .d-flex
+
+		{
+			flex-direction: column;
+			gap: 1rem;
+		}
+
+		.btn-group {
+			flex-direction: column;
+		}
+
+			.btn-group .btn {
+				margin: 1px 0;
+			}
+
+		}
+	</style>
 }
 
 @section Style {
-    <link href="~/css/rooms.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 }
-
-
- <section class="headRooms">
-        <h1 class="fade-in">الغرف المتاحة</h1>
-        <p class="fade-in">استعرض مجموعتنا المتنوعة من الغرف المجهزة بأحدث التقنيات لتلبية احتياجاتك المختلفة</p>
-    </section>
-
-    <div class="container">
-        <!-- Search Bar Component -->
-        <div class="search-container">
-            <div class="search-box">
-                <input type="text" class="search-input" placeholder="ابحث عن غرفة..." id="searchRooms">
-                <button class="search-button">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-        </div>
-
-   
-
-        <div class="rooms-grid">
-
-            @foreach (var room in Model)
-            {
-                <div class="col-md-8 mb-4">
-                    <div class="card shadow-sm border-0">
-                        <img src="@room.ImageUrl" class="card-img-top" style="height: 200px; object-fit: cover;" />
-                        <div class="card-body">
-                            <h5 class="card-title">@room.Name</h5>
-                        <div style="display: flex; align-items: center;">
-                            <p style="margin: 0;">سعة الغرفة:</p>
-                            <h5 class="card-title" style="margin: 0 5px;">@room.Capacity</h5>
-                            <span>@(room.Capacity <= 10 ? "أشخاص" : "شخص")</span>
-                        </div>
-
-                        <p class="card-text text-muted">@room.Description?.Substring(0, Math.Min(100, room.Description.Length))...</p>
-                            <a asp-action="Book" asp-route-id="@room.RoomId" class="btn btn-primary">احجز الآن</a>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-        <div class="loading-spinner"></div>
-    </div>
-
-

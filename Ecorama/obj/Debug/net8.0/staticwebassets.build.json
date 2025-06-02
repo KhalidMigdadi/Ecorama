@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ec0UG5I7egQIeVaZMJNx/8HERk2B4HgS05ioBtJrrnA=",
+  "Hash": "/YTOql4n1P/3IkMpB9VUWBp2lQzs0yDv9r9RWuOY07o=",
   "Source": "Ecorama",
   "BasePath": "_content/Ecorama",
   "Mode": "Default",
@@ -38776,8 +38776,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "jgr9kfyao4",
-      "Integrity": "vTwCy5zWlZb7NaP9LcKdQSMlqyUYjHgYvsZ8yelShT8=",
+      "Fingerprint": "5ipweew5fc",
+      "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\rooms.css"
@@ -193649,6 +193649,51 @@
       ]
     },
     {
+      "Route": "css/rooms.5ipweew5fc.css",
+      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\rooms.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 02 Jun 2025 18:52:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5ipweew5fc"
+        },
+        {
+          "Name": "label",
+          "Value": "css/rooms.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
       "Route": "css/rooms.css",
       "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\rooms.css",
       "Selectors": [],
@@ -193659,7 +193704,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "11296"
+          "Value": "0"
         },
         {
           "Name": "Content-Type",
@@ -193667,11 +193712,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vTwCy5zWlZb7NaP9LcKdQSMlqyUYjHgYvsZ8yelShT8=\""
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 29 May 2025 19:15:00 GMT"
+          "Value": "Mon, 02 Jun 2025 18:52:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -193681,52 +193726,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-vTwCy5zWlZb7NaP9LcKdQSMlqyUYjHgYvsZ8yelShT8="
-        }
-      ]
-    },
-    {
-      "Route": "css/rooms.jgr9kfyao4.css",
-      "AssetFile": "C:\\Users\\Orange\\Desktop\\New folder (3)\\Ecorama\\Ecorama\\wwwroot\\css\\rooms.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "11296"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"vTwCy5zWlZb7NaP9LcKdQSMlqyUYjHgYvsZ8yelShT8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 29 May 2025 19:15:00 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "jgr9kfyao4"
-        },
-        {
-          "Name": "label",
-          "Value": "css/rooms.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-vTwCy5zWlZb7NaP9LcKdQSMlqyUYjHgYvsZ8yelShT8="
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
         }
       ]
     },

@@ -266,12 +266,12 @@ namespace Ecorama.Controllers
                     LastName = model.LastName,
                     Email = model.Email,
                     CreatedAt = DateTime.Now,
-                    Role = "Admin", // تعيين دور المستخدم كمشرف
+                    Role = "Partner", // تعيين دور المستخدم كمشرف
                     IsActive = true,
                     // قيم افتراضية للحقول الإلزامية في جدول Users
                     Gender = "غير محدد",
                     Birthdate = DateOnly.FromDateTime(DateTime.Now),
-                    NationalId = $"ADMIN-{Guid.NewGuid().ToString().Substring(0, 8)}",
+                    NationalId = $"Partner-{Guid.NewGuid().ToString().Substring(0, 8)}",
                     PhoneNumber = "000000000"
                 };
 
@@ -317,7 +317,7 @@ namespace Ecorama.Controllers
 
             if (user.Role == "SuperAdmin")
             {
-                HttpContext.Session.SetInt32("AdminId", 0);
+                HttpContext.Session.SetInt32("AdminId", user.Id);
                 HttpContext.Session.SetString("UserName", "Ecorama Super Admin");
                 HttpContext.Session.SetString("UserEmail", user.Email);
                 HttpContext.Session.SetString("UserRole", "SuperAdmin");
@@ -326,12 +326,12 @@ namespace Ecorama.Controllers
 
 
             }
-            if (user.Role == "Admin")
+            if (user.Role == "Partner")
             {
-                HttpContext.Session.SetInt32("AdminId", 0);
+                HttpContext.Session.SetInt32("AdminId", user.Id);
                 HttpContext.Session.SetString("UserName", "Ecorama Admin");
                 HttpContext.Session.SetString("UserEmail", user.Email);
-                HttpContext.Session.SetString("UserRole", "Admin");
+                HttpContext.Session.SetString("UserRole", "Partner");
 
                 return RedirectToAction("Index", "Admin");
 
