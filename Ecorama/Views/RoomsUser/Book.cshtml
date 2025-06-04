@@ -366,42 +366,41 @@
 			const bookingTypeInput = document.getElementById('BookingTypeInput');
 
 			// عند تغيير نوع الحجز
-					async function handleBookingTypeChange() {
-			const bookingTypeInput = document.getElementById('BookingTypeInput');
-			removeHiddenTimeInputs();
+			async function handleBookingTypeChange() {
+				const bookingTypeInput = document.getElementById('BookingTypeInput');
+				removeHiddenTimeInputs();
 
-			if (fullDayRadio.checked) {
-				bookingTypeInput.value = 'fullDay';
-				timeSelectionContainer.classList.add('hidden');
-				fullDayInfo.classList.remove('hidden');
+				if (fullDayRadio.checked) {
+					bookingTypeInput.value = 'fullDay';
+					timeSelectionContainer.classList.add('hidden');
+					fullDayInfo.classList.remove('hidden');
 
-				bookingFromSelect.removeAttribute('required');
-				bookingToSelect.removeAttribute('required');
+					bookingFromSelect.removeAttribute('required');
+					bookingToSelect.removeAttribute('required');
 
-				const dateStr = document.getElementById("BookingDate").value;
-				if (!dateStr) return; // تأكد من اختيار تاريخ
+					const dateStr = document.getElementById("BookingDate").value;
+					if (!dateStr) return;
 
-				const data = await getRoomAvailability(roomId, dateStr);
-				if (data.availability && data.availability.length > 0) {
-					const fromTime = data.availability[0].availableFromTime;
-					const toTime = data.availability[0].availableToTime;
-					createHiddenTimeInputs(fromTime, toTime);
+					const data = await getRoomAvailability(roomId, dateStr);
+					if (data.availability && data.availability.length > 0) {
+						const fromTime = data.availability[0].availableFromTime;
+						const toTime = data.availability[0].availableToTime;
+						createHiddenTimeInputs(fromTime, toTime);
+					} else {
+						console.warn("لا يوجد توفر في هذا اليوم");
+					}
 				} else {
-					console.warn("لا يوجد توفر في هذا اليوم");
+					bookingTypeInput.value = 'timeSlot';
+					timeSelectionContainer.classList.remove('hidden');
+					fullDayInfo.classList.add('hidden');
+
+					bookingFromSelect.setAttribute('required', '');
+					bookingToSelect.setAttribute('required', '');
+
+					bookingFromSelect.value = '';
+					bookingToSelect.value = '';
 				}
-			} else {
-				bookingTypeInput.value = 'timeSlot';
-				timeSelectionContainer.classList.remove('hidden');
-				fullDayInfo.classList.add('hidden');
-
-				bookingFromSelect.setAttribute('required', '');
-				bookingToSelect.setAttribute('required', '');
-
-				bookingFromSelect.value = '';
-				bookingToSelect.value = '';
 			}
-		}
-
 
 			// إنشاء حقول مخفية
 			function createHiddenTimeInputs(fromTime, toTime) {
@@ -430,39 +429,105 @@
 			timeSlotRadio.addEventListener('change', handleBookingTypeChange);
 			fullDayRadio.addEventListener('change', handleBookingTypeChange);
 
-			// تهيئة التواريخ المتاحة
-			let enabledDates = [];
-			for (let d = new Date(availableFrom); d <= availableTo; d.setDate(d.getDate() + 1)) {
-				const iso = d.toISOString().split('T')[0];
-				enabledDates.push(iso);
-			}
-			const today = new Date().toISOString().split('T')[0];
-			enabledDates = enabledDates.filter(date => date >= today);
+			// تهيئة التواريخ المتاحة مع فحص التوفر
+			async function initializeAvailableDates() {
+				let enabledDates = [];
 
-			flatpickr("#BookingDate", {
-				dateFormat: "Y-m-d",
-				enable: enabledDates,
-				onChange: function (selectedDates, dateStr) {
-					if (timeSlotRadio.checked) {
-						updateTimeOptions(dateStr, roomId);
+				// إنشاء قائمة التواريخ المبدئية
+				for (let d = new Date(availableFrom); d <= availableTo; d.setDate(d.getDate() + 1)) {
+					const iso = d.toISOString().split('T')[0];
+					enabledDates.push(iso);
+				}
+
+				// تصفية التواريخ لإزالة الأيام السابقة
+				const today = new Date().toISOString().split('T')[0];
+				enabledDates = enabledDates.filter(date => date >= today);
+
+				// فحص كل تاريخ للتأكد من وجود توفر
+				const availableDates = [];
+				for (const dateStr of enabledDates) {
+					const isAvailable = await checkDateAvailability(roomId, dateStr);
+					if (isAvailable) {
+						availableDates.push(dateStr);
 					}
 				}
-			});
+
+				// تهيئة التقويم بالتواريخ المتاحة فقط
+				flatpickr("#BookingDate", {
+					dateFormat: "Y-m-d",
+					enable: availableDates,
+					onChange: function (selectedDates, dateStr) {
+						if (timeSlotRadio.checked) {
+							updateTimeOptions(dateStr, roomId);
+						}
+					}
+				});
+			}
+
+			// فحص توفر التاريخ
+			async function checkDateAvailability(roomId, dateStr) {
+				try {
+					const data = await getRoomAvailability(roomId, dateStr);
+
+					// إذا لم تكن هناك أوقات متاحة أصلاً
+					if (!data.availability || data.availability.length === 0) {
+						return false;
+					}
+
+					// حساب إجمالي الوقت المتاح
+					let totalAvailableMinutes = 0;
+					data.availability.forEach(avail => {
+						const fromMinutes = timeToMinutes(avail.availableFromTime);
+						const toMinutes = timeToMinutes(avail.availableToTime);
+						totalAvailableMinutes += (toMinutes - fromMinutes);
+					});
+
+					// حساب إجمالي الوقت المحجوز
+					let totalBookedMinutes = 0;
+					if (data.bookedSlots && data.bookedSlots.length > 0) {
+						data.bookedSlots.forEach(slot => {
+							const fromMinutes = timeToMinutes(slot.From || slot.from);
+							const toMinutes = timeToMinutes(slot.To || slot.to);
+							totalBookedMinutes += (toMinutes - fromMinutes);
+						});
+					}
+
+					// إذا كان الوقت المحجوز يساوي أو يزيد عن الوقت المتاح، فاليوم محجوز بالكامل
+					const hasAvailableTime = totalBookedMinutes < totalAvailableMinutes;
+
+					// فحص إضافي: التأكد من وجود فترات زمنية متاحة فعلية
+					if (hasAvailableTime) {
+						const availableTimes = getAvailableTimesForDate(data);
+						return availableTimes.length > 0;
+					}
+
+					return false;
+				} catch (error) {
+					console.error(`خطأ في فحص توفر التاريخ ${dateStr}:`, error);
+					return false; // في حالة الخطأ، نعتبر التاريخ غير متاح
+				}
+			}
+
+			// الحصول على الأوقات المتاحة لتاريخ معين
+			function getAvailableTimesForDate(data) {
+				let availableTimes = [];
+
+				if (data.availability && data.availability.length > 0) {
+					data.availability.forEach(avail => {
+						const roomTimes = generateTimes(avail.availableFromTime, avail.availableToTime, 30);
+						availableTimes = availableTimes.concat(roomTimes);
+					});
+					availableTimes = [...new Set(availableTimes)].sort();
+				}
+
+				const blockedSlots = data.bookedSlots || [];
+				return getAvailableTimes(availableTimes, blockedSlots);
+			}
 
 			function updateTimeOptions(dateStr, roomId) {
 				getRoomAvailability(roomId, dateStr).then(data => {
-					let availableTimes = [];
-
-					if (data.availability && data.availability.length > 0) {
-						data.availability.forEach(avail => {
-							const roomTimes = generateTimes(avail.availableFromTime, avail.availableToTime, 30);
-							availableTimes = availableTimes.concat(roomTimes);
-						});
-						availableTimes = [...new Set(availableTimes)].sort();
-					}
-
+					const availableTimes = getAvailableTimesForDate(data);
 					const blockedSlots = data.bookedSlots || [];
-					availableTimes = getAvailableTimes(availableTimes, blockedSlots);
 					updateFromSelect(availableTimes, blockedSlots);
 				}).catch(error => {
 					console.error('خطأ في تحديث الأوقات:', error);
@@ -578,7 +643,7 @@
 
 			// تهيئة عند التحميل
 			handleBookingTypeChange();
+			initializeAvailableDates(); // استدعاء الدالة الجديدة بدلاً من الكود القديم
 		});
-
 	</script>
 }

@@ -264,12 +264,16 @@ public partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.AvailabilityId).HasName("PK__RoomAvai__DA3979B1F085734A");
 
+            entity.Property(e => e.AvailabilityId)
+                  .ValueGeneratedOnAdd();
+
             entity.ToTable("RoomAvailability");
 
-            entity.HasOne(d => d.Room).WithMany(p => p.RoomAvailabilities)
-                .HasForeignKey(d => d.RoomId)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK_RoomAvailability_Rooms");
+            entity.HasOne(d => d.Room)
+                  .WithMany(p => p.RoomAvailabilities)
+                  .HasForeignKey(d => d.RoomId)
+                  .OnDelete(DeleteBehavior.Cascade)
+                  .HasConstraintName("FK_RoomAvailability_Rooms");
         });
 
         modelBuilder.Entity<RoomBooking>(entity =>
