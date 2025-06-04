@@ -24,7 +24,7 @@ namespace Ecorama.Controllers
 
         public IActionResult Book(int id)
         {
-            int? AdminId = HttpContext.Session.GetInt32("AdminId");
+            int? AdminId = HttpContext.Session.GetInt32("UserId");
             if (AdminId == null)
                 return RedirectToAction("Login", "Login");
 
@@ -60,7 +60,7 @@ namespace Ecorama.Controllers
         [HttpPost]
         public IActionResult Book(RoomBooking booking, string BookingType)
         {
-            int? userId = HttpContext.Session.GetInt32("AdminId");
+            int? userId = HttpContext.Session.GetInt32("UserId");
             if (userId == null)
                 return RedirectToAction("Login", "Login");
 

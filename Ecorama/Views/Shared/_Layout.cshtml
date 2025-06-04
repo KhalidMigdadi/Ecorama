@@ -5,7 +5,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>@ViewData["Title"] - Ecorama</title>
-	
+
 
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -65,7 +65,7 @@
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 0 20px;
-		padding-top: 20px !important;
+		padding-top: 10px !important;
 	}
 
 	.containerFooter {
@@ -409,8 +409,8 @@
 	}
 	/* إضافة padding-top للـ containerHeader */
 	/* .containerHeader {
-							padding-top: 30px;
-						} */
+								padding-top: 30px;
+							} */
 
 	/* تنسيق عنصر الترجمة */
 	#google_translate_element {
@@ -575,6 +575,24 @@
 			margin-top: 10px;
 		}
 	}
+
+	.logo-img {
+		width: 65px; /* أو الحجم اللي يناسبك */
+		height: auto;
+		object-fit: contain;
+		transition: transform 0.3s ease;
+		border-radius: 50%;
+	}
+
+	.navbar {
+		height: 70px; 
+		display: flex;
+		align-items: center;
+		--mdb-navbar-box-shadow: none;
+	}
+
+
+
 </style>
 
 
@@ -590,7 +608,7 @@
 	<header>
 		<div class="containerHeader">
 			<nav class="navbar">
-				<a href="#" class="logo"></i><img src="~/images/Ecorama Logo.png" alt="Logo" style="width: 60px;" /></a>
+				<a href="#" class="logo"><img src="~/images/EcoramaLogo.png" alt="Logo" class="logo-img" /></a>
 				<ul class="nav-linkss">
 					<li><a href="@Url.Action("Index","Home")">الرئيسية</a></li>
 					<li><a href="@Url.Action("Index","CoursesUser")">الكورسات</a></li>
@@ -748,62 +766,64 @@
 
 
 	<script>
-	document.addEventListener("DOMContentLoaded", function () {
-		// زر الهامبرجر لقائمة التنقل
-		const hamburger = document.querySelector(".hamburger");
-		const navLinks = document.querySelector(".nav-linkss");
+		document.addEventListener("DOMContentLoaded", function () {
+			// زر الهامبرجر لقائمة التنقل
+			const hamburger = document.querySelector(".hamburger");
+			const navLinks = document.querySelector(".nav-linkss");
 
-		if (hamburger && navLinks) {
-			hamburger.addEventListener("click", function () {
-				navLinks.classList.toggle("active");
-			});
-		}
+			if (hamburger && navLinks) {
+				hamburger.addEventListener("click", function () {
+					navLinks.classList.toggle("active");
+				});
+			}
 
-		// دالة لفحص اللغة الحالية وضبط padding-top للـ navbar
-		function setNavbarPadding() {
+				function setNavbarPadding() {
 			const navbar = document.querySelector('.navbar');
-			// قراءة كوكي جوجل الترجمة لمعرفة اللغة الحالية
 			const googTransCookie = document.cookie.split('; ').find(row => row.startsWith('googtrans='));
 			let currentLang = null;
+
 			if (googTransCookie) {
-				// قيمة الكوكي تكون شكلها: "/ar/en" مثلاً
 				const value = googTransCookie.split('=')[1];
 				const parts = value.split('/');
 				currentLang = parts[2]; // اللغة الهدف
 			}
 
 			if (currentLang === 'en') {
-				navbar.style.paddingTop = '30px';
+				// إزالة أي ارتفاع أو بادينغ مخصص (خليه حر)
+				navbar.style.height = '90px';
+				navbar.style.paddingTop = '20px';
 			} else {
+				// لو اللغة مش إنجليزية، ثبت الارتفاع والبادينغ
+				navbar.style.height = '70px';
 				navbar.style.paddingTop = '0';
 			}
 		}
 
-		// نفذها أول مرة بعد تحميل الصفحة
-		setNavbarPadding();
+			// نفذها أول مرة بعد تحميل الصفحة
+			setNavbarPadding();
 
-		// راقب تغييرات الترجمة (لو المستخدم غير اللغة)
-		const translateElement = document.getElementById('google_translate_element');
-		if (translateElement) {
-			const observer = new MutationObserver(function() {
-				setNavbarPadding();
-			});
-			observer.observe(translateElement, { childList: true, subtree: true });
+			// راقب تغييرات الترجمة (لو المستخدم غير اللغة)
+			const translateElement = document.getElementById('google_translate_element');
+			if (translateElement) {
+				const observer = new MutationObserver(function() {
+					setNavbarPadding();
+				});
+				observer.observe(translateElement, { childList: true, subtree: true });
+			}
+		});
+
+
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement(
+				{
+					pageLanguage: 'ar',
+					includedLanguages: 'en',
+					layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+				},
+				'google_translate_element'
+			);
 		}
-	});
-
-
-	function googleTranslateElementInit() {
-		new google.translate.TranslateElement(
-			{
-				pageLanguage: 'ar',
-				includedLanguages: 'en',
-				layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-			},
-			'google_translate_element'
-		);
-	}
-</script>
+	</script>
 
 
 

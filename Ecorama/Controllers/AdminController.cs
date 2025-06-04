@@ -25,7 +25,7 @@ namespace Ecorama.Controllers
         }
         public ActionResult Index()
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -44,6 +44,9 @@ namespace Ecorama.Controllers
 
             var allCourses = _context.Courses.Count();
             ViewBag.AllCourses = allCourses;
+
+            var allBookings = _context.RoomBookings.Count();
+            ViewBag.allBookings = allBookings;
 
 
 
@@ -77,7 +80,7 @@ namespace Ecorama.Controllers
 
         public ActionResult Details(int id)
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -92,7 +95,7 @@ namespace Ecorama.Controllers
 
         public IActionResult ViewAllUsers()
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
             if (adminId == null)
             {
                 return RedirectToAction("Login", "Login");
@@ -204,7 +207,7 @@ namespace Ecorama.Controllers
         [HttpPost]
         public IActionResult ToggleActivation(int id)
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -230,7 +233,7 @@ namespace Ecorama.Controllers
         public IActionResult seeAllWorkShop()
         {
 
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -346,7 +349,7 @@ namespace Ecorama.Controllers
         public IActionResult AddNewWorkshop()
         {
 
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -420,7 +423,7 @@ namespace Ecorama.Controllers
         [HttpPost]
         public IActionResult DeleteWorkshop(int id)
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -446,7 +449,7 @@ namespace Ecorama.Controllers
 
         public IActionResult EditWorkShop(int id)
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -466,7 +469,7 @@ namespace Ecorama.Controllers
         [HttpPost]
         public async Task<IActionResult> EditWorkShop(Workshop workshop, IFormFile? ImageFile, string OldImageUrl)
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -521,7 +524,7 @@ namespace Ecorama.Controllers
         public IActionResult ShowAllPartner()
         {
 
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -552,7 +555,7 @@ namespace Ecorama.Controllers
 
         public IActionResult AddNewPartner()
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -566,7 +569,7 @@ namespace Ecorama.Controllers
         public async Task<IActionResult> AddNewPartner_1(string name, string websiteUrl, IFormFile imageFile)
         {
 
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -641,7 +644,7 @@ namespace Ecorama.Controllers
         public IActionResult UpdatePartner(int Id)
         {
 
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -667,7 +670,7 @@ namespace Ecorama.Controllers
         [HttpPost]
         public IActionResult UpdatePartner_1(Partner Part, IFormFile imageFile)
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -742,7 +745,7 @@ namespace Ecorama.Controllers
         [HttpPost]
         public IActionResult DeletePartner(int id)
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -779,7 +782,7 @@ namespace Ecorama.Controllers
 
         public IActionResult ContactMassages()
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -856,7 +859,7 @@ namespace Ecorama.Controllers
 
         public IActionResult News()
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
             if (adminId == null)
             {
                 return RedirectToAction("Login", "Login");
@@ -926,7 +929,7 @@ namespace Ecorama.Controllers
 
         public IActionResult DetalisNews(int id)
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
             if (adminId == null)
             {
                 return RedirectToAction("Login", "Login");
@@ -945,7 +948,7 @@ namespace Ecorama.Controllers
 
         public IActionResult CreateNews()
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
             if (adminId == null)
             {
                 return RedirectToAction("Login", "Login");
@@ -957,7 +960,7 @@ namespace Ecorama.Controllers
         [HttpPost]
         public IActionResult CreateNews(News news, IFormFile ImageFile)
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
             if (adminId == null)
             {
                 return RedirectToAction("Login", "Login");
@@ -993,7 +996,7 @@ namespace Ecorama.Controllers
 
         public IActionResult EditNews(int? id)
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
             if (adminId == null)
             {
                 return RedirectToAction("Login", "Login");
@@ -1015,7 +1018,7 @@ namespace Ecorama.Controllers
         [HttpPost]
         public IActionResult EditNews(News news, IFormFile ImageFile)
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
             if (adminId == null)
             {
                 return RedirectToAction("Login", "Login");
@@ -1050,7 +1053,7 @@ namespace Ecorama.Controllers
         [HttpPost]
         public IActionResult DeleteNews(int id)
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
             if (adminId == null)
             {
                 return RedirectToAction("Login", "Login");
@@ -1070,7 +1073,7 @@ namespace Ecorama.Controllers
 
          public async Task<IActionResult> WorkshopRegistrationsUsers()
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
             if (adminId == null)
             {
                 return RedirectToAction("Login", "Login");

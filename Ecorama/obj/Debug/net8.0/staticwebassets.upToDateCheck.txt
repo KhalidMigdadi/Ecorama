@@ -1864,6 +1864,7 @@ wwwroot\images\a55e6ed9-d58b-4659-b9ed-c50a67f75db0.png
 wwwroot\images\Course-3X1.jpg
 wwwroot\images\e4d9a8ff-9a5a-4913-8546-4b23f7b11cb1.png
 wwwroot\images\Ecorama Logo.png
+wwwroot\images\EcoramaLogo.png
 wwwroot\images\FlagofJordan.jpg
 wwwroot\images\javascript.jpg
 wwwroot\images\Orange_Is_Here.png
@@ -1888,6 +1889,7 @@ wwwroot\images\slider\962953fe-cd64-4283-8c67-8c62bc80a73b_slider2.webp
 wwwroot\images\slider\9c54f3e6-eecd-4a34-966b-a6871b8ddef0_pexels-bertellifotografia-2608517.jpg
 wwwroot\images\slider\a639dbc4-28ee-42e6-84ca-a787e3224002_8a22d083-ca98-4f92-92e8-aa323021358d_pexels-bertellifotografia-2608517.jpg
 wwwroot\images\slider\aa1c5cfc-20e3-46b3-a40a-41f99f3ccc34_slider1.jpg
+wwwroot\images\slider\ce737c9a-f710-4581-b9b2-1010c5cf1588_image_1.png
 wwwroot\images\slider\d5850762-cfef-467b-af56-e361c995bb7b_pexels-bertellifotografia-2608517.jpg
 wwwroot\images\slider\d58745df-cad6-405a-8220-460c82510d1b_slider3.jpg
 wwwroot\images\slider\d7b9df57-1ed5-422b-9e12-43d217bdb6f1_slider3.jpg

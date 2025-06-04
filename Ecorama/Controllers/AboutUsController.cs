@@ -18,7 +18,7 @@ namespace Ecorama.Controllers
         // GET: AboutUs/Manage
         public async Task<IActionResult> Manage()
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
             if (adminId == null)
             {
                 return RedirectToAction("Login", "Login");
@@ -33,7 +33,7 @@ namespace Ecorama.Controllers
         public IActionResult CreateSlider()
         {
 
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
             if (adminId == null)
             {
                 return RedirectToAction("Login", "Login");
@@ -49,7 +49,7 @@ namespace Ecorama.Controllers
         public async Task<IActionResult> CreateSlider(AboutU aboutU, IFormFile? imageFile)
         {
 
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
             if (adminId == null)
             {
                 return RedirectToAction("Login", "Login");
@@ -96,7 +96,7 @@ namespace Ecorama.Controllers
         public async Task<IActionResult> EditSlider(int? id)
         {
 
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
             if (adminId == null)
             {
                 return RedirectToAction("Login", "Login");
@@ -124,7 +124,7 @@ namespace Ecorama.Controllers
         public async Task<IActionResult> EditSlider(int id, AboutU aboutU, IFormFile? imageFile)
         {
 
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
             if (adminId == null)
             {
                 return RedirectToAction("Login", "Login");

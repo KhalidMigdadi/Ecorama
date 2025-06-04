@@ -315,9 +315,20 @@ namespace Ecorama.Controllers
                 return View(model);
             }
 
+            // تحقق من كلمة المرور
+            var passwordHasher = new PasswordHasher<User>();
+            var result = passwordHasher.VerifyHashedPassword(user, user.PasswordHash, model.Password);
+
+            if (result == PasswordVerificationResult.Failed)
+            {
+                ModelState.AddModelError("", "البريد أو كلمة المرور غير صحيحة");
+                return View(model);
+            }
+
+
             if (user.Role == "SuperAdmin")
             {
-                HttpContext.Session.SetInt32("AdminId", user.Id);
+                HttpContext.Session.SetInt32("UserId", user.Id);
                 HttpContext.Session.SetString("UserName", "Ecorama Super Admin");
                 HttpContext.Session.SetString("UserEmail", user.Email);
                 HttpContext.Session.SetString("UserRole", "SuperAdmin");
@@ -328,7 +339,8 @@ namespace Ecorama.Controllers
             }
             if (user.Role == "Partner")
             {
-                HttpContext.Session.SetInt32("AdminId", user.Id);
+
+                HttpContext.Session.SetInt32("UserId", user.Id);
                 HttpContext.Session.SetString("UserName", "Ecorama Admin");
                 HttpContext.Session.SetString("UserEmail", user.Email);
                 HttpContext.Session.SetString("UserRole", "Partner");
@@ -338,14 +350,6 @@ namespace Ecorama.Controllers
 
             }
 
-            var passwordHasher = new PasswordHasher<User>();
-            var result = passwordHasher.VerifyHashedPassword(user, user.PasswordHash, model.Password);
-
-            if (result == PasswordVerificationResult.Failed)
-            {
-                ModelState.AddModelError("", "البريد أو كلمة المرور غير صحيحة");
-                return View(model);
-            }
 
             // تخزين الجلسة للمستخدم الحقيقي
             HttpContext.Session.SetInt32("UserId", user.Id);
@@ -561,6 +565,14 @@ namespace Ecorama.Controllers
                 Console.WriteLine($"تفاصيل الاستثناء: {ex}");
             }
         }
+
+
+
+
+
+
+
+
 
 
 

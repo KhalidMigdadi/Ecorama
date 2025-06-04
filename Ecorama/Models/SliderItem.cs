@@ -11,7 +11,7 @@ public partial class SliderItem
 
     public string Title { get; set; } = null!;
 
-    public string Description { get; set; } = null!;
+    public string? Description { get; set; }
 
     public bool IsActive { get; set; }
 

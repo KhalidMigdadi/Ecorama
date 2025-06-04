@@ -1,4 +1,5 @@
 ﻿using Ecorama.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -324,6 +325,80 @@ namespace Ecorama.Controllers
         //    return RedirectToAction("registerationWorkshops");
         //}
 
+
+
+
+        [HttpGet]
+        public IActionResult AdminsProfile()
+        {
+            int? userId = HttpContext.Session.GetInt32("UserId");
+            string userRole = HttpContext.Session.GetString("UserRole");
+
+            if (userId == null || (userRole != "Partner" && userRole != "SuperAdmin"))
+                return RedirectToAction("Login", "Login");
+
+            var user = _context.Users.FirstOrDefault(u => u.Id == userId && u.Role == userRole);
+
+            if (user == null)
+                return RedirectToAction("Login", "Login");
+
+            return View("AdminsProfile", user);
+        }
+
+
+        [HttpPost]
+        public IActionResult UpdateAdminProfile(int Id, string FirstName, string LastName, string PhoneNumber)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Id == Id);
+            if (user == null)
+                return NotFound();
+
+            user.FirstName = FirstName;
+            user.LastName = LastName;
+            user.PhoneNumber = PhoneNumber;
+
+            _context.SaveChanges();
+
+            TempData["Success1212"] = "تم تحديث البيانات بنجاح!";
+            return RedirectToAction("AdminsProfile");
+        }
+
+
+
+        [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ChangePassword(string currentPassword, string newPassword, string confirmPassword)
+        {
+            int? userId = HttpContext.Session.GetInt32("UserId");
+            var user = _context.Users.FirstOrDefault(u => u.Id == userId);
+            if (user == null) return RedirectToAction("Login", "Login");
+
+            var hasher = new PasswordHasher<User>();
+            var result = hasher.VerifyHashedPassword(user, user.PasswordHash, currentPassword);
+
+            if (result == PasswordVerificationResult.Failed)
+            {
+                ViewBag.Error = "كلمة المرور الحالية غير صحيحة";
+                return View();
+            }
+
+            if (newPassword != confirmPassword)
+            {
+                ViewBag.Error = "كلمتا المرور غير متطابقتين";
+                return View();
+            }
+
+            user.PasswordHash = hasher.HashPassword(user, newPassword);
+            _context.SaveChanges();
+
+            TempData["Success1212"] = "تم تغيير كلمة المرور بنجاح";
+            return RedirectToAction(user.Role == "Admin" ? "AdminProfile" : "AdminsProfile");
+        }
 
     }
 }

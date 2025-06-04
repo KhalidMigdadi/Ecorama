@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ecorama")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b06fc8d335b0d5882aecc5ac09628b277b5c9997")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1285dfe77ee1f3ab6c3542b2d9388fa5578bf644")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ecorama")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ecorama")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

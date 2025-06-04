@@ -1,0 +1,149 @@
+﻿@{
+    ViewData["Title"] = "جدول الحجوزات";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h2 class="text-center mt-4 mb-4 text-primary fw-bold">جدول الحجوزات</h2>
+
+<!-- FullCalendar CSS & JS -->
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+<!-- Custom Tooltip Style -->
+<style>
+    #calendar {
+        max-width: 100%;
+        margin: 0 auto;
+        font-family: 'Cairo', sans-serif;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        padding: 20px;
+    }
+
+    .fc .fc-toolbar-title {
+        font-size: 1.5rem;
+        color: #2d3e50;
+    }
+
+    .fc-daygrid-event {
+        background-color: #007bff !important;
+        color: white !important;
+        padding: 4px 6px;
+        border-radius: 8px;
+        font-size: 0.85em;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: background-color 0.3s ease;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+        .fc-daygrid-event:hover {
+            background-color: #0056b3 !important;
+        }
+
+    .fc .fc-button-primary {
+        background-color: #6c63ff;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+    }
+
+        .fc .fc-button-primary:hover {
+            background-color: #554eea;
+        }
+
+    .fc .fc-daygrid-day-top {
+        text-align: right;
+        padding: 4px 6px;
+    }
+
+    .fc-daygrid-day-number {
+        color: #333;
+        font-weight: 500;
+    }
+
+    .custom-tooltip {
+        position: absolute;
+        background: white;
+        color: #333;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 6px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        font-size: 0.9rem;
+        max-width: 270px;
+        z-index: 9999;
+        display: none;
+        line-height: 1.6;
+    }
+</style>
+
+<!-- Calendar Container -->
+<div id="calendar"></div>
+<div id="tooltip" class="custom-tooltip"></div>
+
+<!-- Calendar Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+        var tooltip = document.getElementById('tooltip');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            locale: 'ar',
+            direction: 'rtl',
+            initialView: 'dayGridMonth',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: ''
+            },
+            dayMaxEventRows: 4,
+            eventDisplay: 'block',
+            eventOrder: 'start',
+
+            events: function (fetchInfo, successCallback, failureCallback) {
+                fetch('/AdminRooms/GetBookings')
+                    .then(response => response.json())
+                    .then(data => successCallback(data))
+                    .catch(error => failureCallback(error));
+            },
+
+            eventDidMount: function (info) {
+                const { extendedProps } = info.event;
+                const timeRange = extendedProps.startTime && extendedProps.endTime
+                    ? `${extendedProps.startTime} - ${extendedProps.endTime}`
+                    : '';
+
+                const tooltipContent = `
+                  <strong>${info.event.title}</strong><br>
+                  ⏱️ <b>Time:</b> ${timeRange}<br>
+                  ${info.event.extendedProps.room ? `🚪 <b>Room:</b> ${info.event.extendedProps.room}<br>` : ''}
+                  ${info.event.extendedProps.user ? `👤 <b>User:</b> ${info.event.extendedProps.user}<br>` : ''}
+                  ${info.event.extendedProps.guests ? `👥 <b>Guests:</b> ${info.event.extendedProps.guests}<br>` : ''}
+                  ${info.event.extendedProps.notes ? `📝 <b>Notes:</b> ${info.event.extendedProps.notes}` : ''}
+                `;
+
+
+                info.el.addEventListener('mouseover', function (e) {
+                    tooltip.innerHTML = tooltipContent;
+                    tooltip.style.display = 'block';
+                    tooltip.style.top = e.pageY + 10 + 'px';
+                    tooltip.style.left = e.pageX + 10 + 'px';
+                });
+
+                info.el.addEventListener('mousemove', function (e) {
+                    tooltip.style.top = e.pageY + 10 + 'px';
+                    tooltip.style.left = e.pageX + 10 + 'px';
+                });
+
+                info.el.addEventListener('mouseleave', function () {
+                    tooltip.style.display = 'none';
+                });
+            }
+        });
+
+        calendar.render();
+    });
+</script>

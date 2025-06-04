@@ -1,0 +1,94 @@
+﻿@model Ecorama.Models.User
+
+@{
+    ViewData["Title"] = "ادمين بروفايل";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+@if (TempData["Success1212"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success1212"]
+    </div>
+}
+
+<div class="container py-5">
+    <div class="row mb-5" style="margin-top: 3rem;">
+        <div class="col-md-12">
+            <div class="card shadow border-0">
+                <div class="card shadow-sm p-4">
+                    <div class="row">
+                        <div class="col-md-3 text-center mb-4 mb-md-0">
+                            @if (!string.IsNullOrEmpty(Model.ProfileImagePath))
+                            {
+                                <img src="@Model.ProfileImagePath" alt="صورة الملف الشخصي" class="rounded-circle shadow" style="width: 150px; height: 150px; object-fit: cover;" />
+                            }
+                            else
+                            {
+                                <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center shadow" style="width: 150px; height: 150px;">
+                                    <i class="fa fa-user text-white" style="font-size: 60px;"></i>
+                                </div>
+                            }
+                        </div>
+
+                        <div class="col-md-9">
+                            <h4 class="fw-bold mb-3">@Model.FirstName @Model.LastName</h4>
+                            <p><i class="fa fa-envelope me-2"></i>@Model.Email</p>
+                            <p><i class="fa fa-phone me-2"></i>@Model.PhoneNumber</p>
+                            <p><i class="fa fa-user-shield me-2"></i>الدور: @Model.Role</p>
+                            <p><i class="fa fa-calendar-alt me-2"></i>تاريخ الإنشاء: @(Model.CreatedAt?.ToString("dd/MM/yyyy"))</p>
+
+                            <div class="mt-3">
+                                <button class="btn btn-sm btn-primary me-2" data-bs-toggle="modal" data-bs-target="#editModal">
+                                    <i class="fa fa-edit me-1"></i> تعديل البيانات
+                                </button>
+
+                                <a href="@Url.Action("ChangePassword", "Profile")" class="btn btn-sm btn-outline-secondary me-2">
+                                    <i class="fa fa-key me-1"></i> تغيير كلمة المرور
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form asp-action="UpdateAdminProfile" method="post">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editModalLabel">تعديل البيانات</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="hidden" name="Id" value="@Model.Id" />
+
+                                    <div class="mb-3">
+                                        <label class="form-label">الاسم الأول</label>
+                                        <input type="text" name="FirstName" value="@Model.FirstName" class="form-control" />
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">الاسم الأخير</label>
+                                        <input type="text" name="LastName" value="@Model.LastName" class="form-control" />
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">رقم الهاتف</label>
+                                        <input type="text" name="PhoneNumber" value="@Model.PhoneNumber" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                                    <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Modal -->
+
+            </div>
+        </div>
+    </div>
+</div>

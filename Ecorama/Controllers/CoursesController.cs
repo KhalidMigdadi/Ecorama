@@ -16,7 +16,7 @@ namespace Ecorama.Controllers
 
         public async Task<IActionResult> Index()
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -29,7 +29,7 @@ namespace Ecorama.Controllers
 
         public IActionResult Create()
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -42,7 +42,7 @@ namespace Ecorama.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Course course, IFormFile imageFile, IFormFile pdfFile)
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -94,7 +94,7 @@ namespace Ecorama.Controllers
 
         public async Task<IActionResult> Edit(int id)
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -108,7 +108,7 @@ namespace Ecorama.Controllers
         public async Task<IActionResult> Edit(Course course, IFormFile? imageFile, IFormFile? pdfFile)
         {
 
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -167,7 +167,7 @@ namespace Ecorama.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {
@@ -185,7 +185,7 @@ namespace Ecorama.Controllers
         }
         public async Task<IActionResult> ToggleActivation(int id)
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
             {

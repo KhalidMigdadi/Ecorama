@@ -36,12 +36,25 @@
 		}
 
 		.sidebar {
+			position: fixed;
+			top: 0;
+			left: 0;
 			width: 250px;
+			height: 100vh;
 			background-color: #343a40;
 			color: white;
 			padding: 20px 0;
-			flex-shrink: 0;
+			overflow-y: auto;
+			/* إخفاء scrollbar في متصفحات WebKit */
+			scrollbar-width: none; /* Firefox */
+			-ms-overflow-style: none; /* IE و Edge */
 		}
+
+			.sidebar::-webkit-scrollbar {
+				display: none; /* Chrome, Safari و Opera */
+			}
+
+
 
 			.sidebar a {
 				color: white;
@@ -55,10 +68,12 @@
 				}
 
 		.main-content {
+			margin-left: 250px; /* نفس عرض الـ sidebar */
 			flex-grow: 1;
 			display: flex;
 			flex-direction: column;
 		}
+
 
 		main {
 			flex-grow: 1;

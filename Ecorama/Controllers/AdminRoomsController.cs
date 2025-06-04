@@ -102,7 +102,7 @@ namespace Ecorama.Controllers
         [HttpPost]
         public async Task<IActionResult> AddRoom(string name, string description, int capacity, string type, IFormFile imageFile)
         {
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            int? adminId = HttpContext.Session.GetInt32("UserId");
 
             if (adminId == null)
                 return RedirectToAction("Login", "Login");
@@ -427,7 +427,8 @@ namespace Ecorama.Controllers
                     .Where(b => b.RoomId == roomId &&
                                b.BookingDate == selectedDate &&
                                (b.Status == "Approved" || b.Status == "Pending")) // الحجوزات المؤكدة أو في الانتظار
-                    .Select(b => new {
+                    .Select(b => new
+                    {
                         Date = b.BookingDate.ToString(),
                         From = b.BookingFrom.ToString(),
                         To = b.BookingTo.ToString()
@@ -461,7 +462,8 @@ namespace Ecorama.Controllers
                      .ToList();
 
                 var availability = availabilityRaw
-                    .Select(ra => new {
+                    .Select(ra => new
+                    {
                         availableFromTime = ra.AvailableFromTime?.ToString("HH:mm"),
                         availableToTime = ra.AvailableToTime?.ToString("HH:mm")
                     })
@@ -475,7 +477,8 @@ namespace Ecorama.Controllers
                       .ToList(); // اجلب البيانات إلى الذاكرة
 
                 var bookedSlots = bookedSlotsRaw
-                    .Select(b => new {
+                    .Select(b => new
+                    {
                         From = b.BookingFrom?.ToString("HH:mm"),
                         To = b.BookingTo?.ToString("HH:mm")
                     })
@@ -493,6 +496,57 @@ namespace Ecorama.Controllers
                 return StatusCode(500, "خطأ في الخادم: " + ex.Message);
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+        public IActionResult RoomCalendar()
+        {
+            return View();
+        }
+
+
+        [HttpGet]
+        public IActionResult GetBookings()
+        {
+            var bookings = _context.RoomBookings
+                .Include(b => b.Room)
+                .Include(b => b.User)
+                .Where(b => b.BookingDate != null && b.Status == "Approved") 
+
+                .Select(b => new
+                {
+                    id = b.BookingId,
+                    title = b.Purpose ?? "No Purpose",
+                    start = b.BookingDate.Value.ToString("yyyy-MM-dd") + "T" + b.BookingFrom.Value.ToString("HH\\:mm"),
+                    end = b.BookingDate.Value.ToString("yyyy-MM-dd") + "T" + b.BookingTo.Value.ToString("HH\\:mm"),
+
+                    extendedProps = new
+                    {
+                        guests = b.NumberOfGuests,
+                        notes = b.Notes,
+                        room = b.Room != null ? b.Room.Name : null,
+                        user = b.User != null ? b.User.FirstName + " " + b.User.LastName : null,
+                        startTime = b.BookingFrom.Value.ToString(@"HH\:mm"), 
+                        endTime = b.BookingTo.Value.ToString(@"HH\:mm"),
+                        date = b.BookingDate
+                    }
+                })
+                .ToList();
+
+            return Json(bookings);
+        }
+
+
+
+
 
 
 
